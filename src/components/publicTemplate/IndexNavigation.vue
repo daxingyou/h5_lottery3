@@ -55,7 +55,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a href="javascript:;" @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
+                            <a href="javascript:;" @click="openGameOnline()">
                                 <div class="">
                                     <div>
                                         <i class="index_s index_s04"></i>
@@ -97,16 +97,29 @@
                 haslogin :false ,
                 showNavigation:false ,
                 allLottery:{},
+                mainIndexBalance:'',
             }
         },
         created:function () {
             this.haslogin = this.ifLogined() ;
-
         } ,
         mounted:function() {
+            var that = this;
 
             $(this.el).on('click', ()=>{
                 this.showNavigation = true;
+
+                that.mainIndexBalance = that.getCookie('balancePublic');
+                console.log(  this.mainIndexBalance )
+                // 调接口获取数据 添加到用户余额   
+
+                // console.log(that.lotteryID) 
+                // console.log(that.sys_time) 
+  //               that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+  // 334                      that.ishwowpriod = true ;           
+
+
+
                 $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; // 禁止页面滚动
             }) ;
 
