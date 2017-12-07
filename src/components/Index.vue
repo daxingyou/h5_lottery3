@@ -125,7 +125,8 @@
                               <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
                           </div>
                       </a>
-                    <p>{{lottery.name}}</p>
+                    <h2>{{lottery.name}}</h2>
+                    <p>总期数{{lottery.periodCount}}期</p>
 
                   </li>
                     <!--20171116 新增選單-->
@@ -135,7 +136,8 @@
                                 <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded">
                             </div>
                         </a>
-                        <p>更多游戏</p>
+                        <h2>更多游戏</h2>
+                        <p>更多彩种可玩</p>
                     </li>
                     <li >
                         <a href="javascript:;" @click="Continued()">
@@ -143,7 +145,8 @@
                                 <img src="/static/frist/images/lotteryicon/logo_app.png" lazy="loaded">
                             </div>
                         </a>
-                        <p>APP下载</p>
+                        <h2>APP下载</h2>
+                        <p>更多彩种可玩</p>
                     </li>
                     <!--end 20171116 新增選單-->
               </ul>
@@ -227,9 +230,9 @@ export default {
             gameHref:{} ,
             bulletins:'',
             banner:[
-                {'url':'../../static/frist/images/baner_crrol22.jpg'},
-                {'url':'../../static/frist/images/baner_crrol3.jpg'},
-                {'url':'../../static/frist/images/baner_crrol4.jpg'},                
+                {'url':'../../static/frist/images/baner_crrol1.jpg'},
+                {'url':'../../static/frist/images/baner_crrol1.jpg'},
+                {'url':'../../static/frist/images/baner_crrol1.jpg'},                
             ] ,
             popMsgTitle:'',
             popMsgContent:"",

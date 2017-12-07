@@ -43,7 +43,7 @@
                             <div class="so-m-t-right" v-show="ishwowpriod">
                                 <div class="last-open-num">
                                     <ul class="pk10_top_number">
-                                        <li v-for="item in winNumber.split(',')"><span class="pk10_ball active" :class="'ball num_'+item"> </span></li>
+                                        <li v-for="item in winNumber.split(',')"><span class="pk10_ball active" :class="'ball num_'+item">{{item}} </span></li>
                                         <!-- <li><span class="pk10_ball small_ball num_10"></span></li> -->
 
                                     </ul>
@@ -141,8 +141,8 @@
                                                 <div class="bet_box num_box">
                                                     <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                                         <span class="pk10_num_bg" :data-val="itemChild.name">
-                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
-                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10">{{itemChild.name}}</span>
+                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else>{{itemChild.name}}</span>
                                                         </span>
                                                         <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                                     </p>
@@ -163,8 +163,8 @@
                                                 <div class="bet_box num_box">
                                                     <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                                         <span class="pk10_num_bg" :data-val="itemChild.name">
-                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
-                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10">{{itemChild.name}}</span>
+                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else>{{itemChild.name}}</span>
                                                         </span>
                                                         <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                                     </p>
@@ -516,10 +516,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .pk10_item ul li .pk10_panel > div p> .pk10_num_bg:first-child, .pk10_item ul li .pk10_panel > div p.active> .pk10_num_bg:first-child  {
+    /*.pk10_item ul li .pk10_panel > div p> .pk10_num_bg:first-child, .pk10_item ul li .pk10_panel > div p.active> .pk10_num_bg:first-child  {
         color: transparent;
-    }
-    #nav-wrapper ul>li:nth-child(2) a{
+    }*/
+    /*#nav-wrapper ul>li:nth-child(2) a{
         font-size: .33rem;
-    }
+    }*/
 </style>

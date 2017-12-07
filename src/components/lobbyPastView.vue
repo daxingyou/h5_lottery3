@@ -31,7 +31,7 @@
                                 <ul :class="'new_panel_center '+ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '108') || (list.lotteryId == '6') || (list.lotteryId == '106') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                        <!-- <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>-->
-                                        <span :class="[spanclass[list.lotteryId],'active num_'+listnum]"></span>
+                                        <span :class="[spanclass[list.lotteryId],'active num_'+listnum]">{{listnum}}</span>
                                     </li>
                                 </ul>
 

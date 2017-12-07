@@ -40,7 +40,7 @@ input, select, button, a { outline: none; }
 /* 卷轴颜色 */
 .playtext::-webkit-scrollbar { width: .15rem;  height: .15rem; border-radius: .2rem; }
 .playtext::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); border-radius: .2rem; }
-.playtext::-webkit-scrollbar-thumb { background-color: #7e5c4c; outline: 1px solid transparent; border-radius: .2rem; }
+.playtext::-webkit-scrollbar-thumb { background-color: #52acd3; outline: 1px solid transparent; border-radius: .2rem; }
 .playtext::-webkit-scrollbar-corner { background-color: #0e121d; }
 
 .clearfix::after { display: block; clear: both; content: ""; }
@@ -58,10 +58,10 @@ input, select, button, a { outline: none; }
 .purse .so-in-top-sum { overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 
 /* btn */
-.new_btn{ font-size: 0.34rem; border: 1px solid #fff; margin: 0.1rem; display: inline-block; line-height: .7rem;  color: #fff; border-radius: 0.5rem;  background-color: #52acd3; }
+.new_btn{ font-size: 0.34rem; border: 1px solid transparent; margin: 0.1rem; display: inline-block; line-height: .7rem;  color: #fff; border-radius: 0.5rem;  background-color: #52acd3; }
 .new_btn span{  width: 3rem;  display: block; text-align: center; border-radius: 0.5rem; background: url('/static/frist/images/btn_bg.svg') no-repeat center center; background-size: auto 100%;  }
-.new_btn.cancel { border-color: #cbcbcb; color: #52acd3;}
-.new_btn.cancel span{ width: 2.2rem; }
+.new_btn.cancel { border-color: #cbcbcb; color: #52acd3; background-color: #fff;}
+/*.new_btn.cancel span{ width: 2.2rem; }*/
 .new_btn.ok span{ width: 3rem; }
 .new_btn span.midunm { width: 4.35rem; line-height: 0.8rem; }
 .new_btn span.big { width: 6rem; line-height: 0.8rem; }
@@ -70,9 +70,9 @@ input, select, button, a { outline: none; }
 /* panel */
 .new_panel{ border: 1px solid #dadada; overflow: hidden;  background-color: #fff;}
 .new_panel .new_panel_top{ color: #52acd3 ;}
-.new_panel .new_panel_center{ padding:0 0.3rem;  }
-.new_panel .new_panel_top ~ .new_panel_center{border-top: 1px solid #dadada; }
-.new_panel .new_panel_tip{ margin-top: 0.2rem; color: #fffbbe;}
+.new_panel .new_panel_center{ padding: 0.3rem;  }
+/*.new_panel .new_panel_top ~ .new_panel_center{border-top: 1px solid #dadada; }*/
+.new_panel .new_panel_tip{ margin-top: 0.2rem; color: #999;}
 
 /* -----------------------------------------
 // layout
@@ -131,8 +131,8 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 .so-left { width: 7.24rem; position: fixed; z-index: 200; top: 0; bottom: 0; left: -100%; }
 .so-left .so-left-con { height: 100%; width: 7.24rem; background-color: #fff; position: relative;}
 
-.so-left .so-l-c-top { position: relative;  padding: 0.5rem 0.7rem; text-align: left; background-color: #52acd3; color: #fff;}
-.so-left .so-l-c-top .user_name { display: inline-block; vertical-align: middle; text-align: left; margin-left: 0; font-size: .4rem; }
+.so-left .so-l-c-top { position: relative;  padding: 0.5rem 0.7rem; text-align: left; background-color: #52acd3; }
+.so-left .so-l-c-top .user_name { display: inline-block; vertical-align: middle; text-align: left; margin-left: 0; font-size: .4rem; color: #fff; }
 .so-left .so-l-c-top .purse{ margin-top: 0.2rem; }
 
 .so-left .so-l-c-con{position: relative;z-index: 1000;}
@@ -151,20 +151,20 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 
 /* 弹窗样式 */
 .modal { display: none; position: fixed; top: 0; left: 50%; width: 10rem; margin-left: -5rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 53; }
-.modal .m_content { position: fixed; z-index: 33; width: 8rem; top: 25%; left: 50%; margin-left: -4rem; padding: 0.3rem 0.5rem 0.7rem; box-sizing: border-box; color: #4b280c; background-color: #fff; }
-.modal .m_content:before { content: ''; position: absolute; display: block; top: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }
-.modal .m_content:after { content: ''; position: absolute; display: block; bottom: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }
+.modal .m_content { position: fixed; z-index: 33; width: 8rem; top: 25%; left: 50%; margin-left: -4rem; box-sizing: border-box; background-color: #fff; border: 1px solid #dadada; border-radius: 0.1rem;}
+/*.modal .m_content:before { content: ''; position: absolute; display: block; top: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }*/
+/*.modal .m_content:after { content: ''; position: absolute; display: block; bottom: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }*/
 @media (max-width: 359px) {.modal .m_content { width: 9rem; } }
 .modal .m_content > *{ position: relative; z-index: 35;}
-.modal .m_content h2 { height: 0.8rem; line-height: 0.8rem; font-size: 0.45rem; font-weight: bold; font-style: italic; text-align: center; color: #52acd3; }
-.modal .m_content h2 a { width: 0.7467rem; height: 0.7467rem; position: absolute; right: -0.65rem; top: -0.7rem; background: url("/static/frist/images/pop/close.png") no-repeat; background-size: 100%; }
+.modal .m_content h2 { line-height: 0.8rem; padding: 0.2rem; font-size: 0.45rem; font-weight: bold; font-style: italic; text-align: center; color: #52acd3; border-bottom: 1px solid #dadada;}
+.modal .m_content h2 a { width: 0.64rem; height: 0.64rem; position: absolute; right: 0.1rem; top: 0.1rem; background: url("/static/frist/images/icon_sprite.svg") no-repeat -5.12rem -0.64rem; background-size: 6.4rem auto; }
 .modal .m_content h2.noclose a { display: none;}
-.modal .m_content .content { text-align: center; line-height: .6rem; font-size: 0.34rem; margin: .5rem auto; }
-.modal .m_content .danger { color: #b41a17; }
-.modal .m_content .check { color: #d59559; }
-.modal .m_content .left { text-align: left; padding: .5rem; }
-.modal .m_content .action { text-align: center;}
-.modal .m_content .tip_icon { width: 0.8rem; height:0.8rem; margin: 0.5rem auto 0.3rem;}
+.modal .m_content .content { text-align: center; line-height: .6rem; font-size: 0.34rem; padding: 0.3rem; }
+.modal .m_content .danger { color: #b41a17;}
+.modal .m_content .check { color: #52acd3;}
+.modal .m_content .left { text-align: left; }
+.modal .m_content .action { text-align: center; padding-bottom: 0.3rem; }
+.modal .m_content .tip_icon { width: 0.8rem; height:0.8rem; margin: 0.1rem auto;}
 .modal .m_content .tip_icon img{ width: 100%;}
 /*.modal > .m_content > .content > div { margin: 0 auto; text-align: center; }*/
 
@@ -172,9 +172,9 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 
 .modal > .m_content > .content > div > img:last-child { height: 0.8rem; margin: .2rem auto; }
 
-.playtext { padding: .1rem 0.3rem; color: #373737; height: 8rem; overflow-y: auto;/*-webkit-overflow-scrolling: touch;*/ text-align: left; }
-.playtext h3 { font-size: .43rem; color: #b41a17; line-height: .43rem; margin-top: .5rem; margin-bottom: .1rem; text-align: left; }
-.playtext h4 { font-size: .34rem; color: #d59559; margin-top: .4rem; margin-bottom: .1rem; text-align: left; }
+.playtext { padding: .1rem 0.5rem; color: #373737; height: 8rem; overflow-y: auto;/*-webkit-overflow-scrolling: touch;*/ text-align: left; }
+.playtext h3 { font-size: .43rem; color: #bc0000; line-height: .43rem; margin-top: .5rem; margin-bottom: .1rem; text-align: left; }
+.playtext h4 { font-size: .34rem; color: #52acd3; margin-top: .4rem; margin-bottom: .1rem; text-align: left; }
 .playtext p { margin-top: 0.15rem; text-align: justify; }
 
 .slide_toggle { text-align: left; margin-bottom: 0.2rem;  cursor: pointer; font-size: 0.34rem; }
@@ -311,9 +311,9 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 
 i.close { width: .57rem; display: block; position: relative; height: 1rem; right: 0; left: .2rem; }
-i.close:after { content: ''; display: block; background-image: url("/static/frist/images/close.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .25rem; height: .25rem; position: absolute; right: .15rem; top: .35rem; cursor: pointer; }
-i.eye { display: block; background-image: url("/static/frist/images/eye_view.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .4rem; height: 1.1rem; position: absolute; right: .3rem; top: 0; cursor: pointer; }
-i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+i.close:after { content: ''; display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .1rem; top: .15rem; cursor: pointer; }
+i.eye { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -4.48rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .3rem; top: 0.2rem; cursor: pointer; }
+i.eye.active {  background-position: -3.84rem -1.92rem; }
 
 
 /* -----------------------------------------
@@ -337,7 +337,7 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 .round_ball.active, p.active .round_ball{ background-color:#bc0000;}
 
 /* k3 ball */
-.k3_dice {display: inline-block;vertical-align: middle;box-sizing: border-box;background: url(/static/frist/images/dice.png) no-repeat;background-size: 6rem auto;width: 1rem;height: 1rem;border-radius: 0.24rem;}
+.k3_dice {display: inline-block;vertical-align: middle;box-sizing: border-box;background: url(/static/frist/images/dice.png) no-repeat;background-size: 6rem auto;width: 1rem;height: 1rem;border-radius: 0.1rem; color: transparent;}
 .k3_dice.num_20 {background: url(/static/frist/images/k3/dice_0.jpg) no-repeat center center;background-size: 1rem 1rem; }
 .k3_dice.num_1 {background-position-x: 0; }
 .k3_dice.num_2 {background-position-x: -1rem; }
@@ -345,23 +345,23 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 .k3_dice.num_4 {background-position-x: -3rem; }
 .k3_dice.num_5 {background-position-x: -4rem; }
 .k3_dice.num_6 {background-position-x: -5rem; }
-.k3_dice.small_dice { transform: scale(0.6);-webkit-transform: scale(0.6); margin: -0.3rem -0.2rem;  }
-.k3_dice.active, p.active .k3_dice{-webkit-box-shadow: 0px 3px 1px rgba(20, 0, 0, 0.45);box-shadow: 0px 3px 1px rgba(20, 0, 0, 0.45); background-position-y: -1.013rem; }
+.k3_dice.small_dice {  margin: -0.3rem -0.2rem; transform: scale(0.6); }
+.k3_dice.active, p.active .k3_dice{  }
 
 /* pk10 ball */
-.pk10_ball { display: inline-block; vertical-align: middle; background: url(/static/frist/images/pk10.png) no-repeat; background-size: 8.8rem 1.7rem; width: 0.8rem; height: 0.85rem; }
-.pk10_ball.num_1, .pk10_ball.num_01 { background-position-x: 0; }
-.pk10_ball.num_2, .pk10_ball.num_02 { background-position-x: -0.8rem; }
-.pk10_ball.num_3, .pk10_ball.num_03 { background-position-x: -1.6rem; }
-.pk10_ball.num_4, .pk10_ball.num_04 { background-position-x: -2.4rem; }
-.pk10_ball.num_5, .pk10_ball.num_05 { background-position-x: -3.2rem; }
-.pk10_ball.num_6, .pk10_ball.num_06 { background-position-x: -4rem; }
-.pk10_ball.num_7, .pk10_ball.num_07 { background-position-x: -4.8rem; }
-.pk10_ball.num_8, .pk10_ball.num_08 { background-position-x: -5.6rem; }
-.pk10_ball.num_9, .pk10_ball.num_09 { background-position-x: -6.4rem; }
-.pk10_ball.num_10{ background-position-x: -7.2rem; }
-.pk10_ball.small_ball { transform: scale(0.6);-webkit-transform: scale(0.8); margin: -0.2rem -0.1rem; }
-.pk10_ball.active, p.active .pk10_ball { background-position-y: bottom; }
+.pk10_ball { display: inline-block; vertical-align: middle;  width: 0.8rem; height: 0.8rem; line-height: 0.8rem; font-size: 0.4rem; border-radius: 0.1rem; color: #fff; }
+.pk10_ball.num_1, .pk10_ball.num_01 { background-color: #ff9d00; }
+.pk10_ball.num_2, .pk10_ball.num_02 { background-color: #038af9; }
+.pk10_ball.num_3, .pk10_ball.num_03 { background-color: #4c4d52; }
+.pk10_ball.num_4, .pk10_ball.num_04 { background-color: #770000; }
+.pk10_ball.num_5, .pk10_ball.num_05 { background-color: #420aff; }
+.pk10_ball.num_6, .pk10_ball.num_06 { background-color: #6500ac; }
+.pk10_ball.num_7, .pk10_ball.num_07 { background-color: #109b52; }
+.pk10_ball.num_8, .pk10_ball.num_08 { background-color: #bc0d9b; }
+.pk10_ball.num_9, .pk10_ball.num_09 { background-color: #e55c00; }
+.pk10_ball.num_10{ background-color: #6bce00; }
+.pk10_ball.small_ball { width: 0.5rem; height: 0.5rem; line-height: 0.5rem; }
+.pk10_ball.active, p.active .pk10_ball {  }
 
 /* bet panel */
 .bet_panel {width: 7.3rem; margin: auto; border-bottom: 1px solid #dadada; padding: 0.2rem; box-sizing: border-box;}
@@ -391,10 +391,7 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 .jx11_tab.hd ul.tab_mid > li.on a{  color: #fff; }
 .jc115 .bd .tab_content { padding: 0;}
 /* 快3 样式微调 */
-.bet_panel .bet_box .k3_3same.active { background-image: url('/static/frist/images/bet_box_selected-b.jpg'); background-size: 100% 100%;}
 .bet_panel .bet_box .k3_3same > span { float: none; display: block; line-height: 0.7rem;  }
-.bet_panel .bet_box.num_box p.active .k3_dice{ transform: translate(0,-0.05rem) scale(0.8); }
-.bet_panel .bet_box.num_box p.active .k3_dice.small_dice{ transform:  translate(0,-0.05rem) scale(0.6);}
 .bet_panel .bet_box.num_box p.k3_3same.active .k3_dice.small_dice{ transform: scale(0.6); }
 /* pk10 样式微调 */
 .bet_panel .bet_box.num_box p.active .pk10_ball{ transform: translate(0,-0.03rem) }
@@ -406,7 +403,7 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 .so-in-main .so-main-top { width: 100%; height: 2.3rem; border-bottom: 1px solid #dadada; box-sizing: border-box; padding-top: 0.2rem; }
 .so-in-main .so-main-top > div { float: left; }
 .so-in-main .so-m-t-left { height: 100%; width: 3.42rem; }
-.so-in-main .so-m-t-left div:first-child {  line-height: 0.8rem; text-align: right; margin-right:0.1rem; white-space: nowrap; }
+.so-in-main .so-m-t-left div:first-child {  line-height: 0.8rem; text-align: right; /*margin-right:0.1rem;*/ white-space: nowrap; }
 .so-in-main .so-m-t-left div:last-child a { display: block; margin: 0px auto;  width: 1.64rem; height: 0.5rem; line-height: .5rem; text-align: center; font-size: 0.26rem; border: 1px solid #cbcbcb; border-radius: 0.7rem; box-sizing: content-box; }
 .so-in-main .so-m-t-right { width: 6.57rem; height: 100%; }
 .so-in-main .so-m-t-right div:first-child ul li { float: left; margin: 0 0.1rem; }
@@ -414,9 +411,9 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 .so-in-main .so-m-t-right div:last-child ul li { display: block; float: left; width: .9rem;text-align: center;  margin-right: 0.23rem; font-size: 0.34rem; line-height: 0.44rem; border: 1px solid #dadada; -webkit-border-radius: .3rem; -moz-border-radius: .3rem; border-radius: .3rem; }
 .so-in-main .so-main-down { width: 100%; height: 0.8rem; }
 .so-in-main .so-main-down ul { text-align: right;}
-.so-in-main .so-main-down ul li { display: inline-block;}
+.so-in-main .so-main-down ul li { display: inline-block; vertical-align: top;}
 .so-in-main .so-main-down ul li:first-child{ width: 3.42rem; float: left; }
-.so-in-main .so-main-down ul li:nth-child(2) { float: left; margin-right: 0.5rem;width: 24%; text-align: center}
+.so-in-main .so-main-down ul li:nth-child(2) { margin-right: 0.5rem;width: 24%; text-align: center}
 .so-in-main .so-main-down ul li:nth-child(3) { margin-right: 0.3rem;width: 24%; text-align: center}
 .so-in-main .so-main-down ul li:after{ content:''; display: table; clear:both;}
 .so-in-main .so-main-down ul li > p { line-height:0.8rem; text-align:right; width:3.3rem; font-size:.34rem; }
@@ -441,22 +438,22 @@ i.eye.active { background-image: url("/static/frist/images/eye_hide.svg"); backg
 /* bet footer */
 .so-foot { background-color: #191a23; height: 1.5rem; width: 10rem; position: fixed; z-index:20; bottom: 0rem; }
 
-.so-foot .bet_selected { float: left; height: 0.6rem; }
-.so-foot .bet_selected p { margin: 0.3rem; line-height: 0.9rem; color: #ffffff; font-size: .32rem; text-align: left; }
+.so-foot .bet_selected { margin: 0.3rem 0 0.3rem 0.3rem ; float: left; height: 0.6rem; }
+.so-foot .bet_selected p {line-height: 0.9rem; color: #ffffff; font-size: .32rem; text-align: left; }
 .so-foot .bet_selected p span { color: #fea832; padding: 0.05rem;}
 
-.so-foot .bet_count { float: left; margin: 0.2rem 0 0 0.3rem;  width: 3.653rem; height: 1.187rem; }
-.so-foot .bet_count input { display: block; margin-top: 0.2rem;  padding: 0 0.2rem; float: right; width: 3rem; height: .65rem; background-color: #fff; border: 1px solid #cbcbcb; border-radius: 1rem; color: #fea832; font-size: .34rem;  text-align: right;}
+.so-foot .bet_count { float: left; margin: 0.2rem 0 0 0.2rem;  height: 1.187rem; }
+.so-foot .bet_count input { display: block; margin-top: 0.2rem;  padding: 0 0.3rem; float: right; width: 3rem; height: .65rem; background-color: #fff; border: 1px solid #cbcbcb; border-radius: 0.5rem; color: #52acd3; font-size: .34rem;  text-align: right;}
 /*.so-foot .bet_count input::-webkit-input-placeholder { color: #FFF; opacity: 0.5; }*/
-.so-foot .bet_count a.submit{ position: absolute; bottom: 0.37rem; right:0.2rem; width: 1.5rem; border-radius: 0.1rem; display: block; line-height: 0.68rem; text-align: center; border: 1px solid #fff;  color: white; opacity: 0.5; }
+.so-foot .bet_count a.submit{ position: absolute; bottom: 0.37rem; right:0.2rem; width: 1.5rem; border-radius: 0.5rem; display: block; line-height: 0.68rem; text-align: center; border: 1px solid #fff;  color: white; }
 
 .so-foot .bet_btn { position: absolute; bottom: 0rem; right: 2rem; }
-.so-foot .bet_btn > div { width: 1.8rem; height: 2rem; border-radius: 2rem 2rem 0 0; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
-.so-foot .bet_btn > div p { font-size: 0.42rem; line-height: 0.9rem;  color: #fff; }
-.so-foot .bet_btn > div p:before{content: 'icon'; display: block; width: 1.2rem; height: 1.2rem;background-color: #fff; margin: 0.3rem;}
+.so-foot .bet_btn > div { width: 1.6rem; height: 2rem; border-radius: 2rem 2rem 0 0; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
+.so-foot .bet_btn > div:before{content: ''; display: block; width: 1rem; height: 1rem; background:url('/static/frist/images/bet_icon.svg') center center no-repeat; background-size: 1rem ; margin: 0 0.3rem; transform: translate(0,0.3rem)}
+.so-foot .bet_btn > div p { letter-spacing: 0.1rem; transform: translateX(0.05rem); line-height: 0.9rem;  color: #fff; margin-top: 0.2rem; }
 
 .so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2rem; position: fixed; bottom: 0; z-index: 35; }
-.so-fengpan a { color: #fff; line-height: 1.5rem; font-size: 0.4rem; }
+.so-fengpan a { color: #fff; line-height: 2rem; font-size: 0.4rem; }
 
 
 /* bet 右侧选单 */
@@ -486,13 +483,13 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 
 /* bet 下注清单 */
-.so-pop .grey_text { color: #7e5c4c; }
+.so-pop .grey_text { padding: 0.3rem; color: #999; }
 .bet_list { height: 2.4rem; margin: 0.3rem auto 0;}
-.boxlist { padding: 0 0.2rem; overflow-y: auto; /*-webkit-overflow-scrolling: touch;*/ height: 2.4rem; color: #373737; text-align: left; }
+.boxlist { margin: 0 0.3rem; overflow-y: auto; /*-webkit-overflow-scrolling: touch;*/ height: 2.4rem; color: #373737; text-align: left; }
 .boxlist p { line-height: 0.8rem;}
 
-.so-pop-sum { padding: 0 0.2rem; margin: 0.3rem auto; color: #b41a17; line-height: 1rem;  text-align: left; position: relative;}
-.so-pop-sum:before { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/frist/images/bottom_line.png") no-repeat center center; background-size: auto 100%;  width: 100%; height: 0.08rem; }
+.so-pop-sum {  margin: 0.3rem; color: #b41a17; line-height: 1rem;  text-align: left; position: relative; border-top: 1px solid #dadada;}
+/*.so-pop-sum:before { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/frist/images/bottom_line.png") no-repeat center center; background-size: auto 100%;  width: 100%; height: 0.08rem; }*/
 .so-pop a{ margin-bottom: 0.3rem;}
 .modal.so-pop-wanfa > .m_content { top: 5%; }
 
@@ -532,18 +529,18 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .bet_data > a > .item > div { display: inline-block; vertical-align: middle; line-height: .6rem; }
 .bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; }
 .bet_data > a > .item > .badge { background-color: #52acd3; border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }
-.bet_data > a > .item > .badge > img { width: 1.1rem; margin: 0.3rem 0.2rem;}
+.bet_data > a > .item > .badge > img { width: 1.1rem; margin:0.2rem;}
 .bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; }
 .bet_data .prd_num { color: #999; margin-right: 0.2rem;}
 .bet_data .status { min-width: 15%; width: 1.8rem; text-align: center; color: #999; }
 .bet_data .status > div { max-width: 100%; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
 .bet_data .status00 { padding-top: .2rem; }
 .bet_data .status00 > span { position: relative; top: 0.6rem; }
-.bet_data .status00 > div { display: block; background-image: url("/static/frist/images/icon_sprite.svg"); background-size: 6.4rem auto; background-position: -5.12rem -2.56rem; text-align: center; margin: 0 auto; width: .64rem; height: .64rem; position: relative; top: -0.6rem; }
+.bet_data .status00 > div { display: block; background-image: url("/static/frist/images/icon_sprite.svg"); background-size: 6.4rem auto; background-position: -5.12rem -1.92rem; text-align: center; margin: 0 auto; width: .64rem; height: .64rem; position: relative; top: -0.6rem; }
 .bet_data .status02 { padding-top: .2rem; color: #71c341; }
 .bet_data .status03, .bet_data .status04 { color: #b41a17; padding-top: .3rem; }
 .bet_data .status03 > span, .bet_data .status04 > span { position: relative; top: 0.5rem; }
-.bet_data .status03 > div, .bet_data .status04 > div { display: block; background-image: url("/static/frist/images/icon_sprite.svg"); background-size: 6.4rem auto; background-position: -5.76rem -2.56rem; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
+.bet_data .status03 > div, .bet_data .status04 > div { display: block; background-image: url("/static/frist/images/icon_sprite.svg"); background-size: 6.4rem auto; background-position: -5.76rem -1.92rem; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
 
 
 
@@ -585,7 +582,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 #k3 .past_view .lo_ball { text-align: center; }
 #k3 .past_view .lo_ball li { margin: 0.1rem; }
 /* pk10 往期开奖 */
-.past_view .lo_ball > li.pk10_ball {  margin: 0.1rem .032rem 0; }
+.past_view .lo_ball > li.pk10_ball {  margin: 0.1rem .032rem ; }
 
 /*i.prd { background-image: url("/static/frist/images/page/icon_pn.png"); background-position-y: .15rem; background-repeat: no-repeat; background-size: 100%; height: .6rem; width: .5rem; display: inline-block; line-height: .3rem; vertical-align: inherit; }*/
 
@@ -594,7 +591,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 .ds_long  { -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; font-size: .4rem; }
-.ds_long ul.lo_ball { width: 2.5rem; }
+.ds_long ul.lo_ball { width: 2.5rem; color: #52acd3; }
 .ds_long ul.lo_ball.two { width: auto; }
 .ds_long .prod { background-color: #fff; margin-bottom: 0.2rem; }
 .ds_long .prod:after{ content: ''; display: table; clear: both; }
@@ -608,7 +605,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 .new_road { background-color: #fff; border-radius: 0.12rem;  margin-bottom: .3rem; font-size: .4rem; overflow: hidden; }
-.new_road .tab_mid{ width: 100%; background-color: #c9dde2; position: relative; top: inherit; left: inherit; }
+.new_road .tab_mid{ width: 100%; background-color: #191a23; position: relative; top: inherit; left: inherit; }
 .new_road .hd { margin-bottom: .2rem; overflow-x: hidden; }
 .new_road .bd { width: 100% ;  }
 .new_road .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; padding: 0 0.2rem 0.02rem; display: block; text-align: right; margin-top: 0; min-height: 5rem; }
@@ -622,7 +619,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .new_road .road > ul { background-color: #c9dde2;  border-radius: 0.1rem; margin-top: .5rem; margin-right: 0.1rem; padding-top: .1rem; padding-bottom:0.05rem; }
 
-.new_road .road > ul > li {  width: .8rem; height: .8rem; margin: 0 auto; text-align: center; color: #fff; font-size: 0.35rem; line-height: .6rem; border-radius: 50%; position: relative; overflow: hidden; }
+.new_road .road > ul > li {  width: .8rem; height: .8rem; margin: 0 auto; text-align: center; color: #fff; font-size: 0.35rem; line-height: .75rem; border-radius: 50%; overflow: hidden; }
 .new_road .road > ul > li:after {content:''; position: absolute; top: -40%; left: 15%;width: .8rem; height: .8rem; background-color: #fff; opacity: 0.2; border-radius: 50%;}
 .new_road .road > ul > li.mid { background-color: #71c341; }
 .new_road .road > ul > li.dragon { background-color: #bc0000; }
@@ -655,10 +652,10 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 /*.lobby_past_view .prd_num { color: #fff; }*/
-.lobby_past_view .play_th{ text-align: right;padding-right: 0.3rem; }
+.lobby_past_view .play_th{ text-align: right;padding-right: 0.3rem; border-bottom: 1px solid #dadada; }
 .lobby_past_view .prd_num > span { font-size: .35rem; float: left;}
 .lobby_past_view .prd_num02 { display: inline-block; padding-top: 0.1rem;  line-height: 0.79rem; font-size: .34rem;  text-align: right; color:#2b2b2b; }
-.lobby_past_view .time { display: inline-block;  width: 1.6rem; height: .45rem; border-radius: .19rem;  line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; border: 1px solid #dadada;color:#2b2b2b;}
+.lobby_past_view .time { display: inline-block; border-radius: .19rem;  line-height: 0.45rem; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; padding: 0 0.1rem; border: 1px solid #dadada;color:#2b2b2b;}
 .lobby_past_view .pk10_top_number, .lobby_past_view .k3dice_top{ padding: 0.1rem 0; white-space: nowrap;}
 .lobby_past_view .pk10_top_number li{ display: inline-block; margin: 0 0.03rem; }
 .lobby_past_view .k3dice_top li{ display: inline-block; margin: 0 0.2rem; }
@@ -695,6 +692,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 快速连结 */
 .account_area { padding: 0.3rem ; background-color: #fff; margin-bottom: 0.2rem; }
 .account_area ul a { display: block; margin: 0px auto; color:#2b2b2b; }
+.account_area ul a .icon_account{ margin: -0.2rem;}
 .account_area ul li { width: 25%; float: left; }
 /*.account_area ul li p { margin-top: 0.1rem; }*/
 .account_area ul:after { content: ''; display: table; clear: both; }
@@ -791,7 +789,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 // 充值
 -----------------------------------------*/
 
-.arrow_list_dark .badge{ background: url(/static/frist/images/logo_bg.png) no-repeat;background-size: 100% 100%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
+.arrow_list_dark .badge{ background-color: #52acd3; border-radius: 50%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
 .arrow_list_dark .icon{ float: right; margin-top: 0.45rem;}
 
 .deposit_area { padding: 0 0.3rem; }
@@ -822,11 +820,11 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 
 
-.pay_way > ul > li {  border-top: 1px solid #90573e;   position: relative; }
+.pay_way > ul > li {  border-top: 1px solid #dadada;   position: relative; }
 
-.pay_way > ul > li:nth-child(3) { border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
+/*.pay_way > ul > li:nth-child(3) { border-bottom: 1px solid rgba(255, 255, 255, 0.03); }*/
 
-.pay_way > ul > li > a { color: #ffc388; display: inline-block; width: 100%; padding: 1em 0;}
+.pay_way > ul > li > a { display: inline-block; width: 100%; padding: 1em 0;}
 
 /*.pay_way > ul > li > a:after { content: ''; background-image: url("/static/frist/images/btn_icon_right.png"); width: .2rem; height: 0.37rem; background-size: 100%; position: absolute; right: 3em; top: 3em; }*/
 
@@ -837,7 +835,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /* -----------------------------------------
 // 提现
 -----------------------------------------*/
-.withdrawals_area{ padding: 0 0.3rem;}
+/*.withdrawals_area{ padding: 0 0.3rem;}*/
 .print_data { overflow: hidden;  }
 .print_data table {  }
 .print_data table tr { border-bottom: 1px solid #dadada; padding: .3rem; display: block; }
@@ -846,6 +844,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .print_data table tr th li { list-style: none; margin-left: .5em; position: relative; width: 1.5rem; font-size: .35rem;  }
 .print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all; line-height: 2em; width: 11rem; font-size: .35rem; }
 .print_data table tr td.text-yellow { color: #ffbd00; }
+.print_data table tr:last-child { border-bottom: none;}
 
 .print_data .copy_link { color: #d59559; text-align: center; display: inline-block; border: 1px solid #90573e; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.1rem; font-size: .34rem; vertical-align: middle; }
 
@@ -863,16 +862,17 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 // 个人中心
 -----------------------------------------*/
 /* 个人中心 */
-.info_area { background: url("/static/frist/images/info_topbg.jpg") no-repeat center top; background-size: 100%; width: 100%; }
-.info_top { height: 3.3rem; position: relative; margin: 0 auto; }
+.info_area { width: 100%; }
+.info_area .page_box { padding-top: 0; }
+.info_top { height: 3.3rem; position: relative; margin: 0 auto; background-color: #fff; }
 .info_top .header { width: auto; }
 .info_top .account { width: 4rem; margin: 0 1rem 0 5rem; padding-top: 0.7rem; position: relative; height: 2rem; }
 .info_top .account > a { display: block; }
 
 .info_top .account .user_name { position:absolute; text-align: left; line-height: 1.8em; float: left; margin-top: .2rem; }
-.info_top .account .user_name  strong { color: #4b280c; font-size: .4rem; }
+.info_top .account .user_name  strong {  font-size: .4rem; }
 .info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; padding:0; width: auto;}
-.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block; vertical-align: middle; font-size: 0.4rem;margin-left: .7rem }
+.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block; vertical-align: middle; font-size: 0.4rem;margin-left: .7rem; color: #52acd3;}
 
 
 .portrait { height: auto; position: relative; }
@@ -889,11 +889,11 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /* 帐户管理 */
 .info_account{ margin-bottom: 0.3rem;}
-.info_account .new_panel_top, .info_personal .new_panel_top { text-align: left; line-height: 0.8rem; font-size: 0.4rem; padding: 0 0.7rem; }
-.info_personal a{ float: right; color: #d59559; font-size: 0.34rem; line-height: 0.4rem; padding: 0 0.2rem 0 0; margin-top: 0.15rem;border-radius: 0.5rem; background-color: #522f2c; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) inset;-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) inset; }
-.info_personal a span{ vertical-align: middle;}
+.info_account .new_panel_top, .info_personal .new_panel_top { text-align: left; line-height: 0.8rem; font-size: 0.4rem; padding: 0 0.3rem; }
+.info_personal a{ float: right; color: #52acd3; font-size: 0.34rem; line-height: 0.64rem; padding: 0 0.2rem 0 0; margin-top: 0.04rem; }
+.info_personal a span{ }
 
-.info_personal input { width: 100%; box-sizing: border-box; margin: 0; outline: 0; color: #fff; -webkit-appearance: none; line-height: 1.21428571em; padding: .67857143em 1em; font-size: 0.34rem; background-color: rgba(0, 0, 0, 0.5); border: 0;  border-radius: 0.1rem; vertical-align: top;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) inset;-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) inset; }
+.info_personal input { width: 100%; box-sizing: border-box; margin: 0; outline: 0;  -webkit-appearance: none; line-height: 1.21428571em; padding: .67857143em 1em; font-size: 0.34rem;  border: 0;  border-radius: 0.1rem; vertical-align: top;border: 1px solid #cbcbcb; }
 
 /*.info_personal input[type=datetime-local], .info_personal input[type=email], .info_personal input[type=file], .info_personal input[type=number], .info_personal input[type=password], .info_personal input[type=search], .info_personal input[type=tel], .info_personal input[type=text], .info_personal input[type=time], .info_personal input[type=url] { outline: 0; -webkit-appearance: none; line-height: 1.21428571em; padding: .5em 1em; font-size: 0.35rem; background: #10061f; border: 1px solid transparent; color: #7b7b7b; -webkit-border-radius: 8px; -moz-border-radius: 8px; -ms-border-radius: 8px; border-radius: 8px; vertical-align: top; }*/
 
@@ -909,7 +909,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_bot > ul { overflow: hidden; margin: 0 0.3rem; background-color: #fff; border: 1px solid #dadada; }
 .info_bot > ul > li { padding: 0 0.3rem; border-bottom: 1px solid #dadada; }
 .info_bot > ul > li > a { display: block;  font-size: 0.4rem; overflow: hidden; line-height: 1.5rem; vertical-align: middle; text-align: left; padding: .1rem; position: relative; }
-.info_bot > ul > li > a .icon_account { margin-right: .5rem;  }
+.info_bot > ul > li > a .icon_account { margin-right: .2rem;  }
 .info_bot > ul > li > a .icon { float: right; margin-top: 0.4rem; }
 .info_bot > ul > li > a .icon div { width: 1.2rem; height: 1.2rem; }
 .info_bot > ul > li > a .icon div > i { width: .8rem; height: .8rem; }

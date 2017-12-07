@@ -49,7 +49,7 @@
             【总计】总注数：<span class="total-bet-num">{{betCount}}</span>
             总金额：<span class="total-bet-mon">{{totalAmount}}</span>
             </p>
-            <a class="new_btn cancle" @click="closeListDialog"><span>取消</span></a>
+            <a class="new_btn cancel" @click="closeListDialog"><span>取消</span></a>
             <a class="new_btn btn-submit ok" @click="submitAction(lotteryID)"><span>确定</span></a>
             </div>
         </div>
