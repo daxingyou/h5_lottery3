@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head" class="new_header">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
+                <router-link :to="'/lobbyTemplate/info'">
                     <span class="icon icon_back"></span>
-                </a>
+                </router-link>
             </div>
             <h2 class="center title_name">充值</h2>
             <div class="right"></div>
@@ -28,11 +28,10 @@
                                         </fieldset>
                                     </form>
                                     <!-- 网络支付 -->
-
-                              <div class="step03 pay_way  payWayNet payWayTranster">
+                                    <div class="step03 pay_way  payWayNet payWayTranster">
                                         <ul class="arrow_list_dark">
                                             <li v-for = '(payWay,key) in payWays' >
-                                                <a class="item" href="javascript:;" data-type='6'   @click="onlinePay(payWay.rsNameId)" >
+                                                <a class="item" href="javascript:;" data-type='6'   @click="onlinePay(payWay.rsNameId,'3')" >
                                                     <span class="badge">
                                                         <span class="icon_account " :class="'icon_deposit_net'+payWay.rsNameId"></span>
                                                     </span>
@@ -42,20 +41,18 @@
                                             </li>
                                         </ul>
                                     </div>
-
                                     <!-- 下面是银行转账和在线支付 -->
-
                                     <div class="step03 pay_way  payWayTranster">
                                         <ul class="arrow_list_dark">
-                                            <li>
-                                                <a class="item" href="javascript:;" data-type="2">
-                                                    <span class="badge">
-                                                        <span class="icon_account icon_deposit_2"></span>
-                                                    </span>
-                                                    <span>扫码支付</span>
-                                                    <span class="icon icon_arrow_light"></span>
-                                                </a>
-                                            </li>
+                                            <!--<li>-->
+                                                <!--<a class="item" href="javascript:;" data-type="2">-->
+                                                    <!--<span class="badge">-->
+                                                        <!--<span class="icon_account icon_deposit_2"></span>-->
+                                                    <!--</span>-->
+                                                    <!--<span>扫码支付</span>-->
+                                                    <!--<span class="icon icon_arrow_light"></span>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
                                             <li>
                                                 <a class="item" href="javascript:;" data-type="1">
                                                     <span class="badge">
@@ -74,12 +71,9 @@
                                                     <span class="icon icon_arrow_light"></span>
                                                 </a>
                                             </li>
-
+<!---->
                                         </ul>
                                     </div>
-
-
-
 
                                 </div>
                                 <!-- 支付方式 结束-->
@@ -113,29 +107,28 @@
 
                                 <!-- 扫码支付开始  -->
                                 <div class="webbank_scan_all" style="display: none ;">
-                                    <div class="before-scan">
-                                        <form class="form_deposit">
-                                            <fieldset>
-                                                <div class="form_g text money">
-                                                    <legend>充值金额</legend>
-                                                    <input type="tel" placeholder=" " v-model="paymount" readonly>
-                                                    <!--  <i class="close"></i>-->
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                        <div class="step03 pay_list scan_qrcoder">
-                                            <h5>支付方式</h5>
-                                            <ul>
-                                                <li class="btn_pay wechat_q" v-for="list in banklist">
-                                                    <a href="javascript:;" @click="submitOnlinePay(list.bankCode,'3')">
-                                                        <img v-lazy="list.img" alt="">
-                                                        <span>{{list.bankName}}</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
+                                    <!--<div class="before-scan">-->
+                                        <!--<form class="form_deposit">-->
+                                            <!--<fieldset>-->
+                                                <!--<div class="form_g text money">-->
+                                                    <!--<legend>充值金额</legend>-->
+                                                    <!--<input type="tel" placeholder=" " v-model="paymount" readonly>-->
+                                                    <!--&lt;!&ndash;  <i class="close"></i>&ndash;&gt;-->
+                                                <!--</div>-->
+                                            <!--</fieldset>-->
+                                        <!--</form>-->
+                                        <!--<div class="step03 pay_list scan_qrcoder">-->
+                                            <!--<h5>支付方式</h5>-->
+                                            <!--<ul>-->
+                                                <!--<li class="btn_pay wechat_q" v-for="list in banklist">-->
+                                                    <!--<a href="javascript:;" @click="submitOnlinePay(list.bankCode,'3')">-->
+                                                        <!--<img v-lazy="list.img" alt="">-->
+                                                        <!--<span>{{list.bankName}}</span>-->
+                                                    <!--</a>-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                     <div class="after-scan" style="display: none;">
                                         <div class="scan_code">
                                             <div class="qrcode_step">
@@ -302,17 +295,18 @@
         </div>
        <!-- <deposit_bank_transfer v-if="false"></deposit_bank_transfer>-->
         <!--银行转账使用步骤-->
-        <div class="modal">
+        <div class="modal" style="display: block">
             <div class="m_content">
-                <h2 class="title">银行转账使用步骤
+                <h2 class="title">★【充值提示】※
                     <a></a>
                 </h2>
                 <p class="content left">
-                    1. 选择您使用的存款银行，底部会出现对应的收款银行卡号；
-                    <br/> 2. 记录或复制该收款信息到手机上；
-                    <br/> 3. 填写您的存款时间、金额等信息，以及选择您的存款方式；
-                    <br/> 4. 前去银行或网银等转账到收款账号，完成后保留凭证；
-                    <br/> 5. 等待客服处理您的订单，完成支付；
+                    尊贵的会员您好！
+                    <br/>公司将陆续接入多项支付通道，
+                    <br/>WAP微信扫码、QQ扫码、网银支付、
+                    <br/>银行转账进行支付，大额无忧！
+                    <br/>首选银行转账，可获得1%存款优惠
+                    <br/>(存1000赠10，次次存次次送）。
                     <br/>
                 </p>
                 <div class="action">
@@ -320,7 +314,6 @@
                 </div>
             </div>
         </div>
-
         <FooterNav />
 
         <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
@@ -370,13 +363,10 @@ export default {
         }
     },
     created:function () {
-
-
+        this.getPayWayList()
     },
   mounted:function() {
-
     // this.getPayWayList()
-
       var _self = this ;
         $('html,body').css('overflow-y','scroll' )  ;
       _self.choosePayMoth() ;
@@ -404,7 +394,6 @@ export default {
 
 
       },500)
-     _self. getPayWayList()
   },
   methods: {
       // 清空输入金额
@@ -432,7 +421,6 @@ export default {
       choosePayMoth:function () {
           var _self = this ;
 
-
         // 扫码
         // $('.payWayNet').on('click','.item',function (e){
         //      if(_self.paymount =='' || !_self.isPositiveNum(_self.paymount)){
@@ -441,7 +429,6 @@ export default {
         //       }
         //       var $src = $(e.currentTarget);
         //       var val = $src.data('type');
-
 
         // })
 
@@ -464,18 +451,15 @@ export default {
                   $('.webbank_pay_all').show() ;
               }
 
-              else if(val =='2'){ 
-               // 扫码支付
+              else if(val =='2'){ // 扫码支付
                   _self.getBankList('1') ;
                   $('.paymethods_all').hide() ;
                   $('.webbank_scan_all').show() ;
-              }
-
-              else if(val =='6'){
-                  // 扫码支付
-                  _self.getBankList('1') ;
-                  $('.paymethods_all').hide() ;
-                  $('.after-scan').show() ;
+              } else if(val =='6'){
+//                  // 扫码支付
+////                  _self.getBankList() ;
+////                  $('.paymethods_all').hide() ;
+////                  $('.webbank_scan_all').show()
               }
               else{  // 银行转账
                   _self.getAllBankList() ;
@@ -522,9 +506,8 @@ export default {
               // data: { type: type},  // 查询类型：1 扫码支付，2 银行卡支付
               success: function(res){
 
-               
                 res.data = res.data.splice(0,4)                
-                console.log( res.data )
+//                console.log( res.data )
                 _self.payWays = res.data;
 
                 // console.log( _self.payWays  )
@@ -627,12 +610,13 @@ export default {
                                   _self.scanint = setInterval(function () {
                                       _self.getScanStatus(_self.scanid) ;
                                   },10000) ;
-                                  $('.after-scan').show() ;
                                   $('.before-scan').hide() ;
+                                  $('.after-scan').show() ;
+
                               }else if(res.data.dataType == '2'){ // 返回链接跳转
                                   var sanurl = res.data.url ;
                                   // window.location.href = sanurl ;
-                                  window.open(sanurl) ;
+                                  _self.openGame(sanurl) ;
                               }
 
                               document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
@@ -646,6 +630,10 @@ export default {
                           win.close() ;
                       }
                       _self.$refs.autoCloseDialog.open(res.msg) ;
+                      setTimeout(function () {
+                          window.location = '/lobbyTemplate/deposit' ;
+                      },300)
+
                   }
 
               },
@@ -789,7 +777,7 @@ export default {
           })  ;
       },
       //在线支付
-      onlinePay :function (rsNameId) {
+      onlinePay :function (rsNameId,type) {
           var _self=this;
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
@@ -806,6 +794,7 @@ export default {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
               url: _self.action.forseti + 'api/pay/rapidOrder',
+              async: false,
               data: senddata,
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
@@ -816,10 +805,10 @@ export default {
 //                               console.log(loadStr) ;
                               win.document.write(loadStr) ;
                           }else if(res.data.dataType=='2'){ // 链接跳转
+                              $('.paymethods_all').show();
                               var loadurl = res.data.url ;
                               win.location.href = loadurl ;
                           }
-
                       }else if(type == '3'){  // 扫码支付
                           if(!res.data){
                               _self.$refs.autoCloseDialog.open('请重试！') ;
@@ -838,9 +827,10 @@ export default {
                                   _self.scanid = res.data.orderId ;
                                   _self.scanint = setInterval(function () {
                                       _self.getScanStatus(_self.scanid) ;
-                                  },10000) ;
+                                  },1000) ;
+                                  $('.paymethods_all').hide();
+                                  $('.webbank_scan_all').show() ;
                                   $('.after-scan').show() ;
-                                  $('.before-scan').hide() ;
                               }else if(res.data.dataType == '5'){
                                   // 直接返回的是图片
                                   _self.scanImg = res.data.url ;
@@ -848,12 +838,14 @@ export default {
                                   _self.scanint = setInterval(function () {
                                       _self.getScanStatus(_self.scanid) ;
                                   },10000) ;
+                                  $('.paymethods_all').hide() ;
+                                  $('.webbank_scan_all').show() ;
                                   $('.after-scan').show() ;
-                                  $('.before-scan').hide() ;
                               }else if(res.data.dataType == '2'){ // 返回链接跳转
                                   var sanurl = res.data.url ;
                                   // window.location.href = sanurl ;
-                                  window.open(sanurl) ;
+                                  _self.openGame(sanurl) ;
+                                  _self.paymount='';
                               }
 
                               document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
