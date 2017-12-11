@@ -260,9 +260,9 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon.icon_nav{ background-position: 0 0; }
 .icon.icon_trend{ background-position: -0.64rem 0;}
 .icon.icon_money{ background-position: 0 -0.64rem;}
-.icon.icon_money2{background-position: -2.56rem -1.92rem }
+/*.icon.icon_money2{background-position: -2.56rem -1.92rem }*/
 .icon.icon_user{ background-position: -1.28rem -0.64rem;}
-.icon.icon_user2{background-position: -1.92rem -1.92rem }
+/*.icon.icon_user2{background-position: -1.92rem -1.92rem }*/
 .icon.icon_index{ background-position: -1.92rem -1.28rem;}
 .icon.icon_history{ background-position: -2.56rem -1.28rem;}
 .icon.icon_record{ background-position: -3.2rem -1.28rem;}
@@ -299,12 +299,13 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon_account.icon_deposit_1 { background-position: 0rem -4.5rem; }
 .icon_account.icon_deposit_2 { background-position: -1.5rem -4.5rem; }
 .icon_account.icon_deposit_3 { background-position: -3rem -4.5rem; }
-.icon_deposit_net1 {background-image: url(/static/frist/images/icon_deposit_1.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}
-.icon_deposit_net2 {background-image: url(/static/frist/images/icon_deposit_2.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}
-.icon_deposit_net3 {background-image: url(/static/frist/images/icon_deposit_3.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}
-.icon_deposit_net4 {background-image: url(/static/frist/images/icon_deposit_4.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}
-.icon_account.icon_notice_1 { background-position: 0rem -6rem; }
-.icon_account.icon_notice_2 { background-position: -1.5rem -6rem; }
+.icon_account.icon_deposit_net1 { background-position: -4.5rem -3rem;	} /* 微信 */
+.icon_account.icon_deposit_net2 { background-position: -4.5rem -4.5rem;	} /* 支付宝 */
+.icon_account.icon_deposit_net3 { background-position: -3rem -6rem;	} /* QQ */
+.icon_account.icon_deposit_net4 { background-position: -4.5rem -6rem;	} /* 京东钱包 */
+.icon_account.icon_deposit_net5 { background-position: -3rem -4.5rem;	} /* 同 icon_deposit_3 */
+.icon_account.icon_notice_1 { background-position: 0rem -6rem; } /* 个人消息(未读) */
+.icon_account.icon_notice_2 { background-position: -1.5rem -6rem; } /* 个人消息(已读) */
 .icon_account.icon_ac01 { background-position: 0rem -7.5rem; }
 .icon_account.icon_ac02 { background-position: -1.5rem -7.5rem; }
 .icon_account.icon_ac03 { background-position: -3rem -7.5rem; }
@@ -337,7 +338,7 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }
 .round_ball.active, p.active .round_ball{ background-color:#bc0000;}
 
 /* k3 ball */
-.k3_dice {display: inline-block;vertical-align: middle;box-sizing: border-box;background: url(/static/frist/images/dice.png) no-repeat;background-size: 6rem auto;width: 1rem;height: 1rem;border-radius: 0.1rem; color: transparent;}
+.k3_dice {display: inline-block;vertical-align: middle;box-sizing: border-box;background: url(/static/frist/images/dice.png) no-repeat;background-size: 6rem auto;width: 1rem;height: 1rem;border-radius: 0.1rem; color: transparent; box-shadow: 0 0 0 1px #cbcbcb; -webkit-box-shadow: 0 0 0 1px #cbcbcb;}
 .k3_dice.num_20 {background: url(/static/frist/images/k3/dice_0.jpg) no-repeat center center;background-size: 1rem 1rem; }
 .k3_dice.num_1 {background-position-x: 0; }
 .k3_dice.num_2 {background-position-x: -1rem; }
@@ -450,6 +451,7 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }
 .so-foot .bet_btn { position: absolute; bottom: 0rem; right: 2rem; }
 .so-foot .bet_btn > div { width: 1.6rem; height: 2rem; border-radius: 2rem 2rem 0 0; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
 .so-foot .bet_btn > div:before{content: ''; display: block; width: 1rem; height: 1rem; background:url('/static/frist/images/bet_icon.svg') center center no-repeat; background-size: 1rem ; margin: 0 0.3rem; transform: translate(0,0.3rem)}
+.so-foot .bet_btn > div:after{content: ''; display: block; position: absolute; top:0; left: 0; right: 0; bottom: 0; z-index: 1; background: url('/static/frist/images/bet_btn_light.svg') no-repeat; background-size: 100% auto; }
 .so-foot .bet_btn > div p { letter-spacing: 0.1rem; transform: translateX(0.05rem); line-height: 0.9rem;  color: #fff; margin-top: 0.2rem; }
 
 .so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2rem; position: fixed; bottom: 0; z-index: 35; }
@@ -656,9 +658,11 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .lobby_past_view .prd_num > span { font-size: .35rem; float: left;}
 .lobby_past_view .prd_num02 { display: inline-block; padding-top: 0.1rem;  line-height: 0.79rem; font-size: .34rem;  text-align: right; color:#2b2b2b; }
 .lobby_past_view .time { display: inline-block; border-radius: .19rem;  line-height: 0.45rem; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; padding: 0 0.1rem; border: 1px solid #dadada;color:#2b2b2b;}
-.lobby_past_view .pk10_top_number, .lobby_past_view .k3dice_top{ padding: 0.1rem 0; white-space: nowrap;}
+.lobby_past_view .lo_ball { padding: 0.2rem; }
+.lobby_past_view .pk10_top_number, .lobby_past_view .k3dice_top{ padding: 0.2rem 0; white-space: nowrap;}
 .lobby_past_view .pk10_top_number li{ display: inline-block; margin: 0 0.03rem; }
 .lobby_past_view .k3dice_top li{ display: inline-block; margin: 0 0.2rem; }
+.lobby_past_view .function_btn { padding: 0.1rem; }
 
 
 /* -----------------------------------------
@@ -792,7 +796,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .arrow_list_dark .badge{ background-color: #52acd3; border-radius: 50%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
 .arrow_list_dark .icon{ float: right; margin-top: 0.45rem;}
 
-.deposit_area { padding: 0 0.3rem; }
+/*.deposit_area { padding: 0 0.3rem; }*/
 .pay_content {  }
 .pay_content .step03 { color: #ffc388; margin: 0 auto; text-align: left;}
 
@@ -864,15 +868,16 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /* 个人中心 */
 .info_area { width: 100%; }
 .info_area .page_box { padding-top: 0; }
-.info_top { height: 3.3rem; position: relative; margin: 0 auto; background-color: #fff; }
+.info_area .new_panel_top { border-bottom: 1px solid #dadada;}
+.info_top { height: 3.3rem; position: relative; margin: 0 auto; background-color: #52acd3; color: #fff; }
 .info_top .header { width: auto; }
 .info_top .account { width: 4rem; margin: 0 1rem 0 5rem; padding-top: 0.7rem; position: relative; height: 2rem; }
-.info_top .account > a { display: block; }
+.info_top .account > a { display: block; color: #fff; }
 
 .info_top .account .user_name { position:absolute; text-align: left; line-height: 1.8em; float: left; margin-top: .2rem; }
 .info_top .account .user_name  strong {  font-size: .4rem; }
-.info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; padding:0; width: auto;}
-.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block; vertical-align: middle; font-size: 0.4rem;margin-left: .7rem; color: #52acd3;}
+.info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; width: auto;}
+.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block;  font-size: 0.4rem;margin-left: .7rem; color: #52acd3;}
 
 
 .portrait { height: auto; position: relative; }
@@ -908,8 +913,8 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_bot > .btn_blue {  }
 .info_bot > ul { overflow: hidden; margin: 0 0.3rem; background-color: #fff; border: 1px solid #dadada; }
 .info_bot > ul > li { padding: 0 0.3rem; border-bottom: 1px solid #dadada; }
-.info_bot > ul > li > a { display: block;  font-size: 0.4rem; overflow: hidden; line-height: 1.5rem; vertical-align: middle; text-align: left; padding: .1rem; position: relative; }
-.info_bot > ul > li > a .icon_account { margin-right: .2rem;  }
+.info_bot > ul > li > a { display: block;  font-size: 0.4rem; overflow: hidden; line-height: 1.5rem; vertical-align: middle; text-align: left; padding: 0.2rem 0; position: relative; }
+.info_bot > ul > li > a .icon_account { margin-right: .2rem; background-color: #52acd3; border-radius: 50%;  }
 .info_bot > ul > li > a .icon { float: right; margin-top: 0.4rem; }
 .info_bot > ul > li > a .icon div { width: 1.2rem; height: 1.2rem; }
 .info_bot > ul > li > a .icon div > i { width: .8rem; height: .8rem; }
