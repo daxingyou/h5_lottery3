@@ -9,9 +9,9 @@ var MyMixin = {
     data:function(){
         return {
             action:{
-                forseti: 'http://121.58.234.210:19091/forseti/',  // 测试环境
-                uaa: 'http://121.58.234.210:19091/uaa/',   // 测试环境
-                hermes: 'http://121.58.234.210:19091/hermes/',   // 测试环境
+                forseti: 'http://121.58.234.210:19093/forseti/',  // 测试环境
+                uaa: 'http://121.58.234.210:19093/uaa/',   // 测试环境
+                hermes: 'http://121.58.234.210:19093/hermes/',   // 测试环境
                 // forseti: 'http://api.88bccp.com/forseti/',   // 线上环境
                 // uaa: 'http://api.88bccp.com/uaa/' ,  // 线上环境
                 // hermes: 'http://api.88bccp.com/hermes/',   // 线上环境
@@ -525,7 +525,7 @@ var MyMixin = {
         },
          openGameOnline: function(url) {
            
-            this.openGame('http://messenger.providesupport.net/messenger/0bxg1rx3vv8lc036lt4a265vdi.html')
+            this.openGame('https://static.meiqia.com/dist/standalone.html?_=t&eid=89999')
         },
         // 打开新窗口
        /* openGame: function(url) {
@@ -729,7 +729,7 @@ var MyMixin = {
         //验证支付密码
         checkNum: function (val,el) {
             var content = '请输入4位数字支付密码' ;
-            if(val &&!this.positiveNum(val)){
+            if(val &&!this.positiveNum(val) ||val.length<4){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }
             else{
@@ -744,9 +744,41 @@ var MyMixin = {
              $('.'+el).prev().val('');
               $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
               this.clearVal(cl) ;
+        },
+        //获取银行列表
+        getBankList:function(){
+            var _self=this;
+            $.ajax({
+                type:'get',
+//              headers: {"Authorization": "bearer  " + this.getAccessToken },
+                url: _self.action.forseti + 'apid/payment/banks',
+                data:{},
+                success: function(res){
+                    _self.bankList=res.data;
+                },
+                error: function (err) {
+
+                }
+            })
+        },
+
+        //客服接口
+        getCustom:function () {
+            var _self=this;
+            $.ajax({
+                type:'get',
+                url: _self.action.forseti + 'apid/config/custConfig',
+                data:{},
+                success:(res)=>{
+                    if(res.data){
+                        _self.custUrl=res.data.h5CustUrl
+                    }
+                },
+                err:(res)=>{
+
+                }
+            })
         }
-
-
     }
 };
 export default MyMixin;

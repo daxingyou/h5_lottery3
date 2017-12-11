@@ -27,6 +27,41 @@
                                             </div>
                                         </fieldset>
                                     </form>
+
+                                     <div class="step03 pay_way  payWayTranster">
+                                        <ul class="arrow_list_dark">
+                                            <!--<li>-->
+                                                <!--<a class="item" href="javascript:;" data-type="2">-->
+                                                    <!--<span class="badge">-->
+                                                        <!--<span class="icon_account icon_deposit_2"></span>-->
+                                                    <!--</span>-->
+                                                    <!--<span>扫码支付</span>-->
+                                                    <!--<span class="icon icon_arrow_light"></span>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                          <!--   <li>
+                                                <a class="item" href="javascript:;" data-type="1">
+                                                    <span class="badge">
+                                                        <span class="icon_account icon_deposit_1"></span>
+                                                    </span>
+                                                    <span>网银支付</span>
+                                                    <span class="icon icon_arrow_light"></span>
+                                                </a>
+                                            </li> -->
+                                            <li>
+                                                <a class="item" href="javascript:;" data-type="3">
+                                                    <span class="badge">
+                                                        <span class="icon_account icon_deposit_3"></span>
+                                                    </span>
+                                                    <span>银行转账</span>
+                                                    <span class="icon icon_arrow_light"></span>
+                                                </a>
+                                            </li>
+<!---->
+                                        </ul>
+                                    </div>
+
+                                    
                                     <!-- 网络支付 -->
                                     <div class="step03 pay_way  payWayNet payWayTranster">
                                         <ul class="arrow_list_dark">
@@ -62,7 +97,7 @@
                                                     <span class="icon icon_arrow_light"></span>
                                                 </a>
                                             </li>
-                                            <li>
+                                           <!--  <li>
                                                 <a class="item" href="javascript:;" data-type="3">
                                                     <span class="badge">
                                                         <span class="icon_account icon_deposit_3"></span>
@@ -70,7 +105,7 @@
                                                     <span>银行转账</span>
                                                     <span class="icon icon_arrow_light"></span>
                                                 </a>
-                                            </li>
+                                            </li> -->
 <!---->
                                         </ul>
                                     </div>
@@ -138,7 +173,7 @@
                                                 </div>
                                                 <div class="step">
                                                     1.请截屏或长按保存页面上的二维码图片到手机<br/>
-                                                    2.打开微信/支付宝找到“扫一扫”进入<br/>
+                                                    2.打开微信/支付宝/QQ/京东/银联找到“扫一扫”进入<br/>
                                                     3.进入后点击右上角从"相册选取"选择最新的二维码图片<br/>
                                                     4.完成支付后回到网站内检查余额<br/>
                                                 </div>
@@ -304,10 +339,9 @@
                     尊贵的会员您好！
                     <br/>公司将陆续接入多项支付通道，
                     <br/>WAP微信扫码、QQ扫码、网银支付、
-                    <br/>银行转账进行支付，大额无忧！
+                    <br/>（银行转账进行支付，大额无忧！
                     <br/>首选银行转账，可获得1%存款优惠
-                    <br/>(存1000赠10，次次存次次送）。
-                    <br/>
+                    <br/>（存1000赠10，次次存次次送）。
                 </p>
                 <div class="action">
                     <a class="new_btn"><span>确定</span></a>
@@ -389,10 +423,6 @@ export default {
               endYear:2020 //结束年份
           });
           $("#paydate").mobiscroll().datetime({ });
-
-
-
-
       },500)
   },
   methods: {
@@ -502,12 +532,16 @@ export default {
               headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
-              url: _self.action.forseti + '/api/pay/receiptClient',
+              url: _self.action.forseti + 'api/pay/receiptClient',
               // data: { type: type},  // 查询类型：1 扫码支付，2 银行卡支付
               success: function(res){
+               //  console.log(res)
+               // console.log( res.data.splice(0,4) )
 
-                res.data = res.data.splice(0,4)                
-//                console.log( res.data )
+               res.data = res.data;
+
+//                console.log(res.data)
+
                 _self.payWays = res.data;
 
                 // console.log( _self.payWays  )
@@ -590,7 +624,6 @@ export default {
                               },300)
                               return false ;
                           }else{
-
                               setTimeout(function () {
                                   _self.submitpayflag = false ;
                               },1000) ;
@@ -618,7 +651,6 @@ export default {
                                   // window.location.href = sanurl ;
                                   _self.openGame(sanurl) ;
                               }
-
                               document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                           }
 
@@ -664,11 +696,8 @@ export default {
                            // window.location.reload() ;
                             _self.$router.go('/lobbyTemplate/deposit') ;
                         },2000)
-
                     }
-
                   }
-
               },
               error: function (res) {
 
@@ -785,7 +814,7 @@ export default {
               rapidType:rsNameId ,  // 支付类型
               paymentType: '' ,  // 支付方式/银行代码(对应payment_type_id和bank_code)
               paymentTypeName: '' ,  // 支付名称/银行名称(对应payment_type_name/bank_name)
-              realName : '' ,  // 真实姓名
+              realName:  '' ,  // 真实姓名
               flowType : '4' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
           $.ajax({
@@ -817,7 +846,6 @@ export default {
                               },300)
                               return false ;
                           }else{
-
                               setTimeout(function () {
                                   _self.submitpayflag = false ;
                               },1000) ;

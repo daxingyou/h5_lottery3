@@ -21,25 +21,26 @@
                  <a class="new_btn_outline" href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
              </div>
          </header>
+
       <div class="news">
-          <div id="focus" class="focus">
+          <div id="focus" class="focus" >
               <div class="bd">
                   <ul v-for="list in banner">
                       <li>
-                          <a href="javascript:;">
-                            <img :src="list.url" />
+                          <a :href="list.link" target="_blank">
+                            <img :src="list.titlePic" />
                           </a>
                       </li>
                   </ul>
               </div>
               <div class="hd">
                   <ul>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                       <li  v-for="(item,index) in banner" :data-val="index"></li>
+                      <!--<li ></li>-->
+                      <!--<li></li>-->
+                      <!--<li></li>-->
                   </ul>
               </div>
-
           </div>
           <div class="marquee">
               <div class="news_title">
@@ -91,13 +92,13 @@
             </li>
             <li>
               <!--  <router-link to="/lobbyTemplate/promo">-->
-                <a href="javascript:;"  @click="Continued()">
+                <router-link :to="'/lobbyTemplate/promo'">
                     <span class="icon_account icon_promo"></span>
                     <p>优惠活动</p>
-                </a>
+                </router-link>
             </li>
             <li>
-                <a href="http://messenger.providesupport.net/messenger/0bxg1rx3vv8lc036lt4a265vdi.html"  target="_blank">
+                <a :href="custUrl"  target="_blank">
                     <span class="icon_account icon_service"></span>
                     <p>在线客服</p>
                 </a>
@@ -152,32 +153,32 @@
               </ul>
           </section>
           <!--20171116 新增優惠活動-->
-          <!--<section class="promoindex_area">
-              <h3>
-                  <img src="static/frist/images/title_promos.png" alt="优惠活动">
-                  <a  @click="Continued()" style="float: right;">更多</a>
-              </h3>
-              <a  @click="Continued()">
-                  <img src="/static/frist/images/banner/promo-1.jpg">
-              </a>
-          </section>-->
+        <!--<section class="promoindex_area">-->
+              <!--<h3>-->
+                  <!--<img src="../../static/frist/images/sale/yhhd_04_07.png" alt="优惠活动">-->
+                  <!--<router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>-->
+              <!--</h3>-->
+              <!--<a href="javascript:;" @click="setCid($event)" :data-val="cid">-->
+                  <!--<img :src="picture">-->
+              <!--</a>-->
+          <!--</section>-->
           <!--end 20171116 新增優惠活動-->
-          <!--<section class="cooper_area">
-              <div class="cooper">
-                  <h3><img src="static/frist/images/title_cooperation.png" alt="合作加盟"></h3>
-                  <ul>
-                      <li>
-                          <div class="icon">
-                          <router-link class="icon_intro" to="/lobbyTemplate/tutorial"></router-link>
-                      </div>
-                      </li>
-                      <li><div class="icon"><router-link class="icon_agent" v-bind:to="'/lobbyTemplate/agent'"></router-link></div></li>
-                      <li><div class="icon">
-                          <router-link class="icon_about" to="/lobbyTemplate/about"></router-link></div>
-                      </li>
-                  </ul>
-              </div>
-          </section>-->
+          <!--<section class="cooper_area">-->
+              <!--<div class="cooper">-->
+                  <!--<h3><img src="../../static/frist/images/sale/hzjm_03.png" alt="合作加盟"></h3>-->
+                  <!--<ul>-->
+                      <!--<li>-->
+                          <!--<router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"></router-link>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                          <!--<a class="icon_agent" href="javascript:;" @click="Continued()"></a>-->
+                      <!--</li>-->
+                      <!--<li>-->
+                          <!--<a class="icon_about" href="javascript:;" @click="Continued()" ></a>-->
+                      <!--</li>-->
+                  <!--</ul>-->
+              <!--</div>-->
+          <!--</section>-->
           <!--银行转账使用步骤-->
 
           <div class="modal" v-if="offFlag">
@@ -230,16 +231,18 @@ export default {
             gameHref:{} ,
             bulletins:'',
             banner:[
-                {'url':'../../static/frist/images/baner_crrol1.jpg'},
-                {'url':'../../static/frist/images/baner_crrol1.jpg'},
-                {'url':'../../static/frist/images/baner_crrol1.jpg'},                
+//               {'url':'../../static/frist/images/baner_crrol22.jpg'},
+//               {'url':'../../static/frist/images/baner_crrol3.jpg'},
+//               {'url':'../../static/frist/images/baner_crrol4.jpg'},
             ] ,
             popMsgTitle:'',
             popMsgContent:"",
             offFlag:false,
             popMsgCid:[],
-            currPopMsgCid:""
-
+            currPopMsgCid:"",
+            picture:'',
+            cid:'',
+            custUrl:''
         }
     },
     computed:{
@@ -249,22 +252,22 @@ export default {
       //this.changeOffFlag ();
 
     },
-  mounted:function() {
-
+    mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
       this.allLottery = this.$refs.navone.getLotterys() ;
       this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
       this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
-     if(this.haslogin){  // 只有登录状态才需要调余额
+      if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }
-
-    TouchSlide({
-      slideCell: "#focus",
-      autoPlay:true,
-    });
       this.getBulletinsContent ();
       this.getPopMsg();
+//      TouchSlide({
+//                  slideCell: "#focus",
+//                  autoPlay:true,
+//              });
+
+
       /* $("#marquee_snp").slide({ // 文本滚动
            mainCell: ".bd ul",
            autoPage: true,
@@ -274,8 +277,11 @@ export default {
            interTime: 50
        });*/
       //this.changeOffFlag();
+       this.carouselImg();
+//       this.getActivity();
+       this.getCustom()
   },
-  methods:{
+    methods:{
       getBulletinsContent :function () {
           let  self=this ;
           let bulletinsArr=[];
@@ -343,7 +349,7 @@ export default {
           }
       },
       // 敬请期待
-        Continued:function () {
+      Continued:function () {
             this.$refs.autoCloseDialog.open('敬请期待！') ;
         },
       //获取首页弹框信息
@@ -390,9 +396,7 @@ export default {
           this.offFlag=!this.offFlag;
           localStorage.setItem('cid',this.popMsgCid)
       },
-          //更改弹框显示的标志
-
-
+      //更改弹框显示的标志
       changeOffFlag () {
            var self=this
           var cid=[];
@@ -409,18 +413,66 @@ export default {
           //console.log(cid);
           //console.log("aaa"+self.currPopMsgCid);
           flag ? self.offFlag=false :self.offFlag=true
-
-
           /*for(var i=0;i<cid.length;i++){
                 if(cid[i]==this.currPopMsgCid){
                  this.offFlag=false;
                  return false
                 }
           }*/
-      }
-
-
-
+      },
+      //轮播图接口
+      carouselImg:function () {
+           var _self=this;
+           $.ajax({
+               type:'get',
+               url: _self.action.forseti + 'apid/cms/carousel',
+               data:{},
+               success:(res)=>{
+                   if(res.data.itemPO){
+                       var len= res.data.itemPO.length;
+                       for(var i=0;i<len;i++){
+                           res.data.itemPO[i].titlePic = _self.action.picurl+ res.data.itemPO[i].titlePic+'/0' ;
+                       }
+                       _self.banner =  res.data.itemPO ;
+                       _self.$nextTick(function (){
+                           TouchSlide({
+                               slideCell: "#focus",
+                               autoPlay:true,
+                           });
+                       });
+                   }
+               },
+               err:(res)=>{
+//
+               }
+           })
+       },
+      //获得优惠活动接口
+//      getActivity : function () {
+//          var _self=this;
+//          $.ajax({
+//              type:'get',
+//              url: _self.action.forseti + 'apid/cms/activity',
+//              data:{},
+//              success:(res)=>{
+//                  if(res.data.rows){
+//                   _self.picture=_self.action.picurl+ res.data.rows[0].titlePic+'/0';
+//                   _self.cid=res.data.rows[0].cid
+//                  }
+//              },
+//              err:(res)=>{
+//
+//              }
+//          })
+//      },
+//      setCid:function (e) {
+//          var $src = $(e.currentTarget);
+//          var val = $src.data('val');
+//          if(val){
+//              localStorage.setItem('Cid',val);
+//              window.location = '/lobbyTemplate/promo_content' ;
+//          }
+//      },
   },
 
 }
@@ -428,4 +480,5 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
+
 </style>

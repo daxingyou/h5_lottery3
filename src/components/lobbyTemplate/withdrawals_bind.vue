@@ -52,14 +52,14 @@
                                 <label class="error-message"></label>
                             </fieldset>
 
-                             <fieldset  v-if="true">
-                                <div class="form_g password">
-                                    <legend>支付密码</legend>
-                                    <input type="text" placeholder="请输入4位数字支付密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')">
-                                    <i class="eye " @click="showPassword('act3')"></i>
-                                </div>
-                                <label class="error-message "></label>
-                            </fieldset>
+                             <!--<fieldset  v-if="true">-->
+                                <!--<div class="form_g password">-->
+                                    <!--<legend>支付密码</legend>-->
+                                    <!--<input type="text" placeholder="请输入4位数字支付密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')">-->
+                                    <!--<i class="eye " @click="showPassword('act3')"></i>-->
+                                <!--</div>-->
+                                <!--<label class="error-message "></label>-->
+                            <!--</fieldset>-->
 
 
                             <fieldset>
@@ -108,7 +108,7 @@ export default {
            phoneNumber:'',
            bankList:{},
            bankCode:'',
-          withPassword: '',
+//          withPassword: '',
         }
     },
     created:function (){
@@ -140,27 +140,33 @@ export default {
             url: _self.action.forseti + 'api/payment/memberBank',
             data:{},
             success: function(res){
-                _self.phoneNumber=res.data.mobile;
-                _self.realName=res.data.realName
+                if(res.data){
+                    _self.phoneNumber=res.data.mobile;
+                    _self.realName=res.data.realName;
+                    _self.bankAdd=res.data.bankAddress;
+                    _self.bankNum=res.data.bankCard;
+                    _self.bankId=res.data.bankId;
+                }
             },
             error: function (err) {
 
             }
         })
       },
+
       //获取银行列表
-      getBankList:function(){
-          var _self=this;
+      getBankList:function() {
+          var _self = this;
           $.ajax({
-              type:'get',
+              type: 'get',
 //              headers: {"Authorization": "bearer  " + this.getAccessToken },
               url: _self.action.forseti + 'apid/payment/banks',
-              data:{},
-              success: function(res){
-                  _self.bankList=res.data;
+              data: {},
+              success: function (res) {
+                  _self.bankList = res.data;
+
               },
               error: function (err) {
-
               }
           })
       },
@@ -196,7 +202,7 @@ export default {
               bankAddress:_self.bankAdd,
               mobile:_self.phoneNumber,
               realName:_self.realName,
-              tradePassword: this.withPassword ,   //取款密码
+//              tradePassword: this.withPassword ,   //取款密码
           };
           var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
           if(falg){
