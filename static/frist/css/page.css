@@ -53,9 +53,9 @@ input, select, button, a { outline: none; }
 .text-green { color: #71c341; }
 
 /* 馀额 */
-.purse { position: relative; width: 3.5rem; height: 0.6rem; line-height: 0.6rem; box-sizing: border-box; background-color: #c9dde2; border-radius: 2rem; text-align: right; padding: 0 0.3rem 0 0.8rem; border: 1px solid #52acd3;  }
+.purse { position: relative; display: inline-block; min-width: 3.5rem; height: 0.6rem; line-height: 0.6rem; box-sizing: border-box; background-color: #fff; border-radius: 2rem; text-align: right; padding: 0 0.3rem 0 0.8rem; border: 1px solid #52acd3;  }
 .purse .icon_money{ position: absolute; top: 0rem; left: -0.02rem; border-radius: 0.5rem;  background-color: #c9dde2; box-shadow: 0px 0px 0px 1px #52acd3; -webkit-box-shadow: 0px 0px 0px 1px #52acd3; }
-.purse .so-in-top-sum { overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
+.purse .so-in-top-sum { overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; color: #fcb008;}
 
 /* btn */
 .new_btn{ font-size: 0.34rem; border: 1px solid transparent; margin: 0.1rem; display: inline-block; line-height: .7rem;  color: #fff; border-radius: 0.5rem;  background-color: #52acd3; }
@@ -870,15 +870,15 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_area { width: 100%; }
 .info_area .page_box { padding-top: 0; }
 .info_area .new_panel_top { border-bottom: 1px solid #dadada;}
-.info_top { height:2.5rem; position: relative; margin: 0 auto; background: url('/static/frist/images/pic_user.svg') no-repeat 2rem center; background-color: #52acd3; color: #fff; }
+.info_top { height:2.45rem; position: relative; margin: 0 auto; background: url('/static/frist/images/info_topbg.jpg') no-repeat 0 0; background-size: 100%; background-color: #52acd3; color: #fff; }
 .info_top .header { width: auto; }
 .info_top .account { width: 4rem; margin: 0 1rem 0 4rem; padding-top: 0.3rem; position: relative; height: 2rem; }
 .info_top .account > a { display: block; color: #fff; }
 
 .info_top .account .user_name { position:absolute; text-align: left; line-height: 1.8em; float: left; margin-top: .2rem; }
 .info_top .account .user_name  strong {  font-size: .4rem; }
-.info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; width: auto;}
-.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block;  font-size: 0.4rem; color: #52acd3;}
+.info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; width: auto; background-color: #fff;}
+.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block;  font-size: 0.4rem; color: #fcb008;}
 
 /*个人资讯左边的显示图片*/
 /*.portrait { height: auto; position: relative; }
