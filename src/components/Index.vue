@@ -10,7 +10,7 @@
                      <span class="icon icon_nav"></span>
                  </a>
              </div>
-             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/frist/images/logo.png" alt="宝池彩票"></h2>
+             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/frist/images/logo.png" alt="百乐彩"></h2>
              <div class="right">
                  <router-link to="/login" class="new_btn_outline" v-show="!haslogin">登录</router-link>
                  <router-link to="/reg" class="new_btn_outline" v-show="!haslogin" >注册</router-link>
@@ -116,14 +116,14 @@
                   <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
                     <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
-                       <!-- <img v-lazy="lottery.imgUrl">-->
-                          <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
+                        <img v-lazy="lottery.imgUrl">
+                          <!-- <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'"> -->
                       </div>
                     </a>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                            <!--  <img v-lazy="lottery.imgUrl">-->
-                              <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
+                              <img v-lazy="lottery.imgUrl">
+                              <!-- <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'"> -->
                           </div>
                       </a>
                     <h2>{{lottery.name}}</h2>
@@ -134,7 +134,8 @@
                     <li>
                         <a href="javascript:;" class="more-games">
                             <div class="badge">
-                                <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded">
+                                <!-- <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded"> -->
+                                <img src="http://img.will888.cn/photo/pic/T1hRJTByDT1RCvBVdK/0" lazy="loaded">
                             </div>
                         </a>
                         <h2>更多游戏</h2>
@@ -143,7 +144,7 @@
                     <li >
                         <a href="javascript:;" @click="Continued()">
                             <div class="badge">
-                                <img src="/static/frist/images/lotteryicon/logo_app.png" lazy="loaded">
+                                <img src="http://img.will888.cn/photo/pic/T1haJTByDT1RCvBVdK/0" lazy="loaded">
                             </div>
                         </a>
                         <h2>APP下载</h2>
@@ -153,7 +154,7 @@
               </ul>
           </section>
           <!--20171116 新增優惠活動-->
-        <!--<section class="promoindex_area">-->
+          <!--<section class="promoindex_area">-->
               <!--<h3>-->
                   <!--<img src="../../static/frist/images/sale/yhhd_04_07.png" alt="优惠活动">-->
                   <!--<router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>-->

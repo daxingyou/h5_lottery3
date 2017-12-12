@@ -12,10 +12,11 @@ var MyMixin = {
                 forseti: 'http://121.58.234.210:19093/forseti/',  // 测试环境
                 uaa: 'http://121.58.234.210:19093/uaa/',   // 测试环境
                 hermes: 'http://121.58.234.210:19093/hermes/',   // 测试环境
-                // forseti: 'http://api.88bccp.com/forseti/',   // 线上环境
-                // uaa: 'http://api.88bccp.com/uaa/' ,  // 线上环境
-                // hermes: 'http://api.88bccp.com/hermes/',   // 线上环境
-                picurl: 'http://admin.baochiapi.com/photo/pic/',  // 图片地址
+                // forseti: 'https://api.88bccp.com/forseti/',   // 线上环境
+                // uaa: 'https://api.88bccp.com/uaa/' ,  // 线上环境
+                // hermes: 'https://api.88bccp.com/hermes/',   // 线上环境
+                //picurl: 'https://img.will888.cn/photo/pic/',  // 图片地址
+                picurl: 'http://admin.baochiapi.com/photo/pic/'
             },
 
             rootBalance:{
@@ -775,6 +776,28 @@ var MyMixin = {
                     }
                 },
                 err:(res)=>{
+
+                }
+            })
+        },
+        //网站说明文案
+        getCopyright:function (type,code) {
+            var _self=this;
+            var senddata={
+                type:type,
+                code:code};
+            $.ajax({
+                type: 'get',
+                url: _self.action.forseti + 'apid/cms/copyright',
+                data: senddata ,
+                success: function(res){
+                    if(res.err=="SUCCESS"){
+                        _self.copyTitle=res.data[0].title;
+                        _self.copyContent=res.data[0].content;
+                    }
+
+                },
+                error: function (res) {
 
                 }
             })
