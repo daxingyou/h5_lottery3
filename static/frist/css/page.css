@@ -23,11 +23,12 @@ input, select, button, a { outline: none; }
 
 .login_title{
   position: absolute;
-  left: 2.36715rem;
-  top: 1.400966rem;
-  width: 5.31401rem;
-  height: 1.980676rem;
-  background: url(/static/frist/images/LOGO3.png) no-repeat center center;
+  left: 50%;
+  top: 1.4rem;
+  width: 4rem;
+  height: 2rem;
+  margin-left: -2rem;
+  background: url(/static/frist/images/login_logo.png) no-repeat center center;
   background-size: contain;
 }
 
@@ -748,7 +749,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* -----------------------------------------
 // 登入页
 -----------------------------------------*/
-#pa_con.page_login{  overflow: hidden; min-height: 17.79rem; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
+#pa_con.page_login{  overflow: hidden; min-height: 17.79rem; background:url('/static/frist/images/login_bg.jpg') #132938 top no-repeat; background-size: 100%;  }
 .page_login .login_area{ margin: 0.3rem; margin-top: 4rem; padding: 0.2rem 0; border:none; border-radius: 0.1rem; }
 .login_area .new_panel_center{ padding: 0 0.7rem;}
 .other_link { font-size: .35rem; margin: 0.2rem; }
@@ -778,7 +779,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .form_g.text select option { background-color: rgba(18, 21, 30, 0.9); font-size: 0.1rem; }
 
 .form_g.money input { color: #ffbd00; }
-.form_g ~ .error-message.red { color: #ff3355; margin-top: 0.1rem; margin-left: 2.2rem; display: inline-block;}
+.error-message.red { color: #ff3355; margin-top: 0.1rem; margin-left: 2.2rem; display: inline-block;}
 
 /*.account > legend { background-image: url("/static/frist/images/account.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }*/
 
