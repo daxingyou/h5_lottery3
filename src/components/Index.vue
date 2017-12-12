@@ -122,8 +122,8 @@
                     </a>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                              <img v-lazy="lottery.imgUrl">
-                              <!-- <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'"> -->
+                              <!-- <img v-lazy="lottery.imgUrl"> -->
+                              <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
                           </div>
                       </a>
                     <h2>{{lottery.name}}</h2>
@@ -134,8 +134,8 @@
                     <li>
                         <a href="javascript:;" class="more-games">
                             <div class="badge">
-                                <!-- <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded"> -->
-                                <img src="http://img.will888.cn/photo/pic/T1hRJTByDT1RCvBVdK/0" lazy="loaded">
+                                <!-- <img src="http://img.will888.cn/photo/pic/T1hRJTByDT1RCvBVdK/0" lazy="loaded"> -->
+                                <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded">
                             </div>
                         </a>
                         <h2>更多游戏</h2>
@@ -144,7 +144,8 @@
                     <li >
                         <a href="javascript:;" @click="Continued()">
                             <div class="badge">
-                                <img src="http://img.will888.cn/photo/pic/T1haJTByDT1RCvBVdK/0" lazy="loaded">
+                                <!--<img src="http://img.will888.cn/photo/pic/T1haJTByDT1RCvBVdK/0" lazy="loaded">-->
+                                <img src="/static/frist/images/lotteryicon/logo_app.png" lazy="loaded">
                             </div>
                         </a>
                         <h2>APP下载</h2>
