@@ -508,7 +508,7 @@
                     }
                     restr += '<li class="slide_toggle bet_day new_bet_day new_panel ' + first_li + '" data-page="1" data-val="' + (this.nowDate.getYear() + 1900).toString().padStart(4, '0') + (this.nowDate.getMonth() + 1).toString().padStart(2, '0') + this.nowDate.getDate().toString().padStart(2, '0') + '">' +
                         '<div class="panel_title new_panel_top"> <strong class="title-data">' + pdate + '</strong><span></span> </div>' +
-                        '<ul class="panel bet-recode-all"></ul></li>';
+                        '<ul class="panel new_panel_center bet-recode-all"></ul></li>';
                     this.nowDate.setDate(this.nowDate.getDate() - 1);
                 }
                 $('.tab_content')
@@ -607,7 +607,7 @@
                                 '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                 // '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                 '<div class="item"> ' +
-                                '<div class="badge ssc_badge"><img src="/static/frist/images/lotterylogo/logo_' + v.lotteryId + '.svg"></div>' +
+                                '<div class="badge ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 //  '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                 '<p>'+ v.orderId +'</p>'+

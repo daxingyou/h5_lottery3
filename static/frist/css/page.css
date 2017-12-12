@@ -53,8 +53,8 @@ input, select, button, a { outline: none; }
 .text-green { color: #71c341; }
 
 /* 馀额 */
-.purse { position: relative; width: 3.5rem; height: 0.6rem; line-height: 0.6rem; box-sizing: border-box; background-color: #c9dde2; border-radius: 2rem; text-align: right; padding: 0 0.3rem 0 0.7rem; border: 1px solid #52acd3;  }
-.purse .icon_money{ position: absolute; top: 0rem; left: -0.05rem; border-radius: 0.5rem;  background-color: #c9dde2; box-shadow: 0px 0px 0px 1px #52acd3; -webkit-box-shadow: 0px 0px 0px 1px #52acd3; }
+.purse { position: relative; width: 3.5rem; height: 0.6rem; line-height: 0.6rem; box-sizing: border-box; background-color: #c9dde2; border-radius: 2rem; text-align: right; padding: 0 0.3rem 0 0.8rem; border: 1px solid #52acd3;  }
+.purse .icon_money{ position: absolute; top: 0rem; left: -0.02rem; border-radius: 0.5rem;  background-color: #c9dde2; box-shadow: 0px 0px 0px 1px #52acd3; -webkit-box-shadow: 0px 0px 0px 1px #52acd3; }
 .purse .so-in-top-sum { overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 
 /* btn */
@@ -111,20 +111,20 @@ input, select, button, a { outline: none; }
 
 
 /* content */
-#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; min-height: 18rem; ;-webkit-overflow-scrolling: touch; }
+#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; /*min-height: 18rem;*/ ;-webkit-overflow-scrolling: touch; }
 #pa_content, .pa_content { margin-top: 1.36rem;padding-bottom: 1.36rem; position: relative; z-index: 2; }
 #pa_content .page_box, .pa_content .page_box{ padding: 0.3rem;}
 .so-con { font-size: 0.34rem; width: 10rem; height: 100%; text-align: center; margin: auto; }
 
 /* footer */
 footer{ background-color: #191a23; }
-footer.bot_nav { position: fixed; bottom: 0; width: 10rem;  height: 1.5rem; z-index: 60; }
+footer.bot_nav { position: fixed; bottom: 0; width: 10rem;  height: 1.36rem; z-index: 60; }
 footer.bot_nav ul { text-align: center; overflow: hidden; margin: 0 auto; font-size: 0;  }
 footer.bot_nav ul li { display: inline-block; font-size: .34rem; text-align: center; width: 25%; height: 1.5rem; }
 footer.bot_nav ul li.active a, footer.bot_nav > ul > li:hover a, footer.bot_nav > ul > li:focus a { color: #ff3355;}
 footer.bot_nav ul li.active a span.icon, footer.bot_nav > ul > li:hover a span.icon, footer.bot_nav > ul > li:focus a span.icon { background-position-y: -0.64rem;}
 footer.bot_nav ul li a { position: relative; display: inline-block; width: 100%; height: 100%; color:#999; }
-footer.bot_nav ul li a span.icon { display: block; margin: 0.2rem auto 0.1rem;  }
+footer.bot_nav ul li a span.icon { display: block; margin: 0.1rem auto 0.05rem;  }
 footer.bot_nav ul li a span.Footer-font { display: block; }
 
 /* 左侧选单 */
@@ -197,24 +197,24 @@ label.red { color: #bc0000; text-align: left; display: block; margin-top: .2rem;
 .agent_check input[type="checkbox"] { font-size: 0.35rem !important; width: .3rem; height: .3rem; vertical-align: middle; }
 .agent_check > a { color: #ffbd00; }
 .data, .agent table { width: 100%; font-weight: 500; margin: 0 0 .8rem; font-size: 0.35rem; }
-.data thead, .agent table thead { background-color: #4b280c; }
-.data td, .agent table td, .data th, .agent table th { border: 1px solid #7e5c4c; padding: .2rem; text-align: center; vertical-align: middle; }
-.data th, .agent table th { color: #ffc388; }
+.data thead, .agent table thead { background-color: #52acd3; }
+.data td, .agent table td, .data th, .agent table th { border: 1px solid #52acd3; padding: .2rem; text-align: center; vertical-align: middle; }
+.data th, .agent table th { color: #999; }
 
 .tabset { text-align: center; }
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
 .tabset .tab-panel { display: none; }
-.tabset > label { position: relative; display: inline-block;margin-left: -2px; padding: .27rem .8rem; cursor: pointer; color: #4b280c; border: 1px solid #7e5c4c; font-size: 0.34rem; }
+.tabset > label { position: relative; display: inline-block;margin-left: -2px; padding: .27rem .8rem; cursor: pointer; color: #52acd3; border: 1px solid #52acd3; font-size: 0.34rem; }
 .tabset > label.tab1 { margin-right: -.1rem; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 .tabset > label.tab2 { border-top-right-radius: .2rem; border-bottom-right-radius: .2rem; }
 .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child, .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2), .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3), .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4), .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5), .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) { display: block; }
-.tabset > label:hover, .tabset > input:focus + label { color: #4b280c; }
+.tabset > label:hover, .tabset > input:focus + label { color: #52acd3; }
 .tabset > label:hover::after, .tabset > input:focus + label::after, .tabset > input:checked + label::after { background: #06c; color: #fff; }
-.tabset > input:checked + label { margin-bottom: -1px; background-color: #4b280c; color: #ffc388; }
+.tabset > input:checked + label { margin-bottom: -1px; background-color: #52acd3; color: #ffc388; }
 
 .tab-panel { text-align: justify; }
 
-.tab-panel h4 { color: #4b280c; font-size: .4rem; margin: .2rem 0; }
+.tab-panel h4 { color: #52acd3; font-size: .4rem; margin: .2rem 0; }
 
 .formlist_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
@@ -248,9 +248,9 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 /*.promo_area .promo_list li a { padding: 0.1rem 0.3rem; }*/
 .promo_area li { margin-bottom: 0.3rem; }
 .promo_area .promo_detail { padding: 0.3rem; }
-.promo_area img { display: block; width: calc( 100% - 2px); border: 1px solid #7e5c4c; }
+.promo_area img { display: block; width: calc( 100% - 2px); border: 1px solid #dadada; }
 .promo_area p { margin: .2rem 0;}
-.promo_area h3 { margin: .2rem 0 0.3rem; color: #4b280c; font-size: 0.43rem; }
+.promo_area h3 { margin: .2rem 0 0.3rem; color: #52acd3; font-size: 0.43rem; }
 .promo_area strong { color: #bc0000; }
 
 /* -----------------------------------------
@@ -284,7 +284,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon.icon_filter{background-position: -1.28rem -1.92rem }
 .icon.icon_check{background-position: -0.64rem -1.92rem }
 
-.icon_account  { display: inline-block; vertical-align: middle; width: 1.5rem; height: 1.5rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 6rem auto; }
+.icon_account  { display: inline-block; vertical-align: middle; width: 1.5rem; height: 1.5rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 7.5rem auto; }
 .icon_account.icon_deposit { background-position-x: 0rem; }
 .icon_account.icon_withdrawals { background-position-x: -1.5rem; }
 .icon_account.icon_promo { background-position-x: -3rem; }
@@ -303,7 +303,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon_account.icon_deposit_net2 { background-position: -4.5rem -4.5rem;	} /* 支付宝 */
 .icon_account.icon_deposit_net3 { background-position: -3rem -6rem;	} /* QQ */
 .icon_account.icon_deposit_net4 { background-position: -4.5rem -6rem;	} /* 京东钱包 */
-.icon_account.icon_deposit_net5 { background-position: -3rem -4.5rem;	} /* 同 icon_deposit_3 */
+.icon_account.icon_deposit_net8 { background-position: -6rem -4.5rem;	} /* 银联 */
 .icon_account.icon_notice_1 { background-position: 0rem -6rem; } /* 个人消息(未读) */
 .icon_account.icon_notice_2 { background-position: -1.5rem -6rem; } /* 个人消息(已读) */
 .icon_account.icon_ac01 { background-position: 0rem -7.5rem; }
@@ -312,7 +312,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 
 i.close { width: .57rem; display: block; position: relative; height: 1rem; right: 0; left: .2rem; }
-i.close:after { content: ''; display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .1rem; top: .15rem; cursor: pointer; }
+i.close:after { content: ''; display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: 0; top: .15rem; cursor: pointer; }
 i.eye { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -4.48rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .3rem; top: 0.2rem; cursor: pointer; }
 i.eye.active {  background-position: -3.84rem -1.92rem; }
 
@@ -422,7 +422,7 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }
 .so-in-main .so-main-down ul li > span {float:left;line-height: 0.8rem; display: inline-block; vertical-align: middle;}
 .so-in-main .so-main-down ul li > a { line-height: 0.8rem;display: inline-block; vertical-align: middle;}
 
-.so-con .so-in-con { width: 10rem; position: fixed; cursor: pointer; top: calc( 1.36rem + 2.3rem + 0.8rem );bottom: 1.48rem; background-color: #fff; }
+.so-con .so-in-con { width: 10rem; position: fixed; cursor: pointer; top: calc( 1.36rem + 2.3rem + 0.8rem );bottom: 1.36rem; background-color: #fff; }
 .so-con .so-in-con > div:after { content: ""; display: block; clear: both; }
 
 .so-con-left { width: 2.3rem; float: left; height: 100%; padding-bottom: .8rem; position: fixed; z-index: 5; border-right: 1px solid #dadada; }
@@ -437,16 +437,16 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }
 
 
 /* bet footer */
-.so-foot { background-color: #191a23; height: 1.5rem; width: 10rem; position: fixed; z-index:20; bottom: 0rem; }
+.so-foot { background-color: #191a23; height: 1.36rem; width: 10rem; position: fixed; z-index:20; bottom: 0rem; }
 
-.so-foot .bet_selected { margin: 0.3rem 0 0.3rem 0.3rem ; float: left; height: 0.6rem; }
+.so-foot .bet_selected { margin: 0.2rem 0 0.3rem 0.3rem ; float: left; height: 0.6rem; }
 .so-foot .bet_selected p {line-height: 0.9rem; color: #ffffff; font-size: .32rem; text-align: left; }
 .so-foot .bet_selected p span { color: #fea832; padding: 0.05rem;}
 
-.so-foot .bet_count { float: left; margin: 0.2rem 0 0 0.2rem;  height: 1.187rem; }
+.so-foot .bet_count { float: left; margin: 0.1rem 0 0 0.2rem;  height: 1.187rem; }
 .so-foot .bet_count input { display: block; margin-top: 0.2rem;  padding: 0 0.3rem; float: right; width: 3rem; height: .65rem; background-color: #fff; border: 1px solid #cbcbcb; border-radius: 0.5rem; color: #52acd3; font-size: .34rem;  text-align: right;}
 /*.so-foot .bet_count input::-webkit-input-placeholder { color: #FFF; opacity: 0.5; }*/
-.so-foot .bet_count a.submit{ position: absolute; bottom: 0.37rem; right:0.2rem; width: 1.5rem; border-radius: 0.5rem; display: block; line-height: 0.68rem; text-align: center; border: 1px solid #fff;  color: white; }
+.so-foot .bet_count a.submit{ position: absolute; bottom: 0.32rem; right:0.2rem; width: 1.5rem; border-radius: 0.5rem; display: block; line-height: 0.68rem; text-align: center; border: 1px solid #fff;  color: white; }
 
 .so-foot .bet_btn { position: absolute; bottom: 0rem; right: 2rem; }
 .so-foot .bet_btn > div { width: 1.6rem; height: 2rem; border-radius: 2rem 2rem 0 0; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
@@ -516,22 +516,22 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .tab_content { padding: 0.3rem; }
 
-.tab_content.sliding-box { padding-bottom: 2.2rem; }
+/*.tab_content.sliding-box { padding-bottom: 2.2rem; }*/
 
 /*.bet_day { border-bottom: none; }*/
 
 .bet_day .date { font-size: 1rem; }
 
 /* 列表 */
-.bet_data { border-bottom: 1px solid #dadada;  margin: 0 0.2rem;  }
+.bet_data { border-bottom: 1px solid #dadada;  /*margin: 0 0.2rem; */ }
 .bet_data:last-child { border-bottom: none; }
 .bet_data > a { display: block; color: #2b2b2b; }
 .bet_data > a:after { content: ''; display: table; clear: both; }
-.bet_data > a > .item { padding: .3rem; overflow: hidden; /*width: 9rem;*/ box-sizing: border-box;}
+.bet_data > a > .item { padding: .3rem 0; overflow: hidden; /*width: 9rem;*/ box-sizing: border-box;}
 .bet_data > a > .item > div { display: inline-block; vertical-align: middle; line-height: .6rem; }
 .bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; }
-.bet_data > a > .item > .badge { background-color: #52acd3; border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }
-.bet_data > a > .item > .badge > img { width: 1.1rem; margin:0.2rem;}
+.bet_data > a > .item > .badge {  border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }
+.bet_data > a > .item > .badge > img { width: 1.5rem; }
 .bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; }
 .bet_data .prd_num { color: #999; margin-right: 0.2rem;}
 .bet_data .status { min-width: 15%; width: 1.8rem; text-align: center; color: #999; }
@@ -555,7 +555,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 /* 筛选选单 */
-.play_area { display: block; position: fixed; left: 50%; top: 1.36rem; margin-left: -5rem; z-index: 26; background: rgba(0, 0, 0, 0.8); width: 10rem;  text-align: left; }
+.play_area { display: block; position: fixed; left: 50%; top: 1.36rem; margin-left: -5rem; z-index: 26; /*background: rgba(0, 0, 0, 0.8);*/ background-color: #fff; width: 10rem;  text-align: left; }
 .play_area .sort{ margin: 0.3rem 0.5rem;}
 .play_area .sort > div {  margin: .5rem auto;  text-align: center; }
 .play_area .sort > div > div{ display: inline-block;}
@@ -563,11 +563,12 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .play_area ul { margin: 0 auto; }
 .play_area ul li { display: inline-block; overflow: hidden; margin: .1rem 0.2rem 0.1rem 0; text-align: center; width: 2.85rem; }
 .play_area ul li:nth-child(3n){ margin-right: 0;}
-.play_area ul li a { color: #fff; padding: .2rem .3rem; display: block; font-size: .34rem;  border: 1px solid #cbcbcb; border-radius: 0.1rem;}
+.play_area ul li a {  padding: .2rem .3rem; display: block; font-size: .34rem;  border: 1px solid #cbcbcb; border-radius: 0.1rem;}
 .play_area ul li.active a { background-color: #52acd3; color: #fff;  border-color: #52acd3;}
 
 /* 列表 */
 .past_view { margin:0 0 .3rem 0;  }
+.past_view .new_panel_center{ border-top: 1px solid #dadada;}
 
 .play_th { overflow: hidden; overflow: hidden; text-align: left; box-sizing: border-box;}
 .play_th .prd_num {  float: left; padding-left: 0.3rem; width: 3rem; white-space:nowrap;}
@@ -654,7 +655,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 /*.lobby_past_view .prd_num { color: #fff; }*/
-.lobby_past_view .play_th{ text-align: right;padding-right: 0.3rem; border-bottom: 1px solid #dadada; }
+.lobby_past_view .play_th{ text-align: right;padding-right: 0.3rem; }
 .lobby_past_view .prd_num > span { font-size: .35rem; float: left;}
 .lobby_past_view .prd_num02 { display: inline-block; padding-top: 0.1rem;  line-height: 0.79rem; font-size: .34rem;  text-align: right; color:#2b2b2b; }
 .lobby_past_view .time { display: inline-block; border-radius: .19rem;  line-height: 0.45rem; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; padding: 0 0.1rem; border: 1px solid #dadada;color:#2b2b2b;}
@@ -748,7 +749,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 // 登入页
 -----------------------------------------*/
 #pa_con.page_login{  overflow: hidden; min-height: 17.79rem; background: #52acd3; background: -moz-linear-gradient(top, #52acd3 0%, #4086bb 100%); background: -webkit-linear-gradient(top, #52acd3 0%,#4086bb 100%); background: linear-gradient(to bottom, #52acd3 0%,#4086bb 100%); }
-.page_login .login_area{ margin: 0.3rem; margin-top: 4rem; }
+.page_login .login_area{ margin: 0.3rem; margin-top: 4rem; padding: 0.2rem 0; }
 .login_area .new_panel_center{ padding: 0 0.7rem;}
 .other_link { font-size: .35rem; margin: 0.2rem; }
 .other_link > a {  margin: .2rem; display: inline-block; border-left: 1px solid #dadada; padding-left: .5rem; }
@@ -798,13 +799,13 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /*.deposit_area { padding: 0 0.3rem; }*/
 .pay_content {  }
-.pay_content .step03 { color: #ffc388; margin: 0 auto; text-align: left;}
+.pay_content .step03 { color: #999; margin: 0 auto; text-align: left;}
 
 /*@media (max-width: 359px) { .pay_content .step03 { max-width: 85%; } }*/
 
 .pay_content .step03.pay_way { max-width: 100%; }
 
-.pay_content .step03 .bank_account { color: #ffc388; padding-left: .4rem; }
+.pay_content .step03 .bank_account { color: #999; padding-left: .4rem; }
 
 .pay_content .step03 .bank_account .push-left-tiny { margin-left: 1em; }
 
@@ -817,9 +818,9 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .pay_content .step03.webbank_pay > ul { width: 100%; margin: 0 auto; font-size: 0; overflow: hidden; }
 
 /* 选择银行 */
-.pay_content .pay_list li {  border-radius: 0.1rem; padding: 0.05rem 0.2rem; background-color: #d59559; margin: .2rem 0; border: 1px solid #d59559; box-sizing: border-box;   width: 49%; margin-right: 2%; display: inline-block; font-size: .34rem; }
+.pay_content .pay_list li {  border-radius: 0.1rem; padding: 0.05rem 0.2rem;  margin: .2rem 0; border: 1px solid #cbcbcb; box-sizing: border-box;   width: 49%; margin-right: 2%; display: inline-block; font-size: .34rem; }
 .pay_content .pay_list li:nth-child(even){margin-right: 0;}
-.pay_content .pay_list li a { display: block; line-height: 3em; text-align: left; color: #4b280c;}
+.pay_content .pay_list li a { display: block; line-height: 3em; text-align: left; color: #52acd3;}
 .pay_content .pay_list li a img { width: .5rem; margin-right: 0.1rem; vertical-align: middle; display: inline-block; }
 
 
@@ -842,15 +843,15 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /*.withdrawals_area{ padding: 0 0.3rem;}*/
 .print_data { overflow: hidden;  }
 .print_data table {  }
-.print_data table tr { border-bottom: 1px solid #dadada; padding: .3rem; display: block; }
+.print_data table tr { border-bottom: 1px solid #dadada; padding: .3rem 0; display: block; }
 /*.print_data table tr:last-child { border-bottom: none; }*/
 .print_data table tr th { text-align: left; width: 1.5rem; font-weight: normal; color: #999; }
 .print_data table tr th li { list-style: none; margin-left: .5em; position: relative; width: 1.5rem; font-size: .35rem;  }
-.print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all; line-height: 2em; width: 11rem; font-size: .35rem; }
+.print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all;  width: 11rem; font-size: .35rem; }
 .print_data table tr td.text-yellow { color: #ffbd00; }
 .print_data table tr:last-child { border-bottom: none;}
 
-.print_data .copy_link { color: #d59559; text-align: center; display: inline-block; border: 1px solid #90573e; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.1rem; font-size: .34rem; vertical-align: middle; }
+.print_data .copy_link { color: #52acd3; text-align: center; display: inline-block; border: 1px solid #90573e; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.1rem; font-size: .34rem; vertical-align: middle; }
 
 .bank_transfer { border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 
@@ -859,8 +860,8 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .bank_transfer input[type=date]::-webkit-calendar-picker-indicator { opacity: 0; }
 
 .bank_account { font-size: .34rem; position: relative; margin-top: 0.5rem; }
-.bank_account h5 { text-align: left;  margin-left: .2rem;color: #ffc388; }
-.bank_account .mini_tip { position: absolute; top: 0; right: 0; color: #d59559; }
+.bank_account h5 { text-align: left;  margin-left: .2rem;color: #999; }
+.bank_account .mini_tip { position: absolute; top: 0; right: 0; color: #52acd3; }
 
 /* -----------------------------------------
 // 个人中心
@@ -869,28 +870,27 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_area { width: 100%; }
 .info_area .page_box { padding-top: 0; }
 .info_area .new_panel_top { border-bottom: 1px solid #dadada;}
-.info_top { height: 3.3rem; position: relative; margin: 0 auto; background-color: #52acd3; color: #fff; }
+.info_top { height:2.5rem; position: relative; margin: 0 auto; background: url('/static/frist/images/pic_user.svg') no-repeat 2rem center; background-color: #52acd3; color: #fff; }
 .info_top .header { width: auto; }
-.info_top .account { width: 4rem; margin: 0 1rem 0 5rem; padding-top: 0.7rem; position: relative; height: 2rem; }
+.info_top .account { width: 4rem; margin: 0 1rem 0 4rem; padding-top: 0.3rem; position: relative; height: 2rem; }
 .info_top .account > a { display: block; color: #fff; }
 
 .info_top .account .user_name { position:absolute; text-align: left; line-height: 1.8em; float: left; margin-top: .2rem; }
 .info_top .account .user_name  strong {  font-size: .4rem; }
 .info_top .account .user_name .purse{ margin-top: 0.2rem;  text-align: left; white-space: nowrap; width: auto;}
-.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block;  font-size: 0.4rem;margin-left: .7rem; color: #52acd3;}
+.info_top .account .user_name .purse .so-in-top-sum{ display: inline-block;  font-size: 0.4rem; color: #52acd3;}
 
+/*个人资讯左边的显示图片*/
+/*.portrait { height: auto; position: relative; }
+.portrait .user_portrait { background-size: 100%; width: 1.5rem; height: 1.5rem; margin: 0 auto; }*/
 
-.portrait { height: auto; position: relative; }
-
-.portrait .user_portrait { background-size: 100%; width: 1.5rem; height: 1.5rem; margin: 0 auto; }
-
-.user_data { color: #fff; }
+/*.user_data { color: #fff; }
 
 .user_data table tr { display: block; padding: 5px 0; }
 
 .user_data table tr th li { margin-right: 10px; min-width: 80px; }
 
-.user_data table tr td { word-break: break-all; }
+.user_data table tr td { word-break: break-all; }*/
 
 /* 帐户管理 */
 .info_account{ margin-bottom: 0.3rem;}
@@ -924,24 +924,20 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /* 个人消息 */
 .message_area{ text-align: left;}
-.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .3rem; text-align: left; border-bottom: 1px solid #7e5c4c;color: #ffc388; }
-.message_area .item a{ color: #d59559; }
+.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .3rem; text-align: left; border-bottom: 1px solid #dadada;color: #52acd3; }
+.message_area .item a{ color: #52acd3; }
 .message_area .item .badge{ display: inline-block; }
 .message_area .item .icon { float: left; }
 .message_area .item .content {display: inline-block; vertical-align: middle; width: 6rem; height: 1.5rem; font-size: .35rem; }
 .message_area .item .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
-.message_area .item.read { color: #d59559; opacity: 0.7; }
+.message_area .item.read { color: #52acd3; opacity: 0.7; }
 /*.message_area .item.read i.i_mail_status { background: url("/static/frist/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -4.65rem; margin-top: .12rem; }*/
-.message_area .item.read a { color: #d59559; }
+.message_area .item.read a { color: #52acd3; }
 
 
-.password_area { padding: 0.3rem; background-color: #6f3a23; box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.8);}
+.password_area { padding: 0.3rem; background-color: #fff; box-shadow: 0px 0px 0.3rem rgba(0, 0, 0, 0.8);}
 .password_area > div {  text-align: center; }
 .password_area > div > div { display: inline-block; }
-
-.ac_detial .ac_data > a:after { background-image: url("/static/frist/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.65rem; }
-
-/*.ac_detial .ac_data .lottery_t { margin-top: .1rem; }*/
 
 
 /* 帐户明细 状态标签 */
@@ -949,6 +945,9 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .sta.sta01 { border: 1px solid #71c341; color: #71c341; } /* 成功 */
 .sta.sta02 { border: 1px solid #8b8b8b; color: #8b8b8b; } /* 未处理 */
 .sta.sta03 { border: 1px solid #c83e3e; color: #c83e3e; } /* 失败 */
+
+
+/* 未分类 */
 
 .qrcode_step { width: 80%; margin: 0 auto; margin-top: 2rem; }
 
