@@ -16,7 +16,7 @@
                         <div class="form_g account">
                             <legend></legend>
                             <input type="text" v-model="refereeNum"  placeholder="请输入推荐人帐号">
-                            <i class="close cs1" @click=" ClearInput('cs1','reNum')"></i>
+                            <i class="icon icon_close cs1" @click=" ClearInput('cs1','reNum')"></i>
                         </div>
                         <!-- <label class="red">请输入4~15位帐号</label> -->
                     </fieldset>
@@ -33,7 +33,7 @@
                         <div class="form_g account">
                             <legend></legend>
                             <input type="text" v-model="userNumber" placeholder="请输入帐号">
-                            <i class="close cs2" @click=" ClearInput('cs2','userNum')"></i>
+                            <i class="icon icon_close cs2" @click=" ClearInput('cs2','userNum')"></i>
                         </div>
                          <label class="red"></label>
                     </fieldset>
@@ -41,7 +41,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="password" v-model="userPd" placeholder="请输入密码">
-                            <i class="eye active eye1" @click="show('eye1')"></i>
+                            <i class="icon icon_eye active eye1" @click="show('eye1')"></i>
                         </div>
                          <label class="red"></label>
                     </fieldset>
@@ -49,7 +49,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="text" v-model="userPd" placeholder="请输入密码">
-                            <i class="eye " @click="show('act')"></i>
+                            <i class="icon icon_eye " @click="show('act')"></i>
                         </div>
                          <label class="red"></label>
                     </fieldset>

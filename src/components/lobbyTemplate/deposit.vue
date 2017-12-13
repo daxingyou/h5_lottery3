@@ -23,7 +23,7 @@
                                             <div class="form_g text money">
                                                 <legend>充值金额</legend>
                                                 <input type="tel" placeholder="请输入充值金额" v-model="paymount">
-                                                <i class="close" @click="clearMoney()"></i>
+                                                <i class="icon icon_close" @click="clearMoney()"></i>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -121,7 +121,7 @@
                                             <div class="form_g text money">
                                                 <legend>充值金额</legend>
                                                 <input type="tel" placeholder=" " v-model="paymount" readonly>
-                                            <!--  <i class="close"></i>-->
+                                            <!--  <i class="icon icon_close"></i>-->
                                             </div>
                                         </fieldset>
                                     </form>
@@ -148,7 +148,7 @@
                                                 <!--<div class="form_g text money">-->
                                                     <!--<legend>充值金额</legend>-->
                                                     <!--<input type="tel" placeholder=" " v-model="paymount" readonly>-->
-                                                    <!--&lt;!&ndash;  <i class="close"></i>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;  <i class="icon icon_close"></i>&ndash;&gt;-->
                                                 <!--</div>-->
                                             <!--</fieldset>-->
                                         <!--</form>-->
@@ -192,7 +192,7 @@
                                                 <div class="form_g text money">
                                                     <legend>充值金额</legend>
                                                     <input type="tel" placeholder=" " v-model="paymount" readonly>
-                                                    <!--  <i class="close"></i>-->
+                                                    <!--  <i class="icon icon_close"></i>-->
                                                 </div>
                                             </fieldset>
                                         </form>

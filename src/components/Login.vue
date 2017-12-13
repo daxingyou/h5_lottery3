@@ -15,7 +15,7 @@
                         <div class="form_g account">
                             <legend>帐号</legend>
                             <input type="text" placeholder="请输入帐号" v-model="username" autocomplete="off" class="user-name" @input="checkUserName(username,'user-name')" >
-                            <i class="close close1" @click="ClearInput('close1','user-name')"></i>
+                            <i class="icon icon_close close1" @click="ClearInput('close1','user-name')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -23,7 +23,7 @@
                         <div class="form_g password">
                             <legend>密码</legend>
                             <input type="text" placeholder="请输入密码" v-model="password" onfocus="this.type='password'" autocomplete="off" class="pass-word"  @input="checkpassword(password,'pass-word')">
-                            <i class="close close2" @click="ClearInput('close2','pass-word')"></i>
+                            <i class="icon icon_close close2" @click="ClearInput('close2','pass-word')"></i>
                         </div>
                         <label class="error-message"> </label>
                     </fieldset>
