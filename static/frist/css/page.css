@@ -69,9 +69,9 @@ input, select, button, a { outline: none; }
 .new_btn_outline { color: #fff;  border: 1px solid #fff; border-radius: 0.5rem; display: inline-block; font-size: .34rem; padding: 0 0.2rem; line-height: 0.7rem; }
 
 /* panel */
-.new_panel{ border: 1px solid #dadada; overflow: hidden;  background-color: #fff;}
+.new_panel{ /*border: 1px solid #dadada;*/ border-radius: 0.1rem; overflow: hidden;  background-color: #fff;}
 .new_panel .new_panel_top{ color: #52acd3 ;}
-.new_panel .new_panel_center{ padding: 0.3rem;  }
+.new_panel .new_panel_center{ padding:0 0.3rem;  }
 /*.new_panel .new_panel_top ~ .new_panel_center{border-top: 1px solid #dadada; }*/
 .new_panel .new_panel_tip{ margin-top: 0.2rem; color: #999; text-align: left;}
 
@@ -183,7 +183,7 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 .slide_toggle { text-align: left; margin-bottom: 0.2rem;  cursor: pointer; font-size: 0.34rem; }
 .slide_toggle .panel_title { padding: 0 0.3rem; font-size: .4rem; line-height: 0.9rem; height: 0.9rem; }
 .slide_toggle .panel_title span { background-image: url(/static/frist/images/icon_sprite.svg); background-size: 6.4rem auto; background-position: -5.76rem 0; margin-top: 0.1rem; width: 0.64rem; height: 0.64rem; -webkit-transition: all .2s; -o-transition: all .2s; transition: all .2s; float: right; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); }
-.slide_toggle .panel { display: none; color: #999; border-top: 1px solid #dadada; }
+.slide_toggle .panel { display: none; color: #999; border-top: 1px solid #eee; }
 .slide_toggle.active span{ -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); }
 
 
@@ -535,8 +535,8 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .bet_data > a > .item { padding: .3rem 0; overflow: hidden; /*width: 9rem;*/ box-sizing: border-box;}
 .bet_data > a > .item > div { display: inline-block; vertical-align: middle; line-height: .6rem; }
 .bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; }
-.bet_data > a > .item > .badge {  border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }
-.bet_data > a > .item > .badge > img { width: 1.5rem; }
+/*.bet_data > a > .item > .badge {  border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }*/
+.bet_data > a > .item img { width: 1.5rem; margin-right: 0.2rem; }
 .bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; }
 .bet_data .prd_num { color: #999; margin-right: 0.2rem;}
 .bet_data .status { min-width: 15%; width: 1.8rem; text-align: center; color: #999; }
@@ -573,7 +573,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 /* 列表 */
 .past_view { margin:0 0 .3rem 0;  }
-.past_view .new_panel_center{ border-top: 1px solid #dadada;}
+.past_view .new_panel_center{ border-top: 1px solid #eee;}
 
 .play_th { overflow: hidden; overflow: hidden; text-align: left; box-sizing: border-box;}
 .play_th .prd_num {  float: left; padding-left: 0.3rem; width: 3rem; white-space:nowrap;}
@@ -754,7 +754,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 #pa_con.page_login{  overflow: hidden; min-height: 17.79rem; background:url('/static/frist/images/login_bg.jpg') #132938 top no-repeat; background-size: 100%;  }
 .login_area { border-radius: 0.1rem; border:none;}
 .page_login .login_area{ margin: 0.3rem; margin-top: 4rem; padding: 0.2rem 0; }
-.login_area .new_panel_center{ padding: 0 0.3rem;}
+/*.login_area .new_panel_center{ padding: 0 0.3rem;}*/
 .other_link { font-size: .35rem; margin: 0.2rem; }
 .other_link > a {  margin: .2rem; display: inline-block; border-left: 1px solid #dadada; padding-left: .5rem; }
 .other_link > a:first-child { border-left: none; padding-left: 0; }
@@ -795,9 +795,9 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 -----------------------------------------*/
 
 .arrow_list_dark .badge{ background-color: #52acd3; border-radius: 50%;width: 1.2rem;height: 1.2rem; margin-right: 0.2rem; }
-.arrow_list_dark .icon{ float: right; margin-top: 0.45rem;}
+.arrow_list_dark .icon{ position: absolute; top: 50%; right: 0; margin-top: -0.32rem;}
 
-/*.deposit_area { padding: 0 0.3rem; }*/
+.deposit_area { padding-bottom: 0.3rem; }
 .pay_content {  }
 .pay_content .step03 { color: #999; margin: 0 auto; text-align: left;}
 
@@ -840,18 +840,18 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /* -----------------------------------------
 // 提现
 -----------------------------------------*/
-/*.withdrawals_area{ padding: 0 0.3rem;}*/
+.withdrawals_area{ padding-bottom: 0.3rem;}
 .print_data { overflow: hidden;  }
 .print_data table {  }
 .print_data table tr { border-bottom: 1px solid #dadada; padding: .2rem 0; display: block; }
 /*.print_data table tr:last-child { border-bottom: none; }*/
 .print_data table tr th { text-align: left; width: 1.5rem; font-weight: normal; color: #999; vertical-align: top; }
 .print_data table tr th li { list-style: none; margin-left: .5em; position: relative; width: 1.5rem; font-size: .35rem; line-height: 0.9rem; }
-.print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all;  width: 11rem; font-size: .35rem; vertical-align: top; }
+.print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all;  width: 11rem; font-size: .35rem; vertical-align: top; line-height: 0.9rem;}
 .print_data table tr td.text-yellow { color: #ffbd00; }
 .print_data table tr:last-child { border-bottom: none;}
 
-.print_data .copy_link { color: #52acd3; text-align: center; display: inline-block; border: 1px solid #90573e; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.1rem; font-size: .34rem; vertical-align: middle; }
+.print_data .copy_link { color: #52acd3; text-align: center; display: inline-block; border: 1px solid #cbcbcb; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.05rem; font-size: .34rem; vertical-align: middle; }
 
 .bank_transfer { border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 
@@ -859,8 +859,8 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 .bank_transfer input[type=date]::-webkit-calendar-picker-indicator { opacity: 0; }
 
-.bank_account { font-size: .34rem; position: relative; margin-top: 0.5rem; }
-.bank_account h5 { text-align: left;  margin-left: .2rem;color: #999; }
+.bank_account { font-size: .34rem; position: relative; }
+.bank_account h5 { text-align: left;  margin-left: .1rem;color: #52acd3; }
 .bank_account .mini_tip { position: absolute; top: 0; right: 0; color: #52acd3; }
 
 /* -----------------------------------------
@@ -871,7 +871,6 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_area .page_box { padding-top: 0; }
 .info_area .new_panel{ border-radius: 0.1rem; border:0; }
 .info_area .new_panel_top { border-bottom: 1px solid #eee;}
-.new_panel .new_panel_center.print_data{ padding-top: 0px; padding-bottom: 0;}
 .info_top { height:2.45rem; position: relative; margin: 0 auto; background: url('/static/frist/images/info_topbg.jpg') no-repeat 0 0; background-size: 100%; background-color: #52acd3; color: #fff; }
 .info_top .header { width: auto; }
 .info_top .account { width: 4rem; margin: 0 1rem 0 4rem; padding-top: 0.3rem; position: relative; height: 2rem; }
@@ -926,10 +925,10 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /* 个人消息 */
 .message_area{ text-align: left;}
-.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .3rem; text-align: left; border-bottom: 1px solid #dadada;color: #52acd3; }
+.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .3rem 0; text-align: left; border-bottom: 1px solid #dadada;color: #52acd3; }
 .message_area .item a{ color: #52acd3; }
 .message_area .item .badge{ display: inline-block; }
-.message_area .item .icon { float: left; }
+/*.message_area .item .icon { float: left; }*/
 .message_area .item .content {display: inline-block; vertical-align: middle; width: 6rem; height: 1.5rem; font-size: .35rem; }
 .message_area .item .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
 .message_area .item.read { color: #52acd3; opacity: 0.7; }

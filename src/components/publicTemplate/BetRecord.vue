@@ -30,7 +30,7 @@
 
                     </ul>
                     <div>
-                        <div class="btn_outline"><a class="new_btn" href="javascript:;"><span>取消</span></a></div>
+                        <div class="btn_outline"><a class="new_btn cancel" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_submit"><a class="new_btn ok" href="javascript:;"><span>确定</span></a></div>
                     </div>
                 </div>
@@ -607,7 +607,7 @@
                                 '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                 // '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                 '<div class="item"> ' +
-                                '<div class="badge ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
+                                '<div class="ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 //  '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                 '<p>'+ v.orderId +'</p>'+

@@ -182,7 +182,7 @@
                         </fieldset>
                     </form>
                     <div>
-                        <div class="cancel-btn btn_outlineb"><a class="new_btn" href="javascript:;"><span>取消</span></a></div>
+                        <div class="cancel-btn btn_outlineb"><a class="new_btn cancel" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_blue02"><a class="new_btn ok" href="javascript:;"@click="submitChangePassword()" ><span>确定</span></a></div>
                     </div>
                 </div>
@@ -443,7 +443,7 @@
                         <!--</fieldset>-->
                     <!--</form>-->
                     <div>
-                        <div class="btn_outline cancel-btn"><a class="new_btn" href="javascript:;"><span>取消</span></a></div>
+                        <div class="btn_outline cancel-btn"><a class="new_btn cancel" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_blue02"><a class="new_btn ok" href="javascript:;"@click="submitChangePayWord()"><span>确定</span></a></div>
                     </div>
                 </div>

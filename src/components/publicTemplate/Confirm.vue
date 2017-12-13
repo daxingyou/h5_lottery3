@@ -8,7 +8,7 @@
                 </div>游客不能访问该功能，是否注册会员？
             </div>
             <div class="action">
-                <a class="new_btn" href="javascript:;" @click="close()"><span>取消</span></a><a class="new_btn ok" href="javascript:;"  @click="goReg()"><span>确定</span></a>
+                <a class="new_btn cancel" href="javascript:;" @click="close()"><span>取消</span></a><a class="new_btn ok" href="javascript:;"  @click="goReg()"><span>确定</span></a>
             </div>
         </div>
     </div>
