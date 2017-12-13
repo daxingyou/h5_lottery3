@@ -311,7 +311,7 @@ export default {
            $.ajax({
                type: 'post',
                headers: {Authorization: 'Basic d2ViX2FwcDo='},
-               url: _self.action.uaa + 'apis/member/testLogin',
+               url: _self.action.uaa + 'apid/member/testLogin',
                data:{},
                success:(res)=>{
                    if(res.err == 'SUCCESS'){ // 登录成功
