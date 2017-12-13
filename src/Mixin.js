@@ -791,8 +791,11 @@ var MyMixin = {
                 data: senddata ,
                 success: function(res){
                     if(res.err=="SUCCESS"){
-                        _self.copyTitle=res.data[0].title;
-                        _self.copyContent=res.data[0].content;
+                        if(res.data[0].title){
+                            _self.copyTitle=res.data[0].title;
+                            _self.copyContent=res.data[0].content;
+                        }
+
                     }
 
                 },
