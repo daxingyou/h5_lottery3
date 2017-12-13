@@ -7,7 +7,7 @@ ol, ul { list-style: none; }
 li { position: relative; }
 a { color: #52acd3; text-decoration: none; cursor: pointer; }
 a:hover, a:focus, a:active {  text-decoration: none;}
-html { -webkit-text-size-adjust: none;  background-color: #ededed;}
+html { -webkit-text-size-adjust: none;  background-color: #333;}
 body { width: 100%; font-family: 'Microsoft YaHei', Helvetica,sans-serif; font-size: .37rem; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; color: #2b2b2b; }
 input, select, option { font-family: 'Microsoft YaHei', Helvetica,sans-serif; }
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
@@ -112,7 +112,7 @@ input, select, button, a { outline: none; }
 
 
 /* content */
-#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; /*min-height: 18rem;*/ ;-webkit-overflow-scrolling: touch; }
+#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; min-height: 18rem; -webkit-overflow-scrolling: touch; background-color: #ededed; }
 #pa_content, .pa_content { margin-top: 1.36rem;padding-bottom: 1.36rem; position: relative; z-index: 2; }
 #pa_content .page_box, .pa_content .page_box{ padding: 0.3rem;}
 .so-con { font-size: 0.34rem; width: 10rem; height: 100%; text-align: center; margin: auto; }
