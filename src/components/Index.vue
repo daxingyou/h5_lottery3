@@ -126,8 +126,7 @@
                               <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
                           </div>
                       </a>
-                    <h2>{{lottery.name}}</h2>
-                    <p>总期数{{lottery.periodCount}}期</p>
+                    <p>{{lottery.name}}</p>
 
                   </li>
                     <!--20171116 新增選單-->
@@ -138,8 +137,7 @@
                                 <img src="/static/frist/images/lotteryicon/logo_more.png" lazy="loaded">
                             </div>
                         </a>
-                        <h2>更多游戏</h2>
-                        <p>更多彩种可玩</p>
+                        <p>更多游戏</p>
                     </li>
                     <li >
                         <a href="javascript:;" @click="Continued()">
@@ -148,8 +146,7 @@
                                 <img src="/static/frist/images/lotteryicon/logo_app.png" lazy="loaded">
                             </div>
                         </a>
-                        <h2>APP下载</h2>
-                        <p>更多彩种可玩</p>
+                        <p>APP下载</p>
                     </li>
                     <!--end 20171116 新增選單-->
               </ul>

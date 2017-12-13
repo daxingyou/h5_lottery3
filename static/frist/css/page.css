@@ -7,7 +7,7 @@ ol, ul { list-style: none; }
 li { position: relative; }
 a { color: #52acd3; text-decoration: none; cursor: pointer; }
 a:hover, a:focus, a:active {  text-decoration: none;}
-html { -webkit-text-size-adjust: none;  background-color: #ededed;}
+html { -webkit-text-size-adjust: none;  background-color: #333;}
 body { width: 100%; font-family: 'Microsoft YaHei', Helvetica,sans-serif; font-size: .37rem; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; color: #2b2b2b; }
 input, select, option { font-family: 'Microsoft YaHei', Helvetica,sans-serif; }
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
@@ -112,7 +112,7 @@ input, select, button, a { outline: none; }
 
 
 /* content */
-#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; /*min-height: 18rem;*/ ;-webkit-overflow-scrolling: touch; }
+#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; min-height: 18rem; -webkit-overflow-scrolling: touch; background-color: #ededed; }
 #pa_content, .pa_content { margin-top: 1.36rem;padding-bottom: 1.36rem; position: relative; z-index: 2; }
 #pa_content .page_box, .pa_content .page_box{ padding: 0.3rem;}
 .so-con { font-size: 0.34rem; width: 10rem; height: 100%; text-align: center; margin: auto; }
@@ -314,7 +314,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 i.close { width: .57rem; display: block; position: relative; height: 1rem; right: 0; left: .2rem; }
 i.close:after { content: ''; display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: 0; top: .15rem; cursor: pointer; }
-i.eye { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -4.48rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .3rem; top: 0.2rem; cursor: pointer; }
+i.eye { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -4.48rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .22rem; top: 0.2rem; cursor: pointer; }
 i.eye.active {  background-position: -3.84rem -1.92rem; }
 
 
@@ -706,9 +706,8 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 热门游戏 */
 .hotgame_area { background-color: #fff; margin-bottom: 1.4rem;}
 .hotgame_area ul { padding:0rem; width: 100%; font-size: 0; }
-.hotgame_area ul > li {  display: inline-block; font-size: .32rem; text-align: center; padding: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 29%; border-bottom: 1px solid #dadada;  }
-.hotgame_area ul > li > h2 { color: #161616; font-size: 0.4rem; }
-.hotgame_area ul > li > p { color: #999; }
+.hotgame_area ul > li {  display: inline-block; font-size: .32rem; text-align: center; padding: 0.2rem .15rem; min-height: 2rem; height: auto; padding-bottom: .2rem; width: 29%; border-bottom: 1px solid #dadada;  }
+.hotgame_area ul > li > p { color: #161616; font-size: 0.38rem; }
 .hotgame_area ul > li:focus, .hotgame_area ul > li.active { }
 .hotgame_area .badge { background: none; width: 2.8rem; }
 .hotgame_area .badge > img { height: 1.4rem;  }
