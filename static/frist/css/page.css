@@ -25,11 +25,11 @@ input, select, button, a { outline: none; }
   position: absolute;
   left: 50%;
   top: 1.4rem;
-  width: 4rem;
-  height: 2rem;
-  margin-left: -2rem;
+  width: 5rem;
+  height: 1.36rem;
+  margin-left: -2.5rem;
   background: url(/static/frist/images/login_logo.png) no-repeat center center;
-  background-size: contain;
+  background-size: 100%;
 }
 
 /* -----------------------------------------
@@ -88,7 +88,7 @@ input, select, button, a { outline: none; }
 
 .new_header .center { text-align: center;  width: calc(100% - 3rem); color: #fff; font-size: 0.44rem; font-weight: bold; float: left; }
 .new_header .center.logo { width: auto; padding-left: 1.36rem;  }
-.new_header .center.logo img { height:1.36rem;  }
+.new_header .center.logo img { height:1.36rem; display: block; }
 .new_header .center.logo_left { padding-left: 0.5rem; }
 .new_header .center.lottery_name,.new_header .center.title_name { width: calc(100% - 3.2rem); line-height: 1.36rem; position: absolute; top:0; left:50%;  margin-left: calc(-50% + 1.6rem); }
 
@@ -101,6 +101,7 @@ input, select, button, a { outline: none; }
 .new_header .right > .so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
 .new_header .right > a, .new_header .right > span{color: #fff; margin-top: .32rem; font-size: .34rem; vertical-align: middle; margin-left: 0.1rem; line-height: 0.7rem;display:inline-block;}
 .new_header .right .dropdown_icon { font-size: .34rem; padding: 0 0.2rem; color: #fff; line-height: 1.36rem; cursor: pointer; }
+.new_header .right .icon_user{ margin-right: 0.1rem;}
 
 /* 投注页 header */
 .new_header ul > li { position: absolute; top: 0; }
@@ -285,37 +286,40 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon.icon_arrow_down{background-position: 0 -1.92rem }
 .icon.icon_filter{background-position: -1.28rem -1.92rem }
 .icon.icon_check{background-position: -0.64rem -1.92rem }
+.icon.icon_close{ background-position: -3.2rem -1.92rem;}
+.icon.icon_eye{ background-position: -4.48rem -1.92rem;}
+.icon.icon_eye.active{background-position: -3.84rem -1.92rem;}
 
-.icon_account  { display: inline-block; vertical-align: middle; width: 1.5rem; height: 1.5rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 7.5rem auto; }
+.icon_account  { display: inline-block; vertical-align: middle; width: 1.2rem; height: 1.2rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 6rem auto; }
 .icon_account.icon_deposit { background-position-x: 0rem; }
-.icon_account.icon_withdrawals { background-position-x: -1.5rem; }
-.icon_account.icon_promo { background-position-x: -3rem; }
-.icon_account.icon_service { background-position-x: -4.5rem; }
-.icon_account.icon_info_1 { background-position: 0rem -1.5rem; }
-.icon_account.icon_info_2 { background-position: -1.5rem -1.5rem; }
-.icon_account.icon_info_3 { background-position: -3rem -1.5rem; }
-.icon_account.icon_info_4 { background-position: -4.5rem -1.5rem; }
-.icon_account.icon_join_1 { background-position: 0rem -3rem; }
-.icon_account.icon_join_2 { background-position: -1.5rem -3rem; }
-.icon_account.icon_join_3 { background-position: -3rem -3rem; }
-.icon_account.icon_deposit_1 { background-position: 0rem -4.5rem; }
-.icon_account.icon_deposit_2 { background-position: -1.5rem -4.5rem; }
-.icon_account.icon_deposit_3 { background-position: -3rem -4.5rem; }
-.icon_account.icon_deposit_net1 { background-position: -4.5rem -3rem;	} /* 微信 */
-.icon_account.icon_deposit_net2 { background-position: -4.5rem -4.5rem;	} /* 支付宝 */
-.icon_account.icon_deposit_net3 { background-position: -3rem -6rem;	} /* QQ */
-.icon_account.icon_deposit_net4 { background-position: -4.5rem -6rem;	} /* 京东钱包 */
-.icon_account.icon_deposit_net8 { background-position: -6rem -4.5rem;	} /* 银联 */
-.icon_account.icon_notice_1 { background-position: 0rem -6rem; } /* 个人消息(未读) */
-.icon_account.icon_notice_2 { background-position: -1.5rem -6rem; } /* 个人消息(已读) */
-.icon_account.icon_ac01 { background-position: 0rem -7.5rem; }
-.icon_account.icon_ac02 { background-position: -1.5rem -7.5rem; }
-.icon_account.icon_ac03 { background-position: -3rem -7.5rem; }
+.icon_account.icon_withdrawals { background-position-x: -1.2rem; }
+.icon_account.icon_promo { background-position-x: -2.4rem; }
+.icon_account.icon_service { background-position-x: -3.6rem; }
+.icon_account.icon_info_1 { background-position: 0rem -1.2rem; }
+.icon_account.icon_info_2 { background-position: -1.2rem -1.2rem; }
+.icon_account.icon_info_3 { background-position: -2.4rem -1.2rem; }
+.icon_account.icon_info_4 { background-position: -3.6rem -1.2rem; }
+.icon_account.icon_join_1 { background-position: 0rem -2.4rem; }
+.icon_account.icon_join_2 { background-position: -1.2rem -2.4rem; }
+.icon_account.icon_join_3 { background-position: -2.4rem -2.4rem; }
+.icon_account.icon_deposit_1 { background-position: 0rem -3.6rem; }
+.icon_account.icon_deposit_2 { background-position: -1.2rem -3.6rem; }
+.icon_account.icon_deposit_3 { background-position: -2.4rem -3.6rem; }
+.icon_account.icon_deposit_net1 { background-position: -3.6rem -2.4rem;	} /* 微信 */
+.icon_account.icon_deposit_net2 { background-position: -3.6rem -3.6rem;	} /* 支付宝 */
+.icon_account.icon_deposit_net3 { background-position: -2.4rem -4.8rem;	} /* QQ */
+.icon_account.icon_deposit_net4 { background-position: -3.6rem -4.8rem;	} /* 京东钱包 */
+.icon_account.icon_deposit_net8 { background-position: -4.8rem -3.6rem;	} /* 银联 */
+.icon_account.icon_notice_1 { background-position: 0rem -4.8rem; } /* 个人消息(未读) */
+.icon_account.icon_notice_2 { background-position: -1.2rem -4.8rem; } /* 个人消息(已读) */
+.icon_account.icon_ac01 { background-position: 0rem -6rem; }
+.icon_account.icon_ac02 { background-position: -1.2rem -6rem; }
+.icon_account.icon_ac03 { background-position: -2.4rem -6rem; }
 
 
-i.close { width: .57rem; display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: 0.3rem;  top: .15rem;cursor: pointer;}
+/*i.close { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -3.2rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: 0.3rem;  top: .15rem;cursor: pointer;}
 i.eye { display: block; background: url("/static/frist/images/icon_sprite.svg") no-repeat -4.48rem -1.92rem; background-size: 6.4rem auto; width: .64rem; height: .64rem; position: absolute; right: .3rem; top: 0.15rem; cursor: pointer; }
-i.eye.active {  background-position: -3.84rem -1.92rem; }
+i.eye.active {  background-position: -3.84rem -1.92rem; }*/
 
 
 /* -----------------------------------------
@@ -698,7 +702,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 快速连结 */
 .account_area { padding: 0.3rem ; background-color: #fff; margin-bottom: 0.2rem; }
 .account_area ul a { display: block; margin: 0px auto; color:#2b2b2b; }
-.account_area ul a .icon_account{ margin: -0.2rem;}
 .account_area ul li { width: 25%; float: left; }
 /*.account_area ul li p { margin-top: 0.1rem; }*/
 .account_area ul:after { content: ''; display: table; clear: both; }
@@ -793,7 +796,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 // 充值
 -----------------------------------------*/
 
-.arrow_list_dark .badge{ background-color: #52acd3; border-radius: 50%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
+.arrow_list_dark .badge{ background-color: #52acd3; border-radius: 50%;width: 1.2rem;height: 1.2rem; margin-right: 0.2rem; }
 .arrow_list_dark .icon{ float: right; margin-top: 0.45rem;}
 
 /*.deposit_area { padding: 0 0.3rem; }*/
@@ -834,7 +837,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 .pay_way > ul > li > a > div.icon { display: inline-block; margin: 0 1em 0 2.2em; float: left; }
 
-.pay_way > ul > li > a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; font-size: 0.35rem; }
+.pay_way > ul > li > a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.2rem; float: left; font-size: 0.35rem; }
 
 /* -----------------------------------------
 // 提现
