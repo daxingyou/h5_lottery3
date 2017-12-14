@@ -106,7 +106,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .info_top .account >a{
          height:100%;
     }

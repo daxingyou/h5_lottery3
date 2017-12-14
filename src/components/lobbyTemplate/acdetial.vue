@@ -188,6 +188,6 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
     .bet_day.active .panel { display: block;  }
 </style>

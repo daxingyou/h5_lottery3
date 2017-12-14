@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .modal{
         display: block;
         z-index: 1000;

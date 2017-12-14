@@ -646,7 +646,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .swiper-container {
             height: 100%;
         }
