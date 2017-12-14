@@ -11,8 +11,7 @@
               <img src="/static/frist/images/left/user.png">
           </div>-->
            <div>
-               <span class="icon icon_user"></span>
-              <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
+              <p class="user_name" v-if="haslogin"><span class="icon icon_user"></span>{{getCookie('username')}}</p>
               <!--<div class="purse"  v-if="haslogin">
                   <span class="icon icon_money"></span>
                   <div class="so-in-top-sum" >
