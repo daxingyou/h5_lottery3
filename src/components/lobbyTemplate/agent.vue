@@ -168,7 +168,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>真实姓名</legend>
-                                                    <input type="text" placeholder="请输入您的真实姓名" v-model="relName" >
+                                                    <input type="text" placeholder="请输入您的真实姓名" v-model="relName" class="relName"  @input="checkrealyName(relName,'relName')">
                                                     <i class="icon icon_close cs3"  @click="ClearInput('cs3','relName')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -176,7 +176,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>银行卡号</legend>
-                                                    <input type="tel" placeholder="请输入取款银行卡号"  v-model="bankNum" >
+                                                    <input type="tel" placeholder="请输入取款银行卡号"  v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
                                                     <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -194,7 +194,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>开户行地址</legend>
-                                                    <input type="text" placeholder="如:北京市海淀区中关村支行" v-model="bankAdd">
+                                                    <input type="text" placeholder="如:北京市海淀区中关村支行" v-model="bankAdd"  class="bankAdd" @input="checkBankAdd(bankAdd,'bankAdd')">
                                                     <i class="icon icon_close cs5" @click="ClearInput('cs5','bankAdd')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -202,7 +202,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>手机号</legend>
-                                                    <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber">
+                                                    <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber" class="telephone"  @input="checktelphone(phoneNumber,'telephone')" maxlength="11">
                                                     <i class="icon icon_close cs6" @click="ClearInput('cs6','phoneNumber')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
