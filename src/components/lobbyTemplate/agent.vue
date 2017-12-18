@@ -202,7 +202,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>手机号</legend>
-                                                    <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber" class="telephone"  @input="checktelphone(phoneNumber,'telephone')" maxlength="11">
+                                                    <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber" class="telephone"  @input="checktelphone(phoneNumber,'telephone')"  maxlength="11">
                                                     <i class="icon icon_close cs6" @click="ClearInput('cs6','phoneNumber')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
