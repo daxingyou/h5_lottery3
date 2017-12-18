@@ -208,6 +208,30 @@
                                                 <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
+                                                <div class="form_g account">
+                                                    <legend>电子邮箱</legend>
+                                                    <input type="tel" placeholder="请输入电子邮箱" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                </div>
+                                                <label class="error-message"></label>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form_g account">
+                                                    <legend>QQ</legend>
+                                                    <input type="tel" placeholder="请输入QQ号" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                </div>
+                                                <label class="error-message"></label>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="form_g account">
+                                                    <legend>微信</legend>
+                                                    <input type="tel" placeholder="请输入微信号" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                </div>
+                                                <label class="error-message"></label>
+                                            </fieldset>
+                                            <fieldset>
                                                 <div class="form_g password">
                                                     <legend>验证码</legend>
                                                     <input type="text" v-model="identifyCode" class="identifyCode" placeholder="请输入验证码" maxlength="4">
