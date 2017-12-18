@@ -693,6 +693,17 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
+        //验证确认密码
+        checkIsEqual:function (el) {
+            if(this.confirmpassword == this.userPd){
+                $(el).parent('.form_g').next('.error-message').removeClass('red').text('');
+                return
+            }else if((this.confirmpassword && !this.positiveEngNum(this.confirmpassword) ) || this.confirmpassword.length<6 || this.confirmpassword.length>20){
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('请输入6~20位英数密码') ;
+            }else{
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('两次密码输入不一致') ;
+            }
+        },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
         checkrealyName:function (val,el) {
             var content = '请输入真实姓名' ;

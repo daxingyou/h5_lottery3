@@ -128,7 +128,7 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>帐号</legend>
-                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号" class="username" @input="checkUserName(userNumber,'username')">
+                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号"  autocomplete="off" class="username" @input="checkUserName(userNumber,'username')">
                                                     <i class="icon icon_close" @click=" ClearInput('cs2','userNum')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -136,7 +136,7 @@
                                             <fieldset v-if="showPd">
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
-                                                    <input type="password" v-model="userPd" placeholder="请输入6~20位密码">
+                                                    <input type="password" v-model="userPd" placeholder="请输入6~20位密码"  autocomplete="off" class="password" @input="checkpassword(userPd,'password')" >
                                                     <i class="icon icon_eye " @click="show('eye1')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -144,7 +144,7 @@
                                             <fieldset v-if="!showPd">
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
-                                                    <input type="text" v-model="userPd" placeholder="请输入6~20位密码">
+                                                    <input type="text" v-model="userPd" placeholder="请输入6~20位密码" autocomplete="off" class="password" @input="checkpassword(userPd,'password')">
                                                     <i class="icon icon_eye active " @click="show('act')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -152,7 +152,7 @@
                                             <fieldset v-if="showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
-                                                    <input type="password" placeholder="请输入6~20位密码">
+                                                    <input type="password" placeholder="请输入6~20位密码" v-model="confirmpassword"  autocomplete="off" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
                                                     <i class="icon icon_eye "  @click="show('eye2')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -160,7 +160,7 @@
                                            <fieldset v-if="!showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
-                                                    <input type="text" placeholder="请输入6~20位密码">
+                                                    <input type="text" placeholder="请输入6~20位密码" v-model="confirmpassword"  autocomplete="off" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
                                                     <i class="icon icon_eye active" @click="show('act2')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -288,7 +288,8 @@ export default {
             relName:'',
             bankNum:'',
             bankAdd:'',
-            phoneNumber:''
+            phoneNumber:'',
+            confirmpassword:''
         }
     },
     created:function () {
