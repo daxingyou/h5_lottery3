@@ -113,8 +113,8 @@ input, select, button, a { outline: none; }
 
 
 /* content */
-#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; min-height: 18rem; -webkit-overflow-scrolling: touch; background-color: #ededed; }
-#pa_content, .pa_content { margin-top: 1.36rem;padding-bottom: 1.36rem; position: relative; z-index: 2; }
+#pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; min-height: 100vh; -webkit-overflow-scrolling: touch; background-color: #ededed; }
+#pa_content, .pa_content { padding-top: 1.36rem;padding-bottom: 1.36rem; position: relative; z-index: 2; }
 #pa_content .page_box, .pa_content .page_box{ padding: 0.3rem;}
 .so-con { font-size: 0.34rem; width: 10rem; height: 100%; text-align: center; margin: auto; }
 

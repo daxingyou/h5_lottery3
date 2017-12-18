@@ -152,7 +152,7 @@
                                             <fieldset>
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
-                                                    <input type="password" v-model="confirmPd" placeholder="请输入6~20位密码">
+                                                    <input type="password" placeholder="请输入6~20位密码">
                                                     <i class="icon icon_eye active eye2"></i>
                                                 </div>
                                                 <label class="red"></label>
