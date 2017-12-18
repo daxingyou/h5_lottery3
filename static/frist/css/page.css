@@ -503,7 +503,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .so-pop-sum {  margin: 0.3rem; color: #b41a17; line-height: 1rem;  text-align: left; position: relative; border-top: 1px solid #dadada;}
 /*.so-pop-sum:before { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/frist/images/bottom_line.png") no-repeat center center; background-size: auto 100%;  width: 100%; height: 0.08rem; }*/
 .so-pop a{ margin-bottom: 0.3rem;}
-.modal.so-pop-wanfa > .m_content { top: 5%; }
+.modal.so-pop-wanfa > .m_content { top: 25%; }
 
 
 /* tab */

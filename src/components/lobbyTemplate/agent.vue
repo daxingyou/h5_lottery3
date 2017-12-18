@@ -3,7 +3,7 @@
         <header id="pa_head" class="new_header">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    
+
     <span class="icon icon_back"></span>
 
                 </a>
@@ -42,7 +42,7 @@
                             </section>
                             <section id="commission" class="tab-panel">
                                 <table class="data">
-                                  
+
                                         <thead>
                                             <tr>
                                                 <th rowspan="2">当月营利</th>
@@ -91,7 +91,7 @@
                                             <td>50%</td>
                                             <td>50%</td>
                                         </tr>
-                                   
+
                                 </table>
                                 <p>
                                     佣金以每月第一个礼拜至下月第一个礼拜一前的周日为统计期间，以联盟方案分红公式计算，由于代理部于每个月的第一礼拜三开始与代理确认金额后，在3个工作日内将佣金直接汇入申请代理登记之银行帐号。
@@ -129,7 +129,7 @@
                                                 <div class="form_g account">
                                                     <legend>帐号</legend>
                                                     <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号">
-                                                    <i class="icon icon_close cs2" @click=" ClearInput('cs2','userNum')"></i>
+                                                    <i class="icon icon_close" @click=" ClearInput('cs2','userNum')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
@@ -137,7 +137,7 @@
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
                                                     <input type="password" v-model="userPd" placeholder="请输入6~20位密码">
-                                                    <i class="icon icon_eye active eye1" @click="show('eye1')"></i>
+                                                    <i class="icon icon_eye " @click="show('eye1')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
@@ -145,39 +145,39 @@
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
                                                     <input type="text" v-model="userPd" placeholder="请输入6~20位密码">
-                                                    <i class="icon icon_eye " @click="show('act')"></i>
+                                                    <i class="icon icon_eye active " @click="show('act')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
                                                     <input type="password" placeholder="请输入6~20位密码">
-                                                    <i class="icon icon_eye active eye2"></i>
+                                                    <i class="icon icon_eye "  @click="show('eye2')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
-                                            <!--<fieldset>
+                                           <fieldset v-if="!showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
                                                     <input type="text" placeholder="请输入6~20位密码">
-                                                    <i class="icon icon_eye"></i>
+                                                    <i class="icon icon_eye active" @click="show('act2')"></i>
                                                 </div>
                                                 <label class="red"></label>
-                                            </fieldset>-->
+                                            </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>真实姓名</legend>
-                                                    <input type="text" placeholder="请输入您的真实姓名">
-                                                    <i class="icon icon_close"></i>
+                                                    <input type="text" placeholder="请输入您的真实姓名" v-model="relName" >
+                                                    <i class="icon icon_close cs3"  @click="ClearInput('cs3','relName')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>银行卡号</legend>
-                                                    <input type="tel" placeholder="请输入取款银行卡号">
-                                                    <i class="icon icon_close"></i>
+                                                    <input type="tel" placeholder="请输入取款银行卡号"  v-model="bankNum" >
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
@@ -194,16 +194,16 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>开户行地址</legend>
-                                                    <input type="text" placeholder="请输入开户行地址（如:北京市海淀区xx分行）">
-                                                    <i class="icon icon_close"></i>
+                                                    <input type="text" placeholder="如:北京市海淀区中关村支行" v-model="bankAdd">
+                                                    <i class="icon icon_close cs5" @click="ClearInput('cs5','bankAdd')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>手机号</legend>
-                                                    <input type="tel" placeholder="请输入11位手机号码">
-                                                    <i class="icon icon_close"></i>
+                                                    <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber">
+                                                    <i class="icon icon_close cs6" @click="ClearInput('cs6','phoneNumber')"></i>
                                                 </div>
                                                 <label class="red"></label>
                                             </fieldset>
@@ -277,26 +277,31 @@ export default {
             copyContent:'',
             showModel :  true,
             showPd:true,
+            showC:true,
             bankList:'',
             refereeNum:'',//推荐人账号
             userNumber:'',//用户帐号
             userPd:'',//用户密码
             identifyCode:'',//验证码;
             verImgCode  :'',
-            client:''
+            client:'',
+            relName:'',
+            bankNum:'',
+            bankAdd:'',
+            phoneNumber:''
         }
     },
     created:function () {
         var _self=this;
-        _self.getBankList();
         _self.switchYzmcode();
     },
     mounted:function() {
         $('html,body').css('overflow-y','scroll' )  ;
         //scrollTo(0,0); // 回到顶部
         document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
-        this.getCopyright('1','BT02')
-
+        this.getCopyright('1','BT02');
+        this.getBankList();
+        this.getReglist('2');
     },
     methods: {
     // 回到顶部
@@ -312,41 +317,46 @@ export default {
         },
         //清除model数据,cl元素class
         clearVal :function (cl) {
-                if(cl=='reNum'){
-                    this.refereeNum='';
-                }
-                if(cl=='userNum'){
-                    this. userNumber='';
-                }
+            if(cl=='reNum'){
+                this.refereeNum='';
+            }
+            if(cl=='userNum'){
+                this.userNumber='';
+            }
+            if(cl=='relName'){
+                this.relName=''
+            }
+            if(cl=='bankNum'){
+                this.bankNum=''
+            }
+            if(cl=='bankAdd'){
+                this.bankAdd=''
+            }
+            if(cl=='phoneNumber'){
+                this.phoneNumber=''
+            }
                 },
         //点击显示隐藏
         show:function(cla){
             var _self=this
             if(cla=='eye1'){
                 _self.showPd=false
-            }else if(cla=='act'){
+            }
+            if(cla=='act'){
                 _self.showPd=true
-            }else if(cla=='ag'){
+            }
+            if(cla=='eye2'){
+                _self.showC=false
+            }
+            if(cla=='act2'){
+                _self.showC=true
+            }
+            if(cla=='ag'){
                 _self.showModel=false
-            }else if(cla=='h2'){
+            }
+            if(cla=='h2'){
                 _self.showModel=true
             }
-        },
-        //获取银行列表
-        getBankList:function(){
-            var _self=this;
-            $.ajax({
-                type:'get',
-    //              headers: {"Authorization": "bearer  " + this.getAccessToken },
-                url: _self.action.forseti + 'apid/payment/banks',
-                data:{},
-                success: function(res){
-                    _self.bankList=res.data;
-                },
-                error: function (err) {
-
-                }
-            })
         },
         //获取验证码
         switchYzmcode:function () {
