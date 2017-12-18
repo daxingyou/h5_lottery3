@@ -128,10 +128,10 @@
                                             <fieldset>
                                                 <div class="form_g account">
                                                     <legend>帐号</legend>
-                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号">
+                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号" class="username" @input="checkUserName(userNumber,'username')">
                                                     <i class="icon icon_close" @click=" ClearInput('cs2','userNum')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset v-if="showPd">
                                                 <div class="form_g password">
@@ -139,7 +139,7 @@
                                                     <input type="password" v-model="userPd" placeholder="请输入6~20位密码">
                                                     <i class="icon icon_eye " @click="show('eye1')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset v-if="!showPd">
                                                 <div class="form_g password">
@@ -147,7 +147,7 @@
                                                     <input type="text" v-model="userPd" placeholder="请输入6~20位密码">
                                                     <i class="icon icon_eye active " @click="show('act')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset v-if="showC">
                                                 <div class="form_g password">
@@ -155,7 +155,7 @@
                                                     <input type="password" placeholder="请输入6~20位密码">
                                                     <i class="icon icon_eye "  @click="show('eye2')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                            <fieldset v-if="!showC">
                                                 <div class="form_g password">
@@ -163,7 +163,7 @@
                                                     <input type="text" placeholder="请输入6~20位密码">
                                                     <i class="icon icon_eye active" @click="show('act2')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
@@ -171,7 +171,7 @@
                                                     <input type="text" placeholder="请输入您的真实姓名" v-model="relName" >
                                                     <i class="icon icon_close cs3"  @click="ClearInput('cs3','relName')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
@@ -179,7 +179,7 @@
                                                     <input type="tel" placeholder="请输入取款银行卡号"  v-model="bankNum" >
                                                     <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g text">
@@ -189,7 +189,7 @@
                                                     </select>
                                                     <span class="icon icon_arrow_down"></span>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
@@ -197,7 +197,7 @@
                                                     <input type="text" placeholder="如:北京市海淀区中关村支行" v-model="bankAdd">
                                                     <i class="icon icon_close cs5" @click="ClearInput('cs5','bankAdd')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g account">
@@ -205,7 +205,7 @@
                                                     <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber">
                                                     <i class="icon icon_close cs6" @click="ClearInput('cs6','phoneNumber')"></i>
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form_g password">
@@ -213,7 +213,7 @@
                                                     <input type="text" v-model="identifyCode" class="identifyCode" placeholder="请输入验证码" maxlength="4">
                                                     <img :src="verImgCode" alt="" @click="switchYzmcode()">
                                                 </div>
-                                                <label class="red"></label>
+                                                <label class="error-message"></label>
                                             </fieldset>
                                         </form>
                                         <div class="agent_check">
