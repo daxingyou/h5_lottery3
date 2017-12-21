@@ -742,7 +742,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 // 大厅
 -----------------------------------------*/
 /* banner */
-.news { margin-top: 1.36rem; overflow-x: hidden; position: relative; }
+.news { margin-top: 1.36rem; overflow-x: hidden; position: relative;min-height: 3.8rem; }
 .news img { width: 100%; display: block; }
 .news .focus { position: relative; }
 .news .hd { display: none;  }
@@ -861,8 +861,11 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 // 充值
 -----------------------------------------*/
 
+.arrow_list_dark { position: relative;}
+.arrow_list_dark li{ float: left; width: 50%; }
+.arrow_list_dark::after{ content: ''; display: table; clear: both;}
 .arrow_list_dark .badge{ background-color: #1db5f7; border-radius: 50%;width: 1.2rem;height: 1.2rem; margin-right: 0.2rem; }
-.arrow_list_dark .icon{ position: absolute; top: 50%; right: 0; margin-top: -0.32rem;}
+.arrow_list_dark .icon{ position: absolute; top: 50%; right: 0; margin-top: -0.32rem;display: none}
 
 .deposit_area { padding-bottom: 0.3rem; }
 .pay_content {  }
