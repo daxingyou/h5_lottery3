@@ -156,6 +156,7 @@ var MyMixin = {
                 hScrollbar:false,
                 vScrollbar:false,
                 click: true ,
+                useTransform: false
             });
             this.conScroll = new iScroll("content-wrapper",{  // 投注区域
                 onScrollEnd: function(){

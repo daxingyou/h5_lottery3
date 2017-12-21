@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Reg from '@/components/Reg'
-// import HksixlotIndex from '@/components/hksixlot/Index'
+import HksixlotIndex from '@/components/hksixlot/Index' //香港六合彩
 import Jc11x5Index from '@/components/jc11x5/Index'  // 江西11选5
 import SD11x5Index from '@/components/jc11x5/ShanDongIndex'  // 山东11选5
 import GD11x5Index from '@/components/jc11x5/GuangDongIndex'  // 广东11选5
@@ -67,9 +67,9 @@ export default new Router({
       name: 'reg',
       component: Reg
     },
-    // {
-    //   path: '/hksixlot', name: 'hksixlotIndex', component: HksixlotIndex
-    // },
+    {
+      path: '/hksixlot', name: 'hksixlotIndex', component: HksixlotIndex
+    },
     {
       path: '/jc11x5/',
       name: 'jc11x5Index',
