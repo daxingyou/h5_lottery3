@@ -542,7 +542,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; }
 /*.bet_data > a > .item > .badge {  border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; }*/
 .bet_data > a > .item img { width: 1.5rem; margin-right: 0.2rem; }
-.bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; }
+.bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; max-width: 2.8rem; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
 .bet_data .prd_num { color: #999; margin-right: 0.2rem;}
 .bet_data .status { min-width: 15%; width: 1.8rem; text-align: center; color: #999; }
 .bet_data .status > div { max-width: 100%; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
