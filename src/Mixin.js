@@ -894,6 +894,15 @@ var MyMixin = {
                             case "银行卡号" :
                                 _self.bankNumObj=res.data[i];
                                 break;
+                            case "电子邮箱" :
+                                _self.eMailObj=res.data[i];
+                                break;
+                            case "QQ" :
+                                _self.QQObj=res.data[i];
+                                break;
+                            case "微信" :
+                                _self.weiChatObj=res.data[i];
+                                break;
 
                         }
                     }

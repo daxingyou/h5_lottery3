@@ -125,15 +125,16 @@
                                                     <i class="close cs1" @click=" ClearInput('cs1','reNum')"></i>
                                                 </div>
                                             </fieldset> -->
-                                            <fieldset>
+                                            <fieldset v-if="!!accountObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>帐号</legend>
-                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号"  autocomplete="off" class="username" @input="checkUserName(userNumber,'username')">
+                                                    <input type="text" v-model="userNumber" placeholder="请输入4~15位帐号"  autocomplete="off" class="username" @input="checkUserName(userNumber,'username')" @blur="CheckAccount()">
                                                     <i class="icon icon_close" @click=" ClearInput('cs2','userNum')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset v-if="showPd">
+                                            <div v-if="!!passwordObj.ifView">
+                                              <fieldset v-if="showPd">
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
                                                     <input type="password" v-model="userPd" placeholder="请输入6~20位密码"  autocomplete="off" class="password" @input="checkpassword(userPd,'password')" >
@@ -141,7 +142,7 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset v-if="!showPd">
+                                              <fieldset v-if="!showPd">
                                                 <div class="form_g password">
                                                     <legend>密码</legend>
                                                     <input type="text" v-model="userPd" placeholder="请输入6~20位密码" autocomplete="off" class="password" @input="checkpassword(userPd,'password')">
@@ -149,7 +150,9 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset v-if="showC">
+                                            </div>
+                                            <div v-if="!!confirmpasswordObj.ifView">
+                                              <fieldset v-if="showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
                                                     <input type="password" placeholder="请输入6~20位密码" v-model="confirmpassword"  autocomplete="off" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
@@ -157,7 +160,7 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                           <fieldset v-if="!showC">
+                                              <fieldset v-if="!showC">
                                                 <div class="form_g password">
                                                     <legend>确认密码</legend>
                                                     <input type="text" placeholder="请输入6~20位密码" v-model="confirmpassword"  autocomplete="off" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
@@ -165,7 +168,8 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            </div>
+                                            <fieldset  v-if="!!realynameObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>真实姓名</legend>
                                                     <input type="text" placeholder="请输入您的真实姓名" v-model="relName" class="relName"  @input="checkrealyName(relName,'relName')">
@@ -173,7 +177,7 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!bankNumObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>银行卡号</legend>
                                                     <input type="tel" placeholder="请输入取款银行卡号"  v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
@@ -181,17 +185,17 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!bankselectObj.ifView">
                                                 <div class="form_g text">
                                                     <legend>银行名称</legend>
-                                                    <select name="" >
-                                                        <option :value="banks.id" :data-code="banks.bankCode" v-for="banks in bankList">{{banks.bankName}}</option>
+                                                    <select class="bankselect"  v-model="bankName" >
+                                                        <option :value="banks.id" :data-code="banks.bankName" v-for="banks in bankList">{{banks.bankName}}</option>
                                                     </select>
                                                     <span class="icon icon_arrow_down"></span>
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!bankAddObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>开户行地址</legend>
                                                     <input type="text" placeholder="如:北京市海淀区中关村支行" v-model="bankAdd"  class="bankAdd" @input="checkBankAdd(bankAdd,'bankAdd')">
@@ -199,7 +203,7 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!phoneObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>手机号</legend>
                                                     <input type="tel" placeholder="请输入11位手机号码" v-model="phoneNumber" class="telephone"  @input="checktelphone(phoneNumber,'telephone')"  maxlength="11">
@@ -207,27 +211,27 @@
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!eMailObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>电子邮箱</legend>
-                                                    <input type="tel" placeholder="请输入电子邮箱" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
-                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                    <input type="tel" placeholder="请输入电子邮箱" v-model="eMail" class="eMail" @input="checkBankNum(eMail,'eMail')">
+                                                    <i class="icon icon_close cs5" @click="ClearInput('cs5','eMail')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!QQObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>QQ</legend>
-                                                    <input type="tel" placeholder="请输入QQ号" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
-                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                    <input type="tel" placeholder="请输入QQ号" v-model="QQ" class="QQ" @input="checkBankNum(QQ,'QQ')">
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs6','QQ')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset v-if="!!weiChatObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>微信</legend>
-                                                    <input type="tel" placeholder="请输入微信号" v-model="bankNum" class="bankNum" @input="checkBankNum(bankNum,'bankNum')">
-                                                    <i class="icon icon_close cs4" @click="ClearInput('cs4','bankNum')"></i>
+                                                    <input type="tel" placeholder="请输入微信号" v-model="weiChat" class="weiChat" @input="checkBankNum(weiChat,'weiChat')">
+                                                    <i class="icon icon_close cs4" @click="ClearInput('cs7','weiChat')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
                                             </fieldset>
@@ -245,7 +249,7 @@
                                             <label for="cbox1">我已届满合法博彩年龄，且已阅读并同意<a class="agent_modal" href="javascript:;" @click="show('ag')">《代理注册协议》</a></label>
                                         </div>
                                         <div class="btn btn_blue">
-                                            <a class="new_btn" href="javascript:;"><span class="big">立即申请</span></a>
+                                            <a class="new_btn" href="javascript:;" @click="agentReg()"><span class="big">立即申请</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -312,8 +316,26 @@ export default {
             relName:'',
             bankNum:'',
             bankAdd:'',
+            bankName:'',
             phoneNumber:'',
-            confirmpassword:''
+            confirmpassword:'',
+            weiChat:'',
+            QQ:'',
+            eMail:'',
+            regsubmitflage:false ,
+            checked:true,
+            accountObj:{},
+            passwordObj:{},
+            phoneObj:{},
+            realynameObj:{},
+            confirmpasswordObj:{},
+            bankselectObj:{},
+            bankAddObj:{},
+            bankNumObj:{},
+            eMailObj:{},
+            QQObj:{},
+            weiChatObj:{},
+            bankCode:""
         }
     },
     created:function () {
@@ -360,6 +382,15 @@ export default {
             if(cl=='phoneNumber'){
                 this.phoneNumber=''
             }
+            if(cl=='weiChat'){
+                this.weiChat=''
+            }
+            if(cl=='QQ'){
+                this.QQ=''
+            }
+            if(cl=='eMail'){
+                this.eMail=''
+            }
                 },
         //点击显示隐藏
         show:function(cla){
@@ -393,6 +424,176 @@ export default {
                 success: (data) => {
                     _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
                     _self.client = data.data && data.data.clientId || '';
+                }
+            })
+        },
+        //代理注册接口
+        agentReg:function () {
+            var _self=this;
+            if(!!this.accountObj.ifRequired){
+                if(this.userNumber ==''){
+                    this.$refs.autoCloseDialog.open('请输入帐号') ;
+                    return false ;
+                }
+            }
+            if(!!this.passwordObj.ifRequired){
+                if(this.userPd ==''){
+                    this.$refs.autoCloseDialog.open('请输入用户密码') ;
+                    return false ;
+                }
+            }
+            if(!!this.confirmpasswordObj.ifRequired){
+                if(this.confirmpassword ==''){
+                    this.$refs.autoCloseDialog.open('请输入确认密码') ;
+                    return false ;
+                }
+                if(this.confirmpassword !== this.userPd){
+                    this.$refs.autoCloseDialog.open('两次密码输入不一致');
+                    return false ;
+                }
+
+            }
+            if(_self.regsubmitflage){
+                return false ;
+            }
+//       console.log(!this.phoneObj.ifRequired)
+            if(!!this.realynameObj.ifRequired){
+                if(this.relName ==''){
+                    this.$refs.autoCloseDialog.open('请输入真实姓名') ;
+                    return false ;
+                }
+            }
+            if(!!this.phoneObj.ifRequired){
+                if(this.phoneNumber ==''){
+                    this.$refs.autoCloseDialog.open('请输入手机号码') ;
+                    return false ;
+                }
+            }
+
+            if(!!this.bankselectObj.ifRequired){
+                if(_self.bankName==""){
+                    _self.$refs.autoCloseDialog.open('请选择银行') ;
+                    return false
+                }
+            }
+            if (!!this.bankAddObj.ifRequired){
+                if(_self.bankAdd==""){
+                    _self.$refs.autoCloseDialog.open('请输入开户行地址') ;
+                    return false
+                }
+            }
+            if(!!this.bankNumObj.ifRequired){
+                if(_self.bankNum==""){
+                    _self.$refs.autoCloseDialog.open('请输入银行卡号') ;
+                    return false
+                }
+            }
+            if(!!this.eMailObj.ifRequired){
+                if(_self.eMail==""){
+                    _self.$refs.autoCloseDialog.open('请输入电子邮箱') ;
+                    return false
+                }
+            }
+            if(!!this.QQObj.ifRequired){
+                if(_self.QQ==""){
+                    _self.$refs.autoCloseDialog.open('请输入QQ号') ;
+                    return false
+                }
+            }
+            if(!!this.weiChatObj.ifRequired){
+                if(_self.weiChat==""){
+                    _self.$refs.autoCloseDialog.open('请输入微信号') ;
+                    return false
+                }
+            }
+
+            if(this.identifyCode ==''){
+                this.$refs.autoCloseDialog.open('请输入验证码') ;
+                return false ;
+            }
+
+            var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+            if(falg){
+                return false ;
+            }
+            if(!_self.checked){
+                this.$refs.autoCloseDialog.open('请阅读并同意注册协议') ;
+                return false ;
+            }
+            _self.regsubmitflage = true ;
+          _self.bankCode=$('.bankselect').find("option:selected").data('code') ;
+            var logindata = {
+                agentAccount: _self.userNumber ,   // 帐号
+//                method: 'mc',   //方法：mc创建会员
+//                oddType: 'a',  //盘口，1位字符，预留
+                loginPwd: _self.userPd ,  // 用户登录密码
+                reLoginPwd:_self. confirmpassword, //确认密码
+                agentName: _self.relName ,  // 用户真实姓名
+                phone: _self.phoneNumber , // 手机号码
+                bankName:_self.bankCode, //银行名称
+                bank:_self.bankAdd,//开户地址
+                bankNo:_self.bankNum, //银行卡号码
+                wechat:_self.weChat,  //微信
+                qq:_self.QQ,
+                email:_self.eMail,
+                sourceType:'2',//来源
+                code: _self.identifyCode ,   // 验证码
+            }
+            $.ajax({
+                type: 'post',
+                headers: {
+                    Authorization: 'Basic d2ViX2FwcDo=',
+                    clientId: this.client
+                },
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                url: this.action.uaa + 'apid/plat/agent/registerAgent',
+                data: JSON.stringify(logindata) ,
+                success: (res) => {
+                    if(res.err =='SUCCESS'){ // 注册成功
+                        _self.regsubmitflage = false ;
+                        _self.$refs.autoCloseDialog.open('注册成功','','icon_check','d_check') ;
+//                          _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+//                          _self.setCookie("acType", res.data.acType);  // 把登录 acType 放在cookie里面
+//                          _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
+                        setTimeout(function () {
+                            _self.$router.push('/')
+                        },1000) ;
+                    }else if(res.cnMsg){
+                        _self.regsubmitflage = false ;
+                        _self.$refs.autoCloseDialog.open(res.cnMsg);
+                        _self.switchYzmcode() ;
+
+                    }
+                    else{ //code 105 验证码无效
+                        _self.regsubmitflage = false ;
+                        this.switchYzmcode() ; // 更新验证码
+                        this.$refs.autoCloseDialog.open(res.msg);
+                    }
+
+                },
+                error: function () {
+                    _self.regsubmitflage = false ;
+                }
+            })
+        },
+        //验证账户是否存在
+        CheckAccount:function () {
+            let _self=this;
+            console.log(this.QQObj)
+            let AccData={
+                agentAccount:_self.userNumber
+            }
+            $.ajax({
+                type: 'get',
+//                headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                url: this.action.uaa + 'apid/plat/agent/check_account',
+                data: AccData ,
+                success:(res)=>{
+                    if(res.data=='-1'){
+                        _self.$refs.autoCloseDialog.open('用户名重复') ;
+                        return false
+                    }
                 }
             })
         },
