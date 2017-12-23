@@ -109,9 +109,7 @@ export default {
         document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
     },
     methods: {
-        back1:function(){
-            this.$router.back();
-        },
+
         tradeTypeConfigItemGet:function(item){
             return this.tradeTypeConfig[item.tradeType] || {};
         },
