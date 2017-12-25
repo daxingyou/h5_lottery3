@@ -377,23 +377,23 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }*/
 .pk10_ball.active, p.active .pk10_ball {  }
 
 /* sixlot ball */
-.sixlot_ball{ background-color: transparent; color: #fff; border-radius: 1rem; display: inline-block; width: 0.86rem; height: 0.86rem; line-height: 0.86rem; font-size: 0.4rem; text-align: center; overflow: hidden; position: relative;  }
+.sixlot_ball{ background-color: transparent; color: #fff; border-radius: 1rem; display: inline-block; width: 0.86rem; height: 0.86rem; line-height: 0.8rem; font-size: 0.4rem; text-align: center; overflow: hidden; position: relative; border: 1px solid #cbcbcb; }
 .sixlot_ball:after{ content: ''; display: block; width: 100%; height: 100%; position: absolute; top: -40%; left: 15%; border-radius: 50%; background-color: #fff; opacity: 0.2; }
 .sixlot_ball.num_01, .sixlot_ball.num_02, .sixlot_ball.num_07, .sixlot_ball.num_08, 
 .sixlot_ball.num_12, .sixlot_ball.num_13, .sixlot_ball.num_18, .sixlot_ball.num_19, 
 .sixlot_ball.num_23, .sixlot_ball.num_24, .sixlot_ball.num_29, .sixlot_ball.num_30, 
 .sixlot_ball.num_34, .sixlot_ball.num_35, .sixlot_ball.num_40, .sixlot_ball.num_45, .sixlot_ball.num_46
-{ color: #bc0000; box-shadow: 0px 0px 0px 1px #bc0000;}
+{ color: #bc0000; border-color: #bc0000;}
 .sixlot_ball.num_03, .sixlot_ball.num_04, .sixlot_ball.num_09, .sixlot_ball.num_10, 
 .sixlot_ball.num_14, .sixlot_ball.num_15, .sixlot_ball.num_20, .sixlot_ball.num_25, 
 .sixlot_ball.num_26, .sixlot_ball.num_31, .sixlot_ball.num_36, .sixlot_ball.num_37, 
 .sixlot_ball.num_41, .sixlot_ball.num_42, .sixlot_ball.num_47, .sixlot_ball.num_48
-{ color: #203da8; box-shadow: 0px 0px 0px 1px #203da8;}
+{ color: #203da8; border-color: #203da8;}
 .sixlot_ball.num_05, .sixlot_ball.num_06, .sixlot_ball.num_11, .sixlot_ball.num_16, 
 .sixlot_ball.num_17, .sixlot_ball.num_21, .sixlot_ball.num_22, .sixlot_ball.num_27, 
 .sixlot_ball.num_28, .sixlot_ball.num_32, .sixlot_ball.num_33, .sixlot_ball.num_38, 
 .sixlot_ball.num_39, .sixlot_ball.num_43, .sixlot_ball.num_44, .sixlot_ball.num_49
-{ color: #00a507; box-shadow: 0px 0px 0px 1px #00a507;}
+{ color: #00a507; border-color: #00a507;}
 .sixlot_ball.active.num_01, .sixlot_ball.active.num_02, .sixlot_ball.active.num_07, .sixlot_ball.active.num_08, 
 .sixlot_ball.active.num_12, .sixlot_ball.active.num_13, .sixlot_ball.active.num_18, .sixlot_ball.active.num_19, 
 .sixlot_ball.active.num_23, .sixlot_ball.active.num_24, .sixlot_ball.active.num_29, .sixlot_ball.active.num_30, 
@@ -402,7 +402,7 @@ p.active .sixlot_ball.num_01, p.active .sixlot_ball.num_02, p.active .sixlot_bal
 p.active .sixlot_ball.num_12, p.active .sixlot_ball.num_13, p.active .sixlot_ball.num_18, p.active .sixlot_ball.num_19, 
 p.active .sixlot_ball.num_23, p.active .sixlot_ball.num_24, p.active .sixlot_ball.num_29, p.active .sixlot_ball.num_30, 
 p.active .sixlot_ball.num_34, p.active .sixlot_ball.num_35, p.active .sixlot_ball.num_40, p.active .sixlot_ball.num_45, p.active .sixlot_ball.num_46
-{ background-color: #bc0000; color: #fff;}
+{ background-color: #bc0000; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
 .sixlot_ball.active.num_03, .sixlot_ball.active.num_04, .sixlot_ball.active.num_09, .sixlot_ball.active.num_10, 
 .sixlot_ball.active.num_14, .sixlot_ball.active.num_15, .sixlot_ball.active.num_20, .sixlot_ball.active.num_25, 
 .sixlot_ball.active.num_26, .sixlot_ball.active.num_31, .sixlot_ball.active.num_36, .sixlot_ball.active.num_37, 
@@ -411,7 +411,7 @@ p.active .sixlot_ball.num_03, p.active .sixlot_ball.num_04, p.active .sixlot_bal
 p.active .sixlot_ball.num_14, p.active .sixlot_ball.num_15, p.active .sixlot_ball.num_20, p.active .sixlot_ball.num_25, 
 p.active .sixlot_ball.num_26, p.active .sixlot_ball.num_31, p.active .sixlot_ball.num_36, p.active .sixlot_ball.num_37, 
 p.active .sixlot_ball.num_41, p.active .sixlot_ball.num_42, p.active .sixlot_ball.num_47, p.active .sixlot_ball.num_48
-{ background-color: #203da8; color: #fff;}
+{ background-color: #203da8; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
 .sixlot_ball.active.num_05, .sixlot_ball.active.num_06, .sixlot_ball.active.num_11, .sixlot_ball.active.num_16, 
 .sixlot_ball.active.num_17, .sixlot_ball.active.num_21, .sixlot_ball.active.num_22, .sixlot_ball.active.num_27, 
 .sixlot_ball.active.num_28, .sixlot_ball.active.num_32, .sixlot_ball.active.num_33, .sixlot_ball.active.num_38, 
@@ -420,7 +420,7 @@ p.active .sixlot_ball.num_05, p.active .sixlot_ball.num_06, p.active .sixlot_bal
 p.active .sixlot_ball.num_17, p.active .sixlot_ball.num_21, p.active .sixlot_ball.num_22, p.active .sixlot_ball.num_27, 
 p.active .sixlot_ball.num_28, p.active .sixlot_ball.num_32, p.active .sixlot_ball.num_33, p.active .sixlot_ball.num_38, 
 p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_ball.num_44, p.active .sixlot_ball.num_49
-{ background-color: #00a507; color: #fff;}
+{ background-color: #00a507; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
 /*.sixlot_ball.active, p.active .sixlot_ball{ box-shadow: 0px 0px 0px 2px #fff;}*/
 
 /* bet panel */
@@ -433,7 +433,7 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .bet_panel .bet_box p > span { float: left; line-height: 0.9rem; }
 .bet_panel .bet_box p > span:first-child { font-weight: bold; font-size: 0.4rem; }
 .bet_panel .bet_box p .bet-times { float: right; }
-.bet_panel .bet_box p.active { background-color: #1db5f7; border-color: #1db5f7; position: relative;  color: #fff; }
+.bet_panel .bet_box p.active { background-color: #127ece; border-color: #127ece; position: relative;  color: #fff; }
 /*.bet_panel .bet_box p.active > span:first-child {}*/
 .bet_panel .bet_box p.so-con-span-short { width: 30.666%; margin-right: 4%;}
 .bet_panel .bet_box p.so-con-span-short:nth-child(even){ margin-right: 4%;}
@@ -441,14 +441,16 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .bet_panel .bet_ball:after{ content: ''; display: table; clear: both;}
 .bet_panel .bet_ball p { float: left; width: 20%; margin-bottom: 0.2rem; }
 /* 11x5 样式微调 */
-.jx11_tab.hd { display: none; position: absolute;right: 0.3rem; height: .9rem; width: 7.1rem; overflow: hidden; margin: 0 auto; border-radius: 0.5rem;  margin-top: 0.2rem; }
-.jx11_tab.hd ul { white-space: nowrap; width: 100% !important; overflow-y: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem; }
-.jx11_tab.hd ul.tab_mid { background-color: #c9dde2;  border-radius: 1rem; }
-.jx11_tab.hd ul.tab_mid > li { display: inline-block; height: .9rem; width: 2rem; padding-top: 0; }
-.jx11_tab.hd ul.tab_mid > li.on {width: 2rem;  margin-left: 0.03rem; background-color: #1db5f7; border-radius: 0.5rem;}
+.jx11_tab.hd { display: none; position: absolute;right: 0rem; width: calc( 7.7rem - 1px ); height: 1rem; z-index: 10; overflow: hidden; margin: 0 auto;}
+.jx11_tab.hd ul { white-space: nowrap; width: 100% !important; overflow-y: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: calc( 1rem - 1px ); }
+.jx11_tab.hd ul.tab_mid { background-color: #fff; border-bottom: 1px solid #dadada; }
+.jx11_tab.hd ul.tab_mid > li { display: inline-block; height: 1rem; width: 2rem; padding-top: 0; border-left: 1px solid #dadada;}
+.jx11_tab.hd ul.tab_mid > li:first-child{ border-left: 0;}
+.jx11_tab.hd ul.tab_mid > li.on {width: 2rem;  }
 .jx11_tab.hd ul.tab_mid > li.on:after { display: none;}
-.jx11_tab.hd ul.tab_mid > li > a { height: .9rem; line-height: .9rem; }
-.jx11_tab.hd ul.tab_mid > li.on a{  color: #fff; }
+.jx11_tab.hd ul.tab_mid > li > a{ height: 1rem; line-height: 1rem; color: #5f5f5f; }
+.jx11_tab.hd ul.tab_mid > li.on a{ color: #1db5f7;}
+.jx11_tab.hd.tab_mid > li.on a{ color: #fff; }
 .jc115 .bd .tab_content { padding: 0;}
 /* 快3 样式微调 */
 .bet_panel .bet_box .k3_3same > span { float: none; display: block; line-height: 0.7rem;  }
@@ -456,14 +458,19 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 /* pk10 样式微调 */
 .bet_panel .bet_box.num_box p.active .pk10_ball{ transform: translate(0,-0.03rem) }
 /* 六合彩 样式微调 */
-.bet_tab.tab_mid{ border-radius: 1rem; background-color: #c9dde2; white-space: nowrap;width: 100% !important; overflow-y: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem;}
-.bet_tab.tab_mid > li{ display: inline-block; height: .9rem;width: 2rem; padding-top: 0;}
-.bet_tab.tab_mid > li > a{ height: .9rem; line-height: .9rem;}
-.bet_tab.tab_mid > li.on{width: 2rem;  margin-left: 0.03rem; background-color: #1db5f7; border-radius: 0.5rem;}
-.bet_tab.tab_mid > li.on:after { display: none;}
-.bet_tab.tab_mid > li.on a{  color: #fff; }
 #sixlot .sixlot_top_number li{  margin: 0.05rem 0.08rem; line-height: 0.7rem; color: #1db5f7;  }
 #sixlot .sixlot_top_number li.sixlot_ball{ width: 0.7rem; height: 0.7rem; color: #fff; }
+.item_full .bet_panel .bet_box p { width: 100%; }
+.item_full .bet_panel .bet_box p .bet-times {float: left; margin-left: 0.3rem;}
+.item_full .bet_panel .bet_box p .bet_right_ball { display: block; float:right; text-align: right; white-space: nowrap; line-height: inherit;}
+.item_full .bet_panel .bet_box p .bet_right_ball .sixlot_ball { transform: scale(0.8); margin-left: -0.15rem; margin-bottom: -0.2rem;}
+.bet_filter{ position: relative; margin-bottom: 0.3rem;}
+.bet_filter > span{ position: absolute; top: -0.9rem; right: 0px; padding: 0 0.2rem; background-color: #eee; border-radius: 0.1rem;}
+.bet_filter > ul { background-color: #eee; border-radius: 0.1rem; }
+.bet_filter > ul:after { content: ''; display: table; clear: both;}
+.bet_filter > ul > li{ float: left; text-align: center; width: 16%; }
+.bet_filter > ul > li.active{ background-color: #127ece;border-radius: 0.1rem;color: #fff;}
+#sixlot .tab_content{ padding-top: 1rem;}
 
 /* 开奖资讯 */
 .so-top-all { width: 100%; position: fixed;  z-index: 10;}
@@ -496,8 +503,8 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .so-con-left { width: 2.3rem; float: left; height: 100%; padding-bottom: .8rem; position: relative; z-index: 5; border-right: 1px solid #dadada; }
 .so-con-left ul { overflow-y: auto; -webkit-overflow-scrolling: touch; cursor: pointer; right: 0; padding-bottom: 1.36rem; }
 .so-con-left ul li { display: block; width: 100%; font-size: 0.4rem; text-align: center; background-position-y: -1.5rem; cursor: pointer; border-bottom: 1px solid #dadada;}
-.so-con-left ul li a { width: 1.6rem;  box-sizing: border-box;line-height: 1rem;  }
-.so-con-left ul li.active { background-color: #1db5f7; }
+.so-con-left ul li a { width: 1.6rem;  box-sizing: border-box;line-height: 1rem; color: #5f5f5f; }
+.so-con-left ul li.active { background-color: #127ece; }
 .so-con-left ul li.active a { color: #fff; }
 
 .so-con-right {  width: calc(7.7rem - 1px );  height: 100%; padding-bottom: .8rem;  position: fixed;  z-index: 5; margin-left: calc( 2.3rem + 1px ) ; left: 0 !important;}

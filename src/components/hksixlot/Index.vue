@@ -101,24 +101,73 @@
                     <li><a>自选不中</a></li>-->
                 </ul>
             </div>
+            <!--特码(index:0) 选项卡按钮(fixed)-->
+            <div class="hd jx11_tab bet_tab" id="bet_tab_0" style="display:block">
+                <ul class="tab tab_mid">
+                    <li class="on" style="width:49%;"><a href="javascript:;">特码B</a></li>
+                    <li style="width:50%;"><a href="javascript:;">特码A</a></li>
+                </ul>
+            </div>
+            <!-- 正特(index:4) 选项卡按钮(fixed) -->
+            <div class="hd jx11_tab bet_tab" id="bet_tab_4">
+                <ul class="tab tab_mid">
+                    <li class="on"><a href="javascript:;">正1特</a></li>
+                    <li><a href="javascript:;">正2特</a></li>
+                    <li><a href="javascript:;">正3特</a></li>
+                    <li><a href="javascript:;">正4特</a></li>
+                    <li><a href="javascript:;">正5特</a></li>
+                    <li><a href="javascript:;">正6特</a></li>
+                </ul>
+            </div>
+            <!-- 连码(index:5) 选项卡按钮(fixed) -->
+            <div class="hd jx11_tab bet_tab" id="bet_tab_5">
+                <ul class="tab tab_mid">
+                    <li class="on"><a href="javascript:;">三全中</a></li>
+                    <li><a href="javascript:;">三中二</a></li>
+                    <li><a href="javascript:;">二全中</a></li>
+                    <li><a href="javascript:;">二中特</a></li>
+                    <li><a href="javascript:;">特串</a></li>
+                    <li><a href="javascript:;">四全中</a></li>
+                </ul>
+            </div>
+            <!-- 连肖(index:11) 选项卡按钮(fixed) -->
+            <div class="hd jx11_tab bet_tab" id="bet_tab_11">
+                <ul class="tab tab_mid">
+                    <li class="on"><a href="javascript:;">二连肖</a></li>
+                    <li><a href="javascript:;">三连肖</a></li>
+                    <li><a href="javascript:;">四连肖</a></li>
+                    <li><a href="javascript:;">五连肖</a></li>
+                </ul>
+            </div>
+            <!-- 连尾(index:13) 选项卡按钮(fixed) -->
+            <div class="hd jx11_tab bet_tab" id="bet_tab_13">
+                <ul class="tab tab_mid">
+                    <li class="on"><a href="javascript:;">二连尾</a></li>
+                    <li><a href="javascript:;">三连尾</a></li>
+                    <li><a href="javascript:;">四连尾</a></li>
+                    <li><a href="javascript:;">五连尾</a></li>
+                </ul>
+            </div>
+
             <div id="content-wrapper">
                 <div class="so-con-right">
                     <div id="scroller" >
                         <!--以下为盘面不同样式，根据ID+class区分-->
-                        <!-- 特码 -->
+                        <!-- 特码(index:0) -->
                         <div class="content-right tab_container tabBox item_one">
-                            <div class="hd">
-                                <ul class="tab tab_mid bet_tab">
-                                    <li class="on"><a href="javascript:;">特码B</a></li>
-                                    <li><a href="javascript:;">特码A</a></li>
-                                </ul>
-                            </div>
                             <div class="bd">
                                 <ul class="tab_content">
                                     <li class="select-li">
                                         <div class="bet_panel">
                                             <h2>
                                                 特码B
+                                                <div class="bet_filter">
+                                                    <span>快选</span>
+                                                    <ul>
+                                                        <li class="active">鼠</li><li>牛</li><li>虎</li><li>兔</li><li>龙</li><li>蛇</li>
+                                                        <li>马</li><li>羊</li><li>猴</li><li>鸡</li><li>狗</li><li>猪</li>
+                                                    </ul>
+                                                </div>
                                             </h2>
                                             <div class="bet_ball">
                                                 <p class="active">
@@ -320,7 +369,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="sec_ball">
+                                    <li class="select-li">
                                         <div class="bet_panel">
                                             <h2>
                                                 两面
@@ -564,7 +613,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="sec_ball">
+                                    <li class="select-li">
                                         <div class="bet_panel">
                                             <h2>
                                                 两面
@@ -604,8 +653,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- 两面 -->
-                        <div class="content-right  active item_one" style="display:none">
+                        <!-- 两面(index:1) -->
+                        <div class="content-right item_one" style="display:none">
                             <ul>
                                 <li class="select-li">
                                     <div class="bet_panel">
@@ -698,7 +747,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- 正码 -->
+                        <!-- 正码(index:2) -->
                         <div class="content-right item_one" style="display:none">
                             <ul>
                                 <li class="select-li">
@@ -906,7 +955,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="sec_ball">
+                                <li class="select-li">
                                     <div class="bet_panel">
                                         <h2>
                                             总和
@@ -933,8 +982,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- 正码1-6 -->
-                        <div class="content-right  active item_one" style="display:none">
+                        <!-- 正码1-6(index:3) -->
+                        <div class="content-right item_one" style="display:none">
                             <ul>
                                 <li class="select-li">
                                     <div class="bet_panel">
@@ -1304,18 +1353,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- 正特 -->
-                        <div class="content-right tab_container tabBox item_one">
-                            <div class="hd">
-                                <ul class="tab tab_mid bet_tab">
-                                    <li class="on"><a href="javascript:;">正1特</a></li>
-                                    <li><a href="javascript:;">正2特</a></li>
-                                    <li><a href="javascript:;">正3特</a></li>
-                                    <li><a href="javascript:;">正4特</a></li>
-                                    <li><a href="javascript:;">正5特</a></li>
-                                    <li><a href="javascript:;">正6特</a></li>
-                                </ul>
-                            </div>
+                        <!-- 正特(index:4) -->
+                        <div class="content-right tab_container tabBox item_one" style="display:none">
                             <div class="bd">
                                 <ul class="tab_content">
                                     <li class="select-li">
@@ -1523,7 +1562,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="sec_ball">
+                                    <li class="select-li">
                                         <div class="bet_panel">
                                             <h2>
                                                 两面
@@ -1791,7 +1830,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="sec_ball">
+                                    <li class="select-li">
                                         <div class="bet_panel">
                                             <h2>
                                                 两面
@@ -1831,18 +1870,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- 连码 -->
-                        <div class="content-right tab_container tabBox item_one">
-                            <div class="hd">
-                                <ul class="tab tab_mid bet_tab">
-                                    <li class="on"><a href="javascript:;">三全中</a></li>
-                                    <li><a href="javascript:;">三中二</a></li>
-                                    <li><a href="javascript:;">二全中</a></li>
-                                    <li><a href="javascript:;">二中特</a></li>
-                                    <li><a href="javascript:;">特串</a></li>
-                                    <li><a href="javascript:;">四全中</a></li>
-                                </ul>
-                            </div>
+                        <!-- 连码(index:5) -->
+                        <div class="content-right tab_container tabBox item_one" style="display:none">
                             <div class="bd">
                                 <ul class="tab_content">
                                     <li class="select-li">
@@ -2260,8 +2289,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- 色波 -->
-                        <div class="content-right  active item_one" style="display:none">
+                        <!-- 色波(index:6) -->
+                        <div class="content-right item_one" style="display:none">
                             <ul>
                                 <li class="select-li">
                                     <div class="bet_panel">
@@ -2428,6 +2457,2124 @@
                                             <p>
                                                 <span>绿小双</span>
                                                 <span class="bet-times">1.935</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 特码头尾(index:7) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            头数
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p class="active">
+                                                <span>0头</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>1头</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>2头</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>3头</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>4头</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            尾数
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>0尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>1尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>2尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>3尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>4尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>5尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>6尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>7尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>8尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>9尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 总肖(index:8) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            总肖
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>2肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p class="active">
+                                                <span>3肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>4肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>5肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>6肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>7肖</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>总肖单</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>总肖双</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 平特肖尾(index:9) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            一肖
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>鼠</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>牛</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>虎</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>兔</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>龙</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>蛇</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>马</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>羊</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猴</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>鸡</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>狗</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猪</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            尾数
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>0尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>1尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>2尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>3尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>4尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>5尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>6尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>7尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>8尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>9尾</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 特肖(index:10) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            特肖
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>鼠</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>牛</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>虎</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>兔</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>龙</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>蛇</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>马</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>羊</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猴</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>鸡</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>狗</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猪</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 连肖(index:11) -->
+                        <div class="content-right tab_container tabBox item_one" style="display:none">
+                            <div class="bd">
+                                <ul class="tab_content">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                二连肖
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>鼠</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>牛</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>虎</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>兔</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>龙</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>蛇</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>马</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>羊</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猴</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>鸡</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>狗</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猪</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                三连肖
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>鼠</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>牛</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>虎</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>兔</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>龙</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>蛇</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>马</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>羊</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猴</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>鸡</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>狗</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猪</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                四连肖
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>鼠</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>牛</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>虎</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>兔</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>龙</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>蛇</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>马</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>羊</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猴</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>鸡</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>狗</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猪</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                五连肖
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>鼠</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>牛</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>虎</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>兔</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>龙</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>蛇</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>马</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>羊</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猴</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>鸡</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>狗</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>猪</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 合肖(index:12) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            合肖 赔率：12.33
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>鼠</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>牛</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>虎</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>兔</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>龙</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>蛇</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>马</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>羊</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猴</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>鸡</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>狗</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猪</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 连尾(index:13) -->
+                        <div class="content-right tab_container tabBox item_one" style="display:none">
+                            <div class="bd">
+                                <ul class="tab_content">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                二连尾
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>0尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>1尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>2尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>3尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>4尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>5尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>6尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>7尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>8尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>9尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                三连尾
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>0尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>1尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>2尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>3尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>4尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>5尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>6尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>7尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>8尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>9尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                四连尾
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>0尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>1尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>2尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>3尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>4尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>5尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>6尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>7尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>8尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>9尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="tab_content" style="display:none;">
+                                    <li class="select-li item_full">
+                                        <div class="bet_panel">
+                                            <h2>
+                                                五连尾
+                                            </h2>
+                                            <div class="bet_box">
+                                                <p>
+                                                    <span>0尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_10">10</span>
+                                                        <span class="sixlot_ball num_20">20</span>
+                                                        <span class="sixlot_ball num_30">30</span>
+                                                        <span class="sixlot_ball num_40">40</span>
+                                                    </span>
+                                                </p>
+                                                <p class="active">
+                                                    <span>1尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_01">01</span>
+                                                        <span class="sixlot_ball num_11">11</span>
+                                                        <span class="sixlot_ball num_21">21</span>
+                                                        <span class="sixlot_ball num_31">31</span>
+                                                        <span class="sixlot_ball num_41">41</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>2尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_02">02</span>
+                                                        <span class="sixlot_ball num_12">12</span>
+                                                        <span class="sixlot_ball num_22">22</span>
+                                                        <span class="sixlot_ball num_32">32</span>
+                                                        <span class="sixlot_ball num_42">42</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>3尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_03">03</span>
+                                                        <span class="sixlot_ball num_13">13</span>
+                                                        <span class="sixlot_ball num_23">23</span>
+                                                        <span class="sixlot_ball num_33">33</span>
+                                                        <span class="sixlot_ball num_43">43</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>4尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_04">04</span>
+                                                        <span class="sixlot_ball num_14">14</span>
+                                                        <span class="sixlot_ball num_24">24</span>
+                                                        <span class="sixlot_ball num_34">34</span>
+                                                        <span class="sixlot_ball num_44">44</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>5尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_05">05</span>
+                                                        <span class="sixlot_ball num_15">15</span>
+                                                        <span class="sixlot_ball num_25">25</span>
+                                                        <span class="sixlot_ball num_35">35</span>
+                                                        <span class="sixlot_ball num_45">45</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>6尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_06">06</span>
+                                                        <span class="sixlot_ball num_16">16</span>
+                                                        <span class="sixlot_ball num_26">26</span>
+                                                        <span class="sixlot_ball num_36">36</span>
+                                                        <span class="sixlot_ball num_46">46</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>7尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_07">07</span>
+                                                        <span class="sixlot_ball num_17">17</span>
+                                                        <span class="sixlot_ball num_27">27</span>
+                                                        <span class="sixlot_ball num_37">37</span>
+                                                        <span class="sixlot_ball num_47">47</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>8尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_08">08</span>
+                                                        <span class="sixlot_ball num_18">18</span>
+                                                        <span class="sixlot_ball num_28">28</span>
+                                                        <span class="sixlot_ball num_38">38</span>
+                                                        <span class="sixlot_ball num_48">48</span>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>9尾</span>
+                                                    <span class="bet-times">1.935</span>
+                                                    <span class="bet_right_ball">
+                                                        <span class="sixlot_ball num_09">09</span>
+                                                        <span class="sixlot_ball num_19">19</span>
+                                                        <span class="sixlot_ball num_29">29</span>
+                                                        <span class="sixlot_ball num_39">39</span>
+                                                        <span class="sixlot_ball num_49">49</span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 正肖(index:14) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li item_full">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            正肖
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>鼠</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_11">11</span>
+                                                    <span class="sixlot_ball num_23">23</span>
+                                                    <span class="sixlot_ball num_35">35</span>
+                                                    <span class="sixlot_ball num_47">47</span>
+                                                </span>
+                                            </p>
+                                            <p class="active">
+                                                <span>牛</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_10">10</span>
+                                                    <span class="sixlot_ball num_22">22</span>
+                                                    <span class="sixlot_ball num_34">34</span>
+                                                    <span class="sixlot_ball num_46">46</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>虎</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_09">09</span>
+                                                    <span class="sixlot_ball num_21">21</span>
+                                                    <span class="sixlot_ball num_33">33</span>
+                                                    <span class="sixlot_ball num_45">45</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>兔</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_08">08</span>
+                                                    <span class="sixlot_ball num_20">20</span>
+                                                    <span class="sixlot_ball num_32">32</span>
+                                                    <span class="sixlot_ball num_44">44</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>龙</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_07">07</span>
+                                                    <span class="sixlot_ball num_19">19</span>
+                                                    <span class="sixlot_ball num_31">31</span>
+                                                    <span class="sixlot_ball num_43">43</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>蛇</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_06">06</span>
+                                                    <span class="sixlot_ball num_18">18</span>
+                                                    <span class="sixlot_ball num_30">30</span>
+                                                    <span class="sixlot_ball num_42">42</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>马</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_05">05</span>
+                                                    <span class="sixlot_ball num_17">17</span>
+                                                    <span class="sixlot_ball num_29">29</span>
+                                                    <span class="sixlot_ball num_41">41</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>羊</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_04">04</span>
+                                                    <span class="sixlot_ball num_16">16</span>
+                                                    <span class="sixlot_ball num_28">28</span>
+                                                    <span class="sixlot_ball num_40">40</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猴</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_03">03</span>
+                                                    <span class="sixlot_ball num_15">15</span>
+                                                    <span class="sixlot_ball num_27">27</span>
+                                                    <span class="sixlot_ball num_39">39</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>鸡</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_02">02</span>
+                                                    <span class="sixlot_ball num_14">14</span>
+                                                    <span class="sixlot_ball num_26">26</span>
+                                                    <span class="sixlot_ball num_38">38</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>狗</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_01">01</span>
+                                                    <span class="sixlot_ball num_13">13</span>
+                                                    <span class="sixlot_ball num_25">25</span>
+                                                    <span class="sixlot_ball num_37">37</span>
+                                                    <span class="sixlot_ball num_49">49</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span>猪</span>
+                                                <span class="bet-times">1.935</span>
+                                                <span class="bet_right_ball">
+                                                    <span class="sixlot_ball num_12">12</span>
+                                                    <span class="sixlot_ball num_24">24</span>
+                                                    <span class="sixlot_ball num_36">36</span>
+                                                    <span class="sixlot_ball num_48">48</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 特码五行(index:15) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            五行
+                                        </h2>
+                                        <div class="bet_box">
+                                            <p>
+                                                <span>金</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p class="active">
+                                                <span>木</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>水</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>火</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                            <p>
+                                                <span>土</span>
+                                                <span class="bet-times">1.935</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 自选不中(index:16) -->
+                        <div class="content-right item_one" style="display:none">
+                            <ul>
+                                <li class="select-li">
+                                    <div class="bet_panel">
+                                        <h2>
+                                            自选不中 赔率：12.33
+                                        </h2>
+                                        <div class="bet_ball">
+                                            <p class="active">
+                                                <span class="sixlot_ball num_01">01</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_02">02</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p class="active">
+                                                <span class="sixlot_ball num_03">03</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_04">04</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_05">05</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p class="active">
+                                                <span class="sixlot_ball num_06">06</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_07">07</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_08">08</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_09">09</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_10">10</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_11">11</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_12">12</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_13">13</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_14">14</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_15">15</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_16">16</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_17">17</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_18">18</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_19">19</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_20">20</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_21">21</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_22">22</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_23">23</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_24">24</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_25">25</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_26">26</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_27">27</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_28">28</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_29">29</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_30">30</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_31">31</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_32">32</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_33">33</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_34">34</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_35">35</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_36">36</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_37">37</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_38">38</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_39">39</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_40">40</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_41">41</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_42">42</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_43">43</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_44">44</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_45">45</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_46">46</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_47">47</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_48">48</span>
+                                                <!--<span class="bet-times">1.935</span>-->
+                                            </p>
+                                            <p>
+                                                <span class="sixlot_ball num_49">49</span>
+                                                <!--<span class="bet-times">1.935</span>-->
                                             </p>
                                         </div>
                                     </div>
@@ -2631,6 +4778,13 @@ export default {
         const $tabs = $('.so-con-right .content-right');
         $tabs.hide();
         $tabs.eq(index).show();
+        if(index=='0' || index=='4' || index=='5' || index=='11' || index=='13'){
+            $('.bet_tab').hide();
+            $('#bet_tab_'+index).show() ;
+            $('.bet_tab').find('li:first-child').click() ; // 切换时初始化为第一个
+        }else {
+            $('.bet_tab').hide();
+        }
         $src.addClass('active').siblings().removeClass('active') ;
 
         var conth = $tabs.eq(index).height();
