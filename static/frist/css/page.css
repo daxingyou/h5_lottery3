@@ -759,14 +759,15 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 跑马灯 */
 .marquee { overflow: hidden; background-color: #fff; line-height: .7rem; height: .7rem; margin-bottom: 1px;  }
 .marquee > * { display: inline-block;  }
-.marquee > .news_title { position: absolute; left: 0;  line-height: .6rem; height: .7rem; padding: 0 15px 0 10px; z-index: 1; }
+.marquee > .news_title { position: absolute; left: 0;  line-height: .6rem; height: .7rem; padding: 0 .4rem 0 .34rem; z-index: 1; }
+.marquee > .news_title > i.icon-notification {display:inline-block;margin-top: .04rem;  background: url("/static/frist/images/icon_lb.png") no-repeat; width: .5rem; height: .5rem; background-size: 94%; padding: 0; vertical-align: middle; }
 .marquee > .news_title > span { display: inline-block; line-height: .7rem; height: .7rem; vertical-align: middle; }
 .marquee > .news_marque { line-height: .7rem; height: .7rem; overflow: hidden; }
 
 .tempWrap { width: 100% !important; }
 
 .sys-notice { height: .7rem; line-height: .7rem; overflow: hidden; position: relative; width: 100%; }
-.sys-notice .bd { line-height: .7rem; height: .7rem; width: 7.7rem; margin-left:2.3rem;}
+.sys-notice .bd { line-height: .7rem; height: .7rem; width: 7.7rem; margin-left:2.6rem;}
 .sys-notice ul { margin: 0; line-height: .7rem; height: .7rem; }
 .sys-notice ul li { list-style: none; display: inline-block; line-height: .7rem; height: .7rem; }
 .sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
