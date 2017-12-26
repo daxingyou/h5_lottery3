@@ -299,11 +299,11 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon.icon_eye{ background-position: -4.48rem -1.92rem;}
 .icon.icon_eye.active{background-position: -3.84rem -1.92rem;}
 
-.icon_account  { display: inline-block; vertical-align: middle; width: 1.2rem; height: 1.2rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 6rem auto; }
-.icon_account.icon_deposit { background-position-x: 0rem; }
-.icon_account.icon_withdrawals { background-position-x: -1.2rem; }
-.icon_account.icon_promo { background-position-x: -2.4rem; }
-.icon_account.icon_service { background-position-x: -3.6rem; }
+.icon_account  { display: inline-block; vertical-align: middle; width: 1.2rem; height: 1.2rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png); background-size: 6rem auto; background-position: 0rem -3.6rem; }
+.icon_account.icon_deposit { background-position: 0rem 0; }
+.icon_account.icon_withdrawals { background-position: -1.2rem 0; }
+.icon_account.icon_promo { background-position: -2.4rem 0; }
+.icon_account.icon_service { background-position: -3.6rem 0; }
 .icon_account.icon_info_1 { background-position: 0rem -1.2rem; }
 .icon_account.icon_info_2 { background-position: -1.2rem -1.2rem; }
 .icon_account.icon_info_3 { background-position: -2.4rem -1.2rem; }
@@ -318,7 +318,9 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 .icon_account.icon_deposit_net2 { background-position: -3.6rem -3.6rem;	} /* 支付宝 */
 .icon_account.icon_deposit_net3 { background-position: -2.4rem -4.8rem;	} /* QQ */
 .icon_account.icon_deposit_net4 { background-position: -3.6rem -4.8rem;	} /* 京东钱包 */
-.icon_account.icon_deposit_net8 { background-position: -4.8rem -3.6rem;	} /* 银联 */
+.icon_account.icon_deposit_net8 { background-position: -1.2rem -3.6rem;	} /* 银联 */
+.icon_account.icon_deposit_net9 {background-position: -2.4rem -3.6rem;} /* 银行转帐 */
+.icon_account.icon_deposit_net10 { background-position: -2.4rem 1.2rem; } /* 网银支付(扫码) */
 .icon_account.icon_notice_1 { background-position: 0rem -4.8rem; } /* 个人消息(未读) */
 .icon_account.icon_notice_2 { background-position: -1.2rem -4.8rem; } /* 个人消息(已读) */
 .icon_account.icon_ac01 { background-position: 0rem -6rem; }
@@ -335,7 +337,7 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }*/
 // bet lottery
 -----------------------------------------*/
 /* round ball */
-.round_ball{ background-color: #bababa; color: #fff; border-radius: 1rem; display: inline-block; width: 1rem; height: 1rem; line-height: 1rem; font-size: 0.6rem; text-align: center; overflow: hidden; position: relative; }
+.round_ball{ background-color: #fff; color: #1db5f7; border: 1px solid #1db5f7; border-radius: 1rem; display: inline-block; width: 1rem; height: 1rem; line-height: 1rem; font-size: 0.6rem; text-align: center; overflow: hidden; position: relative; }
 .round_ball:after{ content: ''; display: block; width: 100%; height: 100%; position: absolute; top: -40%; left: 15%; border-radius: 50%; background-color: #fff; opacity: 0.2; }
 /*.round_ball.num_0{ background-position-x: -1.3rem; }
 .round_ball.num_1{ background-position-x: -2.6rem; }
@@ -349,7 +351,7 @@ i.eye.active {  background-position: -3.84rem -1.92rem; }*/
 .round_ball.num_9{ background-position-x: -13rem; }
 .round_ball.num_10{ background-position-x: -14.3rem; }
 .round_ball.num_11{ background-position-x: -15.6rem; }*/
-.round_ball.active, p.active .round_ball{ background-color:#bc0000;}
+.round_ball.active, p.active .round_ball{ background-color:#bc0000; border-color: #bc0000; color: #fff; }
 
 /* k3 ball */
 .k3_dice {display: inline-block;vertical-align: middle;box-sizing: border-box;background: url(/static/frist/images/dice.png) no-repeat;background-size: 6rem auto;width: 1rem;height: 1rem;border-radius: 0.1rem; color: transparent; box-shadow: 0 0 0 1px #cbcbcb; -webkit-box-shadow: 0 0 0 1px #cbcbcb;}
@@ -451,6 +453,7 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .jx11_tab.hd ul.tab_mid > li.on {width: 2rem;  }
 .jx11_tab.hd ul.tab_mid > li.on:after { display: none;}
 .jx11_tab.hd ul.tab_mid > li > a{ height: 1rem; line-height: 1rem; color: #5f5f5f; }
+.jx11_tab.hd ul.tab_mid > li > a:before,.jx11_tab.hd ul.tab_mid > li > a:after{content: ' - ';}
 .jx11_tab.hd ul.tab_mid > li.on a{ color: #1db5f7;}
 .jx11_tab.hd.tab_mid > li.on a{ color: #fff; }
 .jc115 .bd .tab_content { padding: 0;}
@@ -467,11 +470,15 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .item_full .bet_panel .bet_box p .bet_right_ball { display: block; float:right; text-align: right; white-space: nowrap; line-height: inherit;}
 .item_full .bet_panel .bet_box p .bet_right_ball .sixlot_ball { transform: scale(0.8); margin-left: -0.15rem; margin-bottom: -0.2rem;}
 .bet_filter{ position: relative; margin-bottom: 0.3rem;}
-.bet_filter > span{ position: absolute; top: -0.9rem; right: 0px; padding: 0 0.2rem; background-color: #eee; border-radius: 0.1rem;}
-.bet_filter > ul { background-color: #eee; border-radius: 0.1rem; }
+.bet_filter > span{ position: absolute; top: -1rem; right: 0px; padding: 0 0.2rem;  border-radius: 0.1rem;}
+.bet_filter > ul { background-color: #eee; border-radius: 0.1rem; display: none; overflow: hidden; }
 .bet_filter > ul:after { content: ''; display: table; clear: both;}
 .bet_filter > ul > li{ float: left; text-align: center; width: 16%; }
-.bet_filter > ul > li.active{ background-color: #127ece;border-radius: 0.1rem;color: #fff;}
+.bet_filter > ul > li:before, .bet_filter > ul > li:after{ content: '*'}
+.bet_filter > ul > li.active{background-color: #127ece; color: #fff;}
+.bet_filter > span.active ~ ul{ display: block;}
+.bet_filter > span .icon{ transform: rotate(0deg); -webkit-transition: transform 200ms linear;-moz-transition: transform 200ms linear;transition: transform 200ms linear;}
+.bet_filter > span.active .icon{ transform: rotate(180deg); -webkit-transition: transform 200ms linear;-moz-transition: transform 200ms linear;transition: transform 200ms linear;}
 #sixlot .tab_content{ padding-top: 1rem;}
 
 /* 开奖资讯 */
@@ -850,7 +857,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /*.form_g:focus { -webkit-box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); border: 1px solid #256e93; }*/
 
 .form_g > * { vertical-align: middle; float: left; line-height: 1rem; height: 1rem; }
-.form_g > legend { color: #999; display: inline-block; width: 1.6rem; height: .5rem; line-height: 0.5rem; margin-top: 0.25rem; margin-right: .3rem; text-align: left; border-right: 1px solid #cbcbcb; }
+.form_g > legend { color: #474747; display: inline-block; width: 1.6rem; height: .5rem; line-height: 0.5rem; margin-top: 0.25rem; margin-right: .3rem; text-align: left; border-right: 1px solid #cbcbcb; }
 .form_g > input { background-color: transparent; width: calc(85% - 1.5rem); border: none; position: relative; font-size: .35rem; }
 .form_g .icon_arrow_down{ height: 0.64rem; margin-top: 0.18rem; transform: translate(0.15rem); -webkit-transform: translate(0.15rem) ; position: absolute;right: 0.5rem}
 /*.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .5rem; background-color: #256e93; right: -.2rem; left: inherit; top: .25rem; }*/
@@ -903,7 +910,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 /* 选择银行 */
 .pay_content .pay_list li {  border-radius: 0.1rem; padding: 0.05rem 0.2rem;  margin: .2rem 0; border: 1px solid #cbcbcb; box-sizing: border-box;   width: 49%; margin-right: 2%; display: inline-block; font-size: .34rem; }
 .pay_content .pay_list li:nth-child(even){margin-right: 0;}
-.pay_content .pay_list li a { display: block; line-height: 3em; text-align: left; color: #1db5f7;}
+.pay_content .pay_list li a { display: block; line-height: 3em; text-align: left; color: #5f5f5f;}
 .pay_content .pay_list li a img { width: .5rem; margin-right: 0.1rem; vertical-align: middle; display: inline-block; }
 
 
@@ -912,7 +919,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /*.pay_way > ul > li:nth-child(3) { border-bottom: 1px solid rgba(255, 255, 255, 0.03); }*/
 
-.pay_way > ul > li > a { display: inline-block; width: 100%; padding: 1em 0;}
+.pay_way > ul > li > a { display: inline-block; width: 100%; padding: 1em 0; color: #5f5f5f;}
 
 /*.pay_way > ul > li > a:after { content: ''; background-image: url("/static/frist/images/btn_icon_right.png"); width: .2rem; height: 0.37rem; background-size: 100%; position: absolute; right: 3em; top: 3em; }*/
 
@@ -997,7 +1004,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .info_bot > .btn_blue {  }
 .info_bot > ul { overflow: hidden; margin: 0 0.3rem; background-color: #fff; border: 1px solid #dadada; }
 .info_bot > ul > li { padding: 0 0.3rem; border-bottom: 1px solid #dadada; }
-.info_bot > ul > li > a { display: block;  font-size: 0.4rem; overflow: hidden; line-height: 1.5rem; vertical-align: middle; text-align: left; padding: 0.2rem 0; position: relative; }
+.info_bot > ul > li > a { display: block;  font-size: 0.4rem; overflow: hidden; line-height: 1.5rem; vertical-align: middle; text-align: left; padding: 0.2rem 0; position: relative; color: #5f5f5f; }
 .info_bot > ul > li > a .icon_account { margin-right: .2rem; background-color: #1db5f7; border-radius: 50%;  }
 .info_bot > ul > li > a .icon { float: right; margin-top: 0.4rem; }
 .info_bot > ul > li > a .icon div { width: 1.2rem; height: 1.2rem; }
