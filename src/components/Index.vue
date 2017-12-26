@@ -152,32 +152,33 @@
               </ul>
           </section>
           <!--20171116 新增優惠活動-->
-          <!--<section class="promoindex_area">-->
-              <!--<h3>-->
-                  <!--<img src="../../static/frist/images/sale/yhhd_04_07.png" alt="优惠活动">-->
-                  <!--<router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>-->
-              <!--</h3>-->
-              <!--<a href="javascript:;" @click="setCid($event)" :data-val="cid">-->
-                  <!--<img :src="picture">-->
-              <!--</a>-->
-          <!--</section>-->
+          <!--20171116 新增優惠活動-->
+          <section class="promoindex_area">
+              <h3>
+                  优惠活动
+                  <router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>
+              </h3>
+              <a href="javascript:;" @click="setCid($event)" :data-val="cid">
+                  <img :src="picture">
+              </a>
+          </section>
           <!--end 20171116 新增優惠活動-->
-          <!--<section class="cooper_area">-->
-              <!--<div class="cooper">-->
-                  <!--<h3><img src="../../static/frist/images/sale/hzjm_03.png" alt="合作加盟"></h3>-->
-                  <!--<ul>-->
-                      <!--<li>-->
-                          <!--<router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"></router-link>-->
-                      <!--</li>-->
-                      <!--<li>-->
-                          <!--<a class="icon_agent" href="javascript:;" @click="Continued()"></a>-->
-                      <!--</li>-->
-                      <!--<li>-->
-                          <!--<a class="icon_about" href="javascript:;" @click="Continued()" ></a>-->
-                      <!--</li>-->
-                  <!--</ul>-->
-              <!--</div>-->
-          <!--</section>-->
+          <section class="cooper_area">
+              <div class="cooper">
+                  <h3>合作加盟</h3>
+                  <ul>
+                      <li>
+                          <router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"><span class="icon_account icon_join_1"></span><span>新手教程</span></router-link>
+                      </li>
+                      <li>
+                          <router-link class="icon_agent" :to="'/lobbyTemplate/agent'"><span class="icon_account icon_join_2"></span><span>代理加盟</span></router-link>
+                      </li>
+                      <li>
+                          <router-link class="icon_about"  :to="'/lobbyTemplate/about'"><span class="icon_account icon_join_3"></span><span>关於我们</span></router-link>
+                      </li>
+                  </ul>
+              </div>
+          </section>
           <!--银行转账使用步骤-->
           <div class="modal" v-if="offFlag">
               <div class="m_content">
@@ -422,31 +423,45 @@ export default {
            })
        },
       //获得优惠活动接口
-//      getActivity : function () {
-//          var _self=this;
-//          $.ajax({
-//              type:'get',
-//              url: _self.action.forseti + 'apid/cms/activity',
-//              data:{},
-//              success:(res)=>{
-//                  if(res.data.rows){
-//                   _self.picture=_self.action.picurl+ res.data.rows[0].titlePic+'/0';
-//                   _self.cid=res.data.rows[0].cid
-//                  }
-//              },
-//              err:(res)=>{
-//
-//              }
-//          })
-//      },
-//      setCid:function (e) {
-//          var $src = $(e.currentTarget);
-//          var val = $src.data('val');
-//          if(val){
-//              localStorage.setItem('Cid',val);
-//              window.location = '/lobbyTemplate/promo_content' ;
-//          }
-//      },
+     //获得优惠活动接口
+      getActivity : function () {
+
+          var _self=this;
+          if (!sessionStorage.propActivityList) {
+              $.ajax({
+                  type: 'get',
+                  url: _self.action.forseti + 'apid/cms/activity',
+                  data: {},
+                  success: (res) => {
+                      sessionStorage.propActivityList = JSON.stringify(res.data.rows);
+                      if (res.data.rows) {
+                          _self.picture = _self.action.picurl + res.data.rows[0].titlePic + '/0';
+                          _self.cid = res.data.rows[0].cid
+                      }
+                  },
+                  err: (res) => {
+
+                  }
+              })
+
+          } else {
+              var activity_prop = JSON.parse(sessionStorage.propActivityList)
+              if (activity_prop) {
+                  _self.picture = _self.action.picurl + activity_prop[0].titlePic + '/0';
+                  _self.cid = activity_prop[0].cid
+              }
+          }
+      },
+      setCid:function (e) {
+          var _self = this;
+          var $src = $(e.currentTarget);
+          var val = $src.data('val');
+          if(val){
+              localStorage.setItem('Cid',val);
+              _self.$router.push('/lobbyTemplate/promo')
+
+          }
+      },
   },
 
 }
