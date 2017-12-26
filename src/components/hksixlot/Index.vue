@@ -162,7 +162,7 @@
                                             <h2>
                                                 特码B
                                                 <div class="bet_filter">
-                                                    <span>快选</span>
+                                                    <span @click="betFilter">快选 <span class="icon icon_arrow_down"></span></span>
                                                     <ul>
                                                         <li class="active">鼠</li><li>牛</li><li>虎</li><li>兔</li><li>龙</li><li>蛇</li>
                                                         <li>马</li><li>羊</li><li>猴</li><li>鸡</li><li>狗</li><li>猪</li>
@@ -3588,7 +3588,7 @@
                                 <li class="select-li item_full">
                                     <div class="bet_panel">
                                         <h2>
-                                            合肖 赔率：12.33
+                                            合肖 <span class="text-red">赔率：12.33</span>
                                         </h2>
                                         <div class="bet_box">
                                             <p>
@@ -4377,7 +4377,7 @@
                                 <li class="select-li">
                                     <div class="bet_panel">
                                         <h2>
-                                            自选不中 赔率：12.33
+                                            自选不中 <span class="text-red">赔率：12.33</span>
                                         </h2>
                                         <div class="bet_ball">
                                             <p class="active">
@@ -4978,6 +4978,12 @@ export default {
               $src.parent('p').removeClass('active');
               this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
           }
+      },
+      // 快选展开收合
+      betFilter:function(e){
+        var _self = this ;
+        const $src = $(e.currentTarget);
+        $src.toggleClass('active')
       }
 
 
