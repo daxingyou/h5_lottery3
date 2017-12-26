@@ -584,7 +584,6 @@ export default {
         //验证账户是否存在
         CheckAccount:function () {
             let _self=this;
-            console.log($())
             let AccData={
                 agentAccount:_self.userNumber
             }
