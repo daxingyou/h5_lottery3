@@ -245,7 +245,7 @@
                                             </fieldset>
                                         </form>
                                         <div class="agent_check">
-                                            <input type="checkbox" id="cbox1" value="first_checkbox" checked>
+                                            <input type="checkbox" id="cbox1" value="first_checkbox" checked v-model="checked">
                                             <label for="cbox1">我已届满合法博彩年龄，且已阅读并同意<a class="agent_modal" href="javascript:;" @click="show('ag')">《代理注册协议》</a></label>
                                         </div>
                                         <div class="btn btn_blue">
@@ -283,20 +283,21 @@
                 </div>
             </div>
         </div>
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
 
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+ import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 
 export default {
     name: 'agent',
     mixins:[Mixin],
     components: {
-    // AutoCloseDialog,
+     AutoCloseDialog,
         FooterNav ,
     },
     data: function() {
@@ -511,7 +512,10 @@ export default {
                 this.$refs.autoCloseDialog.open('请输入验证码') ;
                 return false ;
             }
-
+            if(!_self.checked){
+                this.$refs.autoCloseDialog.open('请阅读并同意注册协议') ;
+                return false ;
+            }
             var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
             if(falg){
                 return false ;
@@ -580,7 +584,7 @@ export default {
         //验证账户是否存在
         CheckAccount:function () {
             let _self=this;
-            console.log(this.QQObj)
+            console.log($())
             let AccData={
                 agentAccount:_self.userNumber
             }
