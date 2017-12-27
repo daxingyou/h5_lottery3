@@ -116,13 +116,13 @@
                   <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面10个 -->
                     <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
-                        <img v-lazy="lottery.imgUrl">
+                        <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
                            <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                       </div>
                     </a>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                                <img v-lazy="lottery.imgUrl">
+                                <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
                               <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                           </div>
                       </a>
@@ -263,9 +263,6 @@ export default {
        this.carouselImg();
        this.getActivity();
        this.getCustom()
-        for(var i=0;i<this.allLottery.length;i++){
-                this.allLottery[i].imgUrl= this.action.picurl+ this.allLottery[i].imgUrl+'/0'
-        }
   },
     methods:{
       getBulletinsContent :function () {

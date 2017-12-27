@@ -78,7 +78,7 @@
                                         <div class="form_g password">
                                             <legend>取款密码</legend>
                                             <input type="password" placeholder="请输入4位数字取款密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')" >
-                                            <i class="icon icon_eye active eye3" @click="showPassword('eye3')"></i>
+                                            <i class="icon icon_eye" @click="showPassword('eye3')"></i>
                                         </div>
                                         <label class="error-message "></label>
                                     </fieldset>
@@ -86,7 +86,7 @@
                                         <div class="form_g password">
                                             <legend>取款密码</legend>
                                             <input type="text" placeholder="请输入4位数字取款密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')" >
-                                            <i class="icon icon_eye " @click="showPassword('act3')"></i>
+                                            <i class="icon icon_eye active " @click="showPassword('act3')"></i>
                                         </div>
                                         <label class="error-message "></label>
                                     </fieldset>
