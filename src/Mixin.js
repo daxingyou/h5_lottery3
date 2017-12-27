@@ -586,7 +586,6 @@ var MyMixin = {
         },
         //清除所有cookie函数
          clearAllCookie:function() {
-            console.log('清除cookie') ;
              this.setCookie("access_token", '');  // 登录token
              this.setCookie("username", '');  //  登录用户名
              this.setCookie('acType','');   // 玩家类型
