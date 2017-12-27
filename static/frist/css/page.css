@@ -825,7 +825,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 优惠活动 */
 .promoindex_area { position: relative; padding: 0.1rem 0 0.2rem; background-color: #fff; }
 .promoindex_area h3 { text-align: left; line-height: 0.6rem;  }
-.promoindex_area h3 a { line-height: 0.6rem; float: right; border: 1px solid #cbcbcb; border-radius: 0.5rem; padding: 0 0.2rem; }
+.promoindex_area h3 a { line-height: 0.3rem; float: right; border: 1px solid #cbcbcb; border-radius: 0.5rem; padding: 0.1rem 0.2rem; font-size: 0.32rem; margin-top: 0.08rem;}
 .promoindex_area > a { margin: 0.2rem 0.4rem; display: block;  }
 .promoindex_area > a img { display: block; width: 100%; height: 1.8rem; }
 
