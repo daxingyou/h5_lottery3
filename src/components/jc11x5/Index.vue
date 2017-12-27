@@ -472,7 +472,7 @@
                         // sys_time = '2017-10-30 19:39:16';   //封盘状态所需时间，5秒后开奖 
                         that.sys_time = that.formatTimeUnlix(sys_time) ;
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
-                            console.log(res.msg)
+//                            console.log(res.msg)
 
                         that.balancePublic = res.msg;
                         that.setCookie("balancePublic",res.msg)
