@@ -763,24 +763,25 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .news .hd { display: none;  }
 
 /* 跑马灯 */
-.marquee { overflow: hidden; background-color: #fff; line-height: .7rem; height: .7rem; margin-bottom: 1px;  }
+.marquee { overflow: hidden; background-color: #fff; line-height: .9rem; height: .9rem; margin-bottom: 1px;  }
 .marquee > * { display: inline-block;  }
-.marquee > .news_title { position: absolute; left: 0;  line-height: .6rem; height: .7rem; padding: 0 .4rem 0 .34rem; z-index: 1; }
+.marquee > .news_title { position: absolute; left: 0;  line-height: .9rem; height: .9rem; padding: 0 .3rem 0 .34rem; z-index: 1; }
 .marquee > .news_title > i.icon-notification {display:inline-block;margin-top: .04rem;  background: url("/static/frist/images/icon_lb.png") no-repeat; width: .5rem; height: .5rem; background-size: 94%; padding: 0; vertical-align: middle; }
-.marquee > .news_title > span { display: inline-block; line-height: .7rem; height: .7rem; vertical-align: middle; }
-.marquee > .news_marque { line-height: .7rem; height: .7rem; overflow: hidden; }
+.marquee > .news_title > span { display: inline-block; line-height: .9rem; height: .9rem; vertical-align: middle; }
+.marquee > .news_title img {height: 0.73rem; width: auto; margin-top: 0.1rem;}
+.marquee > .news_marque { line-height: .9rem; height: .9rem; overflow: hidden; }
 
 .tempWrap { width: 100% !important; }
 
-.sys-notice { height: .7rem; line-height: .7rem; overflow: hidden; position: relative; width: 100%; }
-.sys-notice .bd { line-height: .7rem; height: .7rem; width: 7.7rem; margin-left:2.6rem;}
-.sys-notice ul { margin: 0; line-height: .7rem; height: .7rem; }
-.sys-notice ul li { list-style: none; display: inline-block; line-height: .7rem; height: .7rem; }
+.sys-notice { height: .9rem; line-height: .9rem; overflow: hidden; position: relative; width: 100%; }
+.sys-notice .bd { line-height: .9rem; height: .9rem; width: 7.7rem; margin-left:2.6rem;}
+.sys-notice ul { margin: 0; line-height: .9rem; height: .9rem; }
+.sys-notice ul li { list-style: none; display: inline-block; line-height: .9rem; height: .9rem; }
 .sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
 
 #index_content.content { margin-top: 0;  }
-#index_content.content > section h3 { text-align: left; margin: .2rem 0.4rem 0; padding: 0 0 0.1rem; border-bottom: 1px solid #dadada; line-height: 0.5rem; }
-#index_content.content > section h3 > img { width: 3.25rem; }
+#index_content.content > section h3 { text-align: left; margin: .2rem 0.4rem 0; border-bottom: 1px solid #ececec; line-height: 0.5rem; }
+#index_content.content > section h3 > img { height: 0.73rem; }
 
 /* 快速连结 */
 .account_area { padding: 0.3rem ; background-color: #fff; margin-bottom: 0.2rem; }
@@ -792,9 +793,10 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /* 热门游戏 */
 .hotgame_area { background-color: #fff; margin-bottom: 0.2rem;}
 .hotgame_area ul { padding:0rem; width: 100%; font-size: 0; }
-.hotgame_area ul > li {  display: inline-block; font-size: .32rem; text-align: center; padding: 0.2rem .15rem; min-height: 2rem; height: auto; padding-bottom: .2rem; width: 29%; border-bottom: 1px solid #dadada;  }
+.hotgame_area ul > li {  display: inline-block; font-size: .32rem; text-align: center; padding: 0.2rem .15rem; min-height: 2rem; height: auto; padding-bottom: .2rem; width: 29%; border-bottom: 1px solid #ececec;  }
 .hotgame_area ul > li > p { color: #161616; font-size: 0.38rem; }
 .hotgame_area ul > li:focus, .hotgame_area ul > li.active { }
+.hotgame_area ul > li:nth-last-child(1),.hotgame_area ul > li:nth-last-child(2),.hotgame_area ul > li:nth-last-child(3){border-bottom: 0;}
 .hotgame_area .badge { background: none; width: 2.8rem; }
 .hotgame_area .badge > img { height: 2rem;  }
 .hotgame_area .badge:before { display: none; }
@@ -822,8 +824,8 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 /* 优惠活动 */
 .promoindex_area { position: relative; padding: 0.1rem 0 0.2rem; background-color: #fff; }
-.promoindex_area h3 { text-align: left; padding-right: 0.4rem; line-height: 0.6rem;  }
-.promoindex_area h3 a { float: right; text-decoration: underline !important; }
+.promoindex_area h3 { text-align: left; line-height: 0.6rem;  }
+.promoindex_area h3 a { line-height: 0.6rem; float: right; border: 1px solid #cbcbcb; border-radius: 0.5rem; padding: 0 0.2rem; }
 .promoindex_area > a { margin: 0.2rem 0.4rem; display: block;  }
 .promoindex_area > a img { display: block; width: 100%; height: 1.8rem; }
 

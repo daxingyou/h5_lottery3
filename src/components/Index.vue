@@ -44,8 +44,9 @@
           </div>
           <div class="marquee">
               <div class="news_title">
-                  <i data-v-1f83ba94="" class="icon-notification"></i>
-                  <span>最新消息 : </span>
+                  <!--<i data-v-1f83ba94="" class="icon-notification"></i>
+                  <span>最新消息 : </span>-->
+                  <img src="/static/frist/images/title_new.png" alt="最新消息">
               </div>
               <div id="marquee_snp" class="bd news_text slideText">
                   <div class="sys-notice">
@@ -155,8 +156,8 @@
           <!--20171116 新增優惠活動-->
           <section class="promoindex_area">
               <h3>
-                  优惠活动
-                  <router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>
+                  <img src="/static/frist/images/title_promo.png" alt="优惠活动">
+                  <router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多</router-link>
               </h3>
               <a href="javascript:;" @click="setCid($event)" :data-val="cid">
                   <img :src="picture">
@@ -165,7 +166,7 @@
           <!--end 20171116 新增優惠活動-->
           <section class="cooper_area">
               <div class="cooper">
-                  <h3>合作加盟</h3>
+                  <h3><img src="/static/frist/images/title_cooper.png" alt="合作加盟"></h3>
                   <ul>
                       <li>
                           <router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"><span class="icon_account icon_join_1"></span><span>新手教程</span></router-link>
