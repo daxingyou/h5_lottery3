@@ -863,7 +863,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 
 /*.form_g.text > legend {  background-image: none; width: 1.8rem; }*/
 .form_g.text input, .form_g.text select { width: calc(70% - .5rem); background-color: transparent;  border: none;appearance:none;  -moz-appearance:none; /* Firefox */  -webkit-appearance:none; /* Safari 和 Chrome */ }
-.form_g.text select option { background-color: rgba(18, 21, 30, 0.9); font-size: 0.1rem; }
+.form_g.text select option { background-color: rgba(250, 250, 250, 0.9); font-size: 0.1rem; }
 .form_g.money input { color: #ffbd00; }
 .form_g .icon_eye, .form_g .icon_close{ position: absolute; right: 0.3rem;  top: .22rem;cursor: pointer;}
 .error-message.red { color: #ff3355; margin-top: 0.1rem; margin-left: 2.2rem; display: inline-block;}
