@@ -127,12 +127,10 @@ export default {
     created:function() {
         this.parentData = this.$route.params.data;
         this.model = this.$route.params.model;
-        console.log(this.model)
     },
     methods:{
 
     }
-
 }
 </script>
 
