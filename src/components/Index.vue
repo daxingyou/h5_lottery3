@@ -122,7 +122,7 @@
                     </a>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                                <img v-lazy="lottery.imgUrl"> 
+                                <img v-lazy="lottery.imgUrl">
                               <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                           </div>
                       </a>
@@ -258,26 +258,14 @@ export default {
       if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }
-      this.getBulletinsContent ();
-      this.getPopMsg();
-//      TouchSlide({
-//                  slideCell: "#focus",
-//                  autoPlay:true,
-//              });
-
-
-      /* $("#marquee_snp").slide({ // 文本滚动
-           mainCell: ".bd ul",
-           autoPage: true,
-           effect: "leftMarquee",
-           autoPlay: true,
-           vis: 1,
-           interTime: 50
-       });*/
-      //this.changeOffFlag();
+       this.getBulletinsContent ();
+       this.getPopMsg();
        this.carouselImg();
        this.getActivity();
        this.getCustom()
+        for(var i=0;i<this.allLottery.length;i++){
+                this.allLottery[i].imgUrl= this.action.picurl+ this.allLottery[i].imgUrl+'/0'
+        }
   },
     methods:{
       getBulletinsContent :function () {
