@@ -107,7 +107,7 @@ export default {
         }
     },
     mounted:function(){
-        console.log( this.balance )
+//        console.log( this.balance )
     },
     methods:{
         /*
