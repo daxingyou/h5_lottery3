@@ -214,7 +214,7 @@
                                             <fieldset v-if="!!eMailObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>电子邮箱</legend>
-                                                    <input type="tel" placeholder="请输入电子邮箱" v-model="eMail" class="eMail" @input="checkBankNum(eMail,'eMail')">
+                                                    <input type="tel" placeholder="请输入电子邮箱" v-model="eMail" class="eMail" @input="checkeMail(eMail,'eMail')">
                                                     <i class="icon icon_close cs5" @click="ClearInput('cs5','eMail')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -222,7 +222,7 @@
                                             <fieldset v-if="!!QQObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>QQ</legend>
-                                                    <input type="tel" placeholder="请输入QQ号" v-model="QQ" class="QQ" @input="checkBankNum(QQ,'QQ')">
+                                                    <input type="tel" placeholder="请输入QQ号" v-model="QQ" class="QQ" @input="checkQQ(QQ,'QQ')">
                                                     <i class="icon icon_close cs4" @click="ClearInput('cs6','QQ')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
@@ -230,7 +230,7 @@
                                             <fieldset v-if="!!weiChatObj.ifView">
                                                 <div class="form_g account">
                                                     <legend>微信</legend>
-                                                    <input type="tel" placeholder="请输入微信号" v-model="weiChat" class="weiChat" @input="checkBankNum(weiChat,'weiChat')">
+                                                    <input type="tel" placeholder="请输入微信号" v-model="weiChat" class="weiChat" @input="checkWx(weiChat,'weiChat')">
                                                     <i class="icon icon_close cs4" @click="ClearInput('cs7','weiChat')"></i>
                                                 </div>
                                                 <label class="error-message"></label>
