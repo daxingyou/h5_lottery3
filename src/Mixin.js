@@ -586,7 +586,6 @@ var MyMixin = {
         },
         //清除所有cookie函数
          clearAllCookie:function() {
-            console.log('清除cookie') ;
              this.setCookie("access_token", '');  // 登录token
              this.setCookie("username", '');  //  登录用户名
              this.setCookie('acType','');   // 玩家类型
@@ -756,6 +755,42 @@ var MyMixin = {
         checkNum: function (val,el) {
             var content = '请输入4位数字取款密码' ;
             if(val &&!this.positiveNum(val) ||val.length<4){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkeMail:function (val,el) {
+            var content = '请输入正确邮箱地址' ;
+            if(val &&!this.checkEmail(val)){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkQQ:function (val,el) {
+            var content = '请输入正确QQ号' ;
+            if(val &&!this.checkqq(val)){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkWx:function (val,el) {
+            var content = '请输入正确微信账号' ;
+            if(val &&!this. checkWechat(val)){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }
             else{

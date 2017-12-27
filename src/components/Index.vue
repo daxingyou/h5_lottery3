@@ -114,15 +114,15 @@
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
                   <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面10个 -->
-                    <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
+                    <router-link class="to_lottery" :to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
-                        <img v-lazy="lottery.imgUrl">
+                        <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
                            <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                       </div>
-                    </a>
+                    </router-link>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                                <img v-lazy="lottery.imgUrl">
+                                <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
                               <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                           </div>
                       </a>
@@ -263,9 +263,6 @@ export default {
        this.carouselImg();
        this.getActivity();
        this.getCustom()
-        for(var i=0;i<this.allLottery.length;i++){
-                this.allLottery[i].imgUrl= this.action.picurl+ this.allLottery[i].imgUrl+'/0'
-        }
   },
     methods:{
       getBulletinsContent :function () {
@@ -300,15 +297,20 @@ export default {
           if(!this.haslogin){
               this.$refs.autoCloseDialog.open('登录后才可以操作')
               setTimeout(function () {
-                  window.location = '/Login' ;
+                  // window.location = '/Login' ;
+                  _self.$router.push( '/Login' )
+
               },1000)
               return
           }
           if(cla=='CZ'){
-              window.location = '/lobbyTemplate/deposit' ;
+              // window.location = '/lobbyTemplate/deposit' ;
+              _self.$router.push( '/lobbyTemplate/deposit' )
           }
           if(cla=='TK'){
-              window.location = '/lobbyTemplate/Withdrawals' ;
+              // window.location = '/lobbyTemplate/Withdrawals' ;
+              _self.$router.push( '/lobbyTemplate/Withdrawals' )
+
           }
       },
       // 敬请期待
