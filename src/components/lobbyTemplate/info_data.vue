@@ -554,10 +554,13 @@ export default {
                 url: _self.action.uaa + 'api/data/member/info',
                 data: {},
                 success: (res) => {
-                    _self.loginName=res.data.login;
-                    _self.weChat  = res.data.wechat;
-                    _self.qq      = res.data.qq;
-                    _self.email   = res.data.email
+                    if(res.data){
+                        _self.loginName=res.data.login;
+                        _self.weChat  = res.data.wechat;
+                        _self.qq      = res.data.qq;
+                        _self.email   = res.data.email
+                    }
+
                 },
                 error: (e)=>{
 
