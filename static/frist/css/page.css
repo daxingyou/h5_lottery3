@@ -812,7 +812,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /*.cooper_area .cooper > ul > li div.icon { width: 1.8rem; height: 1.8rem; background-image: url("/static/frist/images/border_bg02.png"); color: #fff; background-position-x: 50%; background-size: 150% 100%; -webkit-box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); }*/
 .cooper_area .cooper > ul > li a { font-size: 0.34rem;  display: inline-block; color: #5f5f5f;}
 .cooper_area .cooper > ul > li a span{ display: block; margin: 0.1rem auto;}
-.cooper_area .cooper > ul > li a .icon_account{background-color: #1db5f7; border-radius: 1rem;}
+.cooper_area .cooper > ul > li a .icon_account{/*background-color: #1db5f7;*/ border-radius: 1rem;}
 .cooper_area .cooper > ul > li a span:last-child{line-height: 0.5rem; overflow: visible;}
 /*.cooper_area .cooper > ul > li a::after { content: ''; position: absolute; display: block; top: 0; left: 0; left: .3rem; bottom: -.4rem; top: inherit; }*/
 /*.cooper_area .cooper > ul > li a.icon_intro { background-position-y: top; }*/
