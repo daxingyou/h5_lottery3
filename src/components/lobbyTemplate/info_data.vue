@@ -36,10 +36,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="lgps filter_1">
-                            <a class="new_btn"><span>修改登录密码</span></a>
+                            <a class="new_btn"><span class="midunm">修改登录密码</span></a>
                         </div>
                         <div class="pps filter_2">
-                            <a class="new_btn"><span>修改取款密码</span></a>
+                            <a class="new_btn"><span class="midunm">修改取款密码</span></a>
                         </div>
                     </div>
                 </div>

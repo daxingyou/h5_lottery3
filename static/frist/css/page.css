@@ -61,7 +61,7 @@ input, select, button, a { outline: none; }
 /* btn */
 .new_btn{ font-size: 0.34rem; border: 1px solid transparent; margin: 0.1rem; display: inline-block; line-height: .7rem;  color: #fff; border-radius: 0.5rem;  background-color: #1db5f7; }
 .kind{background-color: #ffffff;  border-color: #9f9f9f;color: #5f5f5f;}
-.new_btn span{  width: 4.35rem;  display: block; text-align: center; border-radius: 0.5rem; /*background: url('/static/frist/images/btn_bg.svg') no-repeat center center; background-size: auto 100%; */ }
+.new_btn span{  width: 3rem;  display: block; text-align: center; border-radius: 0.5rem; /*background: url('/static/frist/images/btn_bg.svg') no-repeat center center; background-size: auto 100%; */ }
 .new_btn.cancel { border-color: #cbcbcb; color: #1db5f7; background-color: #fff;}
 /*.new_btn.cancel span{ width: 2.2rem; }*/
 .new_btn.ok span{ width: 3rem; }
@@ -143,10 +143,11 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 .so-left .so-l-c-con .back_home { }
 .so-left .so-l-c-con .back_home a, .so-left .so-l-c-con li a { text-align: left; display: block;  border-bottom: 1px solid #dadada; padding: 0.5rem 0.7rem; font-size: 0.4rem }
 .so-left .so-l-c-con .back_home a {  }
+.so-left .so-l-c-con li a:active{ background-color: #f3f3f3;}
 .so-left .so-l-c-con .all_lottery { width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
 .so-left .so-l-c-con .all_lottery li { width: 50%; float: left;}
 .so-left .so-l-c-con .all_lottery li:nth-child(odd) a { border-right: 1px solid #dadada; }
-.so-left .so-l-c-con .all_lottery:after{ content: ''; display: table; clear: both;}
+.so-left .so-l-c-con .all_lottery:after{ content: ''; display: table; clear: both; border-top: 1px solid #dadada; transform: translate(0,-1px)}
 /*.so-left .so-l-c-con .all_lottery .badge { display: none; }*/
 .so-left .so-l-c-con .all_lottery.active {  }
 
@@ -916,8 +917,8 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .pay_content .pay_list li a img { width: .5rem; margin-right: 0.1rem; vertical-align: middle; display: inline-block; }
 
 
-
-.pay_way > ul > li {  border-top: 1px solid #dadada;   position: relative; }
+.pay_way > ul {border-bottom: 1px solid #dadada;}
+.pay_way > ul > li {  border-top: 1px solid #dadada; border-bottom: 1px solid #dadada;  position: relative; margin-bottom: -1px; }
 
 /*.pay_way > ul > li:nth-child(3) { border-bottom: 1px solid rgba(255, 255, 255, 0.03); }*/
 
