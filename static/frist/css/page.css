@@ -708,7 +708,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 /*.new_road .road.road_left { width: auto; margin-right: 2px; }
 .new_road .road.road_left ul > li { margin-left: 0; }*/
 
-.new_road .road > ul { background-color: #c9dde2;  border-radius: 0.1rem; margin-top: .5rem; margin-right: 0.1rem; padding-top: .1rem; padding-bottom:0.05rem; }
+.new_road .road > ul { background-color: #fff; border-radius: 0.1rem; margin-top: .5rem; margin-right: 0.1rem; padding-top: .1rem; padding-bottom:0.05rem; }
 
 .new_road .road > ul > li {  width: .8rem; height: .8rem; margin: 0 auto; text-align: center; color: #fff; font-size: 0.35rem; line-height: .75rem; border-radius: 50%; overflow: hidden; }
 .new_road .road > ul > li:after {content:''; position: absolute; top: -40%; left: 15%;width: .8rem; height: .8rem; background-color: #fff; opacity: 0.2; border-radius: 50%;}
