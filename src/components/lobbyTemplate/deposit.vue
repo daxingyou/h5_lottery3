@@ -758,6 +758,13 @@
                     _self.$refs.autoCloseDialog.open('请选择存款方式！') ;
                     return false ;
                 }
+                console.log( _self.depositPeopleHint  ,'dfasf')
+                if(_self.depositPeopleHint){
+                    _self.$refs.autoCloseDialog.open('输入正确的存款人姓名！') ;
+                    return false ;
+                }
+
+
                 _self.submitpayunflag = true ;
                 var userInfo = _self.userInfo ;
                 var senddata ={
