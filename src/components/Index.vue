@@ -459,16 +459,16 @@ export default {
             var _self = this;
             console.log(_self.appUrl, 'url')
 
-            if (!sessionStorage.appUrl) {
+            if (true) {
                 $.ajax({
                     type: 'get',
                     url: _self.action.forseti + 'apid/config/appConfig',
                     data: {},
                     success: (res) => {
-                        _self.appUrl = res.data.h5CustUrl
+                        _self.appUrl = res.data.url
                         // console.log( _self.appUrl )
-                        sessionStorage.appUrl = res.data.h5CustUrl;
-                        console.log(_self.appUrl, 'url-in')
+                        sessionStorage.appUrl = res.data.url;
+                        // console.log(_self.appUrl, 'url-in')
                         // console.log( _self.appUrl )
                     },
                     err: (res) => {
@@ -477,7 +477,7 @@ export default {
                 })
             } else {
                 _self.appUrl = sessionStorage.appUrl
-                console.log(_self.appUrl, 'url-else')
+                // console.log(_self.appUrl, 'url-else')
             }
         },
 
