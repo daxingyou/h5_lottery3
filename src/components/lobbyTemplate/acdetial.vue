@@ -25,22 +25,22 @@
                             <ul class="panel new_panel_center">
                                 <li class="bet_data ac_data" data-status="not_open" v-for="item in day.list">
                                     <router-link :to="{ name:'acDetailData', params:{ model:item, data:$data} }">
-                                       <!-- <div class="prd_num"><span>{{dateFormat(item.createTime, 'yyyy/mm/dd HH:mm') || '1990/1/1 00:00'}}</span></div>-->
-                                        
+                                        <!-- <div class="prd_num"><span>{{dateFormat(item.createTime, 'yyyy/mm/dd HH:mm') || '1990/1/1 00:00'}}</span></div>-->
+
                                         <div class="item arrow_list_dark">
                                             <div class="badge">
                                                 <span :class="'icon_account icon_' + (tradeTypeConfigItemGet(item).class || 'ac01')"></span>
                                             </div>
                                             <div class="lottery_t ssc">
-                                                <p>{{tradeTypeConfigItemGet(item).name || '-'}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{(statusConfig[item.state] && statusConfig[item.state].name)}}</label></p>
+                                                <p>{{item.dealType=='2'?item.actionTypeName:tradeTypeConfigItemGet(item).name}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{item.stateName}}</label></p>
                                                 <span class="prd_num"><span>{{formatTimeUnlix(item.createTime,'0')}}</span></span>
-                                                <strong>{{moneyType[item.chargeType] || '-'}}<!-- 充值 -->: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
+                                                <strong>{{moneyType[item.dealType]|| '-'}}<!-- 充值 -->: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
                                             </div>
                                             <div class="icon icon_arrow_light"></div>
                                         </div>
                                     </router-link>
                                 </li>
-                                
+
                             </ul>
                         </li>
                     </ul>
@@ -68,31 +68,32 @@ export default {
     data: function() {
         return {
             moneyType:{
-                '0':'充值', 
-                '1':'提款'
+                '0':'充值',
+                '1':'提款',
+                '2':'优惠'
             },
-            tradeTypeConfig:{ 
-                '1':{ name:'公司入款', class:'ac03' }, 
-                '3':{ name:'线上入款', class:''}, 
-                '5':{ name:'人工入款', class:'ac01'}, 
-                '7':{ name:'会员出款', class:'ac03'}, 
-                '8':{ name:'人工提款', class:'ac02'} 
-            }, 
+            tradeTypeConfig:{
+                '1':{ name:'公司入款', class:'ac03' },
+                '3':{ name:'线上入款', class:''},
+                '5':{ name:'系统入款', class:'ac01'},
+                '7':{ name:'会员出款', class:'ac03'},
+                '8':{ name:'系统提款', class:'ac02'},
+            },
             actionTypeConfig:{
-                '1':{ class:'ac03', name:'派奖' }, 
-                '2':{ class:'ac01', name:'人工入款' }, 
-                '3':{ class:'ac03', name:'公司入款' }, 
-                '4':{ class:'ac02', name:'人工提款' }, 
-                '5':{ class:'ac03', name:'会员出款' }, 
+                '1':{ class:'ac03', name:'派奖' },
+                '2':{ class:'ac01', name:'系统入款' },
+                '3':{ class:'ac03', name:'公司入款' },
+                '4':{ class:'ac02', name:'系统提款' },
+                '5':{ class:'ac03', name:'会员出款' },
             },
             activeTab:{ value:1, days:[] }, //当前选项卡
-            statusConfig:{ 
+            statusConfig:{
                 // { '0':'未处理', '2':'未处理', '3':'失败', '4':'成功', '5':'未处理' }
-                '0':{ name:'未处理',class:'sta02'}, 
-                '2':{name:'未处理',class:'sta02'}, 
-                '3':{name:'失败',class:'sta03'}, 
-                '4':{name:'成功',class:'sta01'}, 
-                '5':{name:'未处理',class:'sta02'} 
+                '0':{ name:'未处理',class:'sta02'},
+                '2':{name:'未处理',class:'sta02'},
+                '3':{name:'失败',class:'sta03'},
+                '4':{name:'成功',class:'sta01'},
+                '5':{name:'未处理',class:'sta02'}
             }
         }
     },
@@ -109,9 +110,7 @@ export default {
         document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
     },
     methods: {
-        back1:function(){
-            this.$router.back();
-        },
+
         tradeTypeConfigItemGet:function(item){
             return this.tradeTypeConfig[item.tradeType] || {};
         },
@@ -154,9 +153,6 @@ export default {
             });
         },
         selectTab:function(e, tab){
-            if (tab.active || tab.value == 4){
-                return false;
-            }
             this.tabs.forEach(item=>{item.active=false});
             tab.active = true;
             this.loadTab(tab);
@@ -188,6 +184,6 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
     .bet_day.active .panel { display: block;  }
 </style>

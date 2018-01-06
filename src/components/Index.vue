@@ -44,8 +44,9 @@
           </div>
           <div class="marquee">
               <div class="news_title">
-                  <i data-v-1f83ba94="" class="icon-notification"></i>
-                  <span>最新消息 : </span>
+                  <!--<i data-v-1f83ba94="" class="icon-notification"></i>
+                  <span>最新消息 : </span>-->
+                  <img src="/static/frist/images/title_new.png" alt="最新消息">
               </div>
               <div id="marquee_snp" class="bd news_text slideText">
                   <div class="sys-notice">
@@ -113,17 +114,17 @@
               <ul>
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
-                  <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
-                    <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
+                  <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面10个 -->
+                    <router-link class="to_lottery" :to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
-                        <!--<img v-lazy="lottery.imgUrl">-->
-                           <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
+                        <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
+                           <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                       </div>
-                    </a>
+                    </router-link>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                                <!--<img v-lazy="lottery.imgUrl"> -->
-                              <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
+                                <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
+                              <!--<img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                           </div>
                       </a>
                     <p>{{lottery.name}}</p>
@@ -152,34 +153,34 @@
               </ul>
           </section>
           <!--20171116 新增優惠活動-->
-          <!--<section class="promoindex_area">-->
-              <!--<h3>-->
-                  <!--<img src="../../static/frist/images/sale/yhhd_04_07.png" alt="优惠活动">-->
-                  <!--<router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>-->
-              <!--</h3>-->
-              <!--<a href="javascript:;" @click="setCid($event)" :data-val="cid">-->
-                  <!--<img :src="picture">-->
-              <!--</a>-->
-          <!--</section>-->
+          <!--20171116 新增優惠活動-->
+          <section class="promoindex_area">
+              <h3>
+                  <img src="/static/frist/images/title_promo.png" alt="优惠活动">
+                  <router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多</router-link>
+              </h3>
+              <a href="javascript:;" @click="setCid($event)" :data-val="cid">
+                  <img :src="picture">
+              </a>
+          </section>
           <!--end 20171116 新增優惠活動-->
-          <!--<section class="cooper_area">-->
-              <!--<div class="cooper">-->
-                  <!--<h3><img src="../../static/frist/images/sale/hzjm_03.png" alt="合作加盟"></h3>-->
-                  <!--<ul>-->
-                      <!--<li>-->
-                          <!--<router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"></router-link>-->
-                      <!--</li>-->
-                      <!--<li>-->
-                          <!--<a class="icon_agent" href="javascript:;" @click="Continued()"></a>-->
-                      <!--</li>-->
-                      <!--<li>-->
-                          <!--<a class="icon_about" href="javascript:;" @click="Continued()" ></a>-->
-                      <!--</li>-->
-                  <!--</ul>-->
-              <!--</div>-->
-          <!--</section>-->
+          <section class="cooper_area">
+              <div class="cooper">
+                  <h3><img src="/static/frist/images/title_cooper.png" alt="合作加盟"></h3>
+                  <ul>
+                      <li>
+                          <router-link class="icon_intro" :to="'/lobbyTemplate/tutorial'"><span class="icon_account icon_join_1"></span><span>新手教程</span></router-link>
+                      </li>
+                      <li>
+                          <router-link class="icon_agent" :to="'/lobbyTemplate/agent'"><span class="icon_account icon_join_2"></span><span>代理加盟</span></router-link>
+                      </li>
+                      <li>
+                          <router-link class="icon_about"  :to="'/lobbyTemplate/about'"><span class="icon_account icon_join_3"></span><span>关於我们</span></router-link>
+                      </li>
+                  </ul>
+              </div>
+          </section>
           <!--银行转账使用步骤-->
-
           <div class="modal" v-if="offFlag">
               <div class="m_content">
                   <h2 class="title">{{popMsgTitle}}
@@ -192,7 +193,6 @@
 
               </div>
           </div>
-
       </div>
       <Confirm ref="confirm" />
       <FooterNav />
@@ -259,26 +259,13 @@ export default {
       if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }
-      this.getBulletinsContent ();
-      this.getPopMsg();
-//      TouchSlide({
-//                  slideCell: "#focus",
-//                  autoPlay:true,
-//              });
-
-
-      /* $("#marquee_snp").slide({ // 文本滚动
-           mainCell: ".bd ul",
-           autoPage: true,
-           effect: "leftMarquee",
-           autoPlay: true,
-           vis: 1,
-           interTime: 50
-       });*/
-      //this.changeOffFlag();
+       this.getBulletinsContent ();
+       this.getPopMsg();
        this.carouselImg();
-//       this.getActivity();
+       this.getActivity();
        this.getCustom()
+       this.getAppUrl()
+
   },
     methods:{
       getBulletinsContent :function () {
@@ -313,15 +300,20 @@ export default {
           if(!this.haslogin){
               this.$refs.autoCloseDialog.open('登录后才可以操作')
               setTimeout(function () {
-                  window.location = '/Login' ;
+                  // window.location = '/Login' ;
+                  _self.$router.push( '/Login' )
+
               },1000)
               return
           }
           if(cla=='CZ'){
-              window.location = '/lobbyTemplate/deposit' ;
+              // window.location = '/lobbyTemplate/deposit' ;
+              _self.$router.push( '/lobbyTemplate/deposit' )
           }
           if(cla=='TK'){
-              window.location = '/lobbyTemplate/Withdrawals' ;
+              // window.location = '/lobbyTemplate/Withdrawals' ;
+              _self.$router.push( '/lobbyTemplate/Withdrawals' )
+
           }
       },
       // 敬请期待
@@ -424,31 +416,71 @@ export default {
            })
        },
       //获得优惠活动接口
-//      getActivity : function () {
-//          var _self=this;
-//          $.ajax({
-//              type:'get',
-//              url: _self.action.forseti + 'apid/cms/activity',
-//              data:{},
-//              success:(res)=>{
-//                  if(res.data.rows){
-//                   _self.picture=_self.action.picurl+ res.data.rows[0].titlePic+'/0';
-//                   _self.cid=res.data.rows[0].cid
-//                  }
-//              },
-//              err:(res)=>{
-//
-//              }
-//          })
-//      },
-//      setCid:function (e) {
-//          var $src = $(e.currentTarget);
-//          var val = $src.data('val');
-//          if(val){
-//              localStorage.setItem('Cid',val);
-//              window.location = '/lobbyTemplate/promo_content' ;
-//          }
-//      },
+     //获得优惠活动接口
+      getActivity : function () {
+
+          var _self=this;
+          if (!sessionStorage.propActivityList) {
+              $.ajax({
+                  type: 'get',
+                  url: _self.action.forseti + 'apid/cms/activity',
+                  data: {},
+                  success: (res) => {
+                      sessionStorage.propActivityList = JSON.stringify(res.data.rows);
+                      if (res.data.rows) {
+                          _self.picture = _self.action.picurl + res.data.rows[0].titlePic + '/0';
+                          _self.cid = res.data.rows[0].cid
+                      }
+                  },
+                  err: (res) => {
+
+                  }
+              })
+
+          } else {
+              var activity_prop = JSON.parse(sessionStorage.propActivityList)
+              if (activity_prop) {
+                  _self.picture = _self.action.picurl + activity_prop[0].titlePic + '/0';
+                  _self.cid = activity_prop[0].cid
+              }
+          }
+      },
+      setCid:function (e) {
+          var _self = this;
+          var $src = $(e.currentTarget);
+          var val = $src.data('val');
+          if(val){
+              localStorage.setItem('Cid',val);
+              _self.$router.push('/lobbyTemplate/promo')
+
+          }
+      },
+       getAppUrl: function () {
+            var _self = this;
+            console.log(_self.appUrl, 'url')
+
+            if (true) {
+                $.ajax({
+                    type: 'get',
+                    url: _self.action.forseti + 'apid/config/appConfig',
+                    data: {},
+                    success: (res) => {
+                        _self.appUrl = res.data.url
+                        // console.log( _self.appUrl )
+                        sessionStorage.appUrl = res.data.url;
+                        // console.log(_self.appUrl, 'url-in')
+                        // console.log( _self.appUrl )
+                    },
+                    err: (res) => {
+
+                    }
+                })
+            } else {
+                _self.appUrl = sessionStorage.appUrl
+                // console.log(_self.appUrl, 'url-else')
+            }
+        },
+
   },
 
 }

@@ -3,7 +3,7 @@
         <header id="pa_head" class="new_header">
             <div class="left">
                 <router-link :to="'/'">
-                    <span class="icon icon_back"></span>
+                    <span class="icon icon_back" id='propBack'></span>
                 </router-link>
             </div>
             <h2 class="center title_name">优惠活动</h2>
@@ -11,11 +11,21 @@
         </header>
         <div class="pa_content">
             <div class="promo_area">
-                <ul class="promo_list" v-for="list in banner">
+                <ul class="promo_list" v-for="list in banner" @click="setClass($event,list.cid)" >
                     <li>
                         <h3>{{list.title}}</h3>
                         <img :src="list.titlePic">
-                        <p><a href="javascript:;" @click="setCid($event)" class="" :data-val="list.cid" ><span>查看详情</span></a></p>
+                        <!--20171220 新增优惠详情-->
+                        <div class="promo_detail" v-html="content">
+
+                            <!--<p>静态测试文字</p>-->
+                            <!--<p>银行转账充值100元起，可获1%存款优惠。</p>-->
+                            <!--<p>存1000元赠10元，次次存次次送。</p>-->
+
+                        </div>
+                        <p class="btn_detail"><a href="javascript:;"><span>查看详情</span></a></p>
+                        <!--<p class="btn_detail"><a href="javascript:;" @click="setCid($event)" class="" :data-val="list.cid" ><span>查看详情</span></a></p>-->
+                        <!--end 20171220 新增优惠详情-->
                     </li>
                 </ul>
                 <!--<ul class="promo_list">-->
@@ -68,8 +78,11 @@ export default {
   },
   data: function() {
         return {
-          banner:[],
-            cid:''
+            banner:[],
+            cid:'',
+            content:'',
+            title:'' ,
+            titlePic:''
         }
     },
   created: function() {
@@ -77,11 +90,7 @@ export default {
   mounted:function() {
       $('html,body').css('overflow-y','scroll' );
       document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
-      $(function(){
-          $('.promo_area > ul > li').on('click',function(){
-              $(this).toggleClass('active').siblings().removeClass('active');
-          })
-      })
+
       this.getActivity();
      // this.setCid();
   },
@@ -102,7 +111,6 @@ export default {
 
                      }
                      _self.banner=res.data.rows;
-
                  }
               },
               err:(res)=>{
@@ -111,14 +119,42 @@ export default {
           })
       },
       //选取详情传递cid;
-      setCid:function (e) {
-              var $src = $(e.currentTarget);
-              var val = $src.data('val');
-              if(val){
-              localStorage.setItem('Cid',val);
-              window.location = '/lobbyTemplate/promo_content' ;
-             }
+//      setCid:function (e) {
+//              var $src = $(e.currentTarget);
+//              var val = $src.data('val');
+//              if(val){
+//              localStorage.setItem('Cid',val);
+//              window.location = '/lobbyTemplate/promo_content' ;
+//             }
+//      },
+      setClass:function (e,cid) {
+          var $src = $(e.currentTarget);
+          $src.toggleClass('active')
+              .siblings()
+              .removeClass('active');
+          this.getContent(cid)
+      },
+      getContent:function (cid) {
+          var _self=this;
+          $.ajax({
+              type:'get',
+              url: _self.action.forseti + 'apid/cms/activityInfo',
+              data:{cid:cid},
+              success:(res)=>{
+                  if(res){
+                      _self.titlePic=_self.action.picurl+ res.data.titlePic+'/0';
+                      _self.title=res.data.title;
+                      _self.content=res.data.content;
+                  }
+              }
+          })
+
       }
   }
 }
 </script>
+<style scoped>
+
+
+
+</style>

@@ -42,7 +42,9 @@ export default {
             lt_time_leave:0, 
             lt_time_leave_over:0, 
             timeSpanStr:'',
-            overTimeSpanStr:''
+            overTimeSpanStr:'',
+            wrongFlag: false,
+
         }
     },
     created:function(){
@@ -72,9 +74,11 @@ export default {
             // const lt_time_leave_over = this.lt_time_leave_over;
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
-               this.$emit('entertainCountdownOver');
+               // this.$emit('entertainCountdownOver');
+                this.$emit('entertainCountdownBreak');           
+
             }
-            console.log(this.lt_time_leave_over)
+//            console.log(this.lt_time_leave_over)
             //计数器，计算间隔时间触发
             const counter = () => {
                 const spanSrrived = () => {
@@ -96,6 +100,12 @@ export default {
             this.timer = window.setInterval((function() {
                // console.log('蒂ff冈你')
                 counter();
+                if (this.lt_time_leave <= -1) {
+                    this.wrongFlag = true;
+                } else {
+                    this.wrongFlag = false;
+                }
+
                // console.log(this.lt_time_leave)
                 if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);

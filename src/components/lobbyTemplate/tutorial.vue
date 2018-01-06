@@ -82,7 +82,7 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
     strong{
         color:#b41a17;
     }

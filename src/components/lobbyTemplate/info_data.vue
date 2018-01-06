@@ -36,10 +36,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="lgps filter_1">
-                            <a class="new_btn"><span>修改登录密码</span></a>
+                            <a class="new_btn"><span class="midunm">修改登录密码</span></a>
                         </div>
                         <div class="pps filter_2">
-                            <a class="new_btn"><span>修改支付密码</span></a>
+                            <a class="new_btn"><span class="midunm">修改取款密码</span></a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword')">
-                                <i class="icon icon_eye active" @click="showPassword('eye1')"></i>
+                                <i class="icon icon_eye " @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -144,7 +144,7 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword')">
-                                <i class="icon icon_eye" @click="showPassword('act1')"></i>
+                                <i class="icon icon_eye active" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -152,7 +152,7 @@
                             <div class="form_g text">
                                 <legend>新密码</legend>
                                 <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkpassword(newPassword,'newPassword')">
-                                <i class="icon icon_eye active" @click="showPassword('eye2')"></i>
+                                <i class="icon icon_eye " @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -160,7 +160,7 @@
                             <div class="form_g text">
                                 <legend>新密码</legend>
                                 <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkpassword(newPassword,'newPassword')">
-                                <i class="icon icon_eye" @click="showPassword('act2')"></i>
+                                <i class="icon icon_eye active" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -168,7 +168,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm')">
-                                <i class="icon icon_eye active" @click="showPassword('eye3')"></i>
+                                <i class="icon icon_eye " @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -176,7 +176,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm')">
-                                <i class="icon icon_eye " @click="showPassword('act3')"></i>
+                                <i class="icon icon_eye active " @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -196,252 +196,52 @@
                         <fieldset v-if="show" >
                             <div class="form_g text">
                                 <legend>原密码</legend>
-                                <input type="password"  placeholder="请输入支付密码" v-model="oldPayPassword" maxlength="4" class="oldPayPassword" @input="checkNum(oldPayPassword,'oldPayPassword')">
-                                <i class="icon icon_eye active" @click="showPassword('eye1')"></i>
+                                <input type="password"  placeholder="请输入取款密码" v-model="oldPayPassword" maxlength="4" class="oldPayPassword" @input="checkNum(oldPayPassword,'oldPayPassword')">
+                                <i class="icon icon_eye " @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!show" >
                             <div class="form_g text">
                                 <legend>原密码</legend>
-                                <input type="text"  placeholder="请输入支付密码"  v-model="oldPayPassword" class="oldPayPassword" maxlength="4" @input="checkNum(oldPayPassword,'oldPayPassword')">
-                                <i class="icon icon_eye " @click="showPassword('act1')"></i>
+                                <input type="text"  placeholder="请输入取款密码"  v-model="oldPayPassword" class="oldPayPassword" maxlength="4" @input="checkNum(oldPayPassword,'oldPayPassword')">
+                                <i class="icon icon_eye active" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="showC" >
                             <div class="form_g text">
                                 <legend>新密码</legend>
-                                <input type="password" placeholder="请输入新支付密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
-                                <i class="icon icon_eye active" @click="showPassword('eye2')"></i>
+                                <input type="password" placeholder="请输入新取款密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
+                                <i class="icon icon_eye " @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!showC" >
                             <div class="form_g text">
                                 <legend>新密码</legend>
-                                <input type="text" placeholder="请输入新支付密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
-                                <i class="icon icon_eye" @click="showPassword('act2')"></i>
+                                <input type="text" placeholder="请输入新取款密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
+                                <i class="icon icon_eye active" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="showB" >
                             <div class="form_g text">
                                 <legend>确认密码</legend>
-                                <input type="password" placeholder="请再次输入新支付密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
-                                <i class="icon icon_eye active" @click="showPassword('eye3')"></i>
+                                <input type="password" placeholder="请再次输入新取款密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
+                                <i class="icon icon_eye " @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!showB" >
                             <div class="form_g text">
                                 <legend>确认密码</legend>
-                                <input type="text" placeholder="请再次输入新支付密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
-                                <i class="icon icon_eye" @click="showPassword('act3')"></i>
+                                <input type="text" placeholder="请再次输入新取款密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
+                                <i class="icon icon_eye active" @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                     </form>
-                    <!--<form>-->
-                        <!--<fieldset>-->
-                            <!--<div class="form_g password text pay_password">-->
-                                <!--<legend>原密码</legend>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model="oldPassword1">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model="oldPassword2">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" oldPassword3">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" oldPassword4">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;<label class="error-message "></label>&ndash;&gt;-->
-                        <!--</fieldset>-->
-                        <!--<fieldset>-->
-                            <!--<div class="form_g password text pay_password">-->
-                                <!--<legend>新密码</legend>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" newPassword1">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model="newPassword2">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" newPassword3">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select  v-model=" newPassword4">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;<label class="error-message "></label>&ndash;&gt;-->
-                        <!--</fieldset>-->
-                        <!--<fieldset>-->
-                            <!--<div class="form_g password text pay_password">-->
-                                <!--<legend>确认密码</legend>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" newPassword_confirm1">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" newPassword_confirm2">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model="newPassword_confirm3">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                                <!--<div class="select_inline">-->
-                                <!--<select v-model=" newPassword_confirm4">-->
-                                    <!--<option>-</option>-->
-                                    <!--<option>0</option>-->
-                                    <!--<option>1</option>-->
-                                    <!--<option>2</option>-->
-                                    <!--<option>3</option>-->
-                                    <!--<option>4</option>-->
-                                    <!--<option>5</option>-->
-                                    <!--<option>6</option>-->
-                                    <!--<option>7</option>-->
-                                    <!--<option>8</option>-->
-                                    <!--<option>9</option>-->
-                                <!--</select>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash;<label class="error-message "></label>&ndash;&gt;-->
-                        <!--</fieldset>-->
-                    <!--</form>-->
                     <div>
                         <div class="btn_outline cancel-btn"><a class="new_btn cancel" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_blue02"><a class="new_btn ok" href="javascript:;"@click="submitChangePayWord()"><span>确定</span></a></div>
@@ -554,10 +354,13 @@ export default {
                 url: _self.action.uaa + 'api/data/member/info',
                 data: {},
                 success: (res) => {
-                    _self.loginName=res.data.login;
-                    _self.weChat  = res.data.wechat;
-                    _self.qq      = res.data.qq;
-                    _self.email   = res.data.email
+                    if(res.data){
+                        _self.loginName=res.data.login;
+                        _self.weChat  = res.data.wechat;
+                        _self.qq      = res.data.qq;
+                        _self.email   = res.data.email
+                    }
+
                 },
                 error: (e)=>{
 

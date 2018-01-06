@@ -9,14 +9,17 @@ var MyMixin = {
     data:function(){
         return {
             action:{
+                // picurl: 'https://img.will888.cn/photo/pic/',  // 图片地址
+                picurl: 'http://admin.baochiapi.com/photo/pic/',
+
                 forseti: 'http://121.58.234.210:19093/forseti/',  // 测试环境
-                uaa: 'http://121.58.234.210:19093/uaa/',   // 测试环境
-                hermes: 'http://121.58.234.210:19093/hermes/',   // 测试环境
+                uaa:  'http://121.58.234.210:19093/uaa/',   // 测试环境
+                hermes:  'http://121.58.234.210:19093/hermes/', // 测试环境
+
                 // forseti: 'https://api.88bccp.com/forseti/',   // 线上环境
-                // uaa: 'https://api.88bccp.com/uaa/' ,  // 线上环境
-                // hermes: 'https://api.88bccp.com/hermes/',   // 线上环境
-                //picurl: 'https://img.will888.cn/photo/pic/',  // 图片地址
-                picurl: 'http://admin.baochiapi.com/photo/pic/'
+                // uaa:'https://api.88bccp.com/uaa/',  // 线上环境
+                // hermes:'https://api.88bccp.com/hermes/',   // 线上环境
+
             },
 
             rootBalance:{
@@ -91,15 +94,25 @@ var MyMixin = {
     },
 
     methods:{
+        //测试链接
+        // getTestUrl:function () {
+        //     var   API_ROOT='http://121.58.234.210:19093/forseti/';
+        //     return API_ROOT;
+        // },
+        //线上链接
+        // getOnlineUrl:function () {
+        //     var   API_ROOT='https://api.88bccp.com/forseti/';
+        //     return API_ROOT;
+        // },
         // 退出函数
         loginOut:function (type) {
             var _self = this ;
             var actoken =  _self.getCookie('access_token') ; // token
             $.ajax({
                 type: 'get',
-                headers: {
-                    "Authorization": "bearer  "+actoken ,
-                },
+                // headers: {
+                //     "Authorization": "bearer  "+actoken ,
+                // },
                 url: _self.action.uaa + 'oauth/logout',
                 data: {} ,
                 success: (res) => {
@@ -143,6 +156,7 @@ var MyMixin = {
                 hScrollbar:false,
                 vScrollbar:false,
                 click: true ,
+                useTransform: false
             });
             this.conScroll = new iScroll("content-wrapper",{  // 投注区域
                 onScrollEnd: function(){
@@ -572,7 +586,6 @@ var MyMixin = {
         },
         //清除所有cookie函数
          clearAllCookie:function() {
-            console.log('清除cookie') ;
              this.setCookie("access_token", '');  // 登录token
              this.setCookie("username", '');  //  登录用户名
              this.setCookie('acType','');   // 玩家类型
@@ -680,6 +693,17 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
+        //验证确认密码
+        checkIsEqual:function (el) {
+            if(this.confirmpassword == this.userPd){
+                $(el).parent('.form_g').next('.error-message').removeClass('red').text('');
+                return
+            }else if((this.confirmpassword && !this.positiveEngNum(this.confirmpassword) ) || this.confirmpassword.length<6 || this.confirmpassword.length>20){
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('请输入6~20位英数密码') ;
+            }else{
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('两次密码输入不一致') ;
+            }
+        },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
         checkrealyName:function (val,el) {
             var content = '请输入真实姓名' ;
@@ -729,8 +753,44 @@ var MyMixin = {
         },
         //验证支付密码
         checkNum: function (val,el) {
-            var content = '请输入4位数字支付密码' ;
+            var content = '请输入4位数字取款密码' ;
             if(val &&!this.positiveNum(val) ||val.length<4){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkeMail:function (val,el) {
+            var content = '请输入正确邮箱地址' ;
+            if(val &&!this.checkEmail(val)){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkQQ:function (val,el) {
+            var content = '请输入正确QQ号' ;
+            if(val &&!this.checkqq(val)){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        checkWx:function (val,el) {
+            var content = '请输入正确微信账号' ;
+            if(val &&!this. checkWechat(val)){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }
             else{
@@ -791,8 +851,11 @@ var MyMixin = {
                 data: senddata ,
                 success: function(res){
                     if(res.err=="SUCCESS"){
-                        _self.copyTitle=res.data[0].title;
-                        _self.copyContent=res.data[0].content;
+                        if(res.data[0].title){
+                            _self.copyTitle=res.data[0].title;
+                            _self.copyContent=res.data[0].content;
+                        }
+
                     }
 
                 },
@@ -824,6 +887,66 @@ var MyMixin = {
                     }
                 }
             })
+        },
+        //注册配置
+        getReglist (type) {
+            var _self=this;
+            $.ajax({
+                type: 'GET',
+                url:  _self.action.forseti + 'apid/config/registerConfig?regType='+type,
+                data:{},
+                success:(res)=>{
+                    //console.log(res)
+                    if(!res.data){
+                        return false
+                    }
+                    for(let i=0;i<res.data.length;i++){
+                        switch (res.data[i].item) {
+                            case "帐号" :
+                                _self.accountObj=res.data[i];
+                                break;
+                            case "登录密码" :
+                                _self.passwordObj=res.data[i];
+                                break;
+                            case "确认密码" :
+                                _self.confirmpasswordObj=res.data[i];
+                                break;
+                            case "真实名称" :
+                                _self.realynameObj=res.data[i];
+                                break;
+                            case "支付密码" :
+                                _self.withPasswordObj=res.data[i];
+                                break;
+                            case "手机号码" :
+                                _self.phoneObj=res.data[i];
+                                break;
+                            case "选择银行" :
+                                _self.bankselectObj=res.data[i];
+                                break;
+                            case "开户行" :
+                                _self.bankAddObj=res.data[i];
+                                break;
+                            case "银行卡号" :
+                                _self.bankNumObj=res.data[i];
+                                break;
+                            case "电子邮箱" :
+                                _self.eMailObj=res.data[i];
+                                break;
+                            case "QQ" :
+                                _self.QQObj=res.data[i];
+                                break;
+                            case "微信" :
+                                _self.weiChatObj=res.data[i];
+                                break;
+
+                        }
+                    }
+
+
+                }
+            })
+
+
         }
     }
 };

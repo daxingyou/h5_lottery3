@@ -39,7 +39,7 @@
                 <div class="info_mid">
                     <div>
                         <div class="">
-                            <a class="new_btn" href="javascript:;" @click="CheckDemoPlay('TK')" ><span class="midunm">提款</span></a>
+                            <a class="new_btn kind" href="javascript:;" @click="CheckDemoPlay('TK')" ><span class="midunm">提款</span></a>
                         </div>
                         <div class="">
                             <a class="new_btn ok" href="javascript:;" @click="CheckDemoPlay('CZ')"><span class="midunm">充值</span></a>
@@ -106,7 +106,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .info_top .account >a{
          height:100%;
     }
@@ -162,10 +162,12 @@ export default {
               url: _self.action.uaa + 'api/data/member/info',
               data: {},
               success: (res) => {
-                  _self.memberId = res.data.memberId;
-                  _self.acType = res.data.acType;
-                  _self.userLogin=res.data.login;
-                  _self.getBalance(_self.memberId, _self.acType)
+                  if(res.data){
+                      _self.memberId = res.data.memberId;
+                      _self.acType = res.data.acType;
+                      _self.userLogin=res.data.login;
+                      _self.getBalance(_self.memberId, _self.acType)
+                  }
               },
               error: (e) => {
                   _self.errorAction(e) ;

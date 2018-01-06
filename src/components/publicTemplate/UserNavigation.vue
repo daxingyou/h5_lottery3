@@ -11,8 +11,7 @@
               <img src="/static/frist/images/left/user.png">
           </div>-->
            <div>
-               <span class="icon icon_user"></span>
-              <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
+              <p class="user_name" v-if="haslogin"><span class="icon icon_user"></span>{{getCookie('username')}}</p>
               <!--<div class="purse"  v-if="haslogin">
                   <span class="icon icon_money"></span>
                   <div class="so-in-top-sum" >
@@ -33,13 +32,13 @@
                 </div>
                 <ul class="all_lottery">
                   <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
-                    <a :href="'/'+gameHref[lottery.cid]" >
+                    <router-link :to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                           <!-- <img :src="lottery.imgUrl" alt="">-->
                           <!--<img v-lazy="'../static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">-->
                       </div>
                       <p>{{lottery.name}}</p>
-                    </a>
+                    </router-link>
                   </li>
               </ul>
           </div>
@@ -97,6 +96,8 @@ export default {
   } ,
   mounted:function() {
       this.haslogin = this.ifLogined() ;
+      this.setCookie('haslogin', this.haslogin)
+      
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
     }) ;
