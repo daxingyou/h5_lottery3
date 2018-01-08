@@ -34,6 +34,9 @@ import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中�
 import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
 
+import LhcIndex from '@/components/lhc/Index' // 六合彩
+import LhcBetRecord from '@/components/lhc/LhcBetRecord' // 六合彩投注紀錄
+
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
 import agentApply from '@/components/lobbyTemplate/agentApply'  // 大厅代理加盟注册页
@@ -140,6 +143,11 @@ export default new Router({
         name: 'SecondSsc',
         component: SecondSsc
     },
+      {
+          path: '/lhc',
+          name: 'LhcIndex',
+          component: LhcIndex
+      },
 
 
 
@@ -155,6 +163,9 @@ export default new Router({
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
     { path: '/lobbyTemplate/about', name:'about', component: about },
     { path: '/lobbyTemplate/tutorial', name:'tutorial', component: tutorial },
+
+      {path: '/lhc/LhcBetRecord', name: 'lhcBetRecord', component: LhcBetRecord},
+    
 
     // import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
     { path: '/lobbyTemplate/acDetailData', name:'acDetailData', component: acDetailData, props: (route) => ({ 
