@@ -84,7 +84,7 @@
 
 <script>
     import Mixin from '@/Mixin'
-    import betContentList from '@/components/lhc/BetOrderContent.json'
+    import betContentList from '@/components/lhc/BetOrderContent.json' //此檔案內容是用來對下注內容調整給後端派彩
 
     export default {
         name: 'Bet',
@@ -101,16 +101,19 @@
                 betGoList:[],
                 showList:false ,
                 ajaxSubmitAllow :false ,  // 解决重复提交的问题
-                betContentList,
-                beforeBetBalance: 0
+                betContentList, //下注內容比對資料
+                beforeBetBalance: 0 //下注前的餘額
             }
         },
         computed:{
+            //因為連肖連尾要顯示全部的組合可能所以另外計算出一個 list，
+            //如果直接修改 betSelectedList 會影響到 UI 的顯示
             showListRes() { // for lianXiao and lianWei show the detail list
                 let lastRes = []
                 if (_.size(this.betSelectedList) >= 2) {
                     let itemCid = this.betSelectedList[0].cid.toString().substr(0, 4)
 
+                    //如果 item 是連肖或是連尾才做組合數的運算
                     if (itemCid == '1111' || itemCid == '1141') {
                         let baseNum = this.betSelectedList[0].selectNum
                         let combinationRes = this.getCombination(this.betSelectedList, baseNum)
@@ -119,6 +122,7 @@
                         let payoff = -1
                         let selectMax = true
 
+                        //如果是連肖取賠率小的顯示，連尾是取賠率大的
                         if (itemCid == '1111') {
                             selectMax = false
                             payoff = Number.MAX_SAFE_INTEGER
@@ -174,6 +178,8 @@
                 return lastRes
             },
             betCount() {
+                //group: 合肖和自選不中
+                //combination: 連尾, 連肖, 連碼
                 if (this.playType == 'combination' || this.playType == 'group') {
                     return this.combineCount;
                 }else{
@@ -189,7 +195,7 @@
                     return this.betSelectedList.length * this.betAmount
                 }
             },
-            itemCidPrefix() {
+            itemCidPrefix() { //用來決定是使用哪一種 template 主要是 combination 連碼顯示方式跟連肖和連尾不一樣
                 return this.betSelectedList[0].cid.toString().substr(0, 3)
             },
         },
@@ -218,9 +224,8 @@
 
             submitAction(lotteryid) {
                 const total_mon = this.monAmt(this.totalAmount);
-                //console.log("balance", this.getCookie('balancePublic'))
 
-                this.beforeBetBalance = this.balance
+                this.beforeBetBalance = this.balance //先將目前的餘額存起來
                 if (total_mon > this.balance) {
                     // this.parentRefs.infoDialog.open('余额不足，请充值后继续进行！', 'title_bet_fail')
                     this.parentRefs.infoDialog.open('余额不足，请充值后继续进行！', '下注失败')

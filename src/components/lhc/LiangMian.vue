@@ -1,10 +1,7 @@
 <template>
 <div  id="content-wrapper">
-
 	<div class="so-con-right" >
 		<div id="scroller" > <!-- style="min-height: 180%"  --><!--<div>-->
-
-
 			<div class="tab_container">
 				<!--以下为盘面不同样式，根据ID区分-->
 				<!-- 两面 -->
@@ -53,17 +50,35 @@
         data: function () {
             return {
                 liangMianList: [],
+                myScroll: null
             }
         },
         mounted(){
             if (playTreeIndexByCid.get('1021000')) {
                 this.liangMianList = playTreeIndexByCid.get('1021000').childrens
             }
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: false ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 100)
         },
         created() {
         },
         computed: {
 
+        },
+        updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeList() {

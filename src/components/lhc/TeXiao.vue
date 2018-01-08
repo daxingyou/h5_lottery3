@@ -1,6 +1,5 @@
 <template>
 <div  id="content-wrapper" class="texiao">
-
 	<div class="so-con-right" >
 		<div id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container">
@@ -60,12 +59,29 @@
             return {
                 teXiaoList: [],
                 shengXiaoList: ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"],
+				myScroll: null
             }
         },
         mounted(){
             if (_.size(playTreeIndexByCid.get('1121000').childrens) > 0) {
                 this.teXiaoList = playTreeIndexByCid.get('1121000').childrens
             }
+
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
         },
         created() {
         },
@@ -78,6 +94,9 @@
                 let index = _.findIndex(this.shengXiaoList, getIndex)
 				return this.computeShengXiaoNum(index + 1)
 			},
+        },
+        updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeList() {

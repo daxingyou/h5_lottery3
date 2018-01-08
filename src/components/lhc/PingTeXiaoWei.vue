@@ -1,6 +1,5 @@
 <template>
 <div  id="content-wrapper" class="pingtexiaowei">
-
 	<div class="so-con-right" >
 		<div id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container">
@@ -64,12 +63,29 @@
                 pingTeXiaoWeiList: [],
 				playType: 'normal',
                 shengXiaoList: ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"],
+				myScroll: null
             }
         },
         mounted() {
             if (playTreeIndexByCid.get('1100000')) {
                 this.pingTeXiaoWeiList = playTreeIndexByCid.get('1101000').childrens
             }
+
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
         },
         created() {
         },
@@ -85,6 +101,9 @@
 			weiNumList() {
                 return this.computeWeiNumList()
 			}
+        },
+		updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeList() {

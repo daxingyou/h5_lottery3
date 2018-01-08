@@ -1,6 +1,5 @@
 <template>
 <div  id="content-wrapper" class="zixuanbuzhong">
-
 	<div class="so-con-right" >
 		<div id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container">
@@ -36,9 +35,11 @@
 
 <script>
     import playTreeIndexByCid from '@/PlayTreeIndexByCid'
+    import LhcMixin from '@/components/lhc/LhcMixin'
 
     export default {
         name: 'ZiXuanBuZhong',
+        mixins: [LhcMixin],
         props: {
             playTreeList: {
                 type: Array,
@@ -58,17 +59,36 @@
 				minItemNum: 5,
                 playGroup: [],
 				ballNumList:[],
-                playType: 'group'
+                playType: 'group',
+				myScroll: null
             }
         },
         mounted(){
             if (playTreeIndexByCid.get('1170000')) {
                 this.handlePlayList()
             }
+            this.myScroll = new iScroll("scroller", {  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll: true,
+                mouseWheel: true,
+                hScrollbar: false,
+                vScrollbar: false,
+                click: true ,
+                useTransform: false,
+                useTransition: false,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
         },
         created() {
         },
         computed: {
+        },
+        updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeIndexByCid() {

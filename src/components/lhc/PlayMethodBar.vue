@@ -11,17 +11,39 @@
 </template>
 
 <script>
+    import LhcMixin from '@/components/lhc/LhcMixin'
+
     export default {
         props: ['kinds'],
+        mixins:[LhcMixin],
         data: function () {
             return {
-              currentMethodIndex: 0
+                currentMethodIndex: 0,
+                myScroll: null
             }
         },
-        mounted:function(){
+        mounted() {
+            this.myScroll = new iScroll("nav-wrapper", {  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true,
+                hScrollbar: false,
+                vScrollbar: false,
+                click: true,
+                useTransform: false,
+                useTransition: false,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
+        },
+        updated() {
+            
         },
         methods: {
-            switchPlayMethod: function(index) {
+            switchPlayMethod(index) {
                 this.currentMethodIndex = index;
                 this.$emit("switchPlayMethod", this.kinds[index]);
                 this.$emit('lhcclearbet')

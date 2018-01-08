@@ -1,19 +1,14 @@
 <template>
 <div  id="content-wrapper" class="lianwei">
-
 	<div class="so-con-right" >
+        <div class="tab_panel">
+            <div class="hd lhc_tab tab_short" >
+                <ul class="tab tab_mid tab_two">
+                    <li :class="currentBar == index && 'on'" :data-tab="(index + 1)" :data-id="item.cid" v-for="(item, index) in playGroupBar" @click="barChange(index)"><a href="javascript:;">{{item.name}}</a></li>
+                </ul>
+            </div><!-- hd lhc_tab -->
+        </div><!-- tab_panel -->
 		<div id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
-
-			<div class="tab_panel">
-
-				<div class="hd lhc_tab tab_short" >
-					<ul class="tab tab_mid tab_two">
-						<li :class="currentBar == index && 'on'" :data-tab="(index + 1)" :data-id="item.cid" v-for="(item, index) in playGroupBar" @click="barChange(index)"><a href="javascript:;">{{item.name}}</a></li>
-					</ul>
-				</div><!-- hd lhc_tab -->
-
-			</div><!-- tab_panel -->
-
 			<div class="tab_container">
 				<!--以下为盘面不同样式，根据ID区分-->
 				<!-- 二连尾 -->
@@ -68,6 +63,25 @@
                 this.playGroupBar = playTreeIndexByCid.get('1141000').childrens
                 this.handlePlayList()
             }
+
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
+        },
+        updated() {
+            this.setScrollHeight(true, this.currentBar)
         },
         computed: {
             weiNumList() {
@@ -87,6 +101,8 @@
                 this.currentBar = index;
                 this.$emit('lhcclearcnt')
                 this.$emit('lhcclearbet')
+                this.myScroll.refresh()
+                this.myScroll.scrollTo(0, 300)
             },
             showLianＷeiClass(item) {
                 let classStr = 'so-con-span-long'

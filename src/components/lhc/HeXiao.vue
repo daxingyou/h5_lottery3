@@ -1,6 +1,5 @@
 <template>
 <div  id="content-wrapper" class="hexiao">
-
 	<div class="so-con-right" >
 		<div id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container">
@@ -63,13 +62,28 @@
 				maxHeXiaoItem: 11,
 				minHeXiaoItem: 2,
 				playGroup: [],
-				playType: 'group'
+				playType: 'group',
+				myScroll: null
             }
         },
         mounted() {
             if (playTreeIndexByCid.get('1130000')) {
                 this.handlePlayList()
             }
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: false ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 100)
         },
         created() {
         },
@@ -82,6 +96,9 @@
                 let index = _.findIndex(this.shengXiaoList, getIndex)
                 return this.computeShengXiaoNum(index + 1, this.maxBallNum)
             },
+        },
+        updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeIndexByCid() {

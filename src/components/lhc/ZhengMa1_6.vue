@@ -1,6 +1,5 @@
 <template>
 <div  id="content-wrapper">
-
 	<div class="so-con-right" >
 		<div id="scroller" > <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container">
@@ -51,16 +50,36 @@
         data() {
             return {
                 zhengMaNList: [],
+                myScroll: null,
             }
         },
         mounted() {
             if (_.size(playTreeIndexByCid.get('1040000').childrens) > 0) {
                 this.handlePlayList()
             }
+
+            this.myScroll = new iScroll("scroller", {  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
         },
         created() {
         },
         computed: {
+        },
+        updated() {
+            this.setScrollHeight(false, 0)
         },
         watch: {
             playTreeList() {
@@ -68,8 +87,6 @@
                     this.handlePlayList()
                 }
             },
-        },
-        updated(){
         },
         methods: {
             showItemClass(index) {

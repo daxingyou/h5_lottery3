@@ -1,27 +1,27 @@
 <template>
 <div id="content-wrapper" class="tema lhc-wrapper" ref="temalhcwrapper">
-	<div class="lhc-con-right" >
-		<div class="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
-			<div class="tab_panel">
-				<ul class="lhc_top_tab" >
-					<li :data-tab="index" :class="(currentGroupIndex == (Math.floor(group.cid/1000))  && 'active')"  v-for="(group, index) in groupName" @click="switchPlayGroup(Math.floor(group.cid/1000))">
-						<!-- <a :href="'#so-item'+index">{{kind}}</a>-->
-						<span>{{group.name}}</span>
-					</li>
-				</ul>
+	<div class="so-con-right" >
+        <div class="tab_panel">
+            <ul class="lhc_top_tab" >
+                <li :data-tab="index" :class="(currentGroupIndex == (Math.floor(group.cid/1000))  && 'active')"  v-for="(group, index) in groupName" @click="switchPlayGroup(Math.floor(group.cid/1000))">
+                    <!-- <a :href="'#so-item'+index">{{kind}}</a>-->
+                    <span>{{group.name}}</span>
+                </li>
+            </ul>
 
-				<div class="hd lhc_tab" >
-					<ul class="tab tab_mid tab_two">
-						<li :data-tab="index" :class="isXiaoBtnActived(index)" v-for="(shengXiao, index) in shengXiaoList"  @click="selectShengXiao(index, currentGroupIndex)"><a href="javascript:;">{{shengXiao}}</a></li>
-					</ul>
-				</div><!-- hd lhc_tab -->
-			</div><!-- tab_panel -->
+            <div class="hd lhc_tab" id="lhc_tab_test">
+                <ul class="tab tab_mid tab_two">
+                    <li :data-tab="index" :class="isXiaoBtnActived(index)" v-for="(shengXiao, index) in shengXiaoList"  @click="selectShengXiao(index, currentGroupIndex)"><a href="javascript:;">{{shengXiao}}</a></li>
+                </ul>
+            </div><!-- hd lhc_tab -->
+        </div><!-- tab_panel -->
 
+		<div class="scrollerClass" id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
 			<div class="tab_container" ref="tab_container_test">
 				<!--以下为盘面不同样式，根据ID区分-->
 				<!-- 特码B -->
 				<div id="so-item0" class="content-right active item_one"
-					 v-if="currentGroupIndex == 1011">
+					 v-show="currentGroupIndex == 1011">
 					<ul>
 						<!-- 1-49 -->
 						<li class="select-li">
@@ -54,7 +54,7 @@
 
 				<!-- 特码A -->
 				<div id="so-item1" class="content-right "
-					 v-if="currentGroupIndex == 1012"
+					 v-show="currentGroupIndex == 1012"
 				>
 					<ul>
 						<!-- 1-49 -->
@@ -88,6 +88,7 @@
 		</div><!-- scroller -->
 	</div><!-- so-con-right -->
 </div>
+
 </template>
 
 <script>
@@ -117,10 +118,12 @@
                 shengXiaoList: ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"],
                 shengXiaoMapNumber:[],
 				currentGroupIndex: 1011,
+				currentBarIndex: 0,
                 TeMaAList: [],
                 TeMaBList: [],
                 LiangMianB: [],
 				LiangMianA: [],
+                myScroll: null,
             }
         },
         mounted(){
@@ -146,6 +149,22 @@
                     this.LiangMianA = playTreeIndexByCid.get('1012200').childrens
                 }
             }
+
+            this.myScroll = new iScroll("scroller",{  // 投注区域
+                onScrollEnd() {
+                    this.refresh() ;
+                },
+                vScroll:true,
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
+                useTransform: false ,
+                useTransition: false ,
+            });
+
+            this.myScroll.refresh()
+            this.myScroll.scrollTo(0, 300)
         },
 		created() {
 
@@ -153,6 +172,9 @@
         computed: {
 
         },
+		updated() {
+            this.setScrollHeight(true, this.currentBarIndex)
+		},
 		watch: {
             playTreeList() {
                 this.groupName = []
@@ -191,7 +213,14 @@
             },
 			switchPlayGroup(cid) {
                 this.currentGroupIndex = cid;
+                if (cid == 1011)
+                    this.currentBarIndex = 0
+				else {
+                    this.currentBarIndex = 1
+				}
                 this.$emit('lhcclearbet')
+                this.myScroll.refresh()
+                this.myScroll.scrollTo(0, 300)
 			},
             computeShengXiao(baseIndex, teMaType) {
                 let res = [[], [], [], [], [], [], [], [], [], [], [], []]

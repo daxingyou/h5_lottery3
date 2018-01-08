@@ -70,6 +70,20 @@ let LhcMixin = {
             }
             return res;
         },
+        setScrollHeight(hasTabPanel, currentBarIndex) {
+            let scrolling_height =  window.innerHeight - ($('.so-in-top').height() + $('.so-in-main').height() + $('.so-foot').height())
+
+            if (hasTabPanel) {
+                scrolling_height -= $('.tab_panel').height()
+            }
+
+            this.setClickHeight($('#scroller'), scrolling_height)
+            this.setClickHeight($('.tab_container'), $('#so-item' + currentBarIndex).height() + 40)
+
+        },
+        setClickHeight(elem, height) {
+            elem.height(height)
+        }
     }
 };
 export default LhcMixin;
