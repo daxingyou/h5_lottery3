@@ -3,31 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="19ee958b-5e7b-4d46-bd70-e135082093af" name="Default" comment="把六合彩并入蓝白版（第二次）iscroll修改">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/HeXiao.vue" afterPath="$PROJECT_DIR$/src/components/lhc/HeXiao.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/Index.vue" afterPath="$PROJECT_DIR$/src/components/lhc/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LhcBet.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LhcBet.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LhcBetRecord.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LhcBetRecord.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LhcMixin.js" afterPath="$PROJECT_DIR$/src/components/lhc/LhcMixin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LianMa.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LianMa.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LianWei.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LianWei.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LianXiao.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LianXiao.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LiangMian.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LiangMian.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/PingTeXiaoWei.vue" afterPath="$PROJECT_DIR$/src/components/lhc/PingTeXiaoWei.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/PlayMethodBar.vue" afterPath="$PROJECT_DIR$/src/components/lhc/PlayMethodBar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/SePo.vue" afterPath="$PROJECT_DIR$/src/components/lhc/SePo.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/TeMa.vue" afterPath="$PROJECT_DIR$/src/components/lhc/TeMa.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/TeMaTouWei.vue" afterPath="$PROJECT_DIR$/src/components/lhc/TeMaTouWei.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/TeMaWuXing.vue" afterPath="$PROJECT_DIR$/src/components/lhc/TeMaWuXing.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/TeXiao.vue" afterPath="$PROJECT_DIR$/src/components/lhc/TeXiao.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/Touzhu.vue" afterPath="$PROJECT_DIR$/src/components/lhc/Touzhu.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZhengMa.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZhengMa.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZhengMa1_6.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZhengMa1_6.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZhengTe.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZhengTe.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZhengXiao.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZhengXiao.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZiXuanBuZhong.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZiXuanBuZhong.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/ZongXiao.vue" afterPath="$PROJECT_DIR$/src/components/lhc/ZongXiao.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/lhc.sass" afterPath="$PROJECT_DIR$/src/components/lhc/lhc.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/frist/css/lhc.css" afterPath="$PROJECT_DIR$/static/frist/css/lhc.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/node_modules/webpack-bundle-analyzer/views/viewer.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -171,7 +147,7 @@
       <workItem from="1515206562218" duration="4694000" />
       <workItem from="1515373096644" duration="1197000" />
       <workItem from="1515375568786" duration="158000" />
-      <workItem from="1515381377902" duration="5294000" />
+      <workItem from="1515381377902" duration="7188000" />
     </task>
     <task id="LOCAL-00001" summary="bug for h5_lottery3">
       <created>1514979829232</created>
@@ -236,21 +212,27 @@
       <option name="project" value="LOCAL" />
       <updated>1515153704166</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="把六合彩并入蓝白版（第二次）iscroll修改">
+      <created>1515406868362</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1515406868362</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37439000" />
+    <option name="totallyTimeSpent" value="39333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11169652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11169652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3003337" sideWeight="0.49578503" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3003337" sideWeight="0.50421494" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2814238" sideWeight="0.49578503" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2814238" sideWeight="0.50421494" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2224694" sideWeight="0.49789253" order="7" side_tool="false" content_ui="tabs" />
@@ -269,6 +251,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../chess/h5_lottery2/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -349,7 +336,7 @@
     <entry file="file://$PROJECT_DIR$/node_modules/webpack-bundle-analyzer/views/viewer.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
