@@ -38,6 +38,7 @@
                                     <CountdownTimer ref="countdownTimer"
                                                     @countdownOver="playLottery"
                                                     @entertainCountdownOver="entertain"
+                                                    @entertainCountdownBreak="entertainBreak"
                                                     @spanArrived="lotteryDataFetch"
                                                     @visibility="timerBegin"
                                                     :now_pcode="now_pcode" :lotteryID="lotteryID"
@@ -221,6 +222,12 @@
                 this.entertainStatus = true;
                 this.resetAction();
             },
+              entertainBreak: function () {
+                // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+                // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
+                this.entertainStatus = true;
+                this.resetAction();
+            },
             //获取开奖更据 needIn 是否需要再次调用倒计时定时器
             lotteryDataFetch(needIn) {
                 const that = this;
@@ -231,7 +238,6 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res => {
                             that.balancePublic = res.msg;
                             that.setCookie("balancePublic", that.balancePublic)
-
                             that.ishwowpriod = true ;
                             that.next_pcode = res.data[0].issueAlias;  // 下期期数
 
