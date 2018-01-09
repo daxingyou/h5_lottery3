@@ -34,9 +34,16 @@
                                         <span :class="[spanclass[list.lotteryId],'active num_'+listnum]">{{listnum}}</span>
                                     </li>
                                 </ul>
+                             
+                                 <ul class="new_panel_center lo_ball" v-else>
+                                    <li v-if="(list.lotteryId != '10')" v-for="listnum in list.winNumber.split(',')"
+                                        :class="'round_ball active num_'+ listnum ">{{listnum}}
+                                    </li>
 
-                                <ul class="new_panel_center lo_ball" v-else>
-                                    <li v-for="listnum in list.winNumber.split(',')" :class="'round_ball active num_'+ listnum ">{{listnum}}</li>
+                                    <li v-if="(list.lotteryId == '10')" v-for="listnum in list.winNumber.split(',')"
+                                        :class=" listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum  ">
+                                        {{listnum}}
+                                    </li>
                                 </ul>
 
                                 <div class="function_btn">
