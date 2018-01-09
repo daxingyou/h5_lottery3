@@ -18,10 +18,10 @@
 										<span>{{itemChild.name}}</span>
 										<span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
 										<span class="num_group" v-if="index == 0">
-											<span :class="'lhc_ball num_' + item2" v-for="item2 in shengXiaoMapNumber[index2]"></span>
+											<span :class="'lhc_ball num_' + item2" v-for="item2 in shengXiaoMapNumber[index2]">{{item2}}</span>
 										</span>
 										<span class="num_group" v-if="index == 1">
-											<span :class="'lhc_ball num_' + item2" v-for="item2 in weiNumList[index2]"></span>
+											<span :class="'lhc_ball num_' + item2" v-for="item2 in weiNumList[index2]">{{item2}}</span>
 										</span>
 									</p>
 								</div>

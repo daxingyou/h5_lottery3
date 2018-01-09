@@ -25,7 +25,7 @@
 										<span>{{lianWeiItem.name}}</span>
 										<span class="bet-times">{{payoffFormat(lianWeiItem.oddsData.payoff)}}</span>
 										<span class="num_group">
-											<span :class="'lhc_ball num_' + item2" v-for="item2 in weiNumList[lianWeiItemIndex]"></span>
+											<span :class="'lhc_ball num_' + item2" v-for="item2 in weiNumList[lianWeiItemIndex]">{{item2}}</span>
 										</span>
 									</p>
 								</div>

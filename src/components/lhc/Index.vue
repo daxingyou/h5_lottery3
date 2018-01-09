@@ -23,14 +23,14 @@
                                         <div class="so-m-t-right" v-show="ishwowpriod">
                                             <div class="last-open-num">
                                                 <ul>
-                                                    <li :class="'lhc_ball num_' + ((item) < 10? '0'+ item: item)" v-if="index < 6" v-for="(item, index) in winNumber">{{item}}</li>
+                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index < 6" v-for="(item, index) in winNumber">{{item}}</li>
 
                                                     <li class="lhc_ball_plus">
                                                         <span></span>
                                                         <span></span>
                                                     </li>
 
-                                                    <li :class="'lhc_ball num_' + ((item) < 10? '0'+ item: item)" v-if="index == 6" v-for="(item, index) in winNumber">{{item}}</li>
+                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index == 6" v-for="(item, index) in winNumber">{{item}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -38,7 +38,6 @@
                                     <CountdownTimer ref="countdownTimer"
                                                     @countdownOver="playLottery"
                                                     @entertainCountdownOver="entertain"
-                                                    @entertainCountdownBreak="entertainBreak"
                                                     @spanArrived="lotteryDataFetch"
                                                     @visibility="timerBegin"
                                                     :now_pcode="now_pcode" :lotteryID="lotteryID"
@@ -219,12 +218,6 @@
             entertain() {
                 // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
                 this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
-                this.entertainStatus = true;
-                this.resetAction();
-            },
-            entertainBreak() {
-                // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
-                // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
                 this.resetAction();
             },

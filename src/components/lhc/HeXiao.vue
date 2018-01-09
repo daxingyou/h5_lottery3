@@ -18,7 +18,7 @@
 									<p :data-id="item.cid" :class="isBtnActived(item)" v-for="(item, index) in HeXiaoList" @click="betSelect(item)">
 										<span>{{item.name}}</span>
 										<span class="num_group" >
-											<span :class="'lhc_ball num_'+ item2" v-for="(item2, index2) in shengXiaoMapNumber[index]"></span>
+											<span :class="'lhc_ball num_'+ item2" v-for="(item2, index2) in shengXiaoMapNumber[index]">{{item2}}</span>
 										</span>
 									</p>
 								</div>

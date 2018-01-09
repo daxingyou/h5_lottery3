@@ -65,7 +65,7 @@
                                             <strong class="title-data" v-if="lotteryid == 10">{{item}}</strong>
                                             <strong class="title-data" v-else>{{showDateList[index2]}}</strong>
                                             <span><!-- 此為箭頭，點按後展開或收合，預設第一個為展開（父層li的class有active） --></span></div>
-                                        <ul class="panel bet-recode-all" style="display: block;">
+                                        <ul class="panel new_panel_center bet-recode-all" style="display: block;">
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="loadingList[index2] == 1 && betRecordList[index2].length == 0">正在加载...</li>
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="betRecordList[index2].length == 0 && collapseCtrl[index2] == 1 && loadingList[index2] == 0">没有数据了</li>
                                             <!-- data-val裡的 encodeURI(JSON.stringify(v))，他們寫暂时不显示详情 -->
@@ -73,7 +73,7 @@
                                                 <a href="javascript:;" data-val="">
                                                     <div class="item">
                                                         <div class="badge ssc_badge">
-                                                            <img :src="'/static/frist/images/lotterylogo/logo_' + item2.lotteryid + '.svg'">
+                                                            <img :src="'/static/frist/images/lotteryicon/cp' + item2.lotteryid + '.png'">
                                                         </div>
                                                         <div class="lottery_t ssc">
                                                             <p><!-- orderId: -->{{item2.orderid}}</p>
