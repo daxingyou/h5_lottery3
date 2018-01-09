@@ -102,6 +102,7 @@ export default {
                 "20":"k3/anHuiK3Index",
                 "22":"k3/huBeiK3Index",
                 "106":"k3/miaoSuK3Index",  // 秒速k3
+                "10":"lhc",  // 
 
             }, // 对应彩种的id
             gameName : {
@@ -119,6 +120,7 @@ export default {
                 "20":"安徽快3",
                 "22":"湖北快3",
                 "106":"秒速快3",
+                "10":"香港六合彩",
 
             }, // 对应彩种的名称
 
