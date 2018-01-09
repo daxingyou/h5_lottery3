@@ -330,8 +330,5 @@ export default {
 </script>
 
 <style scoped>
- #ds_content .ds_long .lo_ball {
-    width: 4rem;
-    text-align: left;
-}
+
 </style>
