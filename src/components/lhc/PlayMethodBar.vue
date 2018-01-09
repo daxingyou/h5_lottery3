@@ -55,13 +55,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    #nav-wrapper ul>li:nth-child(4) a,
+    /*#nav-wrapper ul>li:nth-child(4) a,
     #nav-wrapper ul>li:nth-child(8) a,
     #nav-wrapper ul>li:nth-child(10) a,
     #nav-wrapper ul>li:nth-child(16) a,
     #nav-wrapper ul>li:nth-child(17) a{
         font-size: .3rem;
-    }
+    }*/
     .so-con-left.so-con-center{
         position: absolute;
         top:0;

@@ -26,7 +26,7 @@
 										<span>{{shengXiaoItem.name}}</span>
 										<span class="bet-times">{{payoffFormat(shengXiaoItem.oddsData.payoff)}}</span>
 										<span class="num_group">
-											<span :class="'lhc_ball num_' + item2" v-for="item2 in shengXiaoMapNumber[shengXiaoItemIndex]"></span>
+											<span :class="'lhc_ball num_' + item2" v-for="item2 in shengXiaoMapNumber[shengXiaoItemIndex]">{{item2}}</span>
 										</span>
 									</p>
 								</div>
