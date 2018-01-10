@@ -132,7 +132,7 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 
 /* 左侧选单 */
 .so-left { width: 7.24rem; position: fixed; z-index: 200; top: 0; bottom: 0; left: -100%; }
-.so-left .so-left-con { height: 100%; width: 7.24rem; background-color: #fff; position: relative;}
+.so-left .so-left-con { height: 100%; width: 7.24rem; background-color: #fff; position: relative; overflow: scroll;}
 
 .so-left .so-l-c-top { position: relative;  padding: 0.5rem 0.7rem; text-align: left; background-color: #1db5f7; }
 .so-left .so-l-c-top .user_name { display: block; text-align: left; margin-left: 0; font-size: .4rem; color: #fff; }
