@@ -58,7 +58,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="body_bg"></div>
+                <div class="body_bg"  @click='bgFocus'></div>
                 <div  id="content-wrapper">
                      <div class="so-con-right  " >
                                <div id="scroller" > <!-- style="min-height: 180%"  -->
@@ -210,6 +210,8 @@ import MenuBar from '@/components/publicTemplate/MenuBar'
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
+import store from './../../_vuex/store'
+
 
 export default {
   name: 'Index',
@@ -309,6 +311,9 @@ export default {
         this.balancePublic = afterBetCookie
         // console.log(afterBetCookie)      
     },
+     bgFocus: function () {
+          this.$store.commit('Number')
+        },
     switchTab:function(e){
         var _self = this ;
         const $src = $(e.currentTarget);
