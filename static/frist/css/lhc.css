@@ -157,24 +157,36 @@
 	margin-right: 0;
 }
 #lhc p.so-con-span-short-4x{
-	position: relative;
-	width: 23.333%;
-    margin-right: 2.2%;
-	padding: 0.25rem;
-	height: 1.1rem;
+	/*position: relative;*/
+	width: 18%;
+    margin-right: 2%;
+	padding: 0;
+	/*height: 1.1rem;*/
+	border: 0;
+	text-align: center;
 }
-#lhc .so-con-span-short-4x.active > span{
-	bottom: .05rem;
+#lhc p.so-con-span-short-4x.active{
+	background: none;
 }
 #lhc .so-con-span-short-4x > span{
-	position: absolute;
+	/*position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	margin: auto;
+	margin: auto;*/
+	line-height: 0.6rem;
+	float: none;
 }
-#lhc .bet_box p.so-con-span-short-4x:nth-child(4n){
+#lhc .so-con-span-short-4x.active > span{
+	/*bottom: .05rem;*/
+}
+#lhc .so-con-span-short-4x > span .lhc_ball{
+	width: 0.9rem;
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+#lhc .bet_box p.so-con-span-short-4x:nth-child(5n){
 	margin-right: 0;
 }
 /* 號碼木框 样式微调 */
@@ -239,9 +251,29 @@ p.active .lhc_ball.num_28, p.active .lhc_ball.num_32, p.active .lhc_ball.num_33,
 p.active .lhc_ball.num_39, p.active .lhc_ball.num_43, p.active .lhc_ball.num_44, p.active .lhc_ball.num_49
 { background-color: #00a507; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
 #lhc_tab_test.lhc_tab.hd ul.tab_mid li{
-	width: 1.2rem;
+	width: 1.5rem;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on{
+	background: transparent;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on a{
+	color: #1db5f7;
 }
 #lhc_tab_test.lhc_tab.hd ul.tab_mid li a:before{
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+	margin-top: -0.05rem;
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 0.1rem;
+	border: 1px solid #666;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on a:before{
+	border-color: #1db5f7;
+	background: url(/static/frist/images/checkbox.svg) no-repeat center center #1db5f7;
+	background-size: 0.4rem;
 }
 /* 特码 */
 
