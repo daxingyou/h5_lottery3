@@ -14,6 +14,8 @@
 
 
 <script>
+    import store from './../../_vuex/store'
+
 export default {
   name: 'AutoCloseDialog',
   props:['text', 'type'],
@@ -38,11 +40,12 @@ export default {
       this.typelogo = typelogo;
       this.contenclas = cla;
       this.show = true;
-      setTimeout(() => this.show = false, this.delay);
+      setTimeout(() => this.close(), this.delay);
     },
     //关闭弹窗
     close:function(e){
       this.show = false;
+      this.$store.commit('Number')
     }
   }
 }

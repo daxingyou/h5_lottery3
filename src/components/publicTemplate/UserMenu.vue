@@ -60,6 +60,8 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
+import store from './../../_vuex/store'
+
 
 export default {
   name: 'UserMenu',
@@ -83,6 +85,7 @@ export default {
     },
     close:function(e){
       this.show = false;
+      this.$store.commit('Number')
     }
   },
 

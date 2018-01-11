@@ -840,6 +840,35 @@ var MyMixin = {
             })
         },
         //网站说明文案
+        // getCopyright:function (type,code) {
+        //     var _self=this;
+        //     var senddata={
+        //         type:type,
+        //         code:code};
+        //     $.ajax({
+        //         type: 'get',
+        //         url: _self.action.forseti + 'apid/cms/copyright',
+        //         data: senddata ,
+        //         success: function(res){
+        //             var wordObj = {}                    
+        //             if(res.err=="SUCCESS"){
+        //                 if(res.data[0].title){                         
+        //                     _self.copyTitle=res.data[0].title;
+        //                     _self.copyContent=res.data[0].content;
+        //                     wordObj.copyTitle = _self.copyTitle;
+        //                     wordObj.copyContent = _self.copyContent;
+        //                     var freshEducation = 'freshEducation' + code
+        //                     localStorage.setItem(freshEducation, JSON.stringify(wordObj))
+        //                 }
+        //             }
+        //         },
+        //         error: function (res) {
+
+        //         }
+        //     })
+        // },
+
+
         getCopyright:function (type,code) {
             var _self=this;
             var senddata={
@@ -850,20 +879,27 @@ var MyMixin = {
                 url: _self.action.forseti + 'apid/cms/copyright',
                 data: senddata ,
                 success: function(res){
-                    if(res.err=="SUCCESS"){
-                        if(res.data[0].title){
-                            _self.copyTitle=res.data[0].title;
+                    console.log(!res.data)
+                    if (res.data[0]) {
+                        if(res.err=="SUCCESS"){
                             _self.copyContent=res.data[0].content;
+                             _self.tabShow = true
+
+                            console.log(_self.copyContent,'cont' )
                         }
+                    } else {
+                        _self.copyContent = res.data[0];
+                        _self.tabShow = true
+
 
                     }
-
                 },
                 error: function (res) {
 
                 }
             })
         },
+
         //试玩
         demoPlay :function () {
             var _self=this;

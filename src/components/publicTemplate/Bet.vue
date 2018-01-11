@@ -66,6 +66,8 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
+import {mapState, mapGetters} from 'vuex'
+
 
 export default {
     name: 'Bet',
@@ -104,10 +106,19 @@ export default {
             }else{
                 return this.betSelectedList.length * this.betAmount
             }
+        },
+        foc: function () {
+            this.focuFirst()
+            return this.$store.state.foc
+        },
+    },
+
+    watch: {
+        foc: function () {
         }
     },
     mounted:function(){
-//        console.log( this.balance )
+        this.focuFirst()
     },
     methods:{
         /*
@@ -119,6 +130,17 @@ export default {
                 this.betAmount = '';
             }
             this.showList = false;
+        },
+        focuFirst: function () {
+            // var bb = $('.bet-amount')[0]
+            // bb.addEventListener('click',function(){
+            //  bb.focus();
+            // });
+            var betF = $('.bet-amount').html()
+            if (!betF) {
+                // $('.bet-amount').focus();
+                console.log('')
+            }
         },
 
         /*

@@ -208,6 +208,7 @@ export default {
         }
     },
   mounted:function() {
+
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
     //scrollTo(0,0); // 回到顶部
@@ -328,3 +329,8 @@ export default {
 
 }
 </script>
+<style type="text/css">
+
+
+
+</style>

@@ -85,7 +85,7 @@
 
                         </ul>
                     </div>
-                <div class="body_bg" > </div>
+                <div class="body_bg"  > </div>
                 <div  id="content-wrapper">
                     <div class="so-con-right " >  <!-- body_bg -->
                          <div id="scroller"  class="scroller" >
@@ -274,6 +274,8 @@
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/jc11x5/PlayDialog'
     import Mixin from '@/Mixin'
+    import store from './../../_vuex/store'
+    
 
     export default {
       name: 'jc11x5Index',
@@ -387,6 +389,9 @@
                 var afterBetCookie = this.getCookie( 'balancePublic' )
                 this.balancePublic = afterBetCookie
                 console.log(afterBetCookie)      
+            },
+             bgFocus: function () {
+              this.$store.commit('Number')
             },
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);

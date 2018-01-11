@@ -38,6 +38,8 @@
                                         </th>
                                         <td>{{model.tradeTypeName}}<!-- 重庆时时彩 --></td>
                                     </tr>
+
+                                    
                                     <tr>
                                         <th>
                                             <li>状态</li>
@@ -97,7 +99,8 @@ export default {
             moneyType:{
                 '0':'充值',
                 '1':'提款',
-                '2':'优惠'
+                '2':'优惠',
+                '3':'返水',
             },
         }
     },

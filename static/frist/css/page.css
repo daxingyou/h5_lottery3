@@ -132,7 +132,7 @@ footer.bot_nav ul li a span.Footer-font { display: block; }
 
 /* 左侧选单 */
 .so-left { width: 7.24rem; position: fixed; z-index: 200; top: 0; bottom: 0; left: -100%; }
-.so-left .so-left-con { height: 100%; width: 7.24rem; background-color: #fff; position: relative;}
+.so-left .so-left-con { height: 100%; width: 7.24rem; background-color: #fff; position: relative; overflow: scroll;}
 
 .so-left .so-l-c-top { position: relative;  padding: 0.5rem 0.7rem; text-align: left; background-color: #1db5f7; }
 .so-left .so-l-c-top .user_name { display: block; text-align: left; margin-left: 0; font-size: .4rem; color: #fff; }
@@ -211,7 +211,7 @@ label.red { color: #bc0000; text-align: left; display: block; margin-top: .2rem;
 .tabset { text-align: center; }
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
 .tabset .tab-panel { display: none; }
-.tabset > label { position: relative; display: inline-block;margin-left: -5px; padding: .27rem 0rem; cursor: pointer; color: #1db5f7; border: 1px solid #1db5f7; font-size: 0.34rem; width: 33%; }
+.tabset > label { position: relative; display: inline-block;margin-left: -4px; padding: .27rem 0rem; cursor: pointer; color: #1db5f7; border: 1px solid #1db5f7; font-size: 0.34rem; width: 33%; }
 .tabset > label:first-of-type {  border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 .tabset > label:last-of-type { border-top-right-radius: .2rem; border-bottom-right-radius: .2rem; }
 .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child, .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2), .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3), .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4), .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5), .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) { display: block; }
@@ -943,6 +943,10 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .print_data table tr td { text-align: left; padding-left: 1em; word-break: break-all;  width: 11rem; font-size: .35rem; vertical-align: top; line-height: 0.9rem;}
 .print_data table tr td.text-yellow { color: #ffbd00; }
 .print_data table tr:last-child { border-bottom: none;}
+
+#bankInforDeposit .print_data table tr td:last-of-type {
+    width:2rem
+}
 
 .print_data .copy_link { color: #1db5f7; text-align: center; display: inline-block; border: 1px solid #cbcbcb; margin: 0.3rem auto ;  border-radius: 0.5rem; padding: .15rem .5rem 0.05rem; font-size: .34rem; vertical-align: middle; }
 

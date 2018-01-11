@@ -549,8 +549,8 @@
                     code: _self.yzmcode ,   // 验证码
                     bankCode:_self.bankCode, //银行卡code
                     bankAddress:_self.bankAdd,//银行卡地址
-                    bankCard:_self.bankNum //银行卡号码
-
+                    bankCard:_self.bankNum, //银行卡号码
+                    source:2,
                 }
                 $.ajax({
                     type: 'post',
