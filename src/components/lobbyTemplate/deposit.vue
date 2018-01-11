@@ -368,6 +368,7 @@
                 href:'',
                 depositPeoplehintWord:'请正确输入',
                 depositPeopleHint:false,
+                bankSubmitAllow: true,
 
             }
         },
@@ -723,10 +724,15 @@
                     success: function(res){
                         if(res.data){
                             _self.userInfo = res.data ;
+                        } else {
+                            _self.bankSubmitAllow = false;
+                            // console.log(_self.bankSubmitAllow, 'allow')
                         }
 
                     },
                     error: function (e) {
+                        _self.bankSubmitAllow = false;
+
                         _self.errorAction(e) ;
                     }
                 });
@@ -757,6 +763,11 @@
                     return false ;
                 }
                 console.log('和积分抵扣')
+                
+                if (!(this.bankSubmitAllow)) {
+                    _self.$refs.autoCloseDialog.open('未获取到收款人信息');
+                    return false;
+                }
 
                 if(!_self.bankInfo.bankCode){
                     _self.$refs.autoCloseDialog.open('请选择存款银行！') ;

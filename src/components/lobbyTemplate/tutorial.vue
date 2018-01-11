@@ -18,8 +18,8 @@
                 <input type="radio" name="tabset" id="tab2" aria-controls="commission" @click="gotoTop('czjc')">
                 <label for="tab2" class="tab2">充值教程</label>
 
-                <div class="tab-panels">
-                    <section id="fresh" class="tab-panel" v-html="copyContent">
+                <div class="tab-box">
+                    <section  class="tab-pone" v-html="copyContent" v-if= 'tabShow'>
 
                     </section>
                 </div>
@@ -46,60 +46,81 @@ export default {
   },
     data: function() {
         return {
-            copyTitle:'',
+            copyTitle:'新手教程',
             copyContent:'',
             freshEdu: {},
-            depositEdu: {}
+            depositEdu: {},
+            tabShow:true
         }
     },
   mounted:function() {
-      $('html,body').css('overflow-y','scroll' )  ;
-      //scrollTo(0,0); // 回到顶部
-      document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
-      this.freshEdu = JSON.parse(localStorage.getItem('freshEducationBT01'))
-      this.depositEdu = JSON.parse(localStorage.getItem('freshEducationBT05'))
-      this.copyContent = this.freshEdu
+      // $('html,body').css('overflow-y','scroll' )  ;
+      // //scrollTo(0,0); // 回到顶部
+      // document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+      // this.freshEdu = JSON.parse(localStorage.getItem('freshEducationBT01'))
+      // this.depositEdu = JSON.parse(localStorage.getItem('freshEducationBT05'))
+      // this.copyContent = this.freshEdu
+
+      $('html,body').css('overflow-y', 'scroll');
+      this.getCopyright('1', 'BT01')
   },
   methods: {
-      gotoTop: function (name) {
+      // gotoTop: function (name) {
+      //     if (name == 'xsjc') {
+      //         this.copyContent = this.freshEdu.copyContent
+      //         console.log(this.freshEdu ,'c1' )
+      //     }
+      //     if (name == 'czjc') {
+      //         this.copyContent = this.depositEdu.copyContent
+      //         console.log(this.freshEdu ,'c2' )
+
+      //     }
+      //     document.documentElement.scrollTop = document.body.scrollTop = 0; // 回到顶部
+      // },
+
+       gotoTop: function (name) {
+          //scrollTo(0,0);
           if (name == 'xsjc') {
-              this.copyContent = this.freshEdu.copyContent
-              console.log(this.freshEdu ,'c1' )
+              this.getCopyright('1', 'BT01')
           }
           if (name == 'czjc') {
-              this.copyContent = this.depositEdu.copyContent
-              console.log(this.freshEdu ,'c2' )
+              this.getCopyright('1', 'BT05')
 
           }
-          document.documentElement.scrollTop = document.body.scrollTop = 0; // 回到顶部
       },
 
 }
 
 }
 </script>
-<style scoped>
+<style >
 
 
     #freshContent {
         margin-top: 1.37rem;
     }
 
-    #freshContent .tab-panels {
-        padding: 10px 5%;
+    #freshContent .tab-pone {
+        padding: 10px 7%;
     }
-    #freshContent .tab-panels p {
+    #freshContent .tab-pone p {
         line-height: 30px;
         margin: .5rem 0;
+        text-align: left;
+
     }
 
-    #freshContent .tab-panels p strong {
+    #freshContent .tab-pone p strong {
         display: block;
         color: #b41a17;
+        text-align: left;
+
     }
 
-    #freshContent .tab-panels p span {
+    #freshContent .tab-pone p span {
         display: block;
         text-indent: 0.5em;
+        text-align: left;
+        text-indent: 30px;
     }
 </style>

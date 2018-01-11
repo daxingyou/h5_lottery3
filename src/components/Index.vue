@@ -263,8 +263,8 @@ export default {
        this.getActivity();
        this.getCustom()
        this.getAppUrl()
-       this.getCopyright('1', 'BT01')
-      this.getCopyright('1', 'BT05')
+      //  this.getCopyright('1', 'BT01')
+      // this.getCopyright('1', 'BT05')
 
   },
     methods:{
