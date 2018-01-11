@@ -208,6 +208,8 @@ export default {
         }
     },
   mounted:function() {
+
+    $('tempWrap').css('height','auto')
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
     //scrollTo(0,0); // 回到顶部
@@ -328,3 +330,10 @@ export default {
 
 }
 </script>
+<style type="text/css">
+#pa_con .tempWrap{
+    height:100% ;
+}
+
+
+</style>
