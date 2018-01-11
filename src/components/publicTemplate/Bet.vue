@@ -132,9 +132,14 @@ export default {
             this.showList = false;
         },
         focuFirst: function () {
+            // var bb = $('.bet-amount')[0]
+            // bb.addEventListener('click',function(){
+            //  bb.focus();
+            // });
             var betF = $('.bet-amount').html()
             if (!betF) {
-                $('.bet-amount').focus();
+                // $('.bet-amount').focus();
+                console.log('')
             }
         },
 

@@ -58,7 +58,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="body_bg"  @click='bgFocus'></div>
+                <div class="body_bg"  @click ='bgFocus()'></div>
                 <div  id="content-wrapper">
                      <div class="so-con-right  " >
                                <div id="scroller" > <!-- style="min-height: 180%"  -->
@@ -312,7 +312,17 @@ export default {
         // console.log(afterBetCookie)      
     },
      bgFocus: function () {
-          this.$store.commit('Number')
+           alert()
+          // this.$store.commit('Number')
+          var bb = $('.body_bg')[0]
+          var bb = document.getElementsByClassName('body_bg')[0]
+
+
+            bb.addEventListener('click',function(){
+             bb.focus();
+            });
+
+          console.log('')
         },
     switchTab:function(e){
         var _self = this ;
