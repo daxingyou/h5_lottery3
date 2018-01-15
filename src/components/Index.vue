@@ -114,7 +114,7 @@
               <ul>
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
-                  <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面10个 -->
+                  <li v-for="(lottery,index) in allLottery" v-if="index<10&&(lottery.cid!=10)"   > <!-- 只展示前面10个 -->
                     <router-link class="to_lottery" :to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                         <img v-lazy="action.picurl+lottery.imgUrl+'/0'">
@@ -252,6 +252,7 @@ export default {
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
       this.allLottery = this.$refs.navone.getLotterys() ;
+      console.log( this.allLottery ,'caizhong')
       this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
       this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
       if(this.haslogin){  // 只有登录状态才需要调余额
