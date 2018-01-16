@@ -228,8 +228,7 @@
                 this.entertainStatus = true;
                 this.resetAction();
             },
-            //获取开奖更据 needIn 是否需要再次调用倒计时定时器
-            lotteryDataFetch(needIn) {
+             lotteryDataFetch(needIn) {
                 const that = this;
                 return new Promise((resolve)=>{
 
@@ -238,42 +237,80 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res => {
                             that.balancePublic = res.msg;
                             that.setCookie("balancePublic", that.balancePublic)
+
                             that.ishwowpriod = true ;
                             that.next_pcode = res.data[0].issueAlias;  // 下期期数
 
                             that.currentBaseShengXiao = res.data[1].zodiac
                             let code = res.data[2].winNumber.split(',')
                             that.previous_pcode = res.data[2].issueAlias
+                            var noOpenFlag1 = ( sys_time > res.data[0].startTime ) && (sys_time < res.data[0].endTime)
+                            var noOpenFlag2 = ( sys_time > res.data[1].startTime ) && (sys_time < res.data[1].endTime)
+                            // console.log(noOpenFlag1 ,'noopen1')
+                            // console.log(noOpenFlag2 ,'noopen2')
 
-                            if(res.data[1].endTime < sys_time ) { // 如果当期结束时间小于系统时间
+                            var shut = !(noOpenFlag1 || noOpenFlag2)
+
+                            // console.log(shut ,'shut' )
+                            // console.log(!shut ,'open' )
+
+                            if (shut) {
+                                console.log('shut999')
+                                that.notopen = true;                               
                                 that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
                                 that.now_pcode = res.data[0].issueAlias;  // 当前期数
-                            }else{
-                                that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
-                                that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-                                that.now_pcode = res.data[1].issueAlias;  // 当前期数
+
+                                code = res.data[1].winNumber.split(',')
+                                that.previous_pcode = res.data[1].issueAlias
+
+                                // console.log(code,'noopencode')
+                                that.winNumber = code
+
                             }
+                            if (!shut) {
+                                that.notopen = false;   
+                                if (res.data[1].endTime < sys_time) { // 如果当期结束时间小于系统时间
+                                    that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
+                                    that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                                    that.now_pcode = res.data[0].issueAlias;  // 当前期数
+                                    that.previous_pcode = res.data[1].issueAlias
 
-                            //code 上期开奖号码
-                            if (!code) {
-                                let hasFind = false
-                                _.forEach(res.data, (item, index) => {
-                                    if (_.size(item.winNumber) > 0 && index >= 3) {
-                                        that.winNumber = item.winNumber.split(',')
-                                        that.previous_pcode = item.issueAlias
-                                        hasFind = true
-                                        return false
+                                    code = res.data[1].winNumber.split(',')
+                                    // console.log(code, 'code,ordinary')
+                                    that.winNumber = code
+                                } else {
+                                    that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
+                                    that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+                                    that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                                    that.previous_pcode = res.data[2].issueAlias
+                                    code = res.data[2].winNumber.split(',')
+                                    that.winNumber = code
+                                    // console.log(code, 'code,pass')
+
+                                }
+
+                                //code 上期开奖号码
+                                if (!code) {
+                                    let hasFind = false
+                                    _.forEach(res.data, (item, index) => {
+                                        if (_.size(item.winNumber) > 0 && index >= 3) {
+                                            that.winNumber = item.winNumber.split(',')
+                                            that.previous_pcode = item.issueAlias
+                                            hasFind = true
+                                            return false
+                                        }
+                                    })
+
+                                    if (!hasFind) {
+                                        that.winNumber = code
                                     }
-                                })
-
-                                if (!hasFind) {
+                                }
+                                else {
                                     that.winNumber = code
                                 }
                             }
-                            else {
-                                that.winNumber = code
-                            }
+
 
                             if(res.data[1].status > 1){ // 异常情况，如提前开盘 2
                                 that.entertainStatus = true;
@@ -294,6 +331,74 @@
 
                 })
             },
+
+
+            //获取开奖更据 needIn 是否需要再次调用倒计时定时器
+            // lotteryDataFetch(needIn) {
+            //     const that = this;
+            //     return new Promise((resolve)=>{
+
+            //         that.getSystemTime().then(sys_time=>{
+            //             that.sys_time = that.formatTimeUnlix(sys_time) ;
+            //             that.priodDataNewly(that.lotteryID, sys_time).then(res => {
+            //                 that.balancePublic = res.msg;
+            //                 that.setCookie("balancePublic", that.balancePublic)
+            //                 that.ishwowpriod = true ;
+            //                 that.next_pcode = res.data[0].issueAlias;  // 下期期数
+
+            //                 that.currentBaseShengXiao = res.data[1].zodiac
+            //                 let code = res.data[2].winNumber.split(',')
+            //                 that.previous_pcode = res.data[2].issueAlias
+
+            //                 if(res.data[1].endTime < sys_time ) { // 如果当期结束时间小于系统时间
+            //                     that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
+            //                     that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+            //                     that.now_pcode = res.data[0].issueAlias;  // 当前期数
+            //                 }else{
+            //                     that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
+            //                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+            //                     that.now_pcode = res.data[1].issueAlias;  // 当前期数
+            //                 }
+
+            //                 //code 上期开奖号码
+            //                 if (!code) {
+            //                     let hasFind = false
+            //                     _.forEach(res.data, (item, index) => {
+            //                         if (_.size(item.winNumber) > 0 && index >= 3) {
+            //                             that.winNumber = item.winNumber.split(',')
+            //                             that.previous_pcode = item.issueAlias
+            //                             hasFind = true
+            //                             return false
+            //                         }
+            //                     })
+
+            //                     if (!hasFind) {
+            //                         that.winNumber = code
+            //                     }
+            //                 }
+            //                 else {
+            //                     that.winNumber = code
+            //                 }
+
+            //                 if(res.data[1].status > 1){ // 异常情况，如提前开盘 2
+            //                     that.entertainStatus = true;
+            //                 }
+
+            //                 // 当天日期
+            //                 that.now_day = res.data[0].pdate;
+
+            //                 if(needIn =='1'){ // 倒计时结束后
+            //                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
+            //                 }
+
+            //                 resolve();
+            //             }).catch(function () {
+            //                 console.log("Promise Rejected in method of timeBegin");
+            //             });
+            //         });
+
+            //     })
+            // },
             timerBegin() {
                 let that = this;
                 that.lotteryDataFetch('1') ;

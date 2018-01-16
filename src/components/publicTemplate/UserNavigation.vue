@@ -31,7 +31,7 @@
                   </router-link>
                 </div>
                 <ul class="all_lottery">
-                  <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery" v-if=' lottery.cid!=10 ' >
+                  <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery"  >
                     <router-link :to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                           <!-- <img :src="lottery.imgUrl" alt="">-->
