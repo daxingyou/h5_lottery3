@@ -4,7 +4,6 @@
     <list default="true" id="19ee958b-5e7b-4d46-bd70-e135082093af" name="Default" comment="筛选样式调整">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lhc/LhcBetRecord.vue" afterPath="$PROJECT_DIR$/src/components/lhc/LhcBetRecord.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/lobbyBetRecord.vue" afterPath="$PROJECT_DIR$/src/components/lobbyBetRecord.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/publicTemplate/BetRecord.vue" afterPath="$PROJECT_DIR$/src/components/publicTemplate/BetRecord.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -209,11 +208,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516080889583</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="筛选样式调整">
+      <created>1516084210012</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1516084210012</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43088000" />
+    <option name="totallyTimeSpent" value="44318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

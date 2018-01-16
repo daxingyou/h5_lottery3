@@ -2,11 +2,12 @@
     <div id="pa_con"  class="body lhc">
         <header id="pa_head" class="new_header">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1) ">
-                <!-- <a href="javascript:;" onclick="backToIndex()"> -->
+                <!-- <a href="javascript:;" onclick="history.go(-1) "> -->
+                <a href="javascript:;" @click="backToIndex">
                     <span class="icon icon_back"></span>
                 </a>
             </div>
+
             <h2 class="center lottery_name">{{lotteryname}} 投注记录</h2>
             <div class="right">
                 <div class="dropdown_icon"><span class="icon icon_filter"></span>筛选</div>
@@ -37,6 +38,7 @@
                 </div>
             </div>
         </div>
+
 
         <div id="pa_content">
             <div id="betting_record" class="tab_container tabBox">
@@ -394,7 +396,11 @@
 
             // 左上角返回键
             backToIndex:function(){
-                this.$router.push('/lhc')
+                console.log( this.lotteryid )
+                history.go(-1)
+                // if(this.lotteryid == 10){
+                //     this.$router.push('/lhc')
+                // }
             },
               rewardShow: function (item2) {
                 var rewardFlag = false

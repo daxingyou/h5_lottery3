@@ -2,7 +2,9 @@
     <div id="pa_con"  class="body">
         <header id="pa_head" class="new_header">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1) ">
+                <!-- <a href="javascript:;" onclick="history.go(-1) "> -->
+                <a href="javascript:;" @click="backToIndex">
+
                     <span class="icon icon_back"></span>
                 </a>
             </div>
@@ -326,6 +328,14 @@
             
         },
         methods: {
+            backToIndex:function(){
+                console.log( this.lotteryid )
+                if(this.lotteryid == 10){
+                    this.$router.push('/lhc')
+                }else{
+                    history.go(-1)
+                }
+            },
             showMain:function () {
                 if (mainView === 0) {
                     $('.body').hide();
