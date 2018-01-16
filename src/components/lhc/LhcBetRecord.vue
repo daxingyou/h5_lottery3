@@ -11,7 +11,7 @@
                 <div class="dropdown_icon"><span class="icon icon_filter"></span>筛选</div>
             </div>
         </header>
-        <div class="dropdown" style="display:none;">
+        <div class="dropdown" style="display:none;" id = 'lhc_choose'>
             <div class="play_area">
                 <div class="sort">
                     <h5>游戏筛选</h5>
@@ -30,7 +30,7 @@
 
                     </ul>
                     <div>
-                        <div class="btn_outline"><a class="new_btn" href="javascript:;"><span>取消</span></a></div>
+                        <div class="btn_outline"><a class="new_btn first_cancel" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_submit"><a class="new_btn ok" href="javascript:;"><span>确定</span></a></div>
                     </div>
                 </div>
@@ -628,5 +628,10 @@
     .swiper-container {
             height: 100%;
         }
+    #lhc_choose .first_cancel {
+        border-color: #cbcbcb;
+        color: #1db5f7;
+        background-color: #fff;
+    }
 </style>
 
