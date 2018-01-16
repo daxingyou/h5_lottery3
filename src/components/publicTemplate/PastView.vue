@@ -20,7 +20,7 @@
 
                     </ul>
                     <div>
-                        <div class="btn_outline"><a class="new_btn cancel" href="javascript:;"><span>取消</span></a></div>
+                        <div class="btn_outline"><a class="new_btn" href="javascript:;"><span>取消</span></a></div>
                         <div class="btn_submit"><a class="new_btn ok" href="javascript:;"><span>确定</span></a></div>
                     </div>
                 </div>
@@ -57,6 +57,8 @@
                                             <li>{{list.doubleData.lh_5}}</li>
 
                                         </ul>
+                                        <ul class="double-count" v-else-if="(lotteryid == '10')"> <!-- 上面一排数据 -->
+                                        </ul>
                                         <ul class="double-count" v-else>
                                             <li>{{list.doubleData.total}}</li>
                                             <li>{{list.doubleData.sizer}}</li>
@@ -71,22 +73,20 @@
                                     <ul  :class="'new_panel_center '+ulclass[list.lotteryId]" v-if="(list.lotteryId == '8')||(list.lotteryId == '108') || (list.lotteryId == '6')||(list.lotteryId == '106') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')"  :class="[spanclass[list.lotteryId],'active num_'+listnum]">
                                            <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
-                                           {{listnum}}
                                         </li>
                                     </ul>
-                                   
-                                        <!-- 六合彩 -->
+                                    <!-- 六合彩 -->
                                     <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')">
-                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum" v-if="index < 6">{{listnum}}</li>
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index < 6">{{listnum}}</li>
                                         <li class="lhc_ball_plus lhc_ball_plus_w">
                                             <span></span>
                                             <span></span>
                                         </li>
-                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum" v-if="index == 6">{{listnum}}</li>
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index == 6">{{listnum}}</li>
                                     </ul>
                                     <!-- 六合彩 -->
                                     <ul class="new_panel_center lo_ball double-numbers"  v-else>
-                                        <li v-for="listnum in list.winNumber.split(',')" :class="'active round_ball active num_'+listnum">{{listnum}}</li>
+                                        <li v-for="listnum in list.winNumber.split(',')" :class="'active round_ball num_'+listnum">{{listnum}}</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -97,12 +97,8 @@
         </div>
         <footer id="pa_foot"></footer>
         <div class="so-shade"></div>
-
-
     </div>
 </template>
-
-
 
 <script>
 import Mixin from '@/Mixin'
@@ -141,9 +137,8 @@ export default {
               '20':'k3',
               '22':'k3'
               } ,
-            gamechoose :[
-               
-                 {id:'2','name':'重庆时时彩'} ,
+            gamechoose: [
+                {id: '2', 'name': '重庆时时彩'},
                 {id:'102','name':'秒速时时彩'} ,
                 {id:'14','name':'新疆时时彩'} ,
                 {id:'108','name':'秒速赛车'},
@@ -157,11 +152,12 @@ export default {
                 {id:'6','name':'江苏快3'} ,
                 {id:'22','name':'湖北快3'} ,
                 {id:'20','name':'安徽快3'} ,
+                {id: '10', 'name': '香港六合彩'},
             ],
         }
     },
   mounted:function() {
-this.setMenuAction() ;
+    this.setMenuAction() ;
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 往期开奖') ;
     //scrollTo(0,0); // 回到顶部
@@ -263,7 +259,7 @@ this.setMenuAction() ;
                       lottery_name = $(this).find('li.active').find('a').text()
                   }
               }) ;
-              $('.lottery_name').html(lottery_name + ' 近期开奖'); // 彩种名称
+              $('.lottery_name').html(lottery_name + ' 往期开奖'); // 彩种名称
               this.doubleCount(this.lotteryid,this.count) ;
               $(".dropdown").slideToggle("fast", () => {
               });

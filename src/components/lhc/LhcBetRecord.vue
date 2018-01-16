@@ -90,11 +90,23 @@
                                                         status04
                                                         用户撤单、系统撤单、中奖停追、存在异常、异常注单 
                                                         -->
+                                                      <!--   <div :class="showStatusClass(item2.orderstatus)">
+                                                            <span>{{item2.orderstatusname}}</span>
+                                                            <div v-if="item2.orderstatus == 32">{{item2.payoff}}</div>
+                                                            <div v-else></div>
+                                                        </div> -->
+
                                                         <div :class="showStatusClass(item2.orderstatus)">
                                                             <span><!-- orderStatus: -->{{item2.orderstatusname}}</span>
                                                             <div v-if="item2.orderstatus == 32"><!-- 若己派彩則顯示 payoff：XXXX.X元 -->{{item2.payoff}}</div>
                                                             <div v-else></div>
+                                                            <!--  <p v-if = ' item2.playId=="1012"&&(item2.orderstatusname=="已中奖"||item2.orderstatusname=="未中奖")  ' class="reword">返点：</p> -->
+                                                            <p v-if=' rewardShow(item2) ' class="reword">返点：</p>
+                                                            <!--  <p v-if = 'item2.playId=="1012"&&(item2.orderstatusname=="已中奖"||item2.orderstatusname=="未中奖") ' class="reword">{{roundAmt(item2.reforwardPoint)}}元</p> -->
+                                                            <p v-if=' rewardShow(item2) ' class="reword">
+                                                                {{roundAmt(item2.reforwardPoint)}}元</p>
                                                         </div>
+
                                                     </div>
                                                 </a>
                                             </li>
@@ -378,6 +390,15 @@
         watch: {
         },
         methods: {
+              rewardShow: function (item2) {
+                var rewardFlag = false
+                rewardFlag = item2.playId == "1012" && (item2.orderstatusname == "已中奖" || item2.orderstatusname == "未中奖" || item2.orderstatusname == "已派彩" )
+                var t = rewardFlag              
+                var isNum = Number(item2.playname.substring(item2.playname.length - 2, item2.playname.length))
+                var numFlag = (isNum <= 49) && (isNum >= 0)
+                rewardFlag = rewardFlag && numFlag
+                return rewardFlag
+            },
             showClass(stat) {
                 let classStr = "slide_toggle bet_day new_bet_day new_panel"
 
@@ -487,9 +508,17 @@
                                         if (betDataObj.orderstatus == 32) {
                                             betDataObj.payoff = _self.fortMoney(_self.roundAmt(betData.payoff), 2) + '元'
                                         }
-                                        betDataObj.orderid = betData.orderId
+                                        // betDataObj.orderid = betData.orderId
+                                        // betDataObj.betcontent = betData.betContent
+                                        // betDataObj.playname = betData.playName
+                                        // _self.betRecordList[pdate].push(betDataObj)
+
+                                         betDataObj.orderid = betData.orderId
                                         betDataObj.betcontent = betData.betContent
                                         betDataObj.playname = betData.playName
+                                        betDataObj.cid = betData.cid                                        
+                                        betDataObj.reforwardPoint = betData.reforwardPoint                                        
+                                        betDataObj.playId = betData.playId.toString().substr(0,4)
                                         _self.betRecordList[pdate].push(betDataObj)
                                     })
                                 }
