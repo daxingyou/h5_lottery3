@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+/* 上方開獎區 */
+#lhc .so-in-main .so-m-t-left{
+	width: 3.3rem;
+}
+#lhc .so-in-main .so-m-t-left div:first-child{
+	text-align: left;
+	margin-right: inherit;
+	margin-left: .4rem;
+}
+#lhc .so-in-main .so-main-down ul li > p{
+	text-align: left;
+	margin-right: inherit;
+	margin-left: .4rem;
+}
+#lhc .so-in-main .so-m-t-right{
+	width: 6.6rem;
+}
+#lhc .so-in-main .so-m-t-right div:first-child ul{
+	margin-top: .5rem;
+	margin-left: 0;
+}
+#lhc .so-in-main .so-m-t-right div:first-child ul li{
+	/*transform: scale(0.9);*/
+	margin-right: 0;
+	margin-top: 0;
+}
+#lhc .so-in-main .so-m-t-right div:last-child ul li{
+	box-shadow: none;
+}
+#lhc .so-in-main .so-m-t-right div:last-child ul li.lhc_ball_plus,
+.past_view .lo_ball > li.lhc_ball_plus{
+	position: relative;
+	display: inline-block;
+	box-shadow: none;
+	border: 0;
+	background-color: transparent;
+	width: .8rem;
+	height: .8rem;
+}
+#lhc .so-in-main .so-m-t-right div:last-child ul li.lhc_ball_plus span,
+.past_view .lo_ball > li.lhc_ball_plus span{
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: block;
+	width: .1rem;
+	height: .45rem;
+	background-color: #000;
+}
+#lhc .so-in-main .so-m-t-right div:last-child ul li.lhc_ball_plus span:last-child,
+.past_view .lo_ball > li.lhc_ball_plus span:last-child{
+	width: .45rem;
+	height: .1rem;
+
+}
+/* 上方開獎區 */
+
+/* 特码 */
+#lhc .tab_panel{
+	/*position: fixed;*/
+	position: absolute;
+	width: calc(7.7rem - 1px);
+	margin: 0 auto;
+	/*top: calc( 1.36rem + 2.3rem + 0.8rem );*/
+	top: 0;
+	background-image: url(/static/frist/images/bg.jpg);
+    background-position: top right;
+    background-size: 10rem;
+	right: 0;
+}
+#lhc .bet_panel{
+	width: 7.1rem;
+	padding: inherit;
+}
+.bet_panel .bet_box p > span.lhc_ball{
+	line-height: 0.68rem;
+	margin: 0.1rem 0 0.1rem -0.1rem;
+}
+.bet_panel .bet_box p > span.lhc_ball ~ span{
+	line-height: 0.7rem;
+	margin: 0.1rem -0.1rem 0.1rem 0;
+}
+.bet_panel .bet_box p .bet-times{
+	/*font-size: .33rem;*/
+	letter-spacing: -.01rem;
+}
+#lhc .bet_panel h2{
+	font-size: .43rem;
+	text-align: center;
+	margin-bottom: .3rem;
+	border-bottom: 1px solid #ececec;
+}
+#lhc ul.lhc_top_tab{
+	position: relative;
+	top: 0;
+	width: 100%; 
+	height: 1rem;
+	margin-bottom: .25rem;
+	border-bottom: 1px solid #ececec; 
+	box-sizing: border-box;
+}
+#lhc ul.lhc_top_tab li{
+	float: left;
+	width: 49.9999999999%;
+	height: 1rem;
+	line-height: .7rem;
+	border-right: 1px solid #ececec;
+	cursor: pointer; 
+	box-sizing: border-box; 
+	padding: 0.15rem 0.25rem; 
+}
+#lhc ul.lhc_top_tab li:nth-child(2){
+	border-right: 0;
+}
+#lhc ul.lhc_top_tab li.active{
+	position: relative; 
+	color: #1db5f7;
+}
+/*#lhc ul.lhc_top_tab li span{
+	font-size: .45rem;
+}*/
+
+/* 上方橫式選單 样式微调 */
+#lhc .lhc_tab.hd { position: relative;v/*right: 0.3rem;*/ height: .9rem; width: 7.1rem; overflow: hidden; margin: 0 auto; border-radius: 0.5rem; /*margin-bottom: 1.1rem;*/}
+#lhc .lhc_tab.hd ul.tab_mid { 
+	white-space: nowrap; 
+	width: 100% !important;
+	overflow-y: auto; 
+	/* winphone8和android4+ */ 
+	-webkit-overflow-scrolling: touch; 
+	/* ios5+ */ 
+	position: relative; 
+	top: inherit; 
+	left: inherit; 
+	height: .9rem; 
+}
+#lhc .lhc_tab.hd ul.tab_mid { background-color: #ececec;  }
+#lhc .lhc_tab.hd ul.tab_mid > li { display: inline-block; height: .9rem; width: 1.6rem; padding-top: 0; margin-left: 0.03rem; }
+#lhc .lhc_tab.hd ul.tab_mid > li.on { background: url(/static/frist/images/bluegradient.png) repeat-x;background-size: auto 100%;background-color: #127ece; border-radius: 0.5rem;}
+#lhc .lhc_tab.hd ul.tab_mid > li.on:after { display: none;}
+#lhc .lhc_tab.hd ul.tab_mid > li > a { height: .9rem; line-height: .9rem; color: #2b2b2b;}
+#lhc .lhc_tab.hd ul.tab_mid > li.on a{  color: #fff; }
+
+#lhc .lhc_tab.tab_short{
+	width: 6.4rem;
+}
+/* 上方橫式選單 样式微调 */
+
+/* 號碼木框 样式微调 */
+
+#lhc .bet_box p.so-con-span-short:nth-child(3n){
+	margin-right: 0;
+}
+#lhc p.so-con-span-short-4x{
+	/*position: relative;*/
+	width: 18%;
+    margin-right: 2%;
+	padding: 0;
+	/*height: 1.1rem;*/
+	border: 0;
+	text-align: center;
+}
+#lhc p.so-con-span-short-4x.active{
+	background: none;
+}
+#lhc .so-con-span-short-4x > span{
+	/*position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;*/
+	line-height: 0.6rem;
+	float: none;
+}
+#lhc .so-con-span-short-4x.active > span{
+	/*bottom: .05rem;*/
+}
+#lhc .so-con-span-short-4x > span .lhc_ball{
+	width: 0.9rem;
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+#lhc .bet_box p.so-con-span-short-4x:nth-child(5n){
+	margin-right: 0;
+}
+/* 號碼木框 样式微调 */
+
+/* 特碼tema 样式微调 */
+#lhc .tema #scroller{
+	position: relative;
+	margin-top: 2.5rem;
+    overflow: hidden;
+}
+
+#lhc .tab_container{
+	/*padding-top: 2.3rem;*/
+}
+
+#lhc .so-con-right{
+	position: absolute;
+}
+
+.lhc_ball{ background-color: transparent; color: #fff; border-radius: 1rem; display: inline-block; width: 0.7rem; height: 0.7rem; line-height: 0.7rem; font-size: 0.4rem; text-align: center; overflow: hidden; position: relative; border: 1px solid #cbcbcb; }
+.lhc_ball:after{ content: ''; display: block; width: 100%; height: 100%; position: absolute; top: -40%; left: 15%; border-radius: 50%; background-color: #fff; opacity: 0.2; }
+.lhc_ball.num_01, .lhc_ball.num_02, .lhc_ball.num_07, .lhc_ball.num_08, 
+.lhc_ball.num_12, .lhc_ball.num_13, .lhc_ball.num_18, .lhc_ball.num_19, 
+.lhc_ball.num_23, .lhc_ball.num_24, .lhc_ball.num_29, .lhc_ball.num_30, 
+.lhc_ball.num_34, .lhc_ball.num_35, .lhc_ball.num_40, .lhc_ball.num_45, .lhc_ball.num_46
+{ color: #bc0000; border-color: #bc0000;}
+.lhc_ball.num_03, .lhc_ball.num_04, .lhc_ball.num_09, .lhc_ball.num_10, 
+.lhc_ball.num_14, .lhc_ball.num_15, .lhc_ball.num_20, .lhc_ball.num_25, 
+.lhc_ball.num_26, .lhc_ball.num_31, .lhc_ball.num_36, .lhc_ball.num_37, 
+.lhc_ball.num_41, .lhc_ball.num_42, .lhc_ball.num_47, .lhc_ball.num_48
+{ color: #203da8; border-color: #203da8;}
+.lhc_ball.num_05, .lhc_ball.num_06, .lhc_ball.num_11, .lhc_ball.num_16, 
+.lhc_ball.num_17, .lhc_ball.num_21, .lhc_ball.num_22, .lhc_ball.num_27, 
+.lhc_ball.num_28, .lhc_ball.num_32, .lhc_ball.num_33, .lhc_ball.num_38, 
+.lhc_ball.num_39, .lhc_ball.num_43, .lhc_ball.num_44, .lhc_ball.num_49
+{ color: #00a507; border-color: #00a507;}
+.lhc_ball.active.num_01, .lhc_ball.active.num_02, .lhc_ball.active.num_07, .lhc_ball.active.num_08, 
+.lhc_ball.active.num_12, .lhc_ball.active.num_13, .lhc_ball.active.num_18, .lhc_ball.active.num_19, 
+.lhc_ball.active.num_23, .lhc_ball.active.num_24, .lhc_ball.active.num_29, .lhc_ball.active.num_30, 
+.lhc_ball.active.num_34, .lhc_ball.active.num_35, .lhc_ball.active.num_40, .lhc_ball.active.num_45, .lhc_ball.active.num_46,
+p.active .lhc_ball.num_01, p.active .lhc_ball.num_02, p.active .lhc_ball.num_07, p.active .lhc_ball.num_08, 
+p.active .lhc_ball.num_12, p.active .lhc_ball.num_13, p.active .lhc_ball.num_18, p.active .lhc_ball.num_19, 
+p.active .lhc_ball.num_23, p.active .lhc_ball.num_24, p.active .lhc_ball.num_29, p.active .lhc_ball.num_30, 
+p.active .lhc_ball.num_34, p.active .lhc_ball.num_35, p.active .lhc_ball.num_40, p.active .lhc_ball.num_45, p.active .lhc_ball.num_46
+{ background-color: #bc0000; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
+.lhc_ball.active.num_03, .lhc_ball.active.num_04, .lhc_ball.active.num_09, .lhc_ball.active.num_10, 
+.lhc_ball.active.num_14, .lhc_ball.active.num_15, .lhc_ball.active.num_20, .lhc_ball.active.num_25, 
+.lhc_ball.active.num_26, .lhc_ball.active.num_31, .lhc_ball.active.num_36, .lhc_ball.active.num_37, 
+.lhc_ball.active.num_41, .lhc_ball.active.num_42, .lhc_ball.active.num_47, .lhc_ball.active.num_48,
+p.active .lhc_ball.num_03, p.active .lhc_ball.num_04, p.active .lhc_ball.num_09, p.active .lhc_ball.num_10, 
+p.active .lhc_ball.num_14, p.active .lhc_ball.num_15, p.active .lhc_ball.num_20, p.active .lhc_ball.num_25, 
+p.active .lhc_ball.num_26, p.active .lhc_ball.num_31, p.active .lhc_ball.num_36, p.active .lhc_ball.num_37, 
+p.active .lhc_ball.num_41, p.active .lhc_ball.num_42, p.active .lhc_ball.num_47, p.active .lhc_ball.num_48
+{ background-color: #203da8; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
+.lhc_ball.active.num_05, .lhc_ball.active.num_06, .lhc_ball.active.num_11, .lhc_ball.active.num_16, 
+.lhc_ball.active.num_17, .lhc_ball.active.num_21, .lhc_ball.active.num_22, .lhc_ball.active.num_27, 
+.lhc_ball.active.num_28, .lhc_ball.active.num_32, .lhc_ball.active.num_33, .lhc_ball.active.num_38, 
+.lhc_ball.active.num_39, .lhc_ball.active.num_43, .lhc_ball.active.num_44, .lhc_ball.active.num_49,
+p.active .lhc_ball.num_05, p.active .lhc_ball.num_06, p.active .lhc_ball.num_11, p.active .lhc_ball.num_16, 
+p.active .lhc_ball.num_17, p.active .lhc_ball.num_21, p.active .lhc_ball.num_22, p.active .lhc_ball.num_27, 
+p.active .lhc_ball.num_28, p.active .lhc_ball.num_32, p.active .lhc_ball.num_33, p.active .lhc_ball.num_38, 
+p.active .lhc_ball.num_39, p.active .lhc_ball.num_43, p.active .lhc_ball.num_44, p.active .lhc_ball.num_49
+{ background-color: #00a507; color: #fff; box-shadow: 0px 0px 0px 1px #fff;}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li{
+	width: 1.5rem;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on{
+	background: transparent;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on a{
+	color: #1db5f7;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li a:before{
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+	margin-top: -0.05rem;
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 0.1rem;
+	border: 1px solid #666;
+}
+#lhc_tab_test.lhc_tab.hd ul.tab_mid li.on a:before{
+	border-color: #1db5f7;
+	background: url(/static/frist/images/checkbox.svg) no-repeat center center #1db5f7;
+	background-size: 0.4rem;
+}
+/* 特码 */
+
+/* 正码1-6 样式微调 */
+#lhc .bet_lm_noname{
+	margin-top: .3rem;
+}
+/* 正码1-6 样式微调 */
+
+
+/*正特 ZhengTe 样式微调*/
+#lhc .zhengte .tab_panel{
+	padding-top: .2rem;
+
+}
+#lhc .zhengte #scroller{
+	position: relative;
+	margin-top: 1.3rem;
+    overflow: hidden;
+}
+/*正特 ZhengTe 样式微调*/
+
+/*正特 ZhengTe 样式微调*/
+#lhc .lianma .tab_panel{
+	padding-top: .2rem;
+
+}
+#lhc .lianma #scroller{
+	position: relative;
+	margin-top: 1.3rem;
+    overflow: hidden;
+}
+/*正特 ZhengTe 样式微调*/
+
+/*特码头尾 TeMaTouWei 样式微调*/
+#lhc .so-con-span-long{
+	/*padding: 0.25rem 0.1rem 0.1rem;*/
+	height: 1rem;
+
+	float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+    /*border: solid 1px #4b280c;*/
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.16rem;
+}
+#lhc .so-con-span-long > span{
+	line-height: 0.7rem;
+}
+#lhc .so-con-span-long .bet-times{
+	float: left;
+	margin-left: .2rem;
+}
+#lhc .so-con-span-long .num_group{
+	float: right;
+}
+#lhc .so-con-span-long .num_group .lhc_ball{
+	margin-left: 0.1rem;
+}
+/*特码头尾 TeMaTouWei 样式微调*/
+
+/*连肖 LianXiao 样式微调*/
+#lhc .lianxiao .tab_panel{
+	padding-top: .2rem;
+
+}
+#lhc .lianxiao #scroller{
+	position: relative;
+	margin-top: 1.3rem;
+    overflow: hidden;
+}
+/*连肖 LianXiao 样式微调*/
+
+/*连尾 LianWei 样式微调*/
+#lhc .lianwei .tab_panel{
+	padding-top: .2rem;
+
+}
+#lhc .lianwei #scroller{
+	position: relative;
+	margin-top: 1.3rem;
+    overflow: hidden;
+}
+/*连尾 LianWei 样式微调*/
+.bet_panel h2 .bet-times{
+	position: absolute;
+	font-size: .35rem;
+	left: .3rem;
+}
+.bet_panel h2 .bet-times span{
+	color: #b41a17;
+}

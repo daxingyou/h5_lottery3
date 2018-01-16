@@ -679,7 +679,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 -----------------------------------------*/
 
 .ds_long  { -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; font-size: .4rem; }
-.ds_long ul.lo_ball { width: 2.5rem; color: #1db5f7; }
+.ds_long ul.lo_ball { width: 3.5rem; color: #1db5f7; }
 .ds_long ul.lo_ball.two { width: auto; }
 .ds_long .prod { background-color: #fff; margin-bottom: 0.2rem; }
 .ds_long .prod:after{ content: ''; display: table; clear: both; }
