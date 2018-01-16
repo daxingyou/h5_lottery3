@@ -3,6 +3,7 @@
         <header id="pa_head" class="new_header">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1) ">
+                <!-- <a href="javascript:;" onclick="backToIndex()"> -->
                     <span class="icon icon_back"></span>
                 </a>
             </div>
@@ -390,6 +391,11 @@
         watch: {
         },
         methods: {
+
+            // 左上角返回键
+            backToIndex:function(){
+                this.$router.push('/lhc')
+            },
               rewardShow: function (item2) {
                 var rewardFlag = false
                 rewardFlag = item2.playId == "1012" && (item2.orderstatusname == "已中奖" || item2.orderstatusname == "未中奖" || item2.orderstatusname == "已派彩" )
