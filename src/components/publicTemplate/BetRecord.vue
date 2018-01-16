@@ -490,20 +490,23 @@
                     }
 
                     if (this.lotteryid == 10) {
+
                         this.setCookie('lt_lotteryid', 10)
                         this.setCookie('lottery_name', '香港六合彩')
                         // window.location = '/lhc/LhcBetRecord'
                         this.$router.push('/lhc/LhcBetRecord')
+                        this.setCookie('jump', 10)
+
                         // this.$router.push('/lhc')
                         return
+                    }else{
+                        this.setCookie('jump', 0)                        
                     }
 
                     this.seadata.page = 1; // 还原页码
                     $('.bet-recode-all').find('li').remove(); // 清空原来的数据
                     var $src = $(e.currentTarget);
                     var lottery_name ;
-
-
 
                     $('.play_area').each(function () {
                         var flag = $(this).find('li').hasClass('active') ;

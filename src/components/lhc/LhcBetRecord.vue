@@ -391,16 +391,19 @@
 
         },/*mounted*/
         watch: {
+            
         },
         methods: {
 
             // 左上角返回键
             backToIndex:function(){
+
                 console.log( this.lotteryid )
-                history.go(-1)
-                // if(this.lotteryid == 10){
-                //     this.$router.push('/lhc')
-                // }
+                if(this.lotteryid == 10){
+                    this.$router.push('/lhc')
+                }else{
+                    history.go(-1)                    
+                }
             },
               rewardShow: function (item2) {
                 var rewardFlag = false
