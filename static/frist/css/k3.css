@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+#k3 .so-m-t-left div:first-child { white-space: nowrap; margin-right: 0;}
+#k3 .so-m-t-right > div {float: none; padding-right: 0.1rem; }
+#k3 .last-open-num {float: none; }
+#k3 .k3_top_number { padding-right: 0.2rem; text-align: right; margin-right: 0.2rem; }
+#k3 .k3_top_number li { background: none; float: none; display: inline-block; width: auto; height: auto; margin-right: 0.07rem; }
+#k3 .k3_top_detail { margin-left: 0.1rem; text-align: right; }
+#k3 .k3_top_detail li { font-size: 0.3rem; width: 0.66rem; margin-top: 0.07rem; float: none; display: inline-block; }
+#k3 .ds_long .prod > div {width: 4rem; }
+#k3 .ds_long .prod > div:last-child {width: auto; }
+#k3 .ds_long .lo_ball {margin: 0px; }
+#k3 .ds_long .lo_ball li { font-size: 0.5rem; width: auto; }
+#k3 .ds_long .lo_ball .k3_dice { margin-top: 0.25rem; }
