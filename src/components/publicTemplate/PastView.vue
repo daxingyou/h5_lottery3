@@ -72,7 +72,7 @@
                                   <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
                                     <ul  :class="'new_panel_center '+ulclass[list.lotteryId]" v-if="(list.lotteryId == '8')||(list.lotteryId == '108') || (list.lotteryId == '6')||(list.lotteryId == '106') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')"  :class="[spanclass[list.lotteryId],'active num_'+listnum]">
-                                           <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
+                                            <span class="pk10_ball" :class="'num_'+listnum">{{listnum}}</span>
                                         </li>
                                     </ul>
                                     <!-- 六合彩 -->
@@ -209,6 +209,7 @@ export default {
 
                 }*/
                 this.pastView = data.data ;
+                console.log(  this.pastView ,'pastView' )
                // $('.double-all').html(str) ;
 
 

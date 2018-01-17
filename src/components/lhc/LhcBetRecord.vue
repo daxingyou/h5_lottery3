@@ -391,7 +391,7 @@
 
         },/*mounted*/
         watch: {
-            
+
         },
         methods: {
 
@@ -399,6 +399,8 @@
             backToIndex:function(){
 
                 console.log( this.lotteryid )
+                console.log( this.lotteryid )
+                
                 if(this.lotteryid == 10){
                     this.$router.push('/lhc')
                 }else{

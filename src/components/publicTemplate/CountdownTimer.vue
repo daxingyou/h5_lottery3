@@ -72,13 +72,13 @@ export default {
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
+           console.log(this.lt_time_leave_over  ,'time1')
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                // this.$emit('entertainCountdownOver');
-                this.$emit('entertainCountdownBreak');           
-
+                this.$emit('entertainCountdownBreak');   
+                console.log(1)    
             }
-//            console.log(this.lt_time_leave_over)
             //计数器，计算间隔时间触发
             const counter = () => {
                 const spanSrrived = () => {
@@ -106,15 +106,18 @@ export default {
                     this.wrongFlag = false;
                 }
 
-               // console.log(this.lt_time_leave)
+               console.log(this.lt_time_leave,'lie2')
+
                 if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
+                    console.log(2)
                 }
                //  console.log(this.lt_time_leave_over)
 
                 if(this.lt_time_leave_over == 0){  // 封盘倒计时结束
                     this.$emit('entertainCountdownOver');
+                    console.log(3)
                 }
 
                 this.lt_time_leave = this.lt_time_leave - 1;
