@@ -181,7 +181,7 @@
               </div>
           </section>
           <!--银行转账使用步骤-->
-          <div class="modal" v-if="offFlag">
+          <div class="modal" style="display: block;" v-if="offFlag">
               <div class="m_content">
                   <h2 class="title">{{popMsgTitle}}
                       <a @click="shutDownPop"></a>
@@ -191,6 +191,8 @@
                   </p>
               </div>
           </div>
+
+          
       </div>
       <Confirm ref="confirm" />
       <FooterNav />
@@ -264,8 +266,6 @@ export default {
        this.getActivity();
        this.getCustom()
        this.getAppUrl()
-      //  this.getCopyright('1', 'BT01')
-      // this.getCopyright('1', 'BT05')
 
   },
     methods:{
@@ -332,13 +332,16 @@ export default {
               url:  _self.action.forseti + 'apid/cms/popText',
               data:{},
               success:(res)=>{
+                console.log(res,'popres')
                   if(!res.data ||!res.data[0]||!res.data[0].title){
                       _self.offFlag=false;
                       return false
                 }
                 else{
+
                       if(res.data ||res.data[0]||res.data[0].title){
                           _self.offFlag=true;
+                          console.log(_self.offFlag ,'_selfoffFlag' )
                       }
                       //console.log(res.data)
                       _self.popMsgTitle=res.data[0].title;
@@ -347,16 +350,11 @@ export default {
                       _self.popMsgCid.push(res.data[0].cid);
                       _self.currPopMsgCid=res.data[0].cid;
                   }
-
-
                   if(localStorage.getItem('cid')==null){
                       return
                   }else {
                      this. changeOffFlag ()
                   }
-
-
-
               }
           })
       },
