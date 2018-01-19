@@ -108,7 +108,7 @@ export default {
 
                console.log(this.lt_time_leave,'timeouver')
 
-                if (this.lt_time_leave <= 0&&this.lt_time_leave_over>=0 ) {   // 开奖倒计时结束
+                if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                     console.log(2)

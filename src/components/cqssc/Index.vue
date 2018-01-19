@@ -359,9 +359,9 @@ export default {
         // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
         this.entertainStatus = true;
         this.resetAction();
-        if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
-            this.lotteryDataFetch(1)                    
-        }
+        // if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+        //     this.lotteryDataFetch(1)                    
+        // }
     },
     //获取开奖更据 needIn 是否需要再次调用倒计时定时器
     lotteryDataFetch:function(needIn){

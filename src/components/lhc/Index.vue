@@ -228,9 +228,9 @@
                 this.resetAction();
 
                 console.log( this.$refs.countdownTimer.lt_time_leave_over%10==0 ,'indextime')
-                if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
-                    this.lotteryDataFetch(1)                    
-                }
+                // if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+                //     this.lotteryDataFetch(1)                    
+                // }
             },
              lotteryDataFetch(needIn) {
                 const that = this;
