@@ -72,7 +72,7 @@ export default {
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
-           console.log(this.lt_time_leave_over  ,'time1')
+           console.log(this.lt_time_leave_over  ,'timebreak')
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                // this.$emit('entertainCountdownOver');
@@ -106,16 +106,16 @@ export default {
                     this.wrongFlag = false;
                 }
 
-               console.log(this.lt_time_leave,'lie2')
+               console.log(this.lt_time_leave,'timeouver')
 
-                if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
+                if (this.lt_time_leave <= 0&&this.lt_time_leave_over>=0 ) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                     console.log(2)
                 }
                //  console.log(this.lt_time_leave_over)
 
-                if(this.lt_time_leave_over == 0){  // 封盘倒计时结束
+                if(this.lt_time_leave_over == 0  ){  // 封盘倒计时结束
                     this.$emit('entertainCountdownOver');
                     console.log(3)
                 }
@@ -127,13 +127,6 @@ export default {
                // this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
                // this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
 
-                // if(oDate.hour =='00'){  // 平常时间没有小时
-                //     this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
-                //     this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
-                // }else{   // 跨天时间有小时
-                //     this.timeSpanStr = this.fftime(oDate.hour)+':'+this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
-                //     this.overTimeSpanStr = this.fftime(over_oDate.hour)+':'+this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
-                // }            
                 if(oDate.hour =='00'){  // 平常时间没有小时
                     this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
                     this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时

@@ -208,7 +208,6 @@
                 if (method == "合肖" || method == "自选不中") {
                     this.playType = "group"
                 }
-
             },
             //开奖倒计时结束后处理
             playLottery() {
@@ -227,6 +226,11 @@
                 // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
                 this.resetAction();
+
+                console.log( this.$refs.countdownTimer.lt_time_leave_over%10==0 ,'indextime')
+                if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+                    this.lotteryDataFetch(1)                    
+                }
             },
              lotteryDataFetch(needIn) {
                 const that = this;
