@@ -384,6 +384,9 @@ export default {
             // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
             this.entertainStatus = true;
             this.resetAction();
+            if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+                this.lotteryDataFetch(1)                    
+            }
         },
 
         lotteryDataFetch:function(needIn){
@@ -461,8 +464,6 @@ export default {
                                 that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[2].issueAlias;  // 上期期数
                             }
-
-
                         }
 
                         if(res.data[1].status >1){ // 异常情况，如提前开盘 2
