@@ -79,7 +79,7 @@
 }
 .bet_panel .bet_box p > span.lhc_ball{
 	line-height: 0.68rem;
-	margin: 0.1rem 0 0.1rem -0.1rem;
+	margin: 0.1rem 0 0rem -0.1rem;
 }
 .bet_panel .bet_box p > span.lhc_ball ~ span{
 	line-height: 0.7rem;
@@ -335,6 +335,7 @@ p.active .lhc_ball.num_39, p.active .lhc_ball.num_43, p.active .lhc_ball.num_44,
 }
 #lhc .so-con-span-long .num_group .lhc_ball{
 	margin-left: 0.1rem;
+	margin-top: 0.02rem;
 }
 /*特码头尾 TeMaTouWei 样式微调*/
 
