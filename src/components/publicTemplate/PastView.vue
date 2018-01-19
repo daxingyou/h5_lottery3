@@ -72,9 +72,10 @@
                                   <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
                                     <ul  :class="'new_panel_center '+ulclass[list.lotteryId]" v-if="(list.lotteryId == '8')||(list.lotteryId == '108') || (list.lotteryId == '6')||(list.lotteryId == '106') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')"  :class="[spanclass[list.lotteryId],'active num_'+listnum]">
-                                            <span class="pk10_ball" :class="'num_'+listnum">{{listnum}}</span>
+                                            <!-- <span class="pk10_ball" :class="'num_'+listnum">{{listnum}}</span> -->
                                         </li>
                                     </ul>
+
                                     <!-- 六合彩 -->
                                     <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')">
                                         <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum" v-if="index < 6">{{listnum<10?0+listnum:listnum}}</li>
