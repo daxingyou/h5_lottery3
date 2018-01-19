@@ -36,12 +36,12 @@
                                 </ul>
 
                                 <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')">
-                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index < 6">{{listnum}}</li>
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active  num_0'+ listnum : 'lhc_ball lhc_ball_b active  num_' + listnum" v-if="index < 6">{{listnum}}</li>
                                         <li class="lhc_ball_plus lhc_ball_plus_w">
                                             <span></span>
                                             <span></span>
                                         </li>
-                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index == 6">{{listnum}}</li>
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active  num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum" v-if="index == 6">{{listnum}}</li>
                                 </ul>
                              
                                  <ul class="new_panel_center lo_ball" v-else>
@@ -78,10 +78,12 @@
 
 
 <script>
+
 // import $ from "jquery";
 import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+
 
 export default {
   name: 'Index',
@@ -279,5 +281,6 @@ export default {
 }
 </script>
 <style scoped>
+
 
 </style>
