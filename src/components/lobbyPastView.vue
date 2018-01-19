@@ -34,16 +34,24 @@
                                         <span :class="[spanclass[list.lotteryId],'active num_'+listnum]">{{listnum}}</span>
                                     </li>
                                 </ul>
+
+                                <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')">
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index < 6">{{listnum}}</li>
+                                        <li class="lhc_ball_plus lhc_ball_plus_w">
+                                            <span></span>
+                                            <span></span>
+                                        </li>
+                                        <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b num_0'+ listnum : 'lhc_ball lhc_ball_b num_' + listnum" v-if="index == 6">{{listnum}}</li>
+                                </ul>
                              
                                  <ul class="new_panel_center lo_ball" v-else>
                                     <li v-if="(list.lotteryId != '10')" v-for="listnum in list.winNumber.split(',')"
                                         :class="'round_ball active num_'+ listnum ">{{listnum}}
                                     </li>
+                                  <!--   <li v-if="(list.lotteryId == '10')" v-for="listnum in list.winNumber.split(',')"
+                                        :class=" listnum < 10?'lhc_ball lhc_ball_b active num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum  ">{{listnum<10? '0'+listnum:listnum }}                                      
+                                    </li>     -->
 
-                                    <li v-if="(list.lotteryId == '10')" v-for="listnum in list.winNumber.split(',')"
-                                        :class=" listnum < 10?'lhc_ball lhc_ball_b active num_0'+ listnum : 'lhc_ball lhc_ball_b active num_' + listnum  ">
-                                        {{listnum}}
-                                    </li>
                                 </ul>
 
                                 <div class="function_btn">
