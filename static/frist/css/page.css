@@ -253,7 +253,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 /* -----------------------------------------
 // 新手教程
 -----------------------------------------*/
-.tutorial_area .tab-box{padding: 0.3rem 0;}
+.tutorial_area .tab-box{padding: 0.3rem 0; font-size: 0.35rem;}
 
 /* -----------------------------------------
 // 优惠活动
