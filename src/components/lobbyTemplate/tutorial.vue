@@ -103,11 +103,10 @@ export default {
     }*/
 
     #freshContent .tab-pone {
-        padding: 10px 7%;
+        padding: 0.3rem;
     }
     #freshContent .tab-pone p {
-        line-height: 30px;
-        margin: .5rem 0;
+        margin: .3rem 0;
         text-align: left;
 
     }

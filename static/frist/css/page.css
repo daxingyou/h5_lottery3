@@ -199,7 +199,7 @@ label.red { color: #bc0000; text-align: left; display: block; margin-top: .2rem;
 .agent_area { padding-top: 0.3rem; }
 .agent p { line-height: 1.8em; margin-bottom: .3em; font-size: 0.35rem; }
 .agent section { margin: 1.5em 0; }
-.agent .tab-panels{ padding: 0.3rem 0;}
+.agent .tab-panels{ padding: 0.3rem 0; font-size: 0.35rem;}
 /*.agent div { width: 90%; margin: 0 auto; }*/
 .agent .btn_blue { margin-bottom: .5rem; }
 .agent_check input[type="checkbox"] { font-size: 0.35rem !important; width: .3rem; height: .3rem; vertical-align: middle; }
@@ -253,7 +253,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 /* -----------------------------------------
 // 新手教程
 -----------------------------------------*/
-.tutorial_area .tab-box{padding: 0.3rem 0;}
+.tutorial_area .tab-box{padding: 0.3rem 0; font-size: 0.35rem;}
 
 /* -----------------------------------------
 // 优惠活动
