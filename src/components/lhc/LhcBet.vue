@@ -83,6 +83,8 @@
 </template>
 
 <script>
+    import store from './../../_vuex/store.js'
+
     import Mixin from '@/Mixin'
     import betContentList from '@/components/lhc/BetOrderContent.json' //此檔案內容是用來對下注內容調整給後端派彩
 
@@ -200,6 +202,9 @@
             },
         },
         mounted() {
+            this.$store.commit('Hold')
+            console.log(this.$store )
+            console.log(this )
         },
         watch:{
             betSelectedList() {

@@ -7,7 +7,7 @@ import actions from './actions'
 
 const state = {
     foc: 0,
-    a: 1,
+    holdHeight: true,
     b: 2
 }
 
@@ -16,7 +16,16 @@ const mutations = {
 
     Number(state) {
         state.foc++;
-    }
+    },
+    Hold(state) {
+        state.holdHeight = true;
+        console.log('hold')
+    },
+    // hold(state){
+    // 	state.holdHeight = false,
+    // 	console.log('hold')
+    // }
+
 }
 
 

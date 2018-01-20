@@ -296,6 +296,8 @@ var MyMixin = {
                         this.$set(this, 'playTreeList', mydata)
                         this.$set(this, 'playTreeIndexByCid', mydata)
 
+                        this.setCookie('scrollF',window.innerHeight)
+
                      setTimeout(function () {
                          _self.setInitHeight(gameid) ;
                      },200) ;

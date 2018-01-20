@@ -13,7 +13,8 @@
                 <ul class="tab tab_mid tab_two">
                     <li :data-tab="index" :class="isXiaoBtnActived(index)" v-for="(shengXiao, index) in shengXiaoList"  @click="selectShengXiao(index, currentGroupIndex)"><a href="javascript:;">{{shengXiao}}</a></li>
                 </ul>
-            </div><!-- hd lhc_tab -->
+            </div>
+            <!-- hd lhc_tab -->
         </div><!-- tab_panel -->
 
 		<div class="scrollerClass" id="scroller"> <!-- style="min-height: 180%"  --><!--<div>-->
@@ -174,6 +175,7 @@
         },
 		updated() {
             this.setScrollHeight(true, this.currentBarIndex)
+            
 		},
 		watch: {
             playTreeList() {
