@@ -64,10 +64,11 @@
                                     -->
                                     <!-- 本周 -->
                                     <li :class="showClass(collapseCtrl[index2])" :data-val="item" v-for="(item, index2) in showTitleList">
-                                        <div class="panel_title new_panel_top" @click="getBetRecord(index2)">
+                                        <div class="panel_title new_panel_top" @click="getBetRecord(index2,$event)">
                                             <strong class="title-data" v-if="lotteryid == 10">{{item}}</strong>
                                             <strong class="title-data" v-else>{{showDateList[index2]}}</strong>
-                                            <span><!-- 此為箭頭，點按後展開或收合，預設第一個為展開（父層li的class有active） --></span></div>
+                                            <span><!-- 此為箭頭，點按後展開或收合，預設第一個為展開（父層li的class有active） --></span>
+                                        </div>
                                         <ul class="panel new_panel_center bet-recode-all" style="display: block;">
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="loadingList[index2] == 1 && betRecordList[index2].length == 0">正在加载...</li>
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="betRecordList[index2].length == 0 && collapseCtrl[index2] == 1 && loadingList[index2] == 0">没有数据了</li>
@@ -189,6 +190,7 @@
                 showDateList:[],
                 showTitleList:["本周", "上周", "上上周"],
                 pDateList:[],
+                countClick:false,
             }
         },
         created() {
@@ -380,11 +382,13 @@
             this.soyeScroll = new soyeScroll('.bet_data');
             this.soyeScroll.init(() => {
                 if (this.lock === 0) {
+
                     this.lock = 1;
                     this.restr = '';
                     let pdate
 
                     pdate = _.findIndex(this.collapseCtrl, (item) => {return item == 1})
+                    console.log(pdate ,'padate-in-scroll'  )
                     this.getBetRecord(pdate); // 投注记录
                 }
             });
@@ -458,9 +462,18 @@
                     nowDateData.setDate(nowDateData.getDate() - 1)
                 }
             },
-            getBetRecord(pdate) {
-                let _self = this ;
+            getBetRecord(pdate,$event) {
+                // console.log(  $('.so-zzjz').height()>0,'height' )
+                var showF = false;
+                if($event){
+                    var src = $event.currentTarget
+                    console.log(  src ,'rr-height' )
+                    console.log(  $(src).next().height() ,'rr-height' )
+                    showF = (  $(src).next().height()>20 )                    
+                }
+                console.log(showF ,'show' )
 
+                let _self = this ;
                 if (pdate < 0) {
                     return false
                 }
@@ -468,25 +481,34 @@
                 if(_self.ajaxSubmitAllow){ // 解决重复提交问题
                     return false ;
                 }
+                console.log( this.collapseCtrl[pdate] ,'pdate')
+                console.log( this.lock ,'lock')
 
-                if (this.collapseCtrl[pdate] == 1 && this.lock == 0) {
+                if ( showF|| this.collapseCtrl[pdate] == 1 && this.lock == 0 ) {
                     this.$set(this.collapseCtrl, pdate, 0)
                     this.pageList[pdate] =  1
                     this.betRecordList[pdate] = []
+                        console.log('click1',this.lock)
+                         console.log(_self.collapseCtrl[0],'out1')//1
+                        console.log(_self.loadingList[0],'out')//0
                 }
                 else {
+
+                console.log('click2',this.lock)
+
                     this.$set(this.collapseCtrl, pdate, 1)
                     _.forEach(this.collapseCtrl, (val, index2) => {
                         if (pdate != index2 && index2 <= 2) {
-                            this.$set(this.collapseCtrl, index2, 0)
+                            this.$set(this.collapseCtrl, index2, 0)//
                             this.pageList[index2] = 1
-                            this.betRecordList[index2] = []
+                            this.betRecordList[index2] = []//
                         }
                     })
-                    this.$set(this.loadingList, pdate, 1)
+
+                    this.$set(this.loadingList, pdate, 1)//
 
                     _self.seadata.lotteryId = _self.lotteryid // 彩种ID
-                    _self.seadata.page = _self.pageList[pdate]
+                    _self.seadata.page = _self.pageList[pdate]//
                     if (this.lotteryid == 10) {
                         _self.seadata.pdate = pdate
                     }
@@ -494,6 +516,8 @@
                         _self.seadata.pdate = _self.pDateList[pdate]
                     }
                     _self.ajaxSubmitAllow = true;
+
+
                     $.ajax({
                         type: 'post',
                         headers: {
@@ -543,6 +567,13 @@
                                 if (_.size(dataList) > 0)
                                     _self.pageList[pdate]++;
                                 this.$set(this.loadingList, pdate, 0)
+
+                                // alert(_self.collapseCtrl[0])//1
+                                // alert(_self.loadingList[0])//0
+
+                                   console.log(_self.collapseCtrl[0])//1
+                                 console.log(_self.loadingList[0])//0
+
                             }
                             error: () => {
                                 _self.ajaxSubmitAllow = false
@@ -550,6 +581,7 @@
                             }
                         },
                     })
+
                 }
             },
             /**
