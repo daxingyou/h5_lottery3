@@ -32,11 +32,14 @@
                                     <div class="step03 pay_way  payWayNet payWayTranster"  v-if = 'netPayShow'>
                                         <ul class="arrow_list_dark">
                                             <li v-for = '(payWay,key) in payWays' >
-                                                <a class="item" href="javascript:;" :data-hf="payWay.rsUrl" :data-type='payWay.rsNameId'  :data-val="payWay.flag" @click=" choosePayMoth($event)" >
+                                                <a class="item" href="javascript:;" :data-hf="payWay.rsUrl" :data-type='payWay.rsNameId'  :data-val="payWay.flag" @click=" choosePayMoth($event,payWay)" >
                                                     <span class="badge">
                                                         <span class="icon_account " :class="'icon_deposit_net'+payWay.rsNameId"></span>
                                                     </span>
-                                                    <span>{{ payWay.rsName}}</span>
+                                                    <span class="limitMoney" >
+                                                        <span>{{ payWay.rsName}}</span>
+                                                        <span  v-if=' payWay.rsNameId!=0'>限额：{{parseInt(payWay.minDepositAmount/100) }}~{{ parseInt(payWay.maxDepositAmount/100)  }}</span>
+                                                    </span>
                                                     <span class="icon icon_arrow_light"></span>
                                                 </a>
                                             </li>
@@ -447,11 +450,17 @@
                 });
             },
             // 选择支付方式
-            choosePayMoth:function (e) {
+            choosePayMoth:function (e,payWay) {
                 var _self = this ;
                 // 转账
 //                $('.payWayTranster').on('click','.item',function (e) {
-                if(_self.paymount =='' || !_self.isPositiveNum(_self.paymount)){
+                // if(_self.paymount =='' || !_self.isPositiveNum(_self.paymount)){
+                //     _self.$refs.autoCloseDialog.open('请输入正确的存款金额') ;
+                //     return false ;
+                // }
+                  var notQuick = payWay.rsNameId
+
+                if( (notQuick != 0)&& (_self.paymount =='' || !_self.isPositiveNum(_self.paymount) ) ){
                     _self.$refs.autoCloseDialog.open('请输入正确的存款金额') ;
                     return false ;
                 }
@@ -464,12 +473,18 @@
                 //       _self.$refs.autoCloseDialog.open('存款最低金额100元') ;
                 //       return false ;
                 // }
+                var limitF = ( _self.paymount * 100 > payWay.maxDepositAmount || _self.paymount * 100 < payWay.minDepositAmount) || ( Number(_self.paymount) == 0  )
+
+                if ( notQuick&&limitF ) {
+                    _self.$refs.autoCloseDialog.open('充值金额不符合限额要求');
+                    return false;
+                }
+
                 var $src = $(e.currentTarget);
                 var type = $src.data('type');
                 var val= $src.data('val')
                 var Href=$src.data('hf')
                 if(val=='0'){
-
                     if(type == '10') {  // 网银支付
                         _self.getBankList('2');
                         $('.paymethods_all').hide();
@@ -1027,5 +1042,21 @@
         line-height: 0.6rem;
         /*background-color: rgba(0, 0, 0, 0.5);*/
         margin-top: 0.185rem;
+    }
+
+
+    .limitMoney{
+        width: 2.346rem;
+        margin-top: 0.09615rem;
+    }
+    .limitMoney span:nth-of-type(1){
+        height: 0.577rem;        
+        line-height: 0.577rem;        
+    }
+     .limitMoney span:nth-of-type(2){
+        font-size: 0.2692rem;
+        height: 0.385rem;
+        line-height: 0.385rem;
+        margin-top: 0.05769rem;
     }
 </style>
