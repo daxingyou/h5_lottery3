@@ -507,10 +507,10 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 .so-in-main .so-m-t-right .last-open-dou ul li { display: block; float: left; width: .9rem;text-align: center;  margin-right: 0.23rem; font-size: 0.34rem; line-height: 0.44rem; border: 1px solid #ececec; -webkit-border-radius: .3rem; -moz-border-radius: .3rem; border-radius: .3rem; }
 .so-in-main .so-main-down { width: 100%; height: 0.8rem; }
 .so-in-main .so-main-down ul { text-align: right;}
-.so-in-main .so-main-down ul li { display: inline-block; vertical-align: top;}
+.so-in-main .so-main-down ul li { display: inline-block; vertical-align: top; white-space: nowrap;}
 .so-in-main .so-main-down ul li:first-child{ width: 3.42rem; float: left; }
-.so-in-main .so-main-down ul li:nth-child(2) { margin-right: 0.3rem;width: 29%; text-align: center}
-.so-in-main .so-main-down ul li:nth-child(3) { margin-right: 0.3rem;width: 29%; text-align: center}
+.so-in-main .so-main-down ul li:nth-child(2) { margin-right: 0.1rem;width: 29%; text-align: center}
+.so-in-main .so-main-down ul li:nth-child(3) { margin-right: 0.1rem;width: 29%; text-align: center}
 .so-in-main .so-main-down ul li:after{ content:''; display: table; clear:both;}
 .so-in-main .so-main-down ul li > p { line-height:0.8rem; text-align:right; /*width:3.3rem;*/ font-size:.34rem; }
 .so-in-main .so-main-down ul li > i { display: none; }
