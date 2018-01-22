@@ -79,11 +79,11 @@
 }
 .bet_panel .bet_box p > span.lhc_ball{
 	line-height: 0.68rem;
-	margin: 0.1rem 0 0rem -0.1rem;
+	margin: 0.1rem 0 0rem -0.15rem;
 }
 .bet_panel .bet_box p > span.lhc_ball ~ span{
 	line-height: 0.7rem;
-	margin: 0.1rem -0.1rem 0.1rem 0;
+	margin: 0.1rem -0.15rem 0.1rem 0;
 }
 .bet_panel .bet_box p .bet-times{
 	/*font-size: .33rem;*/
@@ -133,6 +133,7 @@
 	overflow-y: auto; 
 	/* winphone8和android4+ */ 
 	-webkit-overflow-scrolling: touch; 
+	border-radius: 0.5rem;
 	/* ios5+ */ 
 	position: relative; 
 	top: inherit; 

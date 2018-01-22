@@ -458,7 +458,7 @@ p.active .sixlot_ball.num_39, p.active .sixlot_ball.num_43, p.active .sixlot_bal
 /* 11x5 样式微调 */
 .jx11_tab.hd { display: none; position: absolute;right: 0rem; width: calc( 7.7rem - 1px ); height: 1rem; z-index: 10; overflow: hidden; margin: 0 auto;}
 .jx11_tab.hd ul { white-space: nowrap; width: 100% !important; overflow-y: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: calc( 1rem - 1px ); }
-.jx11_tab.hd ul.tab_mid { background-color: #fff; border-bottom: 1px solid #ececec; }
+.jx11_tab.hd ul.tab_mid { background-color: #fff; border-bottom: 1px solid #ececec; border-radius: 0.5rem; }
 .jx11_tab.hd ul.tab_mid > li { display: inline-block; height: 1rem; width: 2rem; padding-top: 0; border-left: 1px solid #ececec;}
 .jx11_tab.hd ul.tab_mid > li:first-child{ border-left: 0;}
 .jx11_tab.hd ul.tab_mid > li.on {width: 2rem;  }
