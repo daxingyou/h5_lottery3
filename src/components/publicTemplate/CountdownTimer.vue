@@ -70,12 +70,10 @@ export default {
             const theOverend = overend ? overend : this.overend;
             let timeSpan = this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
-            // const lt_time_leave = this.lt_time_leave;
-            // const lt_time_leave_over = this.lt_time_leave_over;
+          
            console.log(this.lt_time_leave_over  ,'timebreak')
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
-               // this.$emit('entertainCountdownOver');
                 this.$emit('entertainCountdownBreak');   
                 console.log(1)    
             }
@@ -124,8 +122,7 @@ export default {
                 var oDate = this.diff(this.lt_time_leave);  // 开奖倒计时
                 this.lt_time_leave_over = this.lt_time_leave_over - 1;
                 var over_oDate = this.diff(this.lt_time_leave_over);  // 封盘倒计时
-               // this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
-               // this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
+               
 
                 if(oDate.hour =='00'){  // 平常时间没有小时
                     this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
