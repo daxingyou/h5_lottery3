@@ -87,6 +87,7 @@ export default {
             
             "8":"pk10",
             "108":"pk10/SecondPk10",//赛车
+            "24":"pk10/LuckyBoat",//飞艇
             
             "6":"k3/",  //江苏快3
             "20":"k3/anHuiK3Index",  
