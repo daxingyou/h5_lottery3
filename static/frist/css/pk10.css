@@ -15,6 +15,8 @@
 #pk10 .so-main-down li:first-child p {
   width: 2.5rem;
   margin-right: 0.1rem;
+  font-size: 0.32rem;
+  text-align: center;
   white-space: nowrap}
 #pk10 .select-li {
   height: auto;
@@ -37,8 +39,8 @@
 #pk10 .tab_mid {
   white-space: nowrap;
   overflow-x: scroll; }
-#pk10 .last-date, #pk10 .now-date{ margin: 0 -0.1rem;}
-
+#pk10 .last-date, #pk10 .now-date{ margin: 0 -0.1rem;letter-spacing: -1px; display:inline-block; text-align: center;}
+#pk10 .so-in-main .so-m-t-left div:first-child{ font-size: 0.32rem; text-align: center;}
 
 #pk10 .pk10_top_number li{  margin: 0.2rem 0.035rem;  }
 #pk10 .pk10_top_number li .pk10_ball{ width: 0.65rem; height: 0.65rem; line-height: 0.65rem;}
