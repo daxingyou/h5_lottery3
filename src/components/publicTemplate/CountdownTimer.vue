@@ -71,7 +71,7 @@ export default {
             let timeSpan = this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
           
-           console.log(this.lt_time_leave_over  ,'timebreak')
+           // console.log(this.lt_time_leave_over  ,'timebreak')
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                 this.$emit('entertainCountdownBreak');   
@@ -103,8 +103,7 @@ export default {
                 } else {
                     this.wrongFlag = false;
                 }
-
-               console.log(this.lt_time_leave,'timeouver')
+               // console.log(this.lt_time_leave,'timeouver')
 
                 if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
