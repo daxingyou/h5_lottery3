@@ -128,12 +128,33 @@ export default {
             return false ;
         }
         _self.submitflage = true ;
-        var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
-            grant_type: 'password',
-            username: 'bcappid02|'+this.username ,
-            password: this.password ,
-            code: this.yzmcode ,  // 验证码
-        }
+        // var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+        //     grant_type: 'password',
+        //     username: 'bcappid02|'+this.username ,
+        //     password: this.password ,
+        //     code: this.yzmcode ,  // 验证码
+        // }
+        var logindata ={}
+        if(_self.checkStatu ){
+              logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+              grant_type: 'password',
+              username: 'bcappid02|'+this.username ,
+              password: this.password ,
+              code: this.yzmcode ,  // 验证码
+              source: 2,
+              tokenDay:7,
+          }
+        }else{
+          logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+              grant_type: 'password',
+              username: 'bcappid02|'+this.username ,
+              password: this.password ,
+              code: this.yzmcode ,  // 验证码
+              source: 2,
+          }
+        }  
+
+
         $.ajax({
             type: 'post',
             headers: {clientId:this.client,Authorization: 'Basic d2ViX2FwcDo='},

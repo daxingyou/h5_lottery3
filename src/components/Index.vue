@@ -10,7 +10,7 @@
                      <span class="icon icon_nav"></span>
                  </a>
              </div>
-             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/frist/images/logo.svg" alt="时时彩票"></h2>
+             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img :src="logosrc" alt="时时彩票"></h2>
              <div class="right">
                  <router-link to="/login" class="new_btn_outline" v-show="!haslogin">登录</router-link>
                  <router-link to="/reg" class="new_btn_outline" v-show="!haslogin" >注册</router-link>
@@ -241,7 +241,11 @@ export default {
             currPopMsgCid:"",
             picture:'',
             cid:'',
-            custUrl:''
+            custUrl:'',
+            siteData:[],
+            logosrc:'',
+            noticeIndexStatu:false,
+            noticeIndexRead:true,
         }
     },
     computed:{
@@ -260,12 +264,14 @@ export default {
       if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }
-       this.getBulletinsContent ();
-       this.getPopMsg();
-       this.carouselImg();
-       this.getActivity();
-       this.getCustom()
-       this.getAppUrl()
+      this.getBulletinsContent ();
+      this.getPopMsg();
+      this.carouselImg();
+      this.getActivity();
+      this.getCustom()
+      this.getAppUrl()
+      this.getSite()      
+      this.getMsglistStatus()
 
   },
     methods:{
@@ -479,6 +485,40 @@ export default {
                 // console.log(_self.appUrl, 'url-else')
             }
         },
+           getSite:function () {
+              var _self=this;
+              $.ajax({
+                  type:'get',
+                   // headers: {
+                   //      "Authorization": "bearer  " + this.getAccessToken,
+                   //  },
+                  url: _self.action.forseti + 'apid/cms/site',             
+                  success:(res)=>{
+                    _self.siteData = res.data;
+                    // console.log(_self.siteData,'site3') 
+                    _self.setCookie('siteData', JSON.stringify(_self.siteData ) )
+                    document.title = _self.siteData.h5Name   
+                    _self.logosrc = _self.action.picurl+_self.siteData.logoUrl+'/0'
+                    // console.log( _self.logosrc ,'logosrc')
+                  }
+              })
+          },
+           getMsglistStatus:function () {
+              var _self=this;
+              $.ajax({
+                  type:'get',
+                  headers: {
+                      "Authorization": "bearer  " + _self.getAccessToken,
+                  },
+                  url: _self.action.forseti + 'apid/cms/msg/status',
+                  data:{
+                    sourceType:2,                    
+                  },
+                  success:(res)=>{
+                    _self.noticeIndexStatu = res.data 
+                  }
+              })
+          },
 
   },
 
