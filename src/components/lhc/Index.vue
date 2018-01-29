@@ -298,7 +298,7 @@
                                 if (code.length<2) {
                                     let hasFind = false
                                     _.forEach(res.data, (item, index) => {
-                                        if (_.size(item.winNumber) > 0 && index >= 3) {
+                                        if (_.size(item.winNumber) > 0 && index >= 2) {
                                             that.winNumber = item.winNumber.split(',')
                                             that.previous_pcode = item.issueAlias
                                             hasFind = true
