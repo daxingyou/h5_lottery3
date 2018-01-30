@@ -200,6 +200,7 @@
         methods:{
             refreshBalance(newBalance) {
                 this.balancePublic = newBalance
+                this.getMemberBalance(this.lotteryID)                
             },
             //切換左方玩法
             switchPlayMethod(method) {
