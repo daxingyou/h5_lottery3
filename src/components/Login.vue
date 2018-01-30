@@ -83,11 +83,10 @@ export default {
       this.switchYzmcode()
   },
   mounted:function() {
-       // this.username = 'admin' ;
       document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
       this.getCustom()
       this.getLoginIcon()
-
+      console.log( this.checkStatu,'mountstatus')
   },
   methods: {
       //清除model数据,cl元素class
@@ -120,13 +119,13 @@ export default {
     },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
-        console.log( _self.checkStatu )      
+        console.log( this.checkStatu ,'check' )      
         var _self = this ;
         if(_self.submitflage){
               return false ;
           }
         if(this.username ==''){
-            this.$refs.autoCloseDialog.open('请输入用户名') ;
+            this.$refs.autoCloseDialog.open('请输入用户名');
             return false ;
         }
         if(this.password ==''){
@@ -142,13 +141,14 @@ export default {
             return false ;
         }
         _self.submitflage = true ;
+        var logindata ={}
         // var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
         //     grant_type: 'password',
         //     username: 'bcappid02|'+this.username ,
         //     password: this.password ,
         //     code: this.yzmcode ,  // 验证码
         // }
-        var logindata ={}
+
         if(_self.checkStatu ){
               logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
               grant_type: 'password',
