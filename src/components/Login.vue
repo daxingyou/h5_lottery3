@@ -142,13 +142,6 @@ export default {
         }
         _self.submitflage = true ;
         var logindata ={}
-        // var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
-        //     grant_type: 'password',
-        //     username: 'bcappid02|'+this.username ,
-        //     password: this.password ,
-        //     code: this.yzmcode ,  // 验证码
-        // }
-
         if(_self.checkStatu ){
               logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
               grant_type: 'password',
@@ -167,8 +160,6 @@ export default {
               source: 2,
           }
         }  
-
-
         $.ajax({
             type: 'post',
             headers: {clientId:this.client,Authorization: 'Basic d2ViX2FwcDo='},
@@ -190,7 +181,6 @@ export default {
                     this.$refs.autoCloseDialog.open(res.cnMsg) ;
                     this.switchYzmcode()
                 }
-
                this.$nextTick(function () {
 
                })
