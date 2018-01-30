@@ -388,7 +388,6 @@
                     let pdate
 
                     pdate = _.findIndex(this.collapseCtrl, (item) => {return item == 1})
-                    console.log(pdate ,'padate-in-scroll'  )
                     this.getBetRecord(pdate); // 投注记录
                 }
             });
@@ -400,11 +399,7 @@
         methods: {
 
             // 左上角返回键
-            backToIndex:function(){
-
-                console.log( this.lotteryid )
-                console.log( this.lotteryid )
-                
+            backToIndex:function(){                
                 if(this.lotteryid == 10){
                     this.$router.push('/lhc')
                 }else{
@@ -422,7 +417,6 @@
             },
             showClass(stat) {
                 let classStr = "slide_toggle bet_day new_bet_day new_panel"
-
                 if (stat == 1) {
                     classStr += ' active'
                 }
@@ -467,12 +461,8 @@
                 var showF = false;
                 if($event){
                     var src = $event.currentTarget
-                    console.log(  src ,'rr-height' )
-                    console.log(  $(src).next().height() ,'rr-height' )
                     showF = (  $(src).next().height()>20 )                    
                 }
-                console.log(showF ,'show' )
-
                 let _self = this ;
                 if (pdate < 0) {
                     return false
@@ -481,9 +471,6 @@
                 if(_self.ajaxSubmitAllow){ // 解决重复提交问题
                     return false ;
                 }
-                console.log( this.collapseCtrl[pdate] ,'pdate')
-                console.log( this.lock ,'lock')
-
                 if ( showF|| this.collapseCtrl[pdate] == 1 && this.lock == 0 ) {
                     this.$set(this.collapseCtrl, pdate, 0)
                     this.pageList[pdate] =  1
@@ -493,9 +480,6 @@
                         console.log(_self.loadingList[0],'out')//0
                 }
                 else {
-
-                console.log('click2',this.lock)
-
                     this.$set(this.collapseCtrl, pdate, 1)
                     _.forEach(this.collapseCtrl, (val, index2) => {
                         if (pdate != index2 && index2 <= 2) {
@@ -567,12 +551,6 @@
                                 if (_.size(dataList) > 0)
                                     _self.pageList[pdate]++;
                                 this.$set(this.loadingList, pdate, 0)
-
-                                // alert(_self.collapseCtrl[0])//1
-                                // alert(_self.loadingList[0])//0
-
-                                   console.log(_self.collapseCtrl[0])//1
-                                 console.log(_self.loadingList[0])//0
 
                             }
                             error: () => {
