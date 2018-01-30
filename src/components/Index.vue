@@ -261,7 +261,7 @@ export default {
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
       this.allLottery = this.$refs.navone.getLotterys() ;
-      console.log( this.allLottery ,'caizhong')
+      // console.log( this.allLottery ,'caizhong')
       this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
       this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
       if(this.haslogin){  // 只有登录状态才需要调余额
@@ -350,7 +350,7 @@ export default {
 
                       if(res.data ||res.data[0]||res.data[0].title){
                           _self.offFlag=true;
-                          console.log(_self.offFlag ,'_selfoffFlag' )
+                          // console.log(_self.offFlag ,'_selfoffFlag' )
                       }
                       //console.log(res.data)
                       _self.popMsgTitle=res.data[0].title;
