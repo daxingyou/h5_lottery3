@@ -499,7 +499,7 @@ export default {
                     _self.setCookie('siteData', JSON.stringify(_self.siteData ) )
                     document.title = _self.siteData.h5Name   
                     _self.logosrc = _self.action.picurl+_self.siteData.logoUrl+'/0'
-                    // console.log( _self.logosrc ,'logosrc')
+                    console.log( _self.logosrc ,'logosrc')
                   }
               })
           },

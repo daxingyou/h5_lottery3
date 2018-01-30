@@ -3,7 +3,7 @@
         <!--<header id="pa_head" class="login">
             <img src="static/frist/images/login_logo.png" alt="">
         </header>-->
-        <div class="login_title">
+        <div class="login_title" v-bind:style="{backgroundImage: 'url(' + logosrc + ')'}">
           <!-- <img   src="static/frist/images/login_logo.png">              -->
         </div>
 
@@ -35,6 +35,9 @@
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
+                     <div class="no_login_box">
+                         <input type="checkbox" id="longinCheck" v-model = 'checkStatu' ref='check'  name=""><label for="longinCheck">七天内免登陆</label>
+                     </div>
                 </form>
                 <div class="btn btn_blue">
                     <a class="new_btn" href="javascript:;" @click="LoginAction()"><span class="big">登录</span></a>
@@ -71,7 +74,9 @@ export default {
             yzmcode:'',
             client:'',
             submitflage: false ,
-            custUrl:''
+            custUrl:'',
+            checkStatu:false,
+            logosrc:'',
         }
     },
   created:function () {
@@ -81,6 +86,7 @@ export default {
        // this.username = 'admin' ;
       document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
       this.getCustom()
+      this.getLoginIcon()
 
   },
   methods: {
@@ -105,10 +111,18 @@ export default {
               }
           })
       },
+    getLoginIcon:function(){
+      var loginStr =  this.getCookie("siteData")
+      var loginstrArray = JSON.parse(loginStr )
+      this.logosrc = this.action.picurl+loginstrArray.h5LogoUrl+'/0'
+      // console.log( this.logosrc ,'loginstrArray' )
+      // console.log(loginstrArray)
+    },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
-          var _self = this ;
-          if(_self.submitflage){
+        console.log( _self.checkStatu )      
+        var _self = this ;
+        if(_self.submitflage){
               return false ;
           }
         if(this.username ==''){
