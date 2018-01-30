@@ -1,5 +1,5 @@
 <template>
-    <div id="pa_con" class="so-con warp page_login">
+    <div id="pa_con" class="so-con warp page_login" >
         <!--<header id="pa_head" class="login">
             <img src="static/frist/images/login_logo.png" alt="">
         </header>-->
@@ -195,7 +195,7 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
-  .login_title{
+#pa_con  .login_title{
     background-size: contain;
   }
 
