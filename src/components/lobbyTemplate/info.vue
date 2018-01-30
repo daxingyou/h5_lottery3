@@ -87,6 +87,15 @@
                                 <span class="icon icon_arrow_dark"></span>
                             </a>
                         </li>
+                         <!--20180125 新增个人消息-->
+                        <li >
+                            <a class="btn_icon" @click= 'toMsg()' >
+                                <span class="icon_account icon_info_4"></span>
+                                <span>个人消息</span>
+                                <span class="icon icon_arrow_dark"></span>
+                            </a>
+                        </li>
+                        <!--end 20180125 新增个人消息-->
                         <!--<li>-->
                             <!--<router-link class="btn_icon" :to="'/lobbyTemplate/join'">-->
                                 <!--<div class="icon_account icon_info_4"></div>-->
@@ -152,6 +161,14 @@ export default {
         this.custUrl=localStorage.getItem('Url');
   },
     methods: {
+       toMsg:function(){
+        var type = this.getCookie('acType')
+        if(type==1){
+          this.$router.push( '/lobbyTemplate/notification' )
+        }else{
+           this.$refs.confirm.open();
+        }
+      } ,
       //获取用户信息
       getUserInfo: function () {
           var _self = this;

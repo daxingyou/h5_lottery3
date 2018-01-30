@@ -106,6 +106,8 @@ input, select, button, a { outline: none; }
 
 .new_header .btn_notification .icon{ position: relative; margin-right: 0.1rem; }
 .new_header .btn_notification .icon:after {content:'';display:block; position: absolute; width: 0.25rem; height: 0.25rem; top: 0rem; right: -0.05rem; background-color: #ec1313;  border-radius: 1rem; overflow: hidden; }
+.new_header .btn_notification .icon.saw:after {display:none;}
+
 
 /* 投注页 header */
 .new_header ul > li { position: absolute; top: 0; }
