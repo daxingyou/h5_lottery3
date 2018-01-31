@@ -453,27 +453,19 @@
                 var _self = this ;
                 // 转账
 
-                  var notQuick = payWay.rsNameId
+                var notQuick = payWay.rsNameId
 
                 if( (notQuick != 0)&& (_self.paymount =='' || !_self.isPositiveNum(_self.paymount) ) ){
                     _self.$refs.autoCloseDialog.open('请输入正确的存款金额') ;
                     return false ;
                 }
-                // if( ( _self.paymount>=10000 ||_self.paymount<100)&&( Number(_self.paymount)!= 0  ) ){
-                //       _self.$refs.autoCloseDialog.open('存款金额必须在范围内') ;
-                //       return false ;
-                // }
-                // 范围暂时取消，只是将限额确定在大于100
-                // if( (_self.paymount<100)||( Number(_self.paymount)!= 0  ) ){
-                //       _self.$refs.autoCloseDialog.open('存款最低金额100元') ;
-                //       return false ;
-                // }
-                var limitF = ( _self.paymount * 100 > payWay.maxDepositAmount || _self.paymount * 100 < payWay.minDepositAmount) || ( Number(_self.paymount) == 0  )
+         
+                // var limitF = ( _self.paymount * 100 > payWay.maxDepositAmount || _self.paymount * 100 < payWay.minDepositAmount) || ( Number(_self.paymount) == 0  )
 
-                if ( notQuick&&limitF ) {
-                    _self.$refs.autoCloseDialog.open('充值金额不符合限额要求');
-                    return false;
-                }
+                // if ( notQuick&&limitF ) {
+                //     _self.$refs.autoCloseDialog.open('充值金额不符合限额要求');
+                //     return false;
+                // }
 
                 var $src = $(e.currentTarget);
                 var type = $src.data('type');
@@ -1046,7 +1038,9 @@
     }
     .limitMoney span:nth-of-type(1){
         height: 0.577rem;        
-        line-height: 0.577rem;        
+        line-height: 0.577rem;    
+        margin-top: 0.2rem;  
+
     }
      .limitMoney span:nth-of-type(2){
         font-size: 0.2692rem;
