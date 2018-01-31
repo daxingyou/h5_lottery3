@@ -1087,7 +1087,7 @@ fieldset { display: block; margin: .3rem 0; font-size: .34rem; text-align: left;
 .message_area .item .detail{ margin: 0.1rem 0 0; line-height: 1.5em; height: 3em; 	overflow: hidden; text-overflow: ellipsis;  position: relative;}
 .message_area .item .date{ color: #999}
 /*.message_area .item .detail .dot{ position: absolute; bottom: 0; right: 0; padding-left: 0.1rem; background: -moz-radial-gradient(center, ellipse cover, rgba(170,108,69,1) 0%, rgba(170,108,69,1) 50%, rgba(170,108,69,0) 100%); background: -webkit-radial-gradient(center, ellipse cover, rgba(170,108,69,1) 0%,rgba(170,108,69,1) 50%,rgba(170,108,69,0) 100%);background: radial-gradient(ellipse at center, rgba(170,108,69,1) 0%,rgba(170,108,69,1) 50%,rgba(170,108,69,0) 100%); }*/
-.message_area .item.active .detail{height: auto; min-height: 1rem;}
+.message_area .item.active .detail{height: auto; min-height: 3em;}
 /*.message_area .item.active .detail .dot{display: none;}*/
 .message_area .item .content {float: left; width: 7.5rem; }
 .message_area .item .btn_collapse{ position: absolute; top: 0.3rem; right: 0rem; color: #999; }
