@@ -38,7 +38,7 @@
                                                     </span>
                                                     <span class="limitMoney" >
                                                         <span>{{ payWay.rsName}}</span>
-                                                        <span  v-if=' payWay.rsNameId!=0'>限额：{{parseInt(payWay.minDepositAmount/100) }}~{{ parseInt(payWay.maxDepositAmount/100)  }}</span>
+                                                       <!--  <span  v-if=' payWay.rsNameId!=0'>限额：{{parseInt(payWay.minDepositAmount/100) }}~{{ parseInt(payWay.maxDepositAmount/100)  }}</span> -->
                                                     </span>
                                                     <span class="icon icon_arrow_light"></span>
                                                 </a>
@@ -384,7 +384,6 @@
 
             var _self = this ;
             $('html,body').css('overflow-y','scroll' )  ;
-//            _self.choosePayMoth() ;
             _self.bankTipShow() ;
             setTimeout(function () {
                 var now = new Date(),
@@ -453,11 +452,7 @@
             choosePayMoth:function (e,payWay) {
                 var _self = this ;
                 // 转账
-//                $('.payWayTranster').on('click','.item',function (e) {
-                // if(_self.paymount =='' || !_self.isPositiveNum(_self.paymount)){
-                //     _self.$refs.autoCloseDialog.open('请输入正确的存款金额') ;
-                //     return false ;
-                // }
+
                   var notQuick = payWay.rsNameId
 
                 if( (notQuick != 0)&& (_self.paymount =='' || !_self.isPositiveNum(_self.paymount) ) ){
