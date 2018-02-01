@@ -274,8 +274,9 @@ export default {
       this.getCustom()
       this.getAppUrl()
       this.getSite()      
-      this.getMsglistStatus()
-
+      if(this.haslogin&& this.getCookie("acType")=='1' ){  // 只有登录状态才需要调
+          this.getMsglistStatus()
+      }     
   },
     methods:{
       getBulletinsContent :function () {
@@ -341,7 +342,6 @@ export default {
               url:  _self.action.forseti + 'apid/cms/popText',
               data:{},
               success:(res)=>{
-                console.log(res,'popres')
                   if(!res.data ||!res.data[0]||!res.data[0].title){
                       _self.offFlag=false;
                       return false
@@ -502,7 +502,6 @@ export default {
                     _self.setCookie('siteData', JSON.stringify(_self.siteData ) )
                     document.title = _self.siteData.h5Name   
                     _self.logosrc = _self.action.picurl+_self.siteData.logoUrl+'/0'
-                    console.log( _self.logosrc ,'logosrc')
                   }
               })
           },

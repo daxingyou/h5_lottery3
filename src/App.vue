@@ -74,7 +74,7 @@ export default {
                         async: false,
                         url: _self.action.uaa + 'api/server/ping',
                         success: (res) => {
-                            console.log(res,'sevice')
+                        
                         },
                         error: function () {
 

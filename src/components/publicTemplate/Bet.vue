@@ -9,7 +9,6 @@
             <div class="bet_count">
                 <form>
                     <input placeholder="输入金额" type="tel" class="bet-amount" v-model="betAmount">
-                    <!--<input type="reset" @click="$parent.resetAction()" value="重置" >-->
                     <a class="submit" href="javascript:;" @click="$parent.resetAction()">重置</a>
                 </form>
             </div>
@@ -66,8 +65,6 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
-import {mapState, mapGetters} from 'vuex'
-
 
 export default {
     name: 'Bet',
@@ -107,18 +104,14 @@ export default {
                 return this.betSelectedList.length * this.betAmount
             }
         },
-        foc: function () {
-            this.focuFirst()
-            return this.$store.state.foc
-        },
+       
     },
 
     watch: {
-        foc: function () {
-        }
+       
     },
     mounted:function(){
-        this.focuFirst()
+        console.log(this,'this')
     },
     methods:{
         /*

@@ -114,8 +114,7 @@ export default {
       var loginStr =  this.getCookie("siteData")
       var loginstrArray = JSON.parse(loginStr )
       this.logosrc = this.action.picurl+loginstrArray.h5LogoUrl+'/0'
-      // console.log( this.logosrc ,'loginstrArray' )
-      // console.log(loginstrArray)
+     
     },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {

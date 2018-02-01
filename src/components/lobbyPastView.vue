@@ -35,7 +35,7 @@
                                     </li>
                                 </ul>
 
-                                <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')">
+                                <ul class="new_panel_center lo_ball double-numbers lhc_winNumber_paner"  v-else-if="(list.lotteryId == '10')||(list.lotteryId == '110')">
                                         <li v-for="(listnum, index) in list.winNumber.split(',')" :class="listnum < 10?'lhc_ball lhc_ball_b active  num_0'+ listnum : 'lhc_ball lhc_ball_b active  num_' + listnum" v-if="index < 6">{{listnum}}</li>
                                         <li class="lhc_ball_plus lhc_ball_plus_w">
                                             <span></span>
@@ -45,7 +45,7 @@
                                 </ul>
                              
                                  <ul class="new_panel_center lo_ball" v-else>
-                                    <li v-if="(list.lotteryId != '10')" v-for="listnum in list.winNumber.split(',')"
+                                    <li v-if="(list.lotteryId != '10'&& list.lotteryId != '110')" v-for="listnum in list.winNumber.split(',')"
                                         :class="'round_ball active num_'+ listnum ">{{listnum}}
                                     </li>
                                   <!--   <li v-if="(list.lotteryId == '10')" v-for="listnum in list.winNumber.split(',')"
@@ -121,6 +121,7 @@ export default {
                 "22":"k3/huBeiK3Index",
                 "106":"k3/miaoSuK3Index",  // 秒速k3
                 "10":"lhc",  // 
+                "110": "wflhc",  // 
 
             }, // 对应彩种的id
             gameName : {
@@ -140,6 +141,7 @@ export default {
                 "22":"湖北快3",
                 "106":"秒速快3",
                 "10":"香港六合彩",
+                "110": "五分六合彩",               
 
             }, // 对应彩种的名称
 

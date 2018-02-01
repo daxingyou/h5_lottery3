@@ -36,6 +36,8 @@ import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
 
 import LhcIndex from '@/components/lhc/Index' // 六合彩
+import WfLhcIndex from '@/components/lhc/wflhc' // 五分六合彩
+
 import LhcBetRecord from '@/components/lhc/LhcBetRecord' // 六合彩投注紀錄
 
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
@@ -149,14 +151,16 @@ export default new Router({
         name: 'SecondSsc',
         component: SecondSsc
     },
-      {
-          path: '/lhc',
-          name: 'LhcIndex',
-          component: LhcIndex
-      },
-
-
-
+    {
+        path: '/lhc',
+        name: 'LhcIndex',
+        component: LhcIndex
+    },
+    {
+      path: '/wflhc',
+      name: 'WfLhcIndex',
+      component: WfLhcIndex
+    },
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/lobbyPastView', name:'lobbyPastView', component: lobbyPastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },

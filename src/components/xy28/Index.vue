@@ -321,8 +321,6 @@
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/xy28/PlayDialog'
     import Mixin from '@/Mixin'
-    import store from './../../_vuex/store'
-    
 
     export default {
       name: 'Xy28Index',

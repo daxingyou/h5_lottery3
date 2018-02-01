@@ -128,6 +128,7 @@
             PlayMethodBar,
             Touzhu
         },
+        props:['moduleName', 'moduleLotteryID','moduleplay'],
         data() {
             return {
                 now_time:'',  // 当前期数销售截止时间
@@ -152,9 +153,9 @@
                 kinds:[],
                 balancePublic:'',
                 currentMethod: '特码',
-                moduleLotteryID: 10,
-                moduleName:'香港六合彩',
-                moduleplay: '根据香港赛马协会公布日期，六合彩每星期搅珠三次，通常於星期二丶星期四及非赛马日之星期六或日晚上举行。',
+                // moduleLotteryID: 10,
+                // moduleName:'香港六合彩',
+                // moduleplay: '根据香港赛马协会公布日期，六合彩每星期搅珠三次，通常於星期二丶星期四及非赛马日之星期六或日晚上举行。',
             }
         },
         created() {

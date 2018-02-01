@@ -210,8 +210,6 @@ import MenuBar from '@/components/publicTemplate/MenuBar'
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
-import store from './../../_vuex/store'
-
 
 export default {
   name: 'Index',
@@ -293,16 +291,10 @@ export default {
     frontCenterBackList:function(){
         return this.getListByParentID(23000);
     },
-    // balancePublic:function(){
-    //     alert()
-    //     this.refreshBalance()
-    // },
+   
   },
   watch:{
-    /* balancePublic:function(){
-        // alert()
-        // this.refreshBalance()
-    },*/
+    
   },
 
   methods:{
@@ -312,17 +304,11 @@ export default {
         // console.log(afterBetCookie)      
     },
      bgFocus: function () {
-           alert()
-          // this.$store.commit('Number')
           var bb = $('.body_bg')[0]
           var bb = document.getElementsByClassName('body_bg')[0]
-
-
             bb.addEventListener('click',function(){
              bb.focus();
             });
-
-          console.log('')
         },
     switchTab:function(e){
         var _self = this ;

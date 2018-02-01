@@ -14,7 +14,6 @@
 
 
 <script>
-    import store from './../../_vuex/store'
 
 export default {
   name: 'AutoCloseDialog',
@@ -45,7 +44,6 @@ export default {
     //关闭弹窗
     close:function(e){
       this.show = false;
-      this.$store.commit('Number')
     }
   }
 }

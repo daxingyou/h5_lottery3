@@ -217,8 +217,6 @@
     import PlayDialog from '@/components/k3/PlayDialog'
     import Mixin from '@/Mixin'
     import '../../../static/frist/css/k3.css'
-    import store from './../../_vuex/store'
-    
 
     export default {
       name: 'k3Index',
@@ -306,9 +304,6 @@
                 var afterBetCookie = this.getCookie( 'balancePublic' )
                 this.balancePublic = afterBetCookie
                 console.log(afterBetCookie)      
-            },
-             bgFocus: function () {
-              this.$store.commit('Number')
             },
 
             betCountStat:function(xslen, xlen){

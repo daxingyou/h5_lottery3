@@ -274,9 +274,7 @@
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/jc11x5/PlayDialog'
     import Mixin from '@/Mixin'
-    import store from './../../_vuex/store'
     
-
     export default {
       name: 'jc11x5Index',
       mixins:[Mixin],
@@ -390,9 +388,7 @@
                 this.balancePublic = afterBetCookie
                 console.log(afterBetCookie)      
             },
-             bgFocus: function () {
-              this.$store.commit('Number')
-            },
+             
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);
             },

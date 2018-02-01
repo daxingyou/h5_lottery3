@@ -40,9 +40,6 @@
                       <p>{{lottery.name}}</p>
                     </router-link>
                   </li>
-
-
-
               </ul>
           </div>
       </div>
@@ -55,7 +52,6 @@
 
 <script>
 import Mixin from '@/Mixin'
-import store from './../../_vuex/store'
 
 // import $ from "jquery";
 //  import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
@@ -93,7 +89,9 @@ export default {
             "20":"k3/anHuiK3Index",  
             "22":"k3/huBeiK3Index",
             "106":'k3/miaoSuK3Index',
-            "10":"lhc"            
+            "10":"lhc" ,
+            "110":"wflhc",    
+                       
           }, // 对应彩种的id
         }
     },
@@ -113,8 +111,6 @@ export default {
       // 关闭侧滑栏
     close:function(e){
       this.showNavigation = false;
-        this.$store.commit('Number')
-      
     },
       // 获取彩种
       getLotterys:function() {
