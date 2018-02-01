@@ -41,7 +41,7 @@
                             <ul class="new_panel">
                                 <li class="prod" data-status="not_open" >
                                     <div class="new_panel_top play_th">
-                                        <div class="prd_num">
+                                        <div class="prd_num" >
                                             <!--<i class="prd"></i>-->
                                             <span>{{  ( (lotteryid == '8') ||(lotteryid == '108') ||(lotteryid == '24'))? list.issueAlias:list.pcode}}</span>
                                            <span>期</span>
@@ -57,7 +57,7 @@
                                             <li>{{list.doubleData.lh_5}}</li>
 
                                         </ul>
-                                        <ul class="double-count" v-else-if="(lotteryid == '10')"> <!-- 上面一排数据 -->
+                                        <ul class="double-count" v-else-if="(lotteryid == '10')||(lotteryid == '110')"> <!-- 上面一排数据 -->
                                         </ul>
                                         <ul class="double-count" v-else>
                                             <li>{{list.doubleData.total}}</li>
