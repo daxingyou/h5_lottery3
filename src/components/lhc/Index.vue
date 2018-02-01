@@ -227,9 +227,7 @@
                 // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
                 // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
-                this.resetAction();
-
-                
+                this.resetAction();                
             },
              lotteryDataFetch(needIn) {
                 const that = this;
@@ -271,7 +269,6 @@
                                     that.previous_pcode = res.data[1].pcode                                
                                 }  
                                 code = res.data[1].winNumber.split(',')
-                                console.log(code,'noopencode')
                                 that.winNumber = code
 
                             }
@@ -289,7 +286,6 @@
                                         that.previous_pcode = res.data[1].pcode                                 
                                     }  
                                     code = res.data[1].winNumber.split(',')
-                                    console.log(code, 'code,ordinary')
                                     that.winNumber = code
                                 } else {
                                     that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
@@ -304,7 +300,6 @@
                                     }    
                                     code = res.data[2].winNumber.split(',')
                                     that.winNumber = code
-                                    console.log(code, 'code,pass')
                                 }
 
                                 //code 上期开奖号码

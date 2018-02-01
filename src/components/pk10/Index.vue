@@ -515,11 +515,6 @@ export default {
             }
         },
 
-
-        // play:function(){
-        //     this.$refs.playDialog.open()
-        // }
-
     }
 
 }
