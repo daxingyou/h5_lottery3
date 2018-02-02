@@ -414,6 +414,7 @@
                 // 注单金额正确
                 this.showList = true;
             },
+            //算出連尾或連肖的全部組合可能，並顯示在下注清單以及送到後端的下注內容            
             getCombination(arr, size) {
                 let allResult = [];
 

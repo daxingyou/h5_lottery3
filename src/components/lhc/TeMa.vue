@@ -213,6 +213,7 @@
                     return intercount == this.shengXiaoMapNumber[xiao].length ? 'on' : ''
                 }
             },
+            //特碼 A 跟 B 切換            
 			switchPlayGroup(cid) {
                 this.currentGroupIndex = cid;
                 if (cid == 1011)
