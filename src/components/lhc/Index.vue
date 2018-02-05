@@ -247,6 +247,9 @@
                             that.currentBaseShengXiao = res.data[1].zodiac
                             let code = res.data[2].winNumber.split(',')
                             that.previous_pcode = res.data[2].issueAlias
+                             if(that.lotteryID=='110'){
+                                that.previous_pcode = res.data[2].pcode
+                             }
                             var noOpenFlag1 = ( sys_time > res.data[0].startTime ) && (sys_time < res.data[0].endTime)
                             var noOpenFlag2 = ( sys_time > res.data[1].startTime ) && (sys_time < res.data[1].endTime)
                             var shut = !(noOpenFlag1 || noOpenFlag2)
@@ -313,6 +316,9 @@
                                         if (_.size(item.winNumber) > 0 && index >= 2) {
                                             that.winNumber = item.winNumber.split(',')
                                             that.previous_pcode = item.issueAlias
+                                             if(that.lotteryID=='110'){
+                                                that.previous_pcode = item.pcode
+                                             }
                                             hasFind = true
                                             return false
                                         }
