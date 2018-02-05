@@ -565,7 +565,7 @@ p.active .xy28_ball.num_3, p.active .xy28_ball.num_6, p.active .xy28_ball.num_9,
 .so-con-left ul li.active { background:url(/static/frist/images/bluegradient.png) repeat-x; background-size: auto 100%; background-color: #127ece; }
 .so-con-left ul li.active a { color: #fff; }
 
-.so-con-right {  width: calc(7.7rem - 1px );  height: 100%;  position: fixed;  z-index: 5; margin-left: calc( 2.3rem + 1px ) ; left: 0 !important;}
+.so-con-right {  width: calc(7.7rem - 1px );  height: 100%; padding-bottom: 2rem; position: fixed;  z-index: 5; margin-left: calc( 2.3rem + 1px ) ; left: 0 !important;}
 
 
 
