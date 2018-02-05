@@ -71,11 +71,9 @@ export default {
             let timeSpan = this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
           
-           // console.log(this.lt_time_leave_over  ,'timebreak')
 
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                 this.$emit('entertainCountdownBreak');   
-                console.log(1)    
             }
             //计数器，计算间隔时间触发
             const counter = () => {
@@ -96,25 +94,20 @@ export default {
 
             clearInterval(this.timer);
             this.timer = window.setInterval((function() {
-               // console.log('蒂ff冈你')
                 counter();
                 if (this.lt_time_leave <= -1) {
                     this.wrongFlag = true;
                 } else {
                     this.wrongFlag = false;
                 }
-               // console.log(this.lt_time_leave,'timeouver')
 
                 if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
-                    console.log(2)
                 }
-               //  console.log(this.lt_time_leave_over)
 
                 if(this.lt_time_leave_over == 0  ){  // 封盘倒计时结束
                     this.$emit('entertainCountdownOver');
-                    console.log(3)
                 }
 
                 this.lt_time_leave = this.lt_time_leave - 1;
@@ -130,9 +123,7 @@ export default {
                     this.timeSpanStr = this.fftime(oDate.hour) + ':' + this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
                     this.overTimeSpanStr = this.fftime(over_oDate.hour) + ':' + this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
                 }
-                // console.log( oDate.day ,'day')
                 if (oDate.day != 0) {
-                    console.log(22)
                     this.timeSpanStr = this.fftime(oDate.day) + '天' + this.fftime(oDate.hour) + ':' + this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
                     this.overTimeSpanStr = this.fftime(oDate.day) + '天' + this.fftime(over_oDate.hour) + ':' + this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
                 }

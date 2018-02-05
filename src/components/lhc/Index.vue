@@ -177,7 +177,6 @@
         mounted() {
             let _self = this;
             let lotteryid = this.lotteryID ; // 彩种id
-            console.log(lotteryid ,'lotteryid' )
             let lotteryname = this.moduleName || '香港六合彩' ; // 彩种名称
             this.setCookie('lt_lotteryid', lotteryid) ; // 彩种id
             this.setCookie('lottery_name', lotteryname) ; // 彩种名称
@@ -254,7 +253,6 @@
                             var noOpenFlag2 = ( sys_time > res.data[1].startTime ) && (sys_time < res.data[1].endTime)
                             var shut = !(noOpenFlag1 || noOpenFlag2)
                             if (shut) {
-                                console.log('shut999')
                                 // that.notopen = true;      
                                 if(that.$refs.countdownTimer.wrongFlag  ){
                                     that.notopen = false;    
@@ -349,7 +347,6 @@
                 })
             },
             timerBegin() {
-                console.log('began')
                 let that = this;
                 that.lotteryDataFetch('1') ;
                 that.entertainStatus = false;

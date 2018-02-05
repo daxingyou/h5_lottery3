@@ -7,7 +7,7 @@
 #lhc .so-in-main .so-m-t-left div:first-child{
 	text-align: left;
 	margin-right: inherit;
-	margin-left: .4rem;
+	margin-left: .05rem;
 }
 #lhc .so-in-main .so-main-down ul li > p{
 	text-align: left;
@@ -18,7 +18,7 @@
 	width: 6.6rem;
 }
 #lhc .so-in-main .so-m-t-right div:first-child ul{
-	margin-top: .5rem;
+	margin-top: .7rem;
 	margin-left: 0;
 }
 #lhc .so-in-main .so-m-t-right div:first-child ul li{
