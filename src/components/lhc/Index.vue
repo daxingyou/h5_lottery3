@@ -91,7 +91,8 @@
             <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
 
             <BetSuccessfulDialog ref="betSuccessfulDialog" />
-            <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" />
+            <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" v-if='lotteryID=="10" ' />
+            <WfPlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" v-if='lotteryID=="110" '/>
         </div><!-- so-con -->
 </template>
 
@@ -107,6 +108,7 @@
     import MenuBar from '@/components/publicTemplate/MenuBar'
     import LhcBet from '@/components/lhc/LhcBet'
     import PlayDialog from '@/components/lhc/PlayDialog'
+    import WfPlayDialog from '@/components/lhc/WfPlayDialog'
     import Mixin from '@/Mixin'
     import PlayMethodBar from '@/components/lhc/PlayMethodBar'
     import Touzhu from '@/components/lhc/Touzhu'
@@ -125,6 +127,7 @@
             InfoDialog,
             AutoCloseDialog,
             PlayDialog,
+            WfPlayDialog,
             PlayMethodBar,
             Touzhu
         },
@@ -174,6 +177,7 @@
         mounted() {
             let _self = this;
             let lotteryid = this.lotteryID ; // 彩种id
+            console.log(lotteryid ,'lotteryid' )
             let lotteryname = this.moduleName || '香港六合彩' ; // 彩种名称
             this.setCookie('lt_lotteryid', lotteryid) ; // 彩种id
             this.setCookie('lottery_name', lotteryname) ; // 彩种名称
