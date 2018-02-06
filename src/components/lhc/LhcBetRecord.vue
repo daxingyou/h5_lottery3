@@ -212,9 +212,7 @@
                 return '' + this.year + this.mon + this.day;
             },
         },/*computed*/
-        mounted() {
-            console.log(this.lotteryid, 'idlhc')
-            console.log(this.lotteryname, 'idlhc')
+        mounted() {           
             $('html,body').css('overflow-y','scroll' )  ;
             if (this.lotteryid != 10) {
                 this.seadata.pdate = this.newpdate;
