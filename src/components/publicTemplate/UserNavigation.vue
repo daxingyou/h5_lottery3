@@ -100,10 +100,10 @@ export default {
   } ,
   mounted:function() {
       this.haslogin = this.ifLogined() ;
-      this.setCookie('haslogin', this.haslogin)
-      
+      this.setCookie('haslogin', this.haslogin)      
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
+      $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; 
     }) ;
 
   },
@@ -111,6 +111,7 @@ export default {
       // 关闭侧滑栏
     close:function(e){
       this.showNavigation = false;
+      $('html,body').css({'height':'auto','overflow-y':'scroll'}) ;      
     },
       // 获取彩种
       getLotterys:function() {

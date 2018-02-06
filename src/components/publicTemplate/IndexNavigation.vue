@@ -110,29 +110,16 @@
         } ,
         mounted:function() {
             var that = this;
-
             $(this.el).on('click', ()=>{
                 this.showNavigation = true;
-
                 that.mainIndexBalance = that.getCookie('balancePublic');
-                console.log(  this.mainIndexBalance )
-                // 调接口获取数据 添加到用户余额   
-
-                // console.log(that.lotteryID) 
-                // console.log(that.sys_time) 
-  //               that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
-  // 334                      that.ishwowpriod = true ;           
-
-
-
-                $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; // 禁止页面滚动
+                $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; 
             }) ;
              this.getCustom()
-
         },
         methods:{
             // 关闭侧滑栏
-            close:function(e){
+            close:function(){
                 this.showNavigation = false;
                 $('html,body').css({'height':'auto','overflow-y':'scroll'}) ;
             },
