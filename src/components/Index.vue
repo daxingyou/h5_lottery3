@@ -277,6 +277,7 @@ export default {
       if(this.haslogin&& this.getCookie("acType")=='1' ){  // 只有登录状态才需要调
           this.getMsglistStatus()
       }     
+      this.touchmove()
   },
     methods:{
       getBulletinsContent :function () {
