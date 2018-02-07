@@ -383,10 +383,10 @@
             },
           },
           methods:{
-             refreshBalance:function(){
-                var afterBetCookie = this.getCookie( 'balancePublic' )
-                this.balancePublic = afterBetCookie
-                console.log(afterBetCookie)      
+           
+             refreshBalance(newBalance) {
+                this.balancePublic = newBalance
+                this.getMemberBalance(this.lotteryID)
             },
              
             betCountStat:function(xslen, xlen){

@@ -337,12 +337,10 @@ export default {
         },
     },
     methods:{
-         refreshBalance:function(){
-                var afterBetCookie = this.getCookie( 'balancePublic' )
-                this.balancePublic = afterBetCookie
-                console.log(afterBetCookie)      
-        },
-       
+        refreshBalance(newBalance) {
+            this.balancePublic = newBalance
+            this.getMemberBalance(this.lotteryID)
+        },       
         switchTab:function(e){
             var _self = this ;
             const $src = $(e.currentTarget);
