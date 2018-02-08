@@ -771,10 +771,10 @@
                     return false;
                 }
 
-                if(!_self.bankInfo.bankCode){
-                    _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
-                    return false ;
-                }
+                // if(!_self.bankInfo.bankCode){
+                //     _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
+                //     return false ;
+                // }
                 if(!_self.banksavename || !this.trueName(_self.banksavename)){
                     _self.$refs.autoCloseDialog.open('请输入正确的存款人姓名！') ;
                     return false ;
