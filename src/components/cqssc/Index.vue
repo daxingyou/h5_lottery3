@@ -449,6 +449,18 @@ export default {
                         }
                     }
 
+                    var OpenFlag1 = ( sys_time > res.data[1].endTime )&&(sys_time < res.data[0].startTime)
+                    if( that.lotteryID == '2'&& OpenFlag1&&firstpcode =='001'){
+                        that.notopen = true ;
+                        that.now_time = that.formatTimeUnlix(res.data[0].endTime);  // 当前期数时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                        that.now_pcode = res.data[0].pcode;  // 当前期数
+
+                        that.winNumber = res.data[1].winNumber;
+                        that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                        that.previous_pcode = res.data[1].pcode;  // 上期期数
+                    }
+
                     if (code.length<2) {
                         let hasFind = false
                         _.forEach(res.data, (item, index) => {

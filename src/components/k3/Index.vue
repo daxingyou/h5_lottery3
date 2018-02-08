@@ -420,7 +420,6 @@
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
                                 }
                             }
-                            // console.log( code,'code' )     
                                                 
                             if (code.length<2) {
                                 let hasFind = false
