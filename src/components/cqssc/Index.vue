@@ -460,6 +460,7 @@ export default {
                         that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[1].pcode;  // 上期期数
                     }
+                    code = that.winNumber                  
 
                     if (!code) {
                         let hasFind = false

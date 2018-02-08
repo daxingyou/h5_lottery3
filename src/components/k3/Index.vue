@@ -409,6 +409,7 @@
                                 }
 
                                 //code 上期开奖号码
+
                                 if (!code) {
                                     // code = '-,-,-,-,-';
                                     that.winNumber = res.data[3].winNumber;
@@ -420,7 +421,7 @@
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
                                 }
                             }
-                                                
+                            code = that.winNumber                                                
                             if (!code) {
                                 let hasFind = false
                                 _.forEach(res.data, (item, index) => {

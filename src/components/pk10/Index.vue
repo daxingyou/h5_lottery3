@@ -460,6 +460,7 @@ export default {
                                 that.previous_pcode = res.data[2].issueAlias;  // 上期期数
                             }
                         }
+                        code = that.winNumber
                         if (!code) {
                             let hasFind = false
                             _.forEach(res.data, (item, index) => {
