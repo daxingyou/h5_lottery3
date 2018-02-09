@@ -462,7 +462,14 @@
                /* this.lotteryDataFetch().then(()=>{
                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 })*/
-                that.entertainStatus = false;
+                // that.entertainStatus = false;
+                if (that.$refs.countdownTimer.wrongFlag) {
+                    that.entertainStatus = true;
+                } else {
+                    that.entertainStatus = false;
+                }
+
+
                 that.notopen = false;
             },
             resetAction:function(success){
