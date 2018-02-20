@@ -16,7 +16,7 @@
                             <li class="prod cqssc" >
                                 <div class="new_panel_top play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
-                                    <div class="prd_num02">第{{(list.lotteryId == '24' || list.lotteryId == '8' || list.lotteryId == '108')?list.issueAlias :list.pcode}}期</div>
+                                    <div class="prd_num02">第{{(list.lotteryId == '24' || list.lotteryId == '8' )?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
                                     <div class="time timerset endtime" :data-time="0" v-if="(format(formatTimeUnlix(list.endTime,0)).getTime() > format(formatTimeUnlix(sys_time,0)).getTime())">
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
