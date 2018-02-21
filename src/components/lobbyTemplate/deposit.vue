@@ -1001,7 +1001,7 @@
     .bModal .m_content { position: fixed; z-index: 33; width: 8rem; top: 25%; left: 50%; margin-left: -4rem; /*padding: .3rem .5rem .7rem;*/box-sizing: border-box; background-color: #fff; border: 1px solid #dadada; border-radius: 0.1rem;word-wrap: break-word;}
     /*.modal .m_content:before { content: ''; position: absolute; display: block; top: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }*/
     /*.modal .m_content:after { content: ''; position: absolute; display: block; bottom: -0.3rem; left: 0; z-index: 33; height: 1.173rem; width: 100%;  }*/
-    @media (max-width: 359px) {.modal .m_content { width: 9rem; } }
+    @media (max-width: 359px) {.modal .m_content { width: 8rem; } }
     .bModal .m_content > *{ position: relative; z-index: 35;}
     .bModal .m_content h2 { line-height: 0.8rem; padding: 0.2rem; font-size: 0.45rem; font-weight: bold; font-style: italic; text-align: center; color: #52acd3; border-bottom: 1px solid #dadada;}
     .bModal .m_content h2 a { width: 0.64rem; height: 0.64rem; position: absolute; right: 0.1rem; top: 0.1rem; background: url("/static/frist/images/icon_sprite.svg") no-repeat -5.12rem -0.64rem; background-size: 6.4rem auto; }
@@ -1017,9 +1017,7 @@
     /*.modal > .m_content > .content > div { margin: 0 auto; text-align: center; }*/
 
     .bModal > .m_content > .content > div > img { height: 1rem; display: block; margin: 0 auto; }
-
     .bModal > .m_content > .content > div > img:last-child { height: 0.8rem; margin: .2rem auto; }
-
      .depositPeopleHint{
         display: block;
         padding-left: 2.444rem;
