@@ -185,7 +185,7 @@
           </section>
           <!--银行转账使用步骤-->
           <div class="modal" id='msgpop' style="display: block;" v-if="offFlag">
-              <div class="m_content" style="width:8rem;">
+              <div class="m_content" >
                     <h2 class="title">{{popMsgTitle}}
                       <a @click="shutDownPop"></a>
                   </h2>
