@@ -39,6 +39,12 @@
                                         </th>
                                         <td class="text-yellow">{{fortMoney(roundAmt(memBalance), 2)}}</td>
                                     </tr>
+                                    <tr >
+                                        <th>
+                                            <li>提示</li>
+                                        </th>
+                                        <td class="text-yellow"  v-if='deductStatu=="2"'>您投注太少，本次提款将扣除费用￥{{fortMoney(roundAmt(deductFee), 2)}}元</td>
+                                    </tr>
                                     </thead>
                                 </table>
                             </div>
@@ -107,7 +113,9 @@
                 PaySubmit:false ,//重复提交
                 inCorrectMessage:'提款金额必须在范围内',
                 placeholderLimit:'提款金额必须在范围内',
-
+                feeWaiver:0,
+                deductFee:0,
+                deductStatu:1,
             }
         },
         created: function() {
@@ -118,6 +126,7 @@
 
             $('html,body').css('overflow-y','scroll' )  ;
             this.getLimit()
+            this.getDeduct()
         },
         methods: {
             // 检查提款数据并提示
@@ -151,6 +160,21 @@
                     this.showHint = false;
                 }
             },
+            //获取扣除费用接口
+            getDeduct:function () {
+                  var _self = this ;
+                  $.ajax({
+                      type: 'post',
+                      headers: {
+                          "Authorization": "bearer  " + this.getAccessToken ,
+                      },
+                      url: _self.action.forseti + 'api/pay/drawOrder/judge',
+                      success: function(res){               
+                         _self.deductFee = res.data.auditDeduction;
+                         _self.deductStatu = res.data.auditStatus;
+                      }
+                  });
+              },
 
             //获取限额
             getLimit:function () {
@@ -274,6 +298,11 @@
 
                 if(_self.userMoney*100>_self.memBalance){
                     _self.$refs.autoCloseDialog.open('提款余额不足');
+                    return
+                }
+
+                if(_self.userMoney*100<=_self.deductFee&&_self.deductStatu=='2'){
+                    _self.$refs.autoCloseDialog.open('取款金额必须大于扣除费用');
                     return
                 }
 
