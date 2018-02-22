@@ -124,6 +124,7 @@
                     {id:'14','name':'新疆时时彩'} ,
                     {id:'108','name':'秒速赛车'},
                     {id:'8','name':'北京PK10'} ,
+                    {id:'24','name':'幸运飞艇'} ,
                     {id:'12','name':'天津时时彩'} ,
                     {id:'4','name':'江西11选5'} ,
                     {id:'104','name':'秒速11选5'} ,
@@ -133,6 +134,8 @@
                     {id:'6','name':'江苏快3'} ,
                     {id:'22','name':'湖北快3'} ,
                     {id:'20','name':'安徽快3'} ,
+                    {id:'10','name':'香港六合彩'} ,
+                    {id:'110','name':'五分六合彩'} ,
                 ],
                 tableLock: 0,
                 // 投注详情
@@ -479,6 +482,15 @@
                     if(lotterychooseid || lotterychooseid == '0'){
                         this.lotteryid = lotterychooseid ;
                     }
+                    if (this.lotteryid == 10) {
+                        this.setCookie('lottery_name', '香港六合彩')
+                        this.setCookie('lt_lotteryid', 10)
+
+                        // window.location = '/lhc/LhcBetRecord'
+                        this.$router.push('/lhc/LhcBetRecord')
+                        return
+                    }
+
                     this.seadata.page = 1; // 还原页码
                     $('.bet-recode-all').find('li').remove(); // 清空原来的数据
                     var $src = $(e.currentTarget);
@@ -580,6 +592,11 @@
                                         // var pcode = ('' + v.pcode).substring(8, 11);
                                         var pname = v.playName.substring(0, 2) ; // 筛选连码
 
+                                        var pnameA = v.playName.substring(0, 3) ; // 筛选连码
+                                        var pnameANum = v.playName.substring(v.playName.length - 2, v.playName.length); // 筛选连码号码
+                                        var pnameANumFlag = Number(pnameANum) <= 49 && Number(pnameANum) >= 0
+
+
                                         if(v.lotteryId =='8'){  // 北京pk10
                                             var pcode = ('' + v.issueAlias) ;
                                         }else{
@@ -603,12 +620,36 @@
                                                 className = 'status00';
                                                 break;
                                         }
+                                        // if (_self.seadata.searchType === 1) {
+                                        //     li_html = '<li class="bet_data" data-status="not_open" >' +
+                                        //         '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
+                                        //         // '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
+                                        //         '<div class="item"> ' +
+                                        //         '<div class="ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
+                                        //         '<div class="lottery_t ssc">' +
+                                        //         // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                        //         '<p>'+ v.orderId +'</p>'+
+                                        //         '<p>' ;
+                                        //     if(pname =='连码'){
+                                        //         li_html += '<span>' + v.playName + '-'+v.betContent+'</span>' ;
+                                        //     }else{
+                                        //         li_html += '<span>' + v.playName + '</span>' ;
+                                        //     }
+                                        //     li_html +=  '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                        //         '<div class="status ' + className + '" >' +
+                                        //         '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                        //         '</div>' +
+                                        //         '</a></li>';
+                                        //     // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
+                                        // }
+
+
                                         if (_self.seadata.searchType === 1) {
                                             li_html = '<li class="bet_data" data-status="not_open" >' +
                                                 '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                                 // '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                                 '<div class="item"> ' +
-                                                '<div class="ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
+                                                '<div class="badge ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
                                                 '<div class="lottery_t ssc">' +
                                                 // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                                 '<p>'+ v.orderId +'</p>'+
@@ -618,11 +659,40 @@
                                             }else{
                                                 li_html += '<span>' + v.playName + '</span>' ;
                                             }
-                                            li_html +=  '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                                '<div class="status ' + className + '" >' +
-                                                '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
-                                                '</div>' +
-                                                '</a></li>';
+                                            // if(pnameA!='特码A'){
+                                            //     li_html +=  '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                            //         '<div class="status ' + className + '" >' +
+                                            //         '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                            //         '</div>' +
+                                            //         '</a></li>';
+                                            // }else{
+
+                                            if (pnameA == '特码A' && pnameANumFlag && (v.orderStatusName == '已派彩' || v.orderStatusName == '未中奖')) {
+                                                li_html += '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                                    '<div class="status ' + className + '" >' +
+                                                    '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div><p class= "reword">返点：</p><p class= "reword">' + _self.roundAmt(v.reforwardPoint) + '元</p></div>' +
+                                                    '</div>' +
+                                                    '</a></li>';
+                                            } else {
+
+                                                // li_html +=  '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                                //    '<div class="status ' + className + '" >' +
+                                                //    '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div><p class= "reword">返点：</p><p class= "reword">'+ _self.roundAmt(v.reforwardPoint)+'元</p></div>' +
+                                                //    '</div>' +
+                                                //    '</a></li>';
+
+                                                li_html += '</p> <span class="prd_num"><span>' + pcode + '</span>期</span> <strong>' + _self.fortMoney(_self.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                                    '<div class="status ' + className + '" >' +
+                                                    '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                                    '</div>' +
+                                                    '</a></li>';
+
+
+                                            }
+
+                                            // }
+                                            // console.log(pnameA == '特码A' && pnameANumFlag, 'lst')
+
                                             // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
                                         }
                                         $(t).find('ul')

@@ -10,8 +10,9 @@
         <div @click="close">
             <div class="right_menu_box" v-if="show">
                 <ul class="right_menu">
-                    <li class="r_record">
-                        <router-link to="/publicTemplate/betRecord">
+                    <li class="r_record">                        
+                         <!-- <router-link :to="(lotteryid =='10') ? '/lhc/LhcBetRecord' : '/publicTemplate/betRecord'"> -->
+                         <router-link :to=" '/lhc/LhcBetRecord'  ">
                             <p><span class="icon icon_r_record"></span>投注记录</p>
                         </router-link>
                     </li>
@@ -25,7 +26,7 @@
                             <p>路珠</p>
                         </router-link>
                     </li>-->
-                    <li class="r_roadbeads" >
+                    <li class="r_roadbeads" v-if=" (lotteryid != '10')&&(lotteryid != '110') ">
                         <router-link to="/publicTemplate/roadBeads">
                             <p><span class="icon icon_r_roadbeads"></span>路珠</p>
                         </router-link>
@@ -39,13 +40,23 @@
                         <!-- <img src="/static/frist/images/right/5.png"> -->
                         <p><span class="icon icon_r_play"></span>玩法说明</p>
                     </li>
-                    <li class="r_today">
-                        <!-- <img src="/static/frist/images/right/6.png"> -->
-                        <p><span class="icon icon_w_record"></span>今日输赢</p>
-                       <!-- <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'')}}{{fortMoney(roundAmt(payoff))}})</div>-->
+                   <!--  <li class="r_today">
+                        <p><span class="icon icon_w_record"></span>今日输赢</p>                      
                         <div class="today_payoff win_payoff" v-if="payoff>=0">+{{fortMoney(roundAmt(payoff))}}</div>
                         <div class="today_payoff lose_payoff" v-else>-{{fortMoney(roundAmt(payoff).toString().replace(/-/g,''))}}</div>
 
+                    </li> -->
+                     <li class="r_today">
+                        <!-- <img src="/static/frist/images/right/6.png"> -->
+                        <p v-if="lotteryid == 10">
+                            <span class="icon icon_w_record"></span>本周输赢
+                        </p>
+                        <p v-else>
+                            <span class="icon icon_w_record"></span>今日输赢
+                        </p>
+                       <!-- <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'')}}{{fortMoney(roundAmt(payoff))}})</div>-->
+                        <div class="today_payoff win_payoff" v-if="payoff>=0">+{{fortMoney(roundAmt(payoff))}}</div>
+                        <div class="today_payoff lose_payoff" v-else>-{{fortMoney(roundAmt(payoff).toString().replace(/-/g,''))}}</div>
                     </li>
                 </ul>
 
@@ -60,8 +71,6 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
-import store from './../../_vuex/store'
-
 
 export default {
   name: 'UserMenu',
@@ -85,7 +94,6 @@ export default {
     },
     close:function(e){
       this.show = false;
-      this.$store.commit('Number')
     }
   },
 

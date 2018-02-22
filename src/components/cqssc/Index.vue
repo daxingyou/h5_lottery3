@@ -210,8 +210,6 @@ import MenuBar from '@/components/publicTemplate/MenuBar'
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
-import store from './../../_vuex/store'
-
 
 export default {
   name: 'Index',
@@ -293,36 +291,23 @@ export default {
     frontCenterBackList:function(){
         return this.getListByParentID(23000);
     },
-    // balancePublic:function(){
-    //     alert()
-    //     this.refreshBalance()
-    // },
+   
   },
   watch:{
-    /* balancePublic:function(){
-        // alert()
-        // this.refreshBalance()
-    },*/
+    
   },
 
-  methods:{
-    refreshBalance:function(){
-        var afterBetCookie = this.getCookie( 'balancePublic' )
-        this.balancePublic = afterBetCookie
-        // console.log(afterBetCookie)      
+  methods:{   
+     refreshBalance(newBalance) {
+        this.balancePublic = newBalance
+        this.getMemberBalance(this.lotteryID)
     },
      bgFocus: function () {
-           alert()
-          // this.$store.commit('Number')
           var bb = $('.body_bg')[0]
           var bb = document.getElementsByClassName('body_bg')[0]
-
-
             bb.addEventListener('click',function(){
              bb.focus();
             });
-
-          console.log('')
         },
     switchTab:function(e){
         var _self = this ;
@@ -359,6 +344,9 @@ export default {
         // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
         this.entertainStatus = true;
         this.resetAction();
+        // if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+        //     this.lotteryDataFetch(1)                    
+        // }
     },
     //获取开奖更据 needIn 是否需要再次调用倒计时定时器
     lotteryDataFetch:function(needIn){
@@ -377,7 +365,8 @@ export default {
 
                     that.ishwowpriod = true ;
                     that.next_pcode = res.data[0].pcode;  // 下期期数
-
+                    var OpenFlag1 = ( sys_time > res.data[1].endTime )&&(sys_time < res.data[0].startTime)
+                    var OpenFlag = (sys_time > res.data[0].startTime&&sys_time < res.data[0].endTime)
                     var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
                     let code = res.data[2].winNumber;
                     if(firstpcode =='024' && that.lotteryID == '2'){  // 重庆时时彩 白天第一期
@@ -442,24 +431,60 @@ export default {
                             that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                             that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
                             that.now_pcode = res.data[0].pcode;  // 当前期数
+                            that.winNumber = res.data[1].winNumber;
+                            that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[1].pcode;  // 上期期数
                         }else{
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
                             that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
                             that.now_pcode = res.data[1].pcode;  // 当前期数
-                        }
-
-                        //code 上期开奖号码
-                        if (!code) {
-                            // code = '-,-,-,-,-';
-                            that.winNumber = res.data[3].winNumber;
-                            that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
-                            that.previous_pcode = res.data[3].pcode;  // 上期期数
-                        }else{
                             that.winNumber = res.data[2].winNumber;
                             that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                             that.previous_pcode = res.data[2].pcode;  // 上期期数
                         }
+
+                      
                     }
+
+                    if( that.lotteryID == '2'&& OpenFlag1&&firstpcode =='001'){
+                        that.notopen = true ;
+                        that.now_time = that.formatTimeUnlix(res.data[0].endTime);  // 当前期数时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                        that.now_pcode = res.data[0].pcode;  // 当前期数
+
+                        that.winNumber = res.data[1].winNumber;
+                        that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                        that.previous_pcode = res.data[1].pcode;  // 上期期数
+                    }
+                    if( that.lotteryID == '2'&& OpenFlag&&firstpcode =='001'){
+                        that.notopen = false ;
+                        that.now_time = that.formatTimeUnlix(res.data[0].endTime);  // 当前期数时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                        that.now_pcode = res.data[0].pcode;  // 当前期数
+                        that.winNumber = res.data[1].winNumber;
+                        that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                        that.previous_pcode = res.data[1].pcode;  // 上期期数
+                    }
+                    code = that.winNumber                  
+
+                    if (!code) {
+                        let hasFind = false
+                        _.forEach(res.data, (item, index) => {
+                            if (_.size(item.winNumber) > 0 && index >= 2) {
+                                that.winNumber = item.winNumber
+                                that.previous_pcode = item.pcode
+                                that.lastTermStatic = item.doubleData;
+                                hasFind = true
+                                return false
+                            }
+                        })
+                        if (!hasFind) {
+                            that.winNumber = code
+                        }
+                    }
+                    // else {
+                    //     that.winNumber = code
+                    // }
 
                     if(res.data[1].status >1){ // 异常情况，如提前开盘 2
                         that.entertainStatus = true;
@@ -489,7 +514,12 @@ export default {
     /*    this.lotteryDataFetch().then(()=>{
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
         })*/
-        that.entertainStatus = false;
+        // that.entertainStatus = false;
+        if (that.$refs.countdownTimer.wrongFlag) {
+            that.entertainStatus = true;
+        } else {
+            that.entertainStatus = false;
+        }
         that.notopen = false;
     },
     resetAction:function(success){

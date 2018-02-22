@@ -9,7 +9,6 @@
             <div class="bet_count">
                 <form>
                     <input placeholder="输入金额" type="tel" class="bet-amount" v-model="betAmount">
-                    <!--<input type="reset" @click="$parent.resetAction()" value="重置" >-->
                     <a class="submit" href="javascript:;" @click="$parent.resetAction()">重置</a>
                 </form>
             </div>
@@ -66,8 +65,6 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
-import {mapState, mapGetters} from 'vuex'
-
 
 export default {
     name: 'Bet',
@@ -86,6 +83,7 @@ export default {
             // shadeStatus:false,
             showList:false ,
             ajaxSubmitAllow :false ,  // 解决重复提交的问题
+            beforeBetBalance: 0 ,        
         }
     },
     computed:{
@@ -107,18 +105,14 @@ export default {
                 return this.betSelectedList.length * this.betAmount
             }
         },
-        foc: function () {
-            this.focuFirst()
-            return this.$store.state.foc
-        },
+       
     },
 
     watch: {
-        foc: function () {
-        }
+       
     },
     mounted:function(){
-        this.focuFirst()
+        console.log(this,'this')
     },
     methods:{
         /*
@@ -148,15 +142,9 @@ export default {
         * */
 
         submitAction:function(lotteryid) {
-        // console.log( this.balance )
-
-
-
             // var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
             const total_mon = this.monAmt(this.totalAmount);
-
-            // console.log( total_mon )
-            // console.log( this.balance )
+            this.beforeBetBalance = this.balance 
 
             // 余额不足提示充值
             // if (this.monAmt(total_mon) > this.monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
@@ -169,8 +157,6 @@ export default {
             }
 
             // 调用父组件方法刷新余额
-            // this.$emit('refreshBalance')
-
             var that = this;
             if(this.ajaxSubmitAllow){
                 return false ;
@@ -208,24 +194,19 @@ export default {
                         return false;
                     }        
                     if (data.err == 'SUCCESS') {  //购买成功
-                       
                         this.ajaxSubmitAllow = false ;     //解决瞬间提交2次的问题
-                        // initTipPop05(true,3) ;
-                        // this.parentRefs.autoCloseDialog.open('购买成功')
-                        this.parentRefs.betSuccessfulDialog.open('购买成功')
-                        this.resetAction('1') ;  // 下注成功不清空金额
-                        that.getMemberBalance() ; // 更新余额
-                        // console.log(total_mon)
-                        that.getCookie( 'balancePublic' )
-                        // console.log(that.getCookie( 'balancePublic' ) )
-                        var x = Number(that.getCookie( 'balancePublic' ) )  - Number(total_mon)
-                         // console.log( x+ 'ch') ;
-                         that.setCookie("balancePublic",x);
-                         this.$emit('refreshBalance') ;
-                         console.log('abstract')
-                        // console.log(that.balancePublic)                        
-
-                        return false;
+                        let newBalance = Number(data.msg)
+                        if (newBalance >= 0) {
+                            this.parentRefs.betSuccessfulDialog.open('购买成功')
+                            this.$emit('refreshBalance', newBalance);
+                        }
+                        else {
+                            this.$emit('refreshBalance', that.beforeBetBalance)
+                            this.parentRefs.infoDialog.open('余额不足，请充值后继续进行！', '下注失败')
+                        }
+                        this.resetAction('1')
+                        return false;            
+                        
                     } else {  //购买失败提示
                         this.ajaxSubmitAllow = false ;
                         if(data.data =='' || data.data ==null){ // 平台商不存在
@@ -240,9 +221,9 @@ export default {
 
                             }
                         }
+                        this.$emit('refreshBalance', that.beforeBetBalance)                     
 
                         return false ;
-
                     }
                 },
                 error: function (e) {  // 错误提示

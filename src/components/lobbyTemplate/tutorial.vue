@@ -9,7 +9,8 @@
             <h2 class="center title_name">{{copyTitle}}</h2>
             <div class="right"></div>
         </header>
-        <div class="content" id="freshContent">
+        <div class="pa_content" id="freshContent">
+            <div class="tutorial_area page_box">
            <div class="tabset">
                 <!-- Tab 1 -->
                 <input type="radio" name="tabset" id="tab1" aria-controls="agent" checked @click="gotoTop('xsjc')">
@@ -23,6 +24,7 @@
 
                     </section>
                 </div>
+            </div>
             </div>
         </div>
 
@@ -93,19 +95,18 @@ export default {
 
 }
 </script>
-<style >
+<style scope>
 
 
-    #freshContent {
+    /*#freshContent {
         margin-top: 1.37rem;
-    }
+    }*/
 
     #freshContent .tab-pone {
-        padding: 10px 7%;
+        padding: 0.3rem;
     }
     #freshContent .tab-pone p {
-        line-height: 30px;
-        margin: .5rem 0;
+        margin: .3rem 0;
         text-align: left;
 
     }

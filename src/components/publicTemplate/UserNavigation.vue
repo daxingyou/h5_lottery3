@@ -25,13 +25,13 @@
 
           <div>
                 <div class="back_home" >
-                  <router-link v-bind:to="'/'">
+                  <a href="/">
                     <!--<span><img src="/static/frist/images/left/icon_home.png"></span>-->
                         <span>返回竞彩大厅</span>
-                  </router-link>
+                  </a>
                 </div>
                 <ul class="all_lottery">
-                  <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
+                  <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery"  >
                     <router-link :to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                           <!-- <img :src="lottery.imgUrl" alt="">-->
@@ -52,7 +52,6 @@
 
 <script>
 import Mixin from '@/Mixin'
-import store from './../../_vuex/store'
 
 // import $ from "jquery";
 //  import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
@@ -84,12 +83,15 @@ export default {
             
             "8":"pk10",
             "108":"pk10/SecondPk10",//赛车
+            "24":"pk10/LuckyBoat",//飞艇
             
             "6":"k3/",  //江苏快3
             "20":"k3/anHuiK3Index",  
             "22":"k3/huBeiK3Index",
-            "106":'k3/miaoSuK3Index'
-            
+            "106":'k3/miaoSuK3Index',
+            "10":"lhc" ,
+            "110":"wflhc",    
+                       
           }, // 对应彩种的id
         }
     },
@@ -98,10 +100,10 @@ export default {
   } ,
   mounted:function() {
       this.haslogin = this.ifLogined() ;
-      this.setCookie('haslogin', this.haslogin)
-      
+      this.setCookie('haslogin', this.haslogin)      
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
+      $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; 
     }) ;
 
   },
@@ -109,8 +111,7 @@ export default {
       // 关闭侧滑栏
     close:function(e){
       this.showNavigation = false;
-        this.$store.commit('Number')
-      
+      $('html,body').css({'height':'auto','overflow-y':'scroll'}) ;      
     },
       // 获取彩种
       getLotterys:function() {
@@ -126,9 +127,11 @@ export default {
                       data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
                       dataType: 'json',
                       success:(res)=> {
-                      _self.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
+                      _self.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种   
+
                   resdata = res.data ;
-//                  console.log(res.data)
+                 // console.log(res.data)
+                 // console.log(res.data[5].cid)
                   sessionStorage.gamelist= JSON.stringify(res.data) ; // 把彩种放在session 里
 
               },

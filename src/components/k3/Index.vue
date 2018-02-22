@@ -217,8 +217,6 @@
     import PlayDialog from '@/components/k3/PlayDialog'
     import Mixin from '@/Mixin'
     import '../../../static/frist/css/k3.css'
-    import store from './../../_vuex/store'
-    
 
     export default {
       name: 'k3Index',
@@ -302,15 +300,10 @@
             },
           },
           methods:{
-             refreshBalance:function(){
-                var afterBetCookie = this.getCookie( 'balancePublic' )
-                this.balancePublic = afterBetCookie
-                console.log(afterBetCookie)      
+             refreshBalance(newBalance) {
+                this.balancePublic = newBalance
+                this.getMemberBalance(this.lotteryID)
             },
-             bgFocus: function () {
-              this.$store.commit('Number')
-            },
-
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);
             },
@@ -350,6 +343,9 @@
                 // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
                 this.resetAction();
+                //  if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+                //     this.lotteryDataFetch(1)                    
+                // }
             },
 
             lotteryDataFetch:function(needIn){
@@ -413,6 +409,7 @@
                                 }
 
                                 //code 上期开奖号码
+
                                 if (!code) {
                                     // code = '-,-,-,-,-';
                                     that.winNumber = res.data[3].winNumber;
@@ -424,6 +421,26 @@
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
                                 }
                             }
+                            code = that.winNumber                                                
+                            if (!code) {
+                                let hasFind = false
+                                _.forEach(res.data, (item, index) => {
+                                    if (_.size(item.winNumber) > 0 && index >= 2) {
+                                        that.winNumber = item.winNumber
+                                        that.lastTermStatic = item.doubleData;    //上期开奖统计
+                                        that.previous_pcode = item.pcode
+                                        hasFind = true
+                                        return false
+                                    }
+                                })
+                                if (!hasFind) {
+                                    that.winNumber = code
+                                }
+                            }
+                            else {
+                                that.winNumber = code
+                            }
+
                             if(res.data[1].status >1){ // 异常情况，如提前开盘 2
                                 that.entertainStatus = true;
                             }
@@ -445,7 +462,14 @@
                /* this.lotteryDataFetch().then(()=>{
                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 })*/
-                that.entertainStatus = false;
+                // that.entertainStatus = false;
+                if (that.$refs.countdownTimer.wrongFlag) {
+                    that.entertainStatus = true;
+                } else {
+                    that.entertainStatus = false;
+                }
+
+
                 that.notopen = false;
             },
             resetAction:function(success){

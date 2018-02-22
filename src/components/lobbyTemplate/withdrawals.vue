@@ -46,7 +46,7 @@
                                 <div class="form_g text">
                                     <legend>取款金额</legend>
                                     <input type="text" v-model="userMoney"  class="money" :placeholder = 'placeholderLimit' @input = 'checkWithdrawMoneyNow(userMoney,"money")' >
-                                    <i class="close close1" @click="ClearInput('close1','money')"></i>
+                                    <i class="icon icon_close close1" @click="ClearInput('close1','money')"></i>
                                 </div>
                                 <div  v-if = 'showHint' class="withdrawlHint" id="withdrawlHint"> {{hintWord}} </div>
 
@@ -55,7 +55,7 @@
                                 <div class="form_g text">
                                     <legend>取款密码</legend>
                                     <input type="text" v-model="cashPassword" class="password" onfocus="this.type='password'" maxlength="4" placeholder="4位数字密码">
-                                    <i class="close close2" @click="ClearInput('close1','password')"></i>
+                                    <i class="icon icon_close close2" @click="ClearInput('close2','password')"></i>
                                 </div>
                             </fieldset>
                             <div class="">

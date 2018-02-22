@@ -14,6 +14,7 @@ import AnHuiK3Index from '@/components/k3/AnHuiIndex'  // 安徽快3
 import HuBeiK3Index from '@/components/k3/HuBeiIndex'  // 湖北快
 import Pk10Index from '@/components/pk10/Index'  // 北京 pk10
 import SecondPk10 from '@/components/pk10/SecondPk10'  // 北京 pk10
+import LuckyBoat from '@/components/pk10/LuckyBoat'  // 幸运飞艇
 
 import CqsscIndex from '@/components/cqssc/Index'  // 重庆时时彩
 import TjsscIndex from '@/components/cqssc/TianJinIndex'  // 天津时时彩
@@ -33,6 +34,11 @@ import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中�
 import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
 import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
+
+import LhcIndex from '@/components/lhc/Index' // 六合彩
+import WfLhcIndex from '@/components/lhc/wflhc' // 五分六合彩
+
+import LhcBetRecord from '@/components/lhc/LhcBetRecord' // 六合彩投注紀錄
 
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
@@ -120,6 +126,11 @@ export default new Router({
       name: 'SecondPk10',
       component: SecondPk10
     },
+     {
+      path: '/pk10/LuckyBoat',
+      name: 'LuckyBoat',
+      component: LuckyBoat
+    },
     { //重庆时时彩
       path: '/cqssc/',
       name: 'cqsscIndex',
@@ -140,9 +151,16 @@ export default new Router({
         name: 'SecondSsc',
         component: SecondSsc
     },
-
-
-
+    {
+        path: '/lhc',
+        name: 'LhcIndex',
+        component: LhcIndex
+    },
+    {
+      path: '/wflhc',
+      name: 'WfLhcIndex',
+      component: WfLhcIndex
+    },
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/lobbyPastView', name:'lobbyPastView', component: lobbyPastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
@@ -155,6 +173,9 @@ export default new Router({
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
     { path: '/lobbyTemplate/about', name:'about', component: about },
     { path: '/lobbyTemplate/tutorial', name:'tutorial', component: tutorial },
+
+      {path: '/lhc/LhcBetRecord', name: 'lhcBetRecord', component: LhcBetRecord},
+    
 
     // import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
     { path: '/lobbyTemplate/acDetailData', name:'acDetailData', component: acDetailData, props: (route) => ({ 

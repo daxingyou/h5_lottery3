@@ -53,11 +53,11 @@
                                         <li>{{lastTermStatic.top2_total}}</li>
                                         <li>{{lastTermStatic.top2_sizer}}</li>
                                         <li>{{lastTermStatic.top2_doubler}}</li>
-                                        <li>{{lastTermStatic.lh_5}}</li>
-                                        <li>{{lastTermStatic.lh_4}}</li>
-                                        <li>{{lastTermStatic.lh_3}}</li>
-                                        <li>{{lastTermStatic.lh_2}}</li>
                                         <li>{{lastTermStatic.lh_1}}</li>
+                                        <li>{{lastTermStatic.lh_2}}</li>
+                                        <li>{{lastTermStatic.lh_3}}</li>
+                                        <li>{{lastTermStatic.lh_4}}</li>
+                                        <li>{{lastTermStatic.lh_5}}</li>
 
                                     </ul>
                                 </div>
@@ -258,7 +258,6 @@
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/pk10/PlayDialog'
     import Mixin from '@/Mixin'
-    import store from './../../_vuex/store'
 
 export default {
     name: 'pk10Index',
@@ -338,14 +337,10 @@ export default {
         },
     },
     methods:{
-         refreshBalance:function(){
-                var afterBetCookie = this.getCookie( 'balancePublic' )
-                this.balancePublic = afterBetCookie
-                console.log(afterBetCookie)      
-        },
-        bgFocus: function () {
-          this.$store.commit('Number')
-        },
+        refreshBalance(newBalance) {
+            this.balancePublic = newBalance
+            this.getMemberBalance(this.lotteryID)
+        },       
         switchTab:function(e){
             var _self = this ;
             const $src = $(e.currentTarget);
@@ -384,6 +379,9 @@ export default {
             // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
             this.entertainStatus = true;
             this.resetAction();
+            // if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+            //     this.lotteryDataFetch(1)                    
+            // }
         },
 
         lotteryDataFetch:function(needIn){
@@ -409,18 +407,26 @@ export default {
                                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);  // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
                                         that.now_pcode = res.data[0].issueAlias;  // 当前期数
+                                        if(that.lotteryID == '108' ){
+                                            that.now_pcode = res.data[0].pcode;
+                                        }
                                         that.pk10_now_pcode = res.data[0].pcode;  // 当前期数
                                     }else{
                                         that.now_time = that.formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
                                         that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                                        if(that.lotteryID == '108' ){
+                                            that.now_pcode = res.data[1].pcode;
+                                        }
                                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                                     }
 
                                 that.winNumber = res.data[2].winNumber;
                                 that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[2].issueAlias;  // 上期期数
-
+                                if(that.lotteryID == '108' ){
+                                    that.previous_pcode = res.data[2].pcode;
+                                }
                                 }else{
                                     if( res.data[0].startTime - sys_time >0){  // 未开盘状态
                                         that.notopen = true ;
@@ -428,6 +434,9 @@ export default {
                                         that.notopen = false ;
                                     }
                                     that.now_pcode = res.data[0].issueAlias;  // 当前期数
+                                    if(that.lotteryID == '108' ){
+                                        that.now_pcode = res.data[0].pcode;
+                                    }
                                     that.pk10_now_pcode = res.data[0].pcode;  // 当前期数
                                     // 当前期数时间
                                     that.now_time = that.formatTimeUnlix(res.data[0].endTime);
@@ -436,6 +445,9 @@ export default {
                                     that.winNumber = res.data[1].winNumber;
                                     that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                                     that.previous_pcode = res.data[1].issueAlias;  // 上期期数
+                                    if(that.lotteryID == '108' ){
+                                        that.previous_pcode = res.data[1].pcode;
+                                    }
                             }
 
                         }else{
@@ -444,11 +456,17 @@ export default {
                                 that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
                                 that.now_pcode = res.data[0].issueAlias;  // 当前期数
+                                if(that.lotteryID == '108' ){
+                                    that.now_pcode = res.data[0].pcode;
+                                }
                                 that.pk10_now_pcode = res.data[0].pcode;  // 当前期数
                             }else{
                                 that.now_time = that.formatTimeUnlix(res.data[1].endTime);    // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);
                                 that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                                if(that.lotteryID == '108' ){
+                                    that.now_pcode = res.data[1].pcode;
+                                }
                                 that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                             }
                             if (!code) {  //code 上期开奖号码
@@ -456,13 +474,39 @@ export default {
                                 that.winNumber = res.data[3].winNumber;
                                 that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[3].issueAlias;  // 上期期数
+                                if(that.lotteryID == '108' ){
+                                    that.previous_pcode = res.data[3].pcode;
+                                }
                             }else{
                                 that.winNumber = res.data[2].winNumber;
                                 that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[2].issueAlias;  // 上期期数
+                                if(that.lotteryID == '108' ){
+                                    that.previous_pcode = res.data[2].pcode;
+                                }
                             }
-
-
+                        }
+                        code = that.winNumber
+                        if (!code) {
+                            let hasFind = false
+                            _.forEach(res.data, (item, index) => {
+                                if (_.size(item.winNumber) > 0 && index >= 2) {
+                                    that.winNumber = item.winNumber
+                                    that.previous_pcode = item.issueAlias
+                                    if(that.lotteryID == '108' ){
+                                        that.previous_pcode = item.pcode;
+                                    }
+                                    that.lastTermStatic = item.doubleData;
+                                    hasFind = true
+                                    return false
+                                }
+                            })
+                            if (!hasFind) {
+                                that.winNumber = code
+                            }
+                        }
+                        else {
+                            that.winNumber = code
                         }
 
                         if(res.data[1].status >1){ // 异常情况，如提前开盘 2
@@ -489,7 +533,12 @@ export default {
 
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
             })*/
-            that.entertainStatus = false;
+            // that.entertainStatus = false;
+           if (that.$refs.countdownTimer.wrongFlag) {
+                that.entertainStatus = true;
+            } else {
+                that.entertainStatus = false;
+            }
             that.notopen = false;
         },
         resetAction:function(success){
@@ -516,11 +565,6 @@ export default {
                 this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
             }
         },
-
-
-        // play:function(){
-        //     this.$refs.playDialog.open()
-        // }
 
     }
 
