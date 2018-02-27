@@ -90,7 +90,7 @@ let LhcMixin = {
             }
 
             this.setClickHeight($('#scroller'), scrolling_height)
-            this.setClickHeight($('.tab_container'), $('#so-item' + currentBarIndex).height() + 40)
+            this.setClickHeight($('.tab_container'), $('#so-item' + currentBarIndex).height() )
 
         },
         setClickHeight(elem, height) {
