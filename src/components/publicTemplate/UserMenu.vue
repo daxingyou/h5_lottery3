@@ -10,10 +10,10 @@
         <div @click="close">
             <div class="right_menu_box" v-if="show">
                 <ul class="right_menu">
-                    <li class="r_record"> 
-                        <a href = '/lhc/LhcBetRecord' >
+                    <li class="r_record">                        
+                         <router-link :to=" '/lhc/LhcBetRecord' ">
                             <p><span class="icon icon_r_record"></span>投注记录</p>
-                        </a>
+                          </router-link>
                     </li>
                     <li class="r_pastview">
                         <router-link to="/publicTemplate/pastView">
