@@ -102,6 +102,8 @@
                     this.betRate = 0
 
                 let matchItem = _.find(this.playGroup, {number: nBetItem})
+                console.log( matchItem,'matchItem')
+                console.log( this.playGroup,'playGroup')
                 if (matchItem) {
                     this.betRate = matchItem.item.oddsData.payoff
                     this.$emit('lhcsetcnt',1)
@@ -121,6 +123,7 @@
                         })
                     }
                 }
+                console.log( this.betRate,'rate' )
             }
         },
         methods: {

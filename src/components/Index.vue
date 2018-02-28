@@ -10,7 +10,7 @@
                      <span class="icon icon_nav"></span>
                  </a>
              </div>
-             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/frist/images/logo.svg" alt="时时彩票"></h2>
+             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img :src="logosrc" alt="时时彩票"></h2>
              <div class="right">
                  <router-link to="/login" class="new_btn_outline" v-show="!haslogin">登录</router-link>
                  <router-link to="/reg" class="new_btn_outline" v-show="!haslogin" >注册</router-link>
@@ -18,7 +18,10 @@
                  <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
                  <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'" @click="CheckDemoPlay()"><span class="icon icon_user"></span>游客</a>  <!--  试玩帐号 -->
                  <span class="memberaccount" v-show="haslogin && logintype=='1'">{{getCookie('username')}}</span>
-                 <a class="new_btn_outline" href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
+                 <!-- <a class="new_btn_outline" href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a> -->
+                <router-link to="/lobbyTemplate/notification" class="btn_notification" >
+                   <span :class="( !noticeIndexStatu)?  'memberaccount icon icon_mail saw' : 'memberaccount icon icon_mail' " v-show="haslogin && logintype=='1'" ><!--消息--></span>
+                 </router-link>
              </div>
          </header>
 
@@ -181,9 +184,9 @@
               </div>
           </section>
           <!--银行转账使用步骤-->
-          <div class="modal" v-if="offFlag">
-              <div class="m_content">
-                  <h2 class="title">{{popMsgTitle}}
+          <div class="modal" id='msgpop' style="display: block;" v-if="offFlag">
+              <div class="m_content" >
+                    <h2 class="title">{{popMsgTitle}}
                       <a @click="shutDownPop"></a>
                   </h2>
                   <p class="content left">
@@ -191,6 +194,8 @@
                   </p>
               </div>
           </div>
+
+          
       </div>
       <Confirm ref="confirm" />
       <FooterNav />
@@ -239,7 +244,11 @@ export default {
             currPopMsgCid:"",
             picture:'',
             cid:'',
-            custUrl:''
+            custUrl:'',
+            siteData:[],
+            logosrc:'',
+            noticeIndexStatu:false,
+            noticeIndexRead:true,
         }
     },
     computed:{
@@ -250,23 +259,26 @@ export default {
 
     },
     mounted:function() {
+      // $('#msgpop').css('width','8rem')
       $('html,body').css('overflow-y','scroll' )  ;
       this.allLottery = this.$refs.navone.getLotterys() ;
-      console.log( this.allLottery ,'caizhong')
+      // console.log( this.allLottery ,'caizhong')
       this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
       this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
       if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }
-       this.getBulletinsContent ();
-       this.getPopMsg();
-       this.carouselImg();
-       this.getActivity();
-       this.getCustom()
-       this.getAppUrl()
-      //  this.getCopyright('1', 'BT01')
-      // this.getCopyright('1', 'BT05')
-
+      this.getBulletinsContent ();
+      this.getPopMsg();
+      this.carouselImg();
+      this.getActivity();
+      this.getCustom()
+      this.getAppUrl()
+      this.getSite()      
+      if(this.haslogin&& this.getCookie("acType")=='1' ){  // 只有登录状态才需要调
+          this.getMsglistStatus()
+      }     
+      this.touchmove()
   },
     methods:{
       getBulletinsContent :function () {
@@ -337,8 +349,10 @@ export default {
                       return false
                 }
                 else{
+
                       if(res.data ||res.data[0]||res.data[0].title){
                           _self.offFlag=true;
+                          // console.log(_self.offFlag ,'_selfoffFlag' )
                       }
                       //console.log(res.data)
                       _self.popMsgTitle=res.data[0].title;
@@ -347,16 +361,11 @@ export default {
                       _self.popMsgCid.push(res.data[0].cid);
                       _self.currPopMsgCid=res.data[0].cid;
                   }
-
-
                   if(localStorage.getItem('cid')==null){
                       return
                   }else {
                      this. changeOffFlag ()
                   }
-
-
-
               }
           })
       },
@@ -481,6 +490,39 @@ export default {
                 // console.log(_self.appUrl, 'url-else')
             }
         },
+           getSite:function () {
+              var _self=this;
+              $.ajax({
+                  type:'get',
+                   // headers: {
+                   //      "Authorization": "bearer  " + this.getAccessToken,
+                   //  },
+                  url: _self.action.forseti + 'apid/cms/site',             
+                  success:(res)=>{
+                    _self.siteData = res.data;
+                    // console.log(_self.siteData,'site3') 
+                    _self.setCookie('siteData', JSON.stringify(_self.siteData ) )
+                    document.title = _self.siteData.h5Name   
+                    _self.logosrc = _self.action.picurl+_self.siteData.logoUrl+'/0'
+                  }
+              })
+          },
+           getMsglistStatus:function () {
+              var _self=this;
+              $.ajax({
+                  type:'get',
+                  headers: {
+                      "Authorization": "bearer  " + _self.getAccessToken,
+                  },
+                  url: _self.action.forseti + 'apid/cms/msg/status',
+                  data:{
+                    sourceType:2,                    
+                  },
+                  success:(res)=>{
+                    _self.noticeIndexStatu = res.data 
+                  }
+              })
+          },
 
   },
 

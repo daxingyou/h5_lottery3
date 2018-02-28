@@ -64,10 +64,11 @@
                                     -->
                                     <!-- 本周 -->
                                     <li :class="showClass(collapseCtrl[index2])" :data-val="item" v-for="(item, index2) in showTitleList">
-                                        <div class="panel_title new_panel_top" @click="getBetRecord(index2)">
+                                        <div class="panel_title new_panel_top" @click="getBetRecord(index2,$event)">
                                             <strong class="title-data" v-if="lotteryid == 10">{{item}}</strong>
                                             <strong class="title-data" v-else>{{showDateList[index2]}}</strong>
-                                            <span><!-- 此為箭頭，點按後展開或收合，預設第一個為展開（父層li的class有active） --></span></div>
+                                            <span><!-- 此為箭頭，點按後展開或收合，預設第一個為展開（父層li的class有active） --></span>
+                                        </div>
                                         <ul class="panel new_panel_center bet-recode-all" style="display: block;">
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="loadingList[index2] == 1 && betRecordList[index2].length == 0">正在加载...</li>
                                             <li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz" v-if="betRecordList[index2].length == 0 && collapseCtrl[index2] == 1 && loadingList[index2] == 0">没有数据了</li>
@@ -163,12 +164,12 @@
                 mySwiperTrack: null,
                 gamechoose :[
                     {id:'0','name':'全部'} ,
-
-                   {id:'2','name':'重庆时时彩'} ,
+                    {id:'2','name':'重庆时时彩'} ,
                     {id:'102','name':'秒速时时彩'} ,
                     {id:'14','name':'新疆时时彩'} ,
                     {id:'108','name':'秒速赛车'},
                     {id:'8','name':'北京PK10'} ,
+                    {id:'24','name':'幸运飞艇'} ,
                     {id:'12','name':'天津时时彩'} ,
                     {id:'4','name':'江西11选5'} ,
                     {id:'104','name':'秒速11选5'} ,
@@ -179,6 +180,7 @@
                     {id:'22','name':'湖北快3'} ,
                     {id:'20','name':'安徽快3'} ,
                     {id:'10','name':'香港六合彩'},
+                    {id:'110','name':'五分六合彩'},
                 ],
                 ajaxSubmitAllow: false,
                 betRecordList: [[], [], []],
@@ -189,6 +191,7 @@
                 showDateList:[],
                 showTitleList:["本周", "上周", "上上周"],
                 pDateList:[],
+                countClick:false,
             }
         },
         created() {
@@ -209,9 +212,7 @@
                 return '' + this.year + this.mon + this.day;
             },
         },/*computed*/
-        mounted() {
-            console.log(this.lotteryid, 'idlhc')
-            console.log(this.lotteryname, 'idlhc')
+        mounted() {           
             $('html,body').css('overflow-y','scroll' )  ;
             if (this.lotteryid != 10) {
                 this.seadata.pdate = this.newpdate;
@@ -380,6 +381,7 @@
             this.soyeScroll = new soyeScroll('.bet_data');
             this.soyeScroll.init(() => {
                 if (this.lock === 0) {
+
                     this.lock = 1;
                     this.restr = '';
                     let pdate
@@ -391,14 +393,12 @@
 
         },/*mounted*/
         watch: {
-            
+
         },
         methods: {
 
             // 左上角返回键
-            backToIndex:function(){
-
-                console.log( this.lotteryid )
+            backToIndex:function(){                
                 if(this.lotteryid == 10){
                     this.$router.push('/lhc')
                 }else{
@@ -416,7 +416,6 @@
             },
             showClass(stat) {
                 let classStr = "slide_toggle bet_day new_bet_day new_panel"
-
                 if (stat == 1) {
                     classStr += ' active'
                 }
@@ -456,9 +455,14 @@
                     nowDateData.setDate(nowDateData.getDate() - 1)
                 }
             },
-            getBetRecord(pdate) {
+            getBetRecord(pdate,$event) {
+                // console.log(  $('.so-zzjz').height()>0,'height' )
+                var showF = false;
+                if($event){
+                    var src = $event.currentTarget
+                    showF = (  $(src).next().height()>20 )                    
+                }
                 let _self = this ;
-
                 if (pdate < 0) {
                     return false
                 }
@@ -466,25 +470,28 @@
                 if(_self.ajaxSubmitAllow){ // 解决重复提交问题
                     return false ;
                 }
-
-                if (this.collapseCtrl[pdate] == 1 && this.lock == 0) {
+                if ( showF|| this.collapseCtrl[pdate] == 1 && this.lock == 0 ) {
                     this.$set(this.collapseCtrl, pdate, 0)
                     this.pageList[pdate] =  1
                     this.betRecordList[pdate] = []
+                        console.log('click1',this.lock)
+                         console.log(_self.collapseCtrl[0],'out1')//1
+                        console.log(_self.loadingList[0],'out')//0
                 }
                 else {
                     this.$set(this.collapseCtrl, pdate, 1)
                     _.forEach(this.collapseCtrl, (val, index2) => {
                         if (pdate != index2 && index2 <= 2) {
-                            this.$set(this.collapseCtrl, index2, 0)
+                            this.$set(this.collapseCtrl, index2, 0)//
                             this.pageList[index2] = 1
-                            this.betRecordList[index2] = []
+                            this.betRecordList[index2] = []//
                         }
                     })
-                    this.$set(this.loadingList, pdate, 1)
+
+                    this.$set(this.loadingList, pdate, 1)//
 
                     _self.seadata.lotteryId = _self.lotteryid // 彩种ID
-                    _self.seadata.page = _self.pageList[pdate]
+                    _self.seadata.page = _self.pageList[pdate]//
                     if (this.lotteryid == 10) {
                         _self.seadata.pdate = pdate
                     }
@@ -492,6 +499,8 @@
                         _self.seadata.pdate = _self.pDateList[pdate]
                     }
                     _self.ajaxSubmitAllow = true;
+
+
                     $.ajax({
                         type: 'post',
                         headers: {
@@ -516,7 +525,11 @@
                                     _.forEach(dataList, (betData, index) => {
                                         let betDataObj = {}
                                         betDataObj.lotteryid = betData.lotteryId
-                                        betDataObj.pcode = betData.issueAlias
+                                        if(betData.lotteryId == '10'||betData.lotteryId == '8'){
+                                            betDataObj.pcode = betData.issueAlias
+                                        }else{
+                                            betDataObj.pcode = betData.pcode
+                                        }
                                         betDataObj.orderstatus = betData.orderStatus
                                         betDataObj.orderstatusname = betData.orderStatusName
                                         betDataObj.betamount = this.fortMoney(this.roundAmt(betData.betAmount), 2)
@@ -541,6 +554,7 @@
                                 if (_.size(dataList) > 0)
                                     _self.pageList[pdate]++;
                                 this.$set(this.loadingList, pdate, 0)
+
                             }
                             error: () => {
                                 _self.ajaxSubmitAllow = false
@@ -548,6 +562,7 @@
                             }
                         },
                     })
+
                 }
             },
             /**

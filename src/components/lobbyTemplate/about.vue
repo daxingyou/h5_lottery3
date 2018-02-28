@@ -9,8 +9,8 @@
             <h2 class="center title_name">{{copyTitle}}</h2>
             <div class="right"></div>
         </header>
-        <div class="content">
-            <div v-html="copyContent" class="about_area">
+        <div class="pa_content">
+            <div v-html="copyContent" class="about_area page_box">
                 <!--<p>-->
                     <!--百乐彩注册在菲律宾马尼拉，持有菲律宾政府卡格扬经济特区 First Cagayan leisure and Resort Corporation颁发的体育博彩与线上赌场执照，接受菲律宾政府和卡格扬经济特区CEZA授权和监管，我们一切博彩营业行为皆遵从菲律宾政府博彩条约。在竞争日益激烈的网络博彩市场中，我们不断地求新求变，寻找最新的创意，秉持最好的服务。向客户提供高品质的服务、先进的产品、丰富的娱乐体验，是我们新葡京娱乐场永恒的宗旨。-->
                 <!--</p>-->

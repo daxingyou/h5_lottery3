@@ -23,14 +23,14 @@
                                         <div class="so-m-t-right" v-show="ishwowpriod">
                                             <div class="last-open-num">
                                                 <ul>
-                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index < 6" v-for="(item, index) in winNumber">{{item}}</li>
+                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index < 6" v-for="(item, index) in winNumber">{{item<10?'0'+item:item}}</li>
 
                                                     <li class="lhc_ball_plus">
                                                         <span></span>
                                                         <span></span>
                                                     </li>
 
-                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index == 6" v-for="(item, index) in winNumber">{{item}}</li>
+                                                    <li :class="'lhc_ball active num_' + ((item) < 10? '0'+ item: item)" v-if="index == 6" v-for="(item, index) in winNumber">{{item<10?'0'+item:item}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -91,7 +91,8 @@
             <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
 
             <BetSuccessfulDialog ref="betSuccessfulDialog" />
-            <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" />
+            <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" v-if='lotteryID=="10" ' />
+            <WfPlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" v-if='lotteryID=="110" '/>
         </div><!-- so-con -->
 </template>
 
@@ -107,6 +108,7 @@
     import MenuBar from '@/components/publicTemplate/MenuBar'
     import LhcBet from '@/components/lhc/LhcBet'
     import PlayDialog from '@/components/lhc/PlayDialog'
+    import WfPlayDialog from '@/components/lhc/WfPlayDialog'
     import Mixin from '@/Mixin'
     import PlayMethodBar from '@/components/lhc/PlayMethodBar'
     import Touzhu from '@/components/lhc/Touzhu'
@@ -125,9 +127,11 @@
             InfoDialog,
             AutoCloseDialog,
             PlayDialog,
+            WfPlayDialog,
             PlayMethodBar,
             Touzhu
         },
+        props:['moduleName', 'moduleLotteryID','moduleplay'],
         data() {
             return {
                 now_time:'',  // 当前期数销售截止时间
@@ -152,9 +156,9 @@
                 kinds:[],
                 balancePublic:'',
                 currentMethod: '特码',
-                moduleLotteryID: 10,
-                moduleName:'香港六合彩',
-                moduleplay: '根据香港赛马协会公布日期，六合彩每星期搅珠三次，通常於星期二丶星期四及非赛马日之星期六或日晚上举行。',
+                // moduleLotteryID: 10,
+                // moduleName:'香港六合彩',
+                // moduleplay: '根据香港赛马协会公布日期，六合彩每星期搅珠三次，通常於星期二丶星期四及非赛马日之星期六或日晚上举行。',
             }
         },
         created() {
@@ -200,6 +204,7 @@
         methods:{
             refreshBalance(newBalance) {
                 this.balancePublic = newBalance
+                this.getMemberBalance(this.lotteryID)                
             },
             //切換左方玩法
             switchPlayMethod(method) {
@@ -208,7 +213,6 @@
                 if (method == "合肖" || method == "自选不中") {
                     this.playType = "group"
                 }
-
             },
             //开奖倒计时结束后处理
             playLottery() {
@@ -226,7 +230,7 @@
                 // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
                 // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
-                this.resetAction();
+                this.resetAction();                
             },
              lotteryDataFetch(needIn) {
                 const that = this;
@@ -237,34 +241,39 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res => {
                             that.balancePublic = res.msg;
                             that.setCookie("balancePublic", that.balancePublic)
-
                             that.ishwowpriod = true ;
                             that.next_pcode = res.data[0].issueAlias;  // 下期期数
-
                             that.currentBaseShengXiao = res.data[1].zodiac
                             let code = res.data[2].winNumber.split(',')
                             that.previous_pcode = res.data[2].issueAlias
+                             if(that.lotteryID=='110'){
+                                that.previous_pcode = res.data[2].pcode
+                             }
                             var noOpenFlag1 = ( sys_time > res.data[0].startTime ) && (sys_time < res.data[0].endTime)
                             var noOpenFlag2 = ( sys_time > res.data[1].startTime ) && (sys_time < res.data[1].endTime)
-                            // console.log(noOpenFlag1 ,'noopen1')
-                            // console.log(noOpenFlag2 ,'noopen2')
-
                             var shut = !(noOpenFlag1 || noOpenFlag2)
-
-                            // console.log(shut ,'shut' )
-                            // console.log(!shut ,'open' )
-
                             if (shut) {
-                                console.log('shut999')
-                                that.notopen = true;                               
+                                // that.notopen = true;      
+                                if(that.$refs.countdownTimer.wrongFlag  ){
+                                    that.notopen = false;    
+                                }else{
+                                    if(sys_time > res.data[0].endTime){
+                                        that.notopen = false; 
+                                    }else{
+                                        that.notopen = true; 
+                                    }
+                                }
                                 that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
-                                that.now_pcode = res.data[0].issueAlias;  // 当前期数
-
+                                if(that.lotteryID!='110'){
+                                    that.now_pcode = res.data[0].issueAlias;  // 当前期数                                    
+                                    that.previous_pcode = res.data[1].issueAlias
+                                }
+                                if(that.lotteryID=='110'){
+                                    that.now_pcode = res.data[0].pcode;  // 当前期数  
+                                    that.previous_pcode = res.data[1].pcode                                
+                                }  
                                 code = res.data[1].winNumber.split(',')
-                                that.previous_pcode = res.data[1].issueAlias
-
-                                // console.log(code,'noopencode')
                                 that.winNumber = code
 
                             }
@@ -273,30 +282,41 @@
                                 if (res.data[1].endTime < sys_time) { // 如果当期结束时间小于系统时间
                                     that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                                     that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
-                                    that.now_pcode = res.data[0].issueAlias;  // 当前期数
-                                    that.previous_pcode = res.data[1].issueAlias
-
+                                    if(that.lotteryID!='110'){
+                                        that.now_pcode = res.data[0].issueAlias;  // 当前期数                                    
+                                        that.previous_pcode = res.data[1].issueAlias
+                                    }
+                                    if(that.lotteryID=='110'){
+                                        that.now_pcode = res.data[0].pcode;  // 当前期数     
+                                        that.previous_pcode = res.data[1].pcode                                 
+                                    }  
                                     code = res.data[1].winNumber.split(',')
-                                    // console.log(code, 'code,ordinary')
                                     that.winNumber = code
                                 } else {
                                     that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
                                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-                                    that.now_pcode = res.data[1].issueAlias;  // 当前期数
-                                    that.previous_pcode = res.data[2].issueAlias
+                                    if(that.lotteryID!='110'){
+                                        that.now_pcode = res.data[1].issueAlias;  // 当前期数                                    
+                                        that.previous_pcode = res.data[2].issueAlias
+                                    }
+                                    if(that.lotteryID=='110'){
+                                        that.now_pcode = res.data[1].pcode;  // 当前期数  
+                                        that.previous_pcode = res.data[2].pcode                                                                     
+                                    }    
                                     code = res.data[2].winNumber.split(',')
                                     that.winNumber = code
-                                    // console.log(code, 'code,pass')
-
                                 }
 
                                 //code 上期开奖号码
-                                if (!code) {
+                                if (code.length<2) {
                                     let hasFind = false
                                     _.forEach(res.data, (item, index) => {
-                                        if (_.size(item.winNumber) > 0 && index >= 3) {
+                                        if (_.size(item.winNumber) > 0 && index >= 2) {
                                             that.winNumber = item.winNumber.split(',')
                                             that.previous_pcode = item.issueAlias
+                                             if(that.lotteryID=='110'){
+                                                that.previous_pcode = item.pcode
+                                             }
                                             hasFind = true
                                             return false
                                         }
@@ -310,19 +330,14 @@
                                     that.winNumber = code
                                 }
                             }
-
-
                             if(res.data[1].status > 1){ // 异常情况，如提前开盘 2
                                 that.entertainStatus = true;
                             }
-
                             // 当天日期
                             that.now_day = res.data[0].pdate;
-
                             if(needIn =='1'){ // 倒计时结束后
                                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
                             }
-
                             resolve();
                         }).catch(function () {
                             console.log("Promise Rejected in method of timeBegin");
@@ -331,87 +346,22 @@
 
                 })
             },
-
-
-            //获取开奖更据 needIn 是否需要再次调用倒计时定时器
-            // lotteryDataFetch(needIn) {
-            //     const that = this;
-            //     return new Promise((resolve)=>{
-
-            //         that.getSystemTime().then(sys_time=>{
-            //             that.sys_time = that.formatTimeUnlix(sys_time) ;
-            //             that.priodDataNewly(that.lotteryID, sys_time).then(res => {
-            //                 that.balancePublic = res.msg;
-            //                 that.setCookie("balancePublic", that.balancePublic)
-            //                 that.ishwowpriod = true ;
-            //                 that.next_pcode = res.data[0].issueAlias;  // 下期期数
-
-            //                 that.currentBaseShengXiao = res.data[1].zodiac
-            //                 let code = res.data[2].winNumber.split(',')
-            //                 that.previous_pcode = res.data[2].issueAlias
-
-            //                 if(res.data[1].endTime < sys_time ) { // 如果当期结束时间小于系统时间
-            //                     that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
-            //                     that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
-            //                     that.now_pcode = res.data[0].issueAlias;  // 当前期数
-            //                 }else{
-            //                     that.now_time = that.formatTimeUnlix(res.data[1].endTime); // 当前期数时间
-            //                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-            //                     that.now_pcode = res.data[1].issueAlias;  // 当前期数
-            //                 }
-
-            //                 //code 上期开奖号码
-            //                 if (!code) {
-            //                     let hasFind = false
-            //                     _.forEach(res.data, (item, index) => {
-            //                         if (_.size(item.winNumber) > 0 && index >= 3) {
-            //                             that.winNumber = item.winNumber.split(',')
-            //                             that.previous_pcode = item.issueAlias
-            //                             hasFind = true
-            //                             return false
-            //                         }
-            //                     })
-
-            //                     if (!hasFind) {
-            //                         that.winNumber = code
-            //                     }
-            //                 }
-            //                 else {
-            //                     that.winNumber = code
-            //                 }
-
-            //                 if(res.data[1].status > 1){ // 异常情况，如提前开盘 2
-            //                     that.entertainStatus = true;
-            //                 }
-
-            //                 // 当天日期
-            //                 that.now_day = res.data[0].pdate;
-
-            //                 if(needIn =='1'){ // 倒计时结束后
-            //                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
-            //                 }
-
-            //                 resolve();
-            //             }).catch(function () {
-            //                 console.log("Promise Rejected in method of timeBegin");
-            //             });
-            //         });
-
-            //     })
-            // },
             timerBegin() {
                 let that = this;
                 that.lotteryDataFetch('1') ;
                 that.entertainStatus = false;
+                if(that.$refs.countdownTimer.wrongFlag){
+                    that.entertainStatus = true;
+                }else{
+                    that.entertainStatus = false;
+                } //判断是否发生错误
                 that.notopen = false;
             },
             resetAction() {
                 this.clearBetList()
-
                 if (this.playType == 'combination' || this.playType == 'group') {
                     this.clearCombineCnt()
                 }
-
                 this.$refs.bet.showList = false ; // 关闭下注弹窗
             },
             clearBetList() {

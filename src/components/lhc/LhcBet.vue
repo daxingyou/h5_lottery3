@@ -200,6 +200,7 @@
             },
         },
         mounted() {
+           
         },
         watch:{
             betSelectedList() {
@@ -396,6 +397,7 @@
                 _.forEach(this.betSelectedList, getBetContent)
             },
             startBet(e) {
+                this.betAmount = Number( this.betAmount ) ?Number( this.betAmount ) :''                              
                 let amount = this.betAmount;  // 获取金额
                 const closet = 4;
                 // if(nums<1){ // 没有选择投注项目
@@ -406,12 +408,13 @@
 
                 if(!amount || !this.isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
                     // this.parentRefs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0','title_bet_fail')
-                    this.parentRefs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0', '下注失败')
+                    this.parentRefs.autoCloseDialog.open('请输入整数的投注金额', '下注失败')
                     return false;
                 }
                 // 注单金额正确
                 this.showList = true;
             },
+            //算出連尾或連肖的全部組合可能，並顯示在下注清單以及送到後端的下注內容            
             getCombination(arr, size) {
                 let allResult = [];
 

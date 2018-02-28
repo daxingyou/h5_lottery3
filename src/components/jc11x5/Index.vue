@@ -274,9 +274,7 @@
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/jc11x5/PlayDialog'
     import Mixin from '@/Mixin'
-    import store from './../../_vuex/store'
     
-
     export default {
       name: 'jc11x5Index',
       mixins:[Mixin],
@@ -385,14 +383,12 @@
             },
           },
           methods:{
-             refreshBalance:function(){
-                var afterBetCookie = this.getCookie( 'balancePublic' )
-                this.balancePublic = afterBetCookie
-                console.log(afterBetCookie)      
+           
+             refreshBalance(newBalance) {
+                this.balancePublic = newBalance
+                this.getMemberBalance(this.lotteryID)
             },
-             bgFocus: function () {
-              this.$store.commit('Number')
-            },
+             
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);
             },
@@ -474,6 +470,9 @@
                 // this.$refs.infoDialog.open('请至下期继续投注', '本期投注已结束')
                 this.entertainStatus = true;
                 this.resetAction();
+                //  if( this.$refs.countdownTimer.lt_time_leave_over%10==0 ){
+                //     this.lotteryDataFetch(1)                    
+                // }
             },
 
             //获取开奖更据
@@ -507,7 +506,6 @@
                                         that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);   // 当前期封盘时间
                                         that.now_pcode = res.data[1].pcode;  // 当前期数
                                     }
-
                                     that.winNumber = res.data[2].winNumber;
                                     that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
@@ -551,6 +549,27 @@
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
                                 }
                             }
+                            code = that.winNumber
+                            if (!code) {
+                                let hasFind = false
+                                _.forEach(res.data, (item, index) => {
+                                    if (_.size(item.winNumber) > 0 && index >= 2) {
+                                        that.winNumber = item.winNumber
+                                        that.previous_pcode = item.pcode
+                                        that.lastTermStatic = item.doubleData; 
+                                        hasFind = true
+                                        return false
+                                    }
+                                })
+                                if (!hasFind) {
+                                    that.winNumber = code
+                                }
+                            }
+                            else {
+                                that.winNumber = code
+                            }
+
+
                             if(res.data[1].status >1){ // 异常情况，如提前开盘 2
                                 that.entertainStatus = true;
                             }
@@ -572,7 +591,13 @@
                /* this.lotteryDataFetch().then(()=>{
                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 })*/
-                that.entertainStatus = false;
+                // that.entertainStatus = false;
+                if (that.$refs.countdownTimer.wrongFlag) {
+                    that.entertainStatus = true;
+                } else {
+                    that.entertainStatus = false;
+                }
+
                 that.notopen = false;
             },
             resetAction:function(success){

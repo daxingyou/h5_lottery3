@@ -11,9 +11,9 @@
             <div class="right_menu_box" v-if="show">
                 <ul class="right_menu">
                     <li class="r_record">                        
-                         <router-link :to="(lotteryid =='10') ? '/lhc/LhcBetRecord' : '/publicTemplate/betRecord'">
+                         <router-link :to=" '/lhc/LhcBetRecord' ">
                             <p><span class="icon icon_r_record"></span>投注记录</p>
-                        </router-link>
+                          </router-link>
                     </li>
                     <li class="r_pastview">
                         <router-link to="/publicTemplate/pastView">
@@ -25,7 +25,7 @@
                             <p>路珠</p>
                         </router-link>
                     </li>-->
-                    <li class="r_roadbeads" v-if="lotteryid != '10'">
+                    <li class="r_roadbeads" v-if=" (lotteryid != '10')&&(lotteryid != '110') ">
                         <router-link to="/publicTemplate/roadBeads">
                             <p><span class="icon icon_r_roadbeads"></span>路珠</p>
                         </router-link>
@@ -70,8 +70,6 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
-import store from './../../_vuex/store'
-
 
 export default {
   name: 'UserMenu',
@@ -84,8 +82,9 @@ export default {
         }
     },
   mounted:function() {
-    $(this.el).on('click', ()=>{
+    $(this.el).on('click', (e)=>{
       this.show = true;
+      e.preventDefault()
     })
 
   },
@@ -95,7 +94,6 @@ export default {
     },
     close:function(e){
       this.show = false;
-      this.$store.commit('Number')
     }
   },
 

@@ -186,7 +186,7 @@ var MyMixin = {
         },
         // 初始化滚动高度
         setInitHeight:function (lotteryid) {
-            var conth = $('.so-con-right .item_one').height() ;
+            var conth = $('.so-con-right .item_one.active').height() ;
            this.setClickHeight(conth) ;
             if(lotteryid == '6'){
                 /* var div = document.getElementById("k3-item0");
@@ -210,13 +210,20 @@ var MyMixin = {
         },
         // 点击切换 设置球区域高度
         setClickHeight:function (val) {
-            var winw = window.screen.width || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取屏幕宽度
-            if(winw >413){ // 大屏幕
-                $('.so-con-right').css('height',(val-380)+'px') ;
-            }else if(winw>300 && winw<375){ // 小屏幕
-                $('.so-con-right').css('height',(val-270)+'px') ;
-            }else{
-                $('.so-con-right').css('height',(val-310)+'px') ;
+            // var winw = window.screen.width || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取屏幕宽度
+            // if(winw >413){ // 大屏幕
+            //     $('.so-con-right').css('height',(val-380)+'px') ;
+            // }else if(winw>300 && winw<375){ // 小屏幕
+            //     $('.so-con-right').css('height',(val-270)+'px') ;
+            // }else{
+            //     $('.so-con-right').css('height',(val-310)+'px') ;
+            // }
+            var winH = this.getCookie('scrollF')?this.getCookie('scrollF'):window.innerHeight
+            let scrolling_height = winH  - ($('.so-in-top').height() + $('.so-in-main').height() + $('.so-foot').height())
+            if ( $('.jx11_tab').is(':visible')){
+                $('.so-con-right').css('height',(val - scrolling_height + 50)+'px') ;
+            } else {
+                $('.so-con-right').css('height',(val - scrolling_height )+'px') ;
             }
         },
 
@@ -295,6 +302,7 @@ var MyMixin = {
                         playTreeIndexByCid.set(mydata)
                         this.$set(this, 'playTreeList', mydata)
                         this.$set(this, 'playTreeIndexByCid', mydata)
+                        this.setCookie('scrollF',window.innerHeight)
 
                      setTimeout(function () {
                          _self.setInitHeight(gameid) ;
@@ -436,7 +444,7 @@ var MyMixin = {
             $(document).on("touchmove", function (e) {
                 var e = e || event,
                     target = e.target || e.srcElement;
-                if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+                if (e.target.className.indexOf("so-shade") >= 0|| e.target.className.indexOf("so-left-con") >= 0) { //className為弹窗的蒙层的类名
                     e.preventDefault();
                 }
             });
@@ -501,7 +509,8 @@ var MyMixin = {
         formatTime:function(second, type) {
             var bk;
             if (type == 0) {
-                var h = parseInt(second / 3600);
+                var d = parseInt( second /(3600*24) )   
+                var h = parseInt( second % (3600*24)/3600  );
                // var h = Math.floor(second / 3600);
                 var f = parseInt(second % 3600 / 60);
                // var f = Math.floor((second - (h * 60 * 60)) / 60);
@@ -510,6 +519,9 @@ var MyMixin = {
               // second --;
               bk = (h < 10 ? "0" + h : h)+ ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
               // bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+               if(d){
+                    bk = (d + "天")+ ":" +  (h < 10 ? "0" + h : h)+ ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+                }
             } else {
                 bk = second.split(":");
                 bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])

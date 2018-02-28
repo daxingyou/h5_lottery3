@@ -1,9 +1,9 @@
 <template>
-    <div id="pa_con" class="so-con warp page_login">
+    <div id="pa_con" class="so-con warp page_login" >
         <!--<header id="pa_head" class="login">
             <img src="static/frist/images/login_logo.png" alt="">
         </header>-->
-        <div class="login_title">
+        <div class="login_title" v-bind:style="{backgroundImage: 'url(' + logosrc + ')'}">
           <!-- <img   src="static/frist/images/login_logo.png">              -->
         </div>
 
@@ -35,6 +35,9 @@
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
+                     <div class="no_login_box">
+                         <input type="checkbox" id="longinCheck" v-model = 'checkStatu' ref='check'  name=""><label for="longinCheck">七天内免登陆</label>
+                     </div>
                 </form>
                 <div class="btn btn_blue">
                     <a class="new_btn" href="javascript:;" @click="LoginAction()"><span class="big">登录</span></a>
@@ -71,17 +74,19 @@ export default {
             yzmcode:'',
             client:'',
             submitflage: false ,
-            custUrl:''
+            custUrl:'',
+            checkStatu:false,
+            logosrc:'',
         }
     },
   created:function () {
       this.switchYzmcode()
   },
   mounted:function() {
-       // this.username = 'admin' ;
       document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
       this.getCustom()
-
+      this.getLoginIcon()
+      console.log( this.checkStatu,'mountstatus')
   },
   methods: {
       //清除model数据,cl元素class
@@ -105,14 +110,21 @@ export default {
               }
           })
       },
+    getLoginIcon:function(){
+      var loginStr =  this.getCookie("siteData")
+      var loginstrArray = JSON.parse(loginStr )
+      this.logosrc = this.action.picurl+loginstrArray.h5LogoUrl+'/0'
+     
+    },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
-          var _self = this ;
-          if(_self.submitflage){
+        console.log( this.checkStatu ,'check' )      
+        var _self = this ;
+        if(_self.submitflage){
               return false ;
           }
         if(this.username ==''){
-            this.$refs.autoCloseDialog.open('请输入用户名') ;
+            this.$refs.autoCloseDialog.open('请输入用户名');
             return false ;
         }
         if(this.password ==''){
@@ -128,12 +140,25 @@ export default {
             return false ;
         }
         _self.submitflage = true ;
-        var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
-            grant_type: 'password',
-            username: 'bcappid02|'+this.username ,
-            password: this.password ,
-            code: this.yzmcode ,  // 验证码
-        }
+        var logindata ={}
+        if(_self.checkStatu ){
+              logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+              grant_type: 'password',
+              username: 'bcappid02|'+this.username ,
+              password: this.password ,
+              code: this.yzmcode ,  // 验证码
+              source: 2,
+              tokenDay:7,
+          }
+        }else{
+          logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+              grant_type: 'password',
+              username: 'bcappid02|'+this.username ,
+              password: this.password ,
+              code: this.yzmcode ,  // 验证码
+              source: 2,
+          }
+        }  
         $.ajax({
             type: 'post',
             headers: {clientId:this.client,Authorization: 'Basic d2ViX2FwcDo='},
@@ -155,7 +180,6 @@ export default {
                     this.$refs.autoCloseDialog.open(res.cnMsg) ;
                     this.switchYzmcode()
                 }
-
                this.$nextTick(function () {
 
                })
@@ -169,7 +193,9 @@ export default {
 
 }
 </script>
-<style type="text/css">
-  
+<style type="text/css" scoped>
+#pa_con  .login_title{
+    background-size: contain;
+  }
 
 </style>
