@@ -631,6 +631,9 @@ var MyMixin = {
             }
             return '';
         },
+        deleteCookie:function(name) {
+            this.setCookie(name, '');
+        },
         //清除所有cookie函数
          clearAllCookie:function() {
              this.setCookie("access_token", '');  // 登录token
