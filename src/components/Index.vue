@@ -144,7 +144,7 @@
                         <p>更多游戏</p>
                     </li>
                     <li >
-                        <a href="javascript:;" @click="Continued()">
+                        <a :href="appUrl">
                             <div class="badge">
                                 <!--<img src="http://img.will888.cn/photo/pic/T1haJTByDT1RCvBVdK/0" lazy="loaded">-->
                                 <img src="/static/frist/images/lotteryicon/logo_app.png" lazy="loaded">
