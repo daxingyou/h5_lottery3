@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div id="pa_content">
+        <div id="pa_content" style="overflow: auto;">
             <div class="page_box">
                 <div id="road01" class="new_road tab_container tabBox">
                     <div class="hd">
@@ -246,13 +246,18 @@
         document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
         // 标签切换
         this.roadChangeTab() ;
+        this.scHeight = $('.page_box').prop('clientHeight') - 106;
 
+    },
+    updated:function() {
+        $('#pa_content').css('height', this.scHeight);
     },
     methods:{
         /*
         * 路珠数据，路珠页面
         * */
         loadRoadAction:function (lotteryid,maxtime) {
+            var _this = this;
             var senddata ={
                 lotteryId : lotteryid ,
                 maxUpdateTime: maxtime ,
@@ -334,3 +339,8 @@
 
 }
 </script>
+<style>
+html, body {
+    height: 100%;
+}
+</style>
