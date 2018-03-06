@@ -95,7 +95,7 @@ export default {
 
 }
 </script>
-<style scope>
+<style scoped>
 
 
     /*#freshContent {
