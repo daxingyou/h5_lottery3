@@ -635,7 +635,7 @@
                                 '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                 // '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                 '<div class="item"> ' +
-                                '<div class="ssc_badge"><img src="/static/frist/images/lotteryicon/cp' + v.lotteryId + '.png"></div>' +
+                                '<div class="ssc_badge"><img src="/static/frist/images/lotterylogo/logo_' + v.lotteryId + '.svg"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 //  '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                 '<p>'+ v.orderId +'</p>'+
