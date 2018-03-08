@@ -664,7 +664,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 .bet_data > a > .item > div { display: inline-block; vertical-align: middle; line-height: .4rem; }
 .bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; white-space: nowrap; }
 .bet_data > a > .item > .status .reword{display: inline-block; color: #71c341; margin-left: -4px; letter-spacing: -1px; font-size: 0.32rem; margin-top: -0.2rem;}
-.bet_data > a > .item > .badge {  border-radius: 1rem; width: 1.5rem; height: 1.5rem; margin-right:0.15rem; background-color: #1db5f7; text-align: center; }
+.bet_data > a > .item > .badge {  border-radius: 1rem; margin-right:0.15rem; background-color: #1db5f7; text-align: center; }
 .bet_data > a > .item > .badge img { width: 1.2rem; height: 1.2rem; margin: 0.15rem; line-height: 1.2rem; vertical-align: middle; }
 .bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; max-width: 2.8rem; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
 .bet_data .prd_num { color: #999; margin-right: 0.2rem;}
