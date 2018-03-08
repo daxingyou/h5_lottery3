@@ -249,6 +249,7 @@ export default {
             logosrc:'',
             noticeIndexStatu:false,
             noticeIndexRead:true,
+            appUrl:''
         }
     },
     computed:{
@@ -467,7 +468,6 @@ export default {
       },
        getAppUrl: function () {
             var _self = this;
-            console.log(_self.appUrl, 'url')
 
             if (true) {
                 $.ajax({
