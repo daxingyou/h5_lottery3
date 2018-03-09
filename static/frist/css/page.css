@@ -888,6 +888,9 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .last-open-num > ul { height: 1.3rem; width: 100%; display: block; }
 
+/* 新手教程 */
+.tutorial_area .tab-box{ text-align: left; }
+
 /* -----------------------------------------
 // 登入页
 -----------------------------------------*/
