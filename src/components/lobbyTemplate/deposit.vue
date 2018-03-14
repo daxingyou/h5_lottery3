@@ -576,7 +576,7 @@
                     startYear: 2017, //开始年份
                     endYear:2020 //结束年份
                 });
-                $("#paydate").mobiscroll().datetime({ });
+                //$("#paydate").mobiscroll().datetime({ });
                 $("#walletPaydate").mobiscroll().datetime({ });
             },500)
             _self.getCopyright('3','AT01');
