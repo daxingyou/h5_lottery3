@@ -1058,8 +1058,9 @@
                 this.weiXinAct = true;
                 this.accountTypeName = '微信';
                 this.qianBaoAccountName = this.weiXinWalletPayAccount.accountName;
-                this.qianBaoAccountName = this.weiXinWalletPayAccount.accountNo;
+                this.qianBaoAccountNo = this.weiXinWalletPayAccount.accountNo;
                 this.getQuickPayContent(3, 'AT03');
+
             },
             clickOnZhiFuBaoTab: function() {
                 this.zhiFuBaoAct = true;
